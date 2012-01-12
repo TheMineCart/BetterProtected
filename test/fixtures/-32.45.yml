@@ -1,0 +1,4251 @@
+-505,106,724:
+    player: SlasherF
+    type: 3
+-497,106,720:
+    player: SlasherF
+    type: 3
+-497,106,724:
+    player: SlasherF
+    type: 3
+-497,106,723:
+    player: SlasherF
+    type: 3
+-498,106,723:
+    player: SlasherF
+    type: 1
+-497,106,722:
+    player: SlasherF
+    type: 3
+-498,106,720:
+    player: SlasherF
+    type: 3
+-497,106,721:
+    player: SlasherF
+    type: 3
+-498,106,721:
+    player: SlasherF
+    type: 3
+-498,106,722:
+    player: SlasherF
+    type: 3
+-498,106,724:
+    player: SlasherF
+    type: 1
+-499,106,724:
+    player: SlasherF
+    type: 3
+-499,106,723:
+    player: SlasherF
+    type: 3
+-499,106,722:
+    player: SlasherF
+    type: 1
+-499,106,721:
+    player: SlasherF
+    type: 1
+-499,106,720:
+    player: SlasherF
+    type: 3
+-500,106,720:
+    player: SlasherF
+    type: 1
+-500,106,721:
+    player: SlasherF
+    type: 3
+-500,106,722:
+    player: SlasherF
+    type: 3
+-500,106,723:
+    player: SlasherF
+    type: 3
+-500,106,724:
+    player: SlasherF
+    type: 3
+-501,106,724:
+    player: SlasherF
+    type: 3
+-500,106,725:
+    player: SlasherF
+    type: 3
+-501,106,725:
+    player: SlasherF
+    type: 3
+-502,106,725:
+    player: SlasherF
+    type: 3
+-502,106,724:
+    player: SlasherF
+    type: 3
+-501,106,723:
+    player: SlasherF
+    type: 3
+-501,106,722:
+    player: SlasherF
+    type: 3
+-501,106,721:
+    player: SlasherF
+    type: 3
+-502,106,721:
+    player: SlasherF
+    type: 3
+-501,106,720:
+    player: SlasherF
+    type: 3
+-502,106,720:
+    player: SlasherF
+    type: 3
+-503,106,720:
+    player: SlasherF
+    type: 3
+-504,106,720:
+    player: SlasherF
+    type: 3
+-503,106,721:
+    player: SlasherF
+    type: 3
+-502,106,723:
+    player: SlasherF
+    type: 3
+-502,106,722:
+    player: SlasherF
+    type: 3
+-503,106,723:
+    player: SlasherF
+    type: 3
+-503,106,722:
+    player: SlasherF
+    type: 3
+-504,106,722:
+    player: SlasherF
+    type: 3
+-504,106,721:
+    player: SlasherF
+    type: 3
+-504,106,723:
+    player: SlasherF
+    type: 3
+-503,106,725:
+    player: SlasherF
+    type: 3
+-504,106,725:
+    player: SlasherF
+    type: 3
+-504,106,724:
+    player: SlasherF
+    type: 3
+-503,106,724:
+    player: SlasherF
+    type: 3
+-503,105,733:
+    player: SlasherF
+    type: 35
+-497,105,725:
+    player: SlasherF
+    type: 89
+-498,105,725:
+    player: SlasherF
+    type: 4
+-499,105,725:
+    player: SlasherF
+    type: 89
+-499,105,724:
+    player: SlasherF
+    type: 89
+-500,105,725:
+    player: SlasherF
+    type: 35
+-501,105,725:
+    player: SlasherF
+    type: 35
+-502,105,725:
+    player: SlasherF
+    type: 35
+-503,105,725:
+    player: SlasherF
+    type: 35
+-504,105,725:
+    player: SlasherF
+    type: 35
+-505,105,725:
+    player: SlasherF
+    type: 89
+-505,105,724:
+    player: SlasherF
+    type: 35
+-504,105,724:
+    player: SlasherF
+    type: 89
+-503,105,724:
+    player: SlasherF
+    type: 35
+-502,105,724:
+    player: SlasherF
+    type: 35
+-501,105,724:
+    player: SlasherF
+    type: 35
+-501,105,723:
+    player: SlasherF
+    type: 35
+-500,105,724:
+    player: SlasherF
+    type: 35
+-498,105,724:
+    player: SlasherF
+    type: 4
+-497,105,724:
+    player: SlasherF
+    type: 89
+-497,105,723:
+    player: SlasherF
+    type: 89
+-498,105,723:
+    player: SlasherF
+    type: 4
+-499,105,723:
+    player: SlasherF
+    type: 89
+-499,105,722:
+    player: SlasherF
+    type: 4
+-500,105,723:
+    player: SlasherF
+    type: 89
+-501,105,722:
+    player: SlasherF
+    type: 35
+-502,105,723:
+    player: SlasherF
+    type: 35
+-503,105,723:
+    player: SlasherF
+    type: 89
+-504,105,723:
+    player: SlasherF
+    type: 35
+-505,105,723:
+    player: SlasherF
+    type: 35
+-505,105,722:
+    player: SlasherF
+    type: 35
+-504,105,722:
+    player: SlasherF
+    type: 35
+-503,105,722:
+    player: SlasherF
+    type: 35
+-502,105,722:
+    player: SlasherF
+    type: 89
+-500,105,722:
+    player: SlasherF
+    type: 89
+-498,105,722:
+    player: SlasherF
+    type: 89
+-497,105,722:
+    player: SlasherF
+    type: 3
+-498,105,721:
+    player: SlasherF
+    type: 89
+-499,105,721:
+    player: SlasherF
+    type: 4
+-497,105,721:
+    player: SlasherF
+    type: 3
+-500,105,721:
+    player: SlasherF
+    type: 89
+-501,105,721:
+    player: SlasherF
+    type: 89
+-502,105,721:
+    player: SlasherF
+    type: 35
+-503,105,721:
+    player: SlasherF
+    type: 35
+-504,105,721:
+    player: SlasherF
+    type: 35
+-505,105,721:
+    player: SlasherF
+    type: 35
+-505,105,720:
+    player: SlasherF
+    type: 35
+-504,105,720:
+    player: SlasherF
+    type: 35
+-503,105,720:
+    player: SlasherF
+    type: 89
+-502,105,720:
+    player: SlasherF
+    type: 89
+-501,105,720:
+    player: SlasherF
+    type: 89
+-500,105,720:
+    player: SlasherF
+    type: 4
+-499,105,720:
+    player: SlasherF
+    type: 89
+-498,105,720:
+    player: SlasherF
+    type: 3
+-497,105,720:
+    player: SlasherF
+    type: 3
+-512,103,733:
+    player: SlasherF
+    type: 3
+-512,104,733:
+    player: SlasherF
+    type: 3
+-512,101,734:
+    player: SlasherF
+    type: 3
+-512,102,734:
+    player: SlasherF
+    type: 3
+-512,103,734:
+    player: SlasherF
+    type: 3
+-512,104,734:
+    player: SlasherF
+    type: 3
+-511,104,734:
+    player: SlasherF
+    type: 3
+-511,102,735:
+    player: SlasherF
+    type: 3
+-511,103,735:
+    player: SlasherF
+    type: 3
+-511,104,735:
+    player: SlasherF
+    type: 3
+-510,105,735:
+    player: SlasherF
+    type: 35
+-510,105,734:
+    player: SlasherF
+    type: 35
+-511,105,734:
+    player: SlasherF
+    type: 35
+-511,105,733:
+    player: SlasherF
+    type: 35
+-512,105,732:
+    player: SlasherF
+    type: 89
+-512,103,735:
+    player: SlasherF
+    type: 3
+-512,104,735:
+    player: SlasherF
+    type: 3
+-512,105,733:
+    player: SlasherF
+    type: 35
+-512,105,734:
+    player: SlasherF
+    type: 35
+-511,105,735:
+    player: SlasherF
+    type: 35
+-512,105,735:
+    player: SlasherF
+    type: 35
+-499,105,733:
+    player: SlasherF
+    type: 89
+-499,105,734:
+    player: SlasherF
+    type: 89
+-498,104,733:
+    player: SlasherF
+    type: 3
+-498,105,733:
+    player: SlasherF
+    type: 4
+-497,105,732:
+    player: SlasherF
+    type: 89
+-499,101,735:
+    player: SlasherF
+    type: 3
+-499,102,735:
+    player: SlasherF
+    type: 3
+-499,103,735:
+    player: SlasherF
+    type: 3
+-499,104,735:
+    player: SlasherF
+    type: 3
+-499,105,735:
+    player: SlasherF
+    type: 4
+-497,104,733:
+    player: SlasherF
+    type: 3
+-497,105,733:
+    player: SlasherF
+    type: 89
+-497,104,734:
+    player: SlasherF
+    type: 3
+-497,105,734:
+    player: SlasherF
+    type: 89
+-498,104,734:
+    player: SlasherF
+    type: 3
+-498,105,734:
+    player: SlasherF
+    type: 4
+-497,104,735:
+    player: SlasherF
+    type: 3
+-497,105,735:
+    player: SlasherF
+    type: 3
+-498,104,735:
+    player: SlasherF
+    type: 3
+-498,105,735:
+    player: SlasherF
+    type: 89
+-498,105,732:
+    player: SlasherF
+    type: 4
+-498,105,731:
+    player: SlasherF
+    type: 4
+-498,105,730:
+    player: SlasherF
+    type: 4
+-498,105,729:
+    player: SlasherF
+    type: 4
+-498,105,728:
+    player: SlasherF
+    type: 4
+-498,105,727:
+    player: SlasherF
+    type: 4
+-498,105,726:
+    player: SlasherF
+    type: 4
+-499,106,735:
+    player: SlasherF
+    type: 1
+-499,107,735:
+    player: SlasherF
+    type: 1
+-498,106,734:
+    player: SlasherF
+    type: 1
+-498,107,734:
+    player: SlasherF
+    type: 1
+-498,106,732:
+    player: SlasherF
+    type: 1
+-498,106,733:
+    player: SlasherF
+    type: 1
+-498,107,733:
+    player: SlasherF
+    type: 1
+-498,107,732:
+    player: SlasherF
+    type: 1
+-498,106,731:
+    player: SlasherF
+    type: 1
+-498,107,731:
+    player: SlasherF
+    type: 1
+-498,106,730:
+    player: SlasherF
+    type: 1
+-498,107,730:
+    player: SlasherF
+    type: 1
+-498,106,729:
+    player: SlasherF
+    type: 1
+-498,107,729:
+    player: SlasherF
+    type: 1
+-498,106,728:
+    player: SlasherF
+    type: 1
+-498,107,728:
+    player: SlasherF
+    type: 1
+-498,106,727:
+    player: SlasherF
+    type: 1
+-498,107,727:
+    player: SlasherF
+    type: 1
+-498,106,726:
+    player: SlasherF
+    type: 1
+-498,107,726:
+    player: SlasherF
+    type: 1
+-498,106,725:
+    player: SlasherF
+    type: 1
+-498,107,725:
+    player: SlasherF
+    type: 1
+-498,107,724:
+    player: SlasherF
+    type: 1
+-498,107,723:
+    player: SlasherF
+    type: 1
+-499,107,722:
+    player: SlasherF
+    type: 1
+-499,107,721:
+    player: SlasherF
+    type: 1
+-500,107,720:
+    player: SlasherF
+    type: 1
+-500,108,720:
+    player: SlasherF
+    type: 1
+-500,109,720:
+    player: SlasherF
+    type: 1
+-499,108,721:
+    player: SlasherF
+    type: 1
+-499,109,721:
+    player: SlasherF
+    type: 1
+-499,108,722:
+    player: SlasherF
+    type: 1
+-499,109,722:
+    player: SlasherF
+    type: 1
+-498,108,723:
+    player: SlasherF
+    type: 1
+-498,109,723:
+    player: SlasherF
+    type: 1
+-498,108,724:
+    player: SlasherF
+    type: 1
+-498,109,724:
+    player: SlasherF
+    type: 1
+-498,108,725:
+    player: SlasherF
+    type: 1
+-498,109,725:
+    player: SlasherF
+    type: 1
+-498,108,726:
+    player: SlasherF
+    type: 1
+-498,109,726:
+    player: SlasherF
+    type: 1
+-498,108,727:
+    player: SlasherF
+    type: 1
+-498,109,727:
+    player: SlasherF
+    type: 1
+-498,108,728:
+    player: SlasherF
+    type: 1
+-498,109,728:
+    player: SlasherF
+    type: 1
+-498,108,729:
+    player: SlasherF
+    type: 1
+-498,109,729:
+    player: SlasherF
+    type: 1
+-498,108,730:
+    player: SlasherF
+    type: 1
+-498,109,730:
+    player: SlasherF
+    type: 1
+-498,108,731:
+    player: SlasherF
+    type: 1
+-498,109,731:
+    player: SlasherF
+    type: 1
+-498,108,732:
+    player: SlasherF
+    type: 1
+-498,109,732:
+    player: SlasherF
+    type: 1
+-498,108,733:
+    player: SlasherF
+    type: 1
+-498,109,733:
+    player: SlasherF
+    type: 1
+-498,108,734:
+    player: SlasherF
+    type: 1
+-498,109,734:
+    player: SlasherF
+    type: 1
+-499,108,735:
+    player: SlasherF
+    type: 1
+-499,109,735:
+    player: SlasherF
+    type: 1
+-500,109,735:
+    player: SlasherF
+    type: 1
+-499,109,734:
+    player: SlasherF
+    type: 1
+-499,109,733:
+    player: SlasherF
+    type: 1
+-499,109,732:
+    player: SlasherF
+    type: 1
+-499,109,731:
+    player: SlasherF
+    type: 1
+-499,109,730:
+    player: SlasherF
+    type: 1
+-499,109,729:
+    player: SlasherF
+    type: 1
+-499,109,728:
+    player: SlasherF
+    type: 1
+-499,109,727:
+    player: SlasherF
+    type: 1
+-499,109,726:
+    player: SlasherF
+    type: 1
+-499,109,725:
+    player: SlasherF
+    type: 1
+-499,109,724:
+    player: SlasherF
+    type: 1
+-499,109,723:
+    player: SlasherF
+    type: 1
+-500,109,722:
+    player: SlasherF
+    type: 1
+-500,109,721:
+    player: SlasherF
+    type: 1
+-501,109,720:
+    player: SlasherF
+    type: 1
+-502,109,720:
+    player: SlasherF
+    type: 1
+-500,110,735:
+    player: SlasherF
+    type: 1
+-500,111,735:
+    player: SlasherF
+    type: 1
+-499,110,734:
+    player: SlasherF
+    type: 1
+-499,111,734:
+    player: SlasherF
+    type: 1
+-499,110,733:
+    player: SlasherF
+    type: 1
+-499,111,733:
+    player: SlasherF
+    type: 1
+-499,110,732:
+    player: SlasherF
+    type: 1
+-499,111,732:
+    player: SlasherF
+    type: 1
+-499,110,731:
+    player: SlasherF
+    type: 1
+-499,111,731:
+    player: SlasherF
+    type: 1
+-499,110,730:
+    player: SlasherF
+    type: 1
+-499,111,730:
+    player: SlasherF
+    type: 1
+-499,110,729:
+    player: SlasherF
+    type: 1
+-499,111,729:
+    player: SlasherF
+    type: 1
+-499,110,728:
+    player: SlasherF
+    type: 1
+-499,110,727:
+    player: SlasherF
+    type: 1
+-499,111,727:
+    player: SlasherF
+    type: 1
+-499,111,728:
+    player: SlasherF
+    type: 1
+-499,110,726:
+    player: SlasherF
+    type: 1
+-499,111,726:
+    player: SlasherF
+    type: 1
+-499,110,725:
+    player: SlasherF
+    type: 1
+-499,111,725:
+    player: SlasherF
+    type: 1
+-499,110,724:
+    player: SlasherF
+    type: 1
+-499,111,724:
+    player: SlasherF
+    type: 1
+-499,110,723:
+    player: SlasherF
+    type: 1
+-499,111,723:
+    player: SlasherF
+    type: 1
+-500,110,722:
+    player: SlasherF
+    type: 1
+-500,111,722:
+    player: SlasherF
+    type: 1
+-500,110,721:
+    player: SlasherF
+    type: 1
+-500,111,721:
+    player: SlasherF
+    type: 1
+-501,110,720:
+    player: SlasherF
+    type: 1
+-501,111,720:
+    player: SlasherF
+    type: 1
+-502,110,720:
+    player: SlasherF
+    type: 1
+-502,111,720:
+    player: SlasherF
+    type: 1
+-502,112,720:
+    player: SlasherF
+    type: 1
+-502,113,720:
+    player: SlasherF
+    type: 1
+-501,112,720:
+    player: SlasherF
+    type: 1
+-501,113,720:
+    player: SlasherF
+    type: 1
+-500,112,721:
+    player: SlasherF
+    type: 1
+-500,113,721:
+    player: SlasherF
+    type: 1
+-500,112,722:
+    player: SlasherF
+    type: 1
+-500,113,722:
+    player: SlasherF
+    type: 1
+-499,112,723:
+    player: SlasherF
+    type: 1
+-499,113,723:
+    player: SlasherF
+    type: 1
+-499,112,724:
+    player: SlasherF
+    type: 1
+-499,113,724:
+    player: SlasherF
+    type: 1
+-499,112,725:
+    player: SlasherF
+    type: 1
+-499,113,725:
+    player: SlasherF
+    type: 1
+-499,112,726:
+    player: SlasherF
+    type: 1
+-499,113,726:
+    player: SlasherF
+    type: 1
+-499,112,727:
+    player: SlasherF
+    type: 1
+-499,113,727:
+    player: SlasherF
+    type: 1
+-499,112,728:
+    player: SlasherF
+    type: 1
+-499,113,728:
+    player: SlasherF
+    type: 1
+-499,112,729:
+    player: SlasherF
+    type: 1
+-499,113,729:
+    player: SlasherF
+    type: 1
+-499,112,730:
+    player: SlasherF
+    type: 1
+-499,113,730:
+    player: SlasherF
+    type: 1
+-499,112,731:
+    player: SlasherF
+    type: 1
+-499,113,731:
+    player: SlasherF
+    type: 1
+-499,112,732:
+    player: SlasherF
+    type: 1
+-499,113,732:
+    player: SlasherF
+    type: 1
+-499,112,733:
+    player: SlasherF
+    type: 1
+-499,113,733:
+    player: SlasherF
+    type: 1
+-499,112,734:
+    player: SlasherF
+    type: 1
+-499,113,734:
+    player: SlasherF
+    type: 1
+-500,112,735:
+    player: SlasherF
+    type: 1
+-500,113,735:
+    player: SlasherF
+    type: 1
+-512,113,720:
+    player: SlasherF
+    type: 1
+-511,113,720:
+    player: SlasherF
+    type: 1
+-510,113,720:
+    player: SlasherF
+    type: 1
+-509,113,720:
+    player: SlasherF
+    type: 1
+-508,113,720:
+    player: SlasherF
+    type: 1
+-507,113,720:
+    player: SlasherF
+    type: 1
+-506,113,720:
+    player: SlasherF
+    type: 1
+-505,113,720:
+    player: SlasherF
+    type: 1
+-504,113,720:
+    player: SlasherF
+    type: 1
+-503,113,720:
+    player: SlasherF
+    type: 1
+-501,113,722:
+    player: SlasherF
+    type: 1
+-501,113,721:
+    player: SlasherF
+    type: 1
+-502,113,721:
+    player: SlasherF
+    type: 1
+-500,113,723:
+    player: SlasherF
+    type: 1
+-500,113,724:
+    player: SlasherF
+    type: 1
+-500,113,725:
+    player: SlasherF
+    type: 1
+-500,113,726:
+    player: SlasherF
+    type: 1
+-500,113,727:
+    player: SlasherF
+    type: 1
+-500,113,728:
+    player: SlasherF
+    type: 1
+-500,113,729:
+    player: SlasherF
+    type: 1
+-500,113,730:
+    player: SlasherF
+    type: 1
+-500,113,731:
+    player: SlasherF
+    type: 1
+-500,113,732:
+    player: SlasherF
+    type: 1
+-500,113,733:
+    player: SlasherF
+    type: 1
+-500,113,734:
+    player: SlasherF
+    type: 1
+-501,113,735:
+    player: SlasherF
+    type: 1
+-501,114,735:
+    player: SlasherF
+    type: 1
+-501,115,735:
+    player: SlasherF
+    type: 1
+-500,114,734:
+    player: SlasherF
+    type: 1
+-500,115,734:
+    player: SlasherF
+    type: 1
+-500,114,733:
+    player: SlasherF
+    type: 1
+-500,115,733:
+    player: SlasherF
+    type: 1
+-500,114,732:
+    player: SlasherF
+    type: 1
+-500,115,732:
+    player: SlasherF
+    type: 1
+-500,114,731:
+    player: SlasherF
+    type: 1
+-500,115,731:
+    player: SlasherF
+    type: 1
+-500,114,730:
+    player: SlasherF
+    type: 1
+-500,115,730:
+    player: SlasherF
+    type: 1
+-500,114,729:
+    player: SlasherF
+    type: 1
+-500,115,729:
+    player: SlasherF
+    type: 1
+-500,114,728:
+    player: SlasherF
+    type: 1
+-500,115,728:
+    player: SlasherF
+    type: 1
+-500,114,727:
+    player: SlasherF
+    type: 1
+-500,115,727:
+    player: SlasherF
+    type: 1
+-500,114,726:
+    player: SlasherF
+    type: 1
+-500,115,726:
+    player: SlasherF
+    type: 1
+-500,114,725:
+    player: SlasherF
+    type: 1
+-500,115,725:
+    player: SlasherF
+    type: 1
+-500,114,724:
+    player: SlasherF
+    type: 1
+-500,115,724:
+    player: SlasherF
+    type: 1
+-500,114,723:
+    player: SlasherF
+    type: 1
+-500,115,723:
+    player: SlasherF
+    type: 1
+-501,114,722:
+    player: SlasherF
+    type: 1
+-501,115,722:
+    player: SlasherF
+    type: 1
+-502,114,721:
+    player: SlasherF
+    type: 1
+-502,115,721:
+    player: SlasherF
+    type: 1
+-503,114,720:
+    player: SlasherF
+    type: 1
+-503,115,720:
+    player: SlasherF
+    type: 1
+-504,114,720:
+    player: SlasherF
+    type: 1
+-504,115,720:
+    player: SlasherF
+    type: 1
+-505,114,720:
+    player: SlasherF
+    type: 1
+-505,115,720:
+    player: SlasherF
+    type: 1
+-506,114,720:
+    player: SlasherF
+    type: 1
+-506,115,720:
+    player: SlasherF
+    type: 1
+-507,114,720:
+    player: SlasherF
+    type: 1
+-507,115,720:
+    player: SlasherF
+    type: 1
+-508,114,720:
+    player: SlasherF
+    type: 1
+-508,115,720:
+    player: SlasherF
+    type: 1
+-509,114,720:
+    player: SlasherF
+    type: 1
+-509,115,720:
+    player: SlasherF
+    type: 1
+-510,114,720:
+    player: SlasherF
+    type: 1
+-510,115,720:
+    player: SlasherF
+    type: 1
+-511,114,720:
+    player: SlasherF
+    type: 1
+-511,115,720:
+    player: SlasherF
+    type: 1
+-512,114,720:
+    player: SlasherF
+    type: 1
+-512,115,720:
+    player: SlasherF
+    type: 1
+-503,116,720:
+    player: SlasherF
+    type: 1
+-503,117,720:
+    player: SlasherF
+    type: 1
+-504,116,720:
+    player: SlasherF
+    type: 1
+-504,117,720:
+    player: SlasherF
+    type: 1
+-505,116,720:
+    player: SlasherF
+    type: 1
+-505,117,720:
+    player: SlasherF
+    type: 1
+-506,116,720:
+    player: SlasherF
+    type: 1
+-506,117,720:
+    player: SlasherF
+    type: 1
+-507,116,720:
+    player: SlasherF
+    type: 1
+-507,117,720:
+    player: SlasherF
+    type: 1
+-508,116,720:
+    player: SlasherF
+    type: 1
+-508,117,720:
+    player: SlasherF
+    type: 1
+-509,116,720:
+    player: SlasherF
+    type: 1
+-509,117,720:
+    player: SlasherF
+    type: 1
+-510,116,720:
+    player: SlasherF
+    type: 1
+-510,117,720:
+    player: SlasherF
+    type: 1
+-511,116,720:
+    player: SlasherF
+    type: 1
+-511,117,720:
+    player: SlasherF
+    type: 1
+-512,116,720:
+    player: SlasherF
+    type: 1
+-512,117,720:
+    player: SlasherF
+    type: 1
+-501,116,735:
+    player: SlasherF
+    type: 1
+-501,117,735:
+    player: SlasherF
+    type: 1
+-500,116,734:
+    player: SlasherF
+    type: 1
+-500,117,734:
+    player: SlasherF
+    type: 1
+-500,116,733:
+    player: SlasherF
+    type: 1
+-500,117,733:
+    player: SlasherF
+    type: 1
+-500,116,732:
+    player: SlasherF
+    type: 1
+-500,117,732:
+    player: SlasherF
+    type: 1
+-500,116,731:
+    player: SlasherF
+    type: 1
+-500,117,731:
+    player: SlasherF
+    type: 1
+-500,116,730:
+    player: SlasherF
+    type: 1
+-500,117,730:
+    player: SlasherF
+    type: 1
+-500,116,729:
+    player: SlasherF
+    type: 1
+-500,117,729:
+    player: SlasherF
+    type: 1
+-500,116,728:
+    player: SlasherF
+    type: 1
+-500,117,728:
+    player: SlasherF
+    type: 1
+-500,116,727:
+    player: SlasherF
+    type: 1
+-500,117,727:
+    player: SlasherF
+    type: 1
+-500,116,726:
+    player: SlasherF
+    type: 1
+-500,117,726:
+    player: SlasherF
+    type: 1
+-500,116,725:
+    player: SlasherF
+    type: 1
+-500,117,725:
+    player: SlasherF
+    type: 1
+-500,116,724:
+    player: SlasherF
+    type: 1
+-500,117,724:
+    player: SlasherF
+    type: 1
+-500,116,723:
+    player: SlasherF
+    type: 1
+-500,117,723:
+    player: SlasherF
+    type: 1
+-501,116,722:
+    player: SlasherF
+    type: 1
+-501,117,722:
+    player: SlasherF
+    type: 1
+-502,116,721:
+    player: SlasherF
+    type: 1
+-502,117,721:
+    player: SlasherF
+    type: 1
+-503,117,721:
+    player: SlasherF
+    type: 1
+-504,117,721:
+    player: SlasherF
+    type: 1
+-505,117,721:
+    player: SlasherF
+    type: 1
+-506,117,721:
+    player: SlasherF
+    type: 1
+-507,117,721:
+    player: SlasherF
+    type: 1
+-508,117,721:
+    player: SlasherF
+    type: 1
+-509,117,721:
+    player: SlasherF
+    type: 1
+-510,117,721:
+    player: SlasherF
+    type: 1
+-511,117,721:
+    player: SlasherF
+    type: 1
+-512,117,721:
+    player: SlasherF
+    type: 1
+-502,117,735:
+    player: SlasherF
+    type: 1
+-501,117,734:
+    player: SlasherF
+    type: 1
+-501,117,733:
+    player: SlasherF
+    type: 1
+-501,117,732:
+    player: SlasherF
+    type: 1
+-501,117,731:
+    player: SlasherF
+    type: 1
+-501,117,730:
+    player: SlasherF
+    type: 1
+-501,117,729:
+    player: SlasherF
+    type: 1
+-501,117,728:
+    player: SlasherF
+    type: 1
+-501,117,727:
+    player: SlasherF
+    type: 1
+-501,117,726:
+    player: SlasherF
+    type: 1
+-501,117,725:
+    player: SlasherF
+    type: 1
+-501,117,724:
+    player: SlasherF
+    type: 1
+-501,117,723:
+    player: SlasherF
+    type: 1
+-502,117,722:
+    player: SlasherF
+    type: 1
+-502,118,722:
+    player: SlasherF
+    type: 1
+-502,119,722:
+    player: SlasherF
+    type: 1
+-503,118,721:
+    player: SlasherF
+    type: 1
+-503,119,721:
+    player: SlasherF
+    type: 1
+-504,118,721:
+    player: SlasherF
+    type: 1
+-504,119,721:
+    player: SlasherF
+    type: 1
+-505,118,721:
+    player: SlasherF
+    type: 1
+-505,119,721:
+    player: SlasherF
+    type: 1
+-506,118,721:
+    player: SlasherF
+    type: 1
+-506,119,721:
+    player: SlasherF
+    type: 1
+-507,118,721:
+    player: SlasherF
+    type: 1
+-507,119,721:
+    player: SlasherF
+    type: 1
+-508,118,721:
+    player: SlasherF
+    type: 1
+-508,119,721:
+    player: SlasherF
+    type: 1
+-509,118,721:
+    player: SlasherF
+    type: 1
+-509,119,721:
+    player: SlasherF
+    type: 1
+-510,118,721:
+    player: SlasherF
+    type: 1
+-510,119,721:
+    player: SlasherF
+    type: 1
+-511,118,721:
+    player: SlasherF
+    type: 1
+-511,119,721:
+    player: SlasherF
+    type: 1
+-512,118,721:
+    player: SlasherF
+    type: 1
+-512,119,721:
+    player: SlasherF
+    type: 1
+-502,118,735:
+    player: SlasherF
+    type: 1
+-502,119,735:
+    player: SlasherF
+    type: 1
+-501,118,734:
+    player: SlasherF
+    type: 1
+-501,119,734:
+    player: SlasherF
+    type: 1
+-501,119,735:
+    player: SlasherF
+    type: 1
+-510,118,720:
+    player: SlasherF
+    type: 3
+-501,118,723:
+    player: SlasherF
+    type: 1
+-501,119,723:
+    player: SlasherF
+    type: 1
+-501,118,724:
+    player: SlasherF
+    type: 1
+-501,119,724:
+    player: SlasherF
+    type: 1
+-501,118,725:
+    player: SlasherF
+    type: 1
+-501,119,725:
+    player: SlasherF
+    type: 1
+-501,118,726:
+    player: SlasherF
+    type: 1
+-501,119,726:
+    player: SlasherF
+    type: 1
+-501,118,727:
+    player: SlasherF
+    type: 1
+-501,119,727:
+    player: SlasherF
+    type: 1
+-501,118,728:
+    player: SlasherF
+    type: 1
+-501,119,728:
+    player: SlasherF
+    type: 1
+-501,118,729:
+    player: SlasherF
+    type: 1
+-501,119,729:
+    player: SlasherF
+    type: 1
+-501,118,730:
+    player: SlasherF
+    type: 1
+-501,119,730:
+    player: SlasherF
+    type: 1
+-501,118,731:
+    player: SlasherF
+    type: 1
+-501,118,732:
+    player: SlasherF
+    type: 1
+-501,118,733:
+    player: SlasherF
+    type: 1
+-501,119,732:
+    player: SlasherF
+    type: 1
+-501,119,731:
+    player: SlasherF
+    type: 1
+-501,119,733:
+    player: SlasherF
+    type: 1
+-502,120,722:
+    player: SlasherF
+    type: 1
+-502,121,722:
+    player: SlasherF
+    type: 1
+-503,120,721:
+    player: SlasherF
+    type: 1
+-503,121,721:
+    player: SlasherF
+    type: 1
+-504,120,721:
+    player: SlasherF
+    type: 1
+-504,121,721:
+    player: SlasherF
+    type: 1
+-505,120,721:
+    player: SlasherF
+    type: 1
+-505,121,721:
+    player: SlasherF
+    type: 1
+-506,120,721:
+    player: SlasherF
+    type: 1
+-506,121,721:
+    player: SlasherF
+    type: 1
+-507,120,721:
+    player: SlasherF
+    type: 1
+-507,121,721:
+    player: SlasherF
+    type: 1
+-508,120,721:
+    player: SlasherF
+    type: 1
+-508,121,721:
+    player: SlasherF
+    type: 1
+-509,120,721:
+    player: SlasherF
+    type: 1
+-509,121,721:
+    player: SlasherF
+    type: 1
+-510,120,721:
+    player: SlasherF
+    type: 1
+-510,121,721:
+    player: SlasherF
+    type: 1
+-511,120,721:
+    player: SlasherF
+    type: 1
+-511,121,721:
+    player: SlasherF
+    type: 1
+-512,120,721:
+    player: SlasherF
+    type: 1
+-512,121,721:
+    player: SlasherF
+    type: 1
+-502,120,735:
+    player: SlasherF
+    type: 1
+-502,121,735:
+    player: SlasherF
+    type: 1
+-501,120,734:
+    player: SlasherF
+    type: 1
+-501,121,734:
+    player: SlasherF
+    type: 1
+-501,120,733:
+    player: SlasherF
+    type: 1
+-501,121,733:
+    player: SlasherF
+    type: 1
+-501,120,732:
+    player: SlasherF
+    type: 1
+-501,121,732:
+    player: SlasherF
+    type: 1
+-501,120,731:
+    player: SlasherF
+    type: 1
+-501,121,731:
+    player: SlasherF
+    type: 1
+-501,120,730:
+    player: SlasherF
+    type: 1
+-501,121,730:
+    player: SlasherF
+    type: 1
+-501,120,729:
+    player: SlasherF
+    type: 1
+-501,121,729:
+    player: SlasherF
+    type: 1
+-501,120,728:
+    player: SlasherF
+    type: 1
+-501,121,728:
+    player: SlasherF
+    type: 1
+-501,120,727:
+    player: SlasherF
+    type: 1
+-501,121,727:
+    player: SlasherF
+    type: 1
+-501,120,726:
+    player: SlasherF
+    type: 1
+-501,121,726:
+    player: SlasherF
+    type: 1
+-501,120,725:
+    player: SlasherF
+    type: 1
+-501,121,725:
+    player: SlasherF
+    type: 1
+-501,120,724:
+    player: SlasherF
+    type: 1
+-501,121,724:
+    player: SlasherF
+    type: 1
+-501,120,723:
+    player: SlasherF
+    type: 1
+-501,121,723:
+    player: SlasherF
+    type: 1
+-510,104,732:
+    player: SlasherF
+    type: 3
+-501,121,735:
+    player: SlasherF
+    type: 5
+-502,122,735:
+    player: SlasherF
+    type: 5
+-502,122,722:
+    player: SlasherF
+    type: 5
+-502,121,721:
+    player: SlasherF
+    type: 5
+-501,121,721:
+    player: SlasherF
+    type: 5
+-501,121,722:
+    player: SlasherF
+    type: 5
+-500,121,735:
+    player: SlasherF
+    type: 53
+-500,121,734:
+    player: SlasherF
+    type: 53
+-500,121,733:
+    player: SlasherF
+    type: 53
+-500,121,732:
+    player: SlasherF
+    type: 53
+-500,121,731:
+    player: SlasherF
+    type: 53
+-500,120,730:
+    player: SlasherF
+    type: 53
+-500,121,730:
+    player: SlasherF
+    type: 53
+-500,121,729:
+    player: SlasherF
+    type: 53
+-500,121,728:
+    player: SlasherF
+    type: 53
+-500,121,727:
+    player: SlasherF
+    type: 53
+-500,121,726:
+    player: SlasherF
+    type: 53
+-500,121,725:
+    player: SlasherF
+    type: 53
+-500,121,724:
+    player: SlasherF
+    type: 53
+-500,121,723:
+    player: SlasherF
+    type: 53
+-500,121,722:
+    player: SlasherF
+    type: 53
+-500,121,721:
+    player: SlasherF
+    type: 53
+-501,121,720:
+    player: SlasherF
+    type: 53
+-502,121,720:
+    player: SlasherF
+    type: 53
+-503,121,720:
+    player: SlasherF
+    type: 53
+-504,121,720:
+    player: SlasherF
+    type: 53
+-505,121,720:
+    player: SlasherF
+    type: 53
+-506,121,720:
+    player: SlasherF
+    type: 53
+-507,121,720:
+    player: SlasherF
+    type: 53
+-508,120,720:
+    player: SlasherF
+    type: 53
+-508,121,720:
+    player: SlasherF
+    type: 53
+-509,121,720:
+    player: SlasherF
+    type: 53
+-510,121,720:
+    player: SlasherF
+    type: 53
+-511,121,720:
+    player: SlasherF
+    type: 53
+-512,121,720:
+    player: SlasherF
+    type: 53
+-501,122,735:
+    player: SlasherF
+    type: 53
+-501,122,734:
+    player: SlasherF
+    type: 53
+-501,122,733:
+    player: SlasherF
+    type: 53
+-501,122,732:
+    player: SlasherF
+    type: 53
+-501,122,731:
+    player: SlasherF
+    type: 53
+-501,122,730:
+    player: SlasherF
+    type: 53
+-501,122,728:
+    player: SlasherF
+    type: 53
+-501,122,729:
+    player: SlasherF
+    type: 53
+-501,122,727:
+    player: SlasherF
+    type: 53
+-501,122,726:
+    player: SlasherF
+    type: 53
+-501,122,725:
+    player: SlasherF
+    type: 53
+-501,122,724:
+    player: SlasherF
+    type: 53
+-501,122,723:
+    player: SlasherF
+    type: 53
+-501,122,722:
+    player: SlasherF
+    type: 53
+-502,123,735:
+    player: SlasherF
+    type: 44
+-502,123,722:
+    player: SlasherF
+    type: 44
+-501,122,721:
+    player: SlasherF
+    type: 44
+-500,121,720:
+    player: SlasherF
+    type: 44
+-502,122,721:
+    player: SlasherF
+    type: 53
+-503,122,721:
+    player: SlasherF
+    type: 53
+-504,122,721:
+    player: SlasherF
+    type: 53
+-505,122,721:
+    player: SlasherF
+    type: 53
+-506,122,721:
+    player: SlasherF
+    type: 53
+-507,122,721:
+    player: SlasherF
+    type: 53
+-508,122,721:
+    player: SlasherF
+    type: 53
+-509,122,721:
+    player: SlasherF
+    type: 53
+-510,122,721:
+    player: SlasherF
+    type: 53
+-511,122,721:
+    player: SlasherF
+    type: 53
+-512,122,721:
+    player: SlasherF
+    type: 53
+-506,105,726:
+    player: SlasherF
+    type: 89
+-507,105,727:
+    player: SlasherF
+    type: 89
+-508,105,728:
+    player: SlasherF
+    type: 89
+-509,105,729:
+    player: SlasherF
+    type: 89
+-510,105,730:
+    player: SlasherF
+    type: 89
+-511,105,731:
+    player: SlasherF
+    type: 89
+-502,105,735:
+    player: SlasherF
+    type: 89
+-503,105,734:
+    player: SlasherF
+    type: 89
+-504,105,733:
+    player: SlasherF
+    type: 89
+-505,105,732:
+    player: SlasherF
+    type: 89
+-506,105,731:
+    player: SlasherF
+    type: 89
+-507,105,730:
+    player: SlasherF
+    type: 89
+-508,105,729:
+    player: SlasherF
+    type: 89
+-509,105,728:
+    player: SlasherF
+    type: 89
+-510,105,727:
+    player: SlasherF
+    type: 89
+-511,105,726:
+    player: SlasherF
+    type: 89
+-512,105,725:
+    player: SlasherF
+    type: 89
+-512,123,735:
+    player: SlasherF
+    type: 53
+-511,123,735:
+    player: SlasherF
+    type: 53
+-510,123,735:
+    player: SlasherF
+    type: 53
+-509,123,735:
+    player: SlasherF
+    type: 53
+-508,123,735:
+    player: SlasherF
+    type: 53
+-507,123,735:
+    player: SlasherF
+    type: 53
+-506,123,735:
+    player: SlasherF
+    type: 53
+-505,123,735:
+    player: SlasherF
+    type: 53
+-504,123,735:
+    player: SlasherF
+    type: 53
+-503,123,735:
+    player: SlasherF
+    type: 53
+-502,123,734:
+    player: SlasherF
+    type: 53
+-502,123,733:
+    player: SlasherF
+    type: 53
+-502,123,732:
+    player: SlasherF
+    type: 53
+-502,123,731:
+    player: SlasherF
+    type: 53
+-502,123,730:
+    player: SlasherF
+    type: 53
+-502,123,729:
+    player: SlasherF
+    type: 53
+-502,123,728:
+    player: SlasherF
+    type: 53
+-502,123,727:
+    player: SlasherF
+    type: 53
+-502,123,726:
+    player: SlasherF
+    type: 53
+-502,123,725:
+    player: SlasherF
+    type: 53
+-502,123,724:
+    player: SlasherF
+    type: 53
+-502,123,723:
+    player: SlasherF
+    type: 53
+-503,123,722:
+    player: SlasherF
+    type: 53
+-504,123,722:
+    player: SlasherF
+    type: 53
+-505,123,722:
+    player: SlasherF
+    type: 53
+-506,123,722:
+    player: SlasherF
+    type: 53
+-507,123,722:
+    player: SlasherF
+    type: 53
+-508,123,722:
+    player: SlasherF
+    type: 53
+-509,123,722:
+    player: SlasherF
+    type: 53
+-510,123,722:
+    player: SlasherF
+    type: 53
+-511,123,722:
+    player: SlasherF
+    type: 53
+-512,123,722:
+    player: SlasherF
+    type: 53
+-512,124,734:
+    player: SlasherF
+    type: 53
+-512,125,733:
+    player: SlasherF
+    type: 53
+-512,126,732:
+    player: SlasherF
+    type: 44
+-511,126,732:
+    player: SlasherF
+    type: 44
+-512,126,731:
+    player: SlasherF
+    type: 44
+-511,124,734:
+    player: SlasherF
+    type: 53
+-511,125,733:
+    player: SlasherF
+    type: 53
+-511,126,731:
+    player: SlasherF
+    type: 5
+-512,124,723:
+    player: SlasherF
+    type: 53
+-511,124,723:
+    player: SlasherF
+    type: 53
+-510,124,723:
+    player: SlasherF
+    type: 53
+-509,124,723:
+    player: SlasherF
+    type: 53
+-508,124,723:
+    player: SlasherF
+    type: 53
+-507,124,723:
+    player: SlasherF
+    type: 53
+-506,124,723:
+    player: SlasherF
+    type: 53
+-505,124,723:
+    player: SlasherF
+    type: 53
+-504,124,723:
+    player: SlasherF
+    type: 53
+-503,124,723:
+    player: SlasherF
+    type: 44
+-503,124,724:
+    player: SlasherF
+    type: 53
+-503,124,725:
+    player: SlasherF
+    type: 53
+-503,124,726:
+    player: SlasherF
+    type: 53
+-503,124,727:
+    player: SlasherF
+    type: 53
+-503,124,728:
+    player: SlasherF
+    type: 53
+-503,124,729:
+    player: SlasherF
+    type: 53
+-503,124,730:
+    player: SlasherF
+    type: 53
+-503,124,731:
+    player: SlasherF
+    type: 53
+-503,124,732:
+    player: SlasherF
+    type: 53
+-503,124,733:
+    player: SlasherF
+    type: 53
+-503,124,734:
+    player: SlasherF
+    type: 44
+-504,124,734:
+    player: SlasherF
+    type: 53
+-505,124,734:
+    player: SlasherF
+    type: 53
+-506,124,734:
+    player: SlasherF
+    type: 53
+-507,124,734:
+    player: SlasherF
+    type: 53
+-508,124,734:
+    player: SlasherF
+    type: 53
+-509,124,734:
+    player: SlasherF
+    type: 53
+-510,124,734:
+    player: SlasherF
+    type: 53
+-510,125,733:
+    player: SlasherF
+    type: 53
+-509,125,733:
+    player: SlasherF
+    type: 53
+-508,125,733:
+    player: SlasherF
+    type: 53
+-507,125,733:
+    player: SlasherF
+    type: 53
+-506,125,733:
+    player: SlasherF
+    type: 53
+-505,125,733:
+    player: SlasherF
+    type: 53
+-504,125,733:
+    player: SlasherF
+    type: 44
+-504,125,732:
+    player: SlasherF
+    type: 53
+-504,125,731:
+    player: SlasherF
+    type: 53
+-504,125,730:
+    player: SlasherF
+    type: 53
+-504,125,729:
+    player: SlasherF
+    type: 53
+-504,125,728:
+    player: SlasherF
+    type: 53
+-504,125,727:
+    player: SlasherF
+    type: 53
+-504,125,726:
+    player: SlasherF
+    type: 53
+-504,125,725:
+    player: SlasherF
+    type: 53
+-504,125,724:
+    player: SlasherF
+    type: 44
+-505,125,724:
+    player: SlasherF
+    type: 53
+-506,125,724:
+    player: SlasherF
+    type: 53
+-507,125,724:
+    player: SlasherF
+    type: 53
+-508,125,724:
+    player: SlasherF
+    type: 53
+-509,125,724:
+    player: SlasherF
+    type: 53
+-510,125,724:
+    player: SlasherF
+    type: 53
+-511,125,724:
+    player: SlasherF
+    type: 53
+-512,125,724:
+    player: SlasherF
+    type: 53
+-510,126,732:
+    player: SlasherF
+    type: 44
+-509,126,732:
+    player: SlasherF
+    type: 44
+-508,126,732:
+    player: SlasherF
+    type: 44
+-507,126,733:
+    player: SlasherF
+    type: 44
+-507,126,732:
+    player: SlasherF
+    type: 44
+-506,126,732:
+    player: SlasherF
+    type: 44
+-505,126,732:
+    player: SlasherF
+    type: 44
+-505,126,731:
+    player: SlasherF
+    type: 44
+-505,126,730:
+    player: SlasherF
+    type: 44
+-505,126,729:
+    player: SlasherF
+    type: 44
+-505,126,728:
+    player: SlasherF
+    type: 44
+-505,126,727:
+    player: SlasherF
+    type: 44
+-505,126,726:
+    player: SlasherF
+    type: 44
+-505,126,725:
+    player: SlasherF
+    type: 44
+-505,125,726:
+    player: SlasherF
+    type: 44
+-506,126,725:
+    player: SlasherF
+    type: 44
+-507,126,725:
+    player: SlasherF
+    type: 44
+-508,126,725:
+    player: SlasherF
+    type: 44
+-509,126,725:
+    player: SlasherF
+    type: 44
+-510,126,725:
+    player: SlasherF
+    type: 44
+-511,126,725:
+    player: SlasherF
+    type: 44
+-512,126,725:
+    player: SlasherF
+    type: 44
+-512,126,730:
+    player: SlasherF
+    type: 44
+-512,126,729:
+    player: SlasherF
+    type: 44
+-512,126,728:
+    player: SlasherF
+    type: 44
+-512,126,727:
+    player: SlasherF
+    type: 44
+-512,126,726:
+    player: SlasherF
+    type: 44
+-511,126,730:
+    player: SlasherF
+    type: 5
+-511,126,729:
+    player: SlasherF
+    type: 5
+-511,126,728:
+    player: SlasherF
+    type: 5
+-511,126,727:
+    player: SlasherF
+    type: 5
+-511,126,726:
+    player: SlasherF
+    type: 5
+-510,126,726:
+    player: SlasherF
+    type: 5
+-509,126,726:
+    player: SlasherF
+    type: 5
+-508,126,726:
+    player: SlasherF
+    type: 5
+-507,126,726:
+    player: SlasherF
+    type: 5
+-506,126,726:
+    player: SlasherF
+    type: 5
+-506,126,727:
+    player: SlasherF
+    type: 5
+-506,126,728:
+    player: SlasherF
+    type: 5
+-506,126,729:
+    player: SlasherF
+    type: 5
+-506,126,730:
+    player: SlasherF
+    type: 5
+-506,126,731:
+    player: SlasherF
+    type: 5
+-507,126,731:
+    player: SlasherF
+    type: 5
+-508,126,731:
+    player: SlasherF
+    type: 5
+-509,126,731:
+    player: SlasherF
+    type: 5
+-510,126,731:
+    player: SlasherF
+    type: 5
+-510,126,730:
+    player: SlasherF
+    type: 5
+-509,126,730:
+    player: SlasherF
+    type: 5
+-508,126,730:
+    player: SlasherF
+    type: 5
+-507,126,730:
+    player: SlasherF
+    type: 5
+-507,126,729:
+    player: SlasherF
+    type: 5
+-507,126,728:
+    player: SlasherF
+    type: 5
+-507,126,727:
+    player: SlasherF
+    type: 5
+-508,126,727:
+    player: SlasherF
+    type: 5
+-509,126,727:
+    player: SlasherF
+    type: 5
+-510,126,727:
+    player: SlasherF
+    type: 5
+-509,126,729:
+    player: SlasherF
+    type: 5
+-510,126,729:
+    player: SlasherF
+    type: 5
+-510,126,728:
+    player: SlasherF
+    type: 5
+-508,126,729:
+    player: SlasherF
+    type: 5
+-508,126,728:
+    player: SlasherF
+    type: 5
+-509,126,728:
+    player: SlasherF
+    type: 5
+-508,105,720:
+    player: SlasherF
+    type: 35
+-509,105,721:
+    player: SlasherF
+    type: 35
+-510,105,722:
+    player: SlasherF
+    type: 35
+-511,105,723:
+    player: SlasherF
+    type: 35
+-512,105,724:
+    player: SlasherF
+    type: 35
+-511,105,725:
+    player: SlasherF
+    type: 35
+-510,105,724:
+    player: SlasherF
+    type: 35
+-509,105,723:
+    player: SlasherF
+    type: 35
+-508,105,722:
+    player: SlasherF
+    type: 35
+-507,105,721:
+    player: SlasherF
+    type: 35
+-506,105,720:
+    player: SlasherF
+    type: 35
+-506,105,722:
+    player: SlasherF
+    type: 35
+-507,105,723:
+    player: SlasherF
+    type: 35
+-508,105,724:
+    player: SlasherF
+    type: 35
+-509,105,725:
+    player: SlasherF
+    type: 35
+-510,105,726:
+    player: SlasherF
+    type: 35
+-509,105,727:
+    player: SlasherF
+    type: 35
+-508,105,726:
+    player: SlasherF
+    type: 35
+-507,105,725:
+    player: SlasherF
+    type: 35
+-506,105,724:
+    player: SlasherF
+    type: 35
+-512,105,722:
+    player: SlasherF
+    type: 35
+-511,105,721:
+    player: SlasherF
+    type: 35
+-512,105,723:
+    player: SlasherF
+    type: 35
+-511,105,724:
+    player: SlasherF
+    type: 35
+-510,105,725:
+    player: SlasherF
+    type: 35
+-509,105,726:
+    player: SlasherF
+    type: 35
+-508,105,727:
+    player: SlasherF
+    type: 35
+-507,105,726:
+    player: SlasherF
+    type: 35
+-508,105,725:
+    player: SlasherF
+    type: 35
+-509,105,724:
+    player: SlasherF
+    type: 35
+-510,105,723:
+    player: SlasherF
+    type: 35
+-511,105,722:
+    player: SlasherF
+    type: 35
+-510,105,721:
+    player: SlasherF
+    type: 35
+-509,105,722:
+    player: SlasherF
+    type: 35
+-508,105,723:
+    player: SlasherF
+    type: 35
+-507,105,724:
+    player: SlasherF
+    type: 35
+-506,105,725:
+    player: SlasherF
+    type: 35
+-506,105,723:
+    player: SlasherF
+    type: 35
+-507,105,722:
+    player: SlasherF
+    type: 35
+-508,105,721:
+    player: SlasherF
+    type: 35
+-507,105,720:
+    player: SlasherF
+    type: 35
+-506,105,721:
+    player: SlasherF
+    type: 35
+-509,105,720:
+    player: SlasherF
+    type: 35
+-510,105,720:
+    player: SlasherF
+    type: 35
+-511,105,720:
+    player: SlasherF
+    type: 35
+-512,105,721:
+    player: SlasherF
+    type: 35
+-512,105,720:
+    player: SlasherF
+    type: 35
+-511,105,727:
+    player: SlasherF
+    type: 35
+-512,105,728:
+    player: SlasherF
+    type: 35
+-512,105,730:
+    player: SlasherF
+    type: 35
+-511,105,729:
+    player: SlasherF
+    type: 35
+-510,105,728:
+    player: SlasherF
+    type: 35
+-512,105,726:
+    player: SlasherF
+    type: 35
+-512,105,727:
+    player: SlasherF
+    type: 35
+-511,105,728:
+    player: SlasherF
+    type: 35
+-512,105,729:
+    player: SlasherF
+    type: 35
+-510,105,729:
+    player: SlasherF
+    type: 35
+-511,105,730:
+    player: SlasherF
+    type: 35
+-512,105,731:
+    player: SlasherF
+    type: 35
+-505,105,726:
+    player: SlasherF
+    type: 35
+-506,105,727:
+    player: SlasherF
+    type: 35
+-507,105,728:
+    player: SlasherF
+    type: 35
+-507,105,729:
+    player: SlasherF
+    type: 35
+-506,105,728:
+    player: SlasherF
+    type: 35
+-505,105,727:
+    player: SlasherF
+    type: 35
+-504,105,726:
+    player: SlasherF
+    type: 35
+-503,105,726:
+    player: SlasherF
+    type: 35
+-502,105,726:
+    player: SlasherF
+    type: 35
+-504,105,727:
+    player: SlasherF
+    type: 35
+-505,105,728:
+    player: SlasherF
+    type: 35
+-506,105,729:
+    player: SlasherF
+    type: 35
+-506,105,730:
+    player: SlasherF
+    type: 35
+-505,105,729:
+    player: SlasherF
+    type: 35
+-504,105,728:
+    player: SlasherF
+    type: 35
+-503,105,727:
+    player: SlasherF
+    type: 35
+-501,105,726:
+    player: SlasherF
+    type: 35
+-502,105,727:
+    player: SlasherF
+    type: 35
+-503,105,728:
+    player: SlasherF
+    type: 35
+-504,105,729:
+    player: SlasherF
+    type: 35
+-505,105,730:
+    player: SlasherF
+    type: 35
+-505,105,731:
+    player: SlasherF
+    type: 35
+-504,105,730:
+    player: SlasherF
+    type: 35
+-503,105,729:
+    player: SlasherF
+    type: 35
+-502,105,728:
+    player: SlasherF
+    type: 35
+-501,105,727:
+    player: SlasherF
+    type: 35
+-500,105,726:
+    player: SlasherF
+    type: 35
+-499,105,726:
+    player: SlasherF
+    type: 89
+-500,105,727:
+    player: SlasherF
+    type: 35
+-501,105,728:
+    player: SlasherF
+    type: 35
+-502,105,729:
+    player: SlasherF
+    type: 35
+-503,105,730:
+    player: SlasherF
+    type: 35
+-504,105,731:
+    player: SlasherF
+    type: 35
+-504,105,732:
+    player: SlasherF
+    type: 35
+-503,105,731:
+    player: SlasherF
+    type: 35
+-502,105,730:
+    player: SlasherF
+    type: 35
+-501,105,729:
+    player: SlasherF
+    type: 35
+-500,105,728:
+    player: SlasherF
+    type: 35
+-499,105,727:
+    player: SlasherF
+    type: 89
+-499,105,728:
+    player: SlasherF
+    type: 89
+-500,105,729:
+    player: SlasherF
+    type: 35
+-501,105,730:
+    player: SlasherF
+    type: 35
+-502,105,731:
+    player: SlasherF
+    type: 35
+-503,105,732:
+    player: SlasherF
+    type: 35
+-502,105,732:
+    player: SlasherF
+    type: 35
+-501,105,731:
+    player: SlasherF
+    type: 35
+-500,105,730:
+    player: SlasherF
+    type: 35
+-499,105,729:
+    player: SlasherF
+    type: 89
+-499,105,730:
+    player: SlasherF
+    type: 89
+-500,105,731:
+    player: SlasherF
+    type: 35
+-501,105,732:
+    player: SlasherF
+    type: 35
+-502,105,733:
+    player: SlasherF
+    type: 35
+-502,105,734:
+    player: SlasherF
+    type: 35
+-501,105,733:
+    player: SlasherF
+    type: 35
+-500,105,732:
+    player: SlasherF
+    type: 35
+-499,105,731:
+    player: SlasherF
+    type: 89
+-499,105,732:
+    player: SlasherF
+    type: 89
+-500,105,733:
+    player: SlasherF
+    type: 35
+-501,105,734:
+    player: SlasherF
+    type: 35
+-501,105,735:
+    player: SlasherF
+    type: 35
+-500,105,734:
+    player: SlasherF
+    type: 89
+-500,105,735:
+    player: SlasherF
+    type: 89
+-508,105,730:
+    player: SlasherF
+    type: 35
+-509,105,730:
+    player: SlasherF
+    type: 35
+-510,105,731:
+    player: SlasherF
+    type: 35
+-511,105,732:
+    player: SlasherF
+    type: 35
+-510,105,732:
+    player: SlasherF
+    type: 35
+-509,105,731:
+    player: SlasherF
+    type: 35
+-508,105,731:
+    player: SlasherF
+    type: 35
+-509,105,732:
+    player: SlasherF
+    type: 35
+-510,105,733:
+    player: SlasherF
+    type: 35
+-509,105,733:
+    player: SlasherF
+    type: 35
+-508,105,732:
+    player: SlasherF
+    type: 35
+-507,105,731:
+    player: SlasherF
+    type: 35
+-507,105,732:
+    player: SlasherF
+    type: 35
+-508,105,733:
+    player: SlasherF
+    type: 35
+-509,105,734:
+    player: SlasherF
+    type: 35
+-509,105,735:
+    player: SlasherF
+    type: 35
+-508,105,734:
+    player: SlasherF
+    type: 35
+-507,105,733:
+    player: SlasherF
+    type: 35
+-506,105,732:
+    player: SlasherF
+    type: 35
+-506,105,733:
+    player: SlasherF
+    type: 35
+-507,105,734:
+    player: SlasherF
+    type: 35
+-508,105,735:
+    player: SlasherF
+    type: 35
+-507,105,735:
+    player: SlasherF
+    type: 35
+-506,105,734:
+    player: SlasherF
+    type: 35
+-505,105,733:
+    player: SlasherF
+    type: 35
+-505,105,734:
+    player: SlasherF
+    type: 35
+-506,105,735:
+    player: SlasherF
+    type: 35
+-505,105,735:
+    player: SlasherF
+    type: 35
+-504,105,734:
+    player: SlasherF
+    type: 35
+-504,105,735:
+    player: SlasherF
+    type: 35
+-503,105,735:
+    player: SlasherF
+    type: 35
+-508,106,728:
+    player: SlasherF
+    type: 89
+-508,106,729:
+    player: SlasherF
+    type: 89
+-509,106,729:
+    player: SlasherF
+    type: 89
+-509,106,728:
+    player: SlasherF
+    type: 89
+-508,107,728:
+    player: SlasherF
+    type: 89
+-508,107,729:
+    player: SlasherF
+    type: 89
+-509,107,729:
+    player: SlasherF
+    type: 89
+-509,107,728:
+    player: SlasherF
+    type: 89
+-508,108,728:
+    player: SlasherF
+    type: 89
+-508,108,729:
+    player: SlasherF
+    type: 89
+-509,108,729:
+    player: SlasherF
+    type: 89
+-509,108,728:
+    player: SlasherF
+    type: 89
+-508,109,728:
+    player: SlasherF
+    type: 89
+-508,109,729:
+    player: SlasherF
+    type: 89
+-509,109,729:
+    player: SlasherF
+    type: 89
+-509,109,728:
+    player: SlasherF
+    type: 89
+-508,110,728:
+    player: SlasherF
+    type: 89
+-509,110,728:
+    player: SlasherF
+    type: 89
+-509,110,729:
+    player: SlasherF
+    type: 89
+-508,110,729:
+    player: SlasherF
+    type: 89
+-508,111,729:
+    player: SlasherF
+    type: 89
+-509,111,729:
+    player: SlasherF
+    type: 89
+-509,111,728:
+    player: SlasherF
+    type: 89
+-508,111,728:
+    player: SlasherF
+    type: 89
+-509,112,728:
+    player: SlasherF
+    type: 89
+-508,112,728:
+    player: SlasherF
+    type: 89
+-508,112,729:
+    player: SlasherF
+    type: 89
+-509,112,729:
+    player: SlasherF
+    type: 89
+-509,113,728:
+    player: SlasherF
+    type: 89
+-508,113,728:
+    player: SlasherF
+    type: 89
+-508,113,729:
+    player: SlasherF
+    type: 89
+-509,113,729:
+    player: SlasherF
+    type: 89
+-509,114,728:
+    player: SlasherF
+    type: 89
+-508,114,728:
+    player: SlasherF
+    type: 89
+-508,114,729:
+    player: SlasherF
+    type: 89
+-509,114,729:
+    player: SlasherF
+    type: 89
+-509,115,728:
+    player: SlasherF
+    type: 89
+-508,115,728:
+    player: SlasherF
+    type: 89
+-508,115,729:
+    player: SlasherF
+    type: 89
+-509,115,729:
+    player: SlasherF
+    type: 89
+-509,116,728:
+    player: SlasherF
+    type: 89
+-508,116,728:
+    player: SlasherF
+    type: 89
+-508,116,729:
+    player: SlasherF
+    type: 89
+-509,116,729:
+    player: SlasherF
+    type: 89
+-509,117,728:
+    player: SlasherF
+    type: 89
+-508,117,728:
+    player: SlasherF
+    type: 89
+-508,117,729:
+    player: SlasherF
+    type: 89
+-509,117,729:
+    player: SlasherF
+    type: 89
+-509,118,728:
+    player: SlasherF
+    type: 89
+-508,118,728:
+    player: SlasherF
+    type: 89
+-508,118,729:
+    player: SlasherF
+    type: 89
+-509,118,729:
+    player: SlasherF
+    type: 89
+-509,119,728:
+    player: SlasherF
+    type: 89
+-508,119,728:
+    player: SlasherF
+    type: 89
+-508,119,729:
+    player: SlasherF
+    type: 89
+-509,119,729:
+    player: SlasherF
+    type: 89
+-509,120,728:
+    player: SlasherF
+    type: 89
+-508,120,728:
+    player: SlasherF
+    type: 89
+-508,120,729:
+    player: SlasherF
+    type: 89
+-509,120,729:
+    player: SlasherF
+    type: 89
+-509,121,728:
+    player: SlasherF
+    type: 89
+-508,121,728:
+    player: SlasherF
+    type: 89
+-508,121,729:
+    player: SlasherF
+    type: 89
+-509,121,729:
+    player: SlasherF
+    type: 89
+-509,122,728:
+    player: SlasherF
+    type: 89
+-508,122,728:
+    player: SlasherF
+    type: 89
+-508,122,729:
+    player: SlasherF
+    type: 89
+-509,122,729:
+    player: SlasherF
+    type: 89
+-505,125,732:
+    player: SlasherF
+    type: 89
+-507,122,729:
+    player: SlasherF
+    type: 3
+-507,122,730:
+    player: SlasherF
+    type: 3
+-507,122,731:
+    player: SlasherF
+    type: 3
+-503,123,734:
+    player: SlasherF
+    type: 89
+-504,124,733:
+    player: SlasherF
+    type: 89
+-506,122,731:
+    player: SlasherF
+    type: 3
+-505,122,731:
+    player: SlasherF
+    type: 3
+-502,122,734:
+    player: SlasherF
+    type: 89
+-505,122,732:
+    player: SlasherF
+    type: 3
+-503,122,735:
+    player: SlasherF
+    type: 89
+-507,121,728:
+    player: SlasherF
+    type: 3
+-507,121,727:
+    player: SlasherF
+    type: 3
+-506,121,727:
+    player: SlasherF
+    type: 3
+-506,121,726:
+    player: SlasherF
+    type: 3
+-505,121,726:
+    player: SlasherF
+    type: 3
+-505,121,725:
+    player: SlasherF
+    type: 3
+-503,122,722:
+    player: SlasherF
+    type: 89
+-502,122,723:
+    player: SlasherF
+    type: 89
+-503,123,723:
+    player: SlasherF
+    type: 89
+-504,124,724:
+    player: SlasherF
+    type: 89
+-505,125,725:
+    player: SlasherF
+    type: 89
+-510,121,728:
+    player: SlasherF
+    type: 3
+-510,121,727:
+    player: SlasherF
+    type: 3
+-511,121,727:
+    player: SlasherF
+    type: 3
+-511,121,726:
+    player: SlasherF
+    type: 3
+-512,121,726:
+    player: SlasherF
+    type: 3
+-512,121,725:
+    player: SlasherF
+    type: 3
+-512,125,725:
+    player: SlasherF
+    type: 89
+-509,121,730:
+    player: SlasherF
+    type: 3
+-510,121,730:
+    player: SlasherF
+    type: 3
+-510,121,731:
+    player: SlasherF
+    type: 3
+-511,121,731:
+    player: SlasherF
+    type: 3
+-511,121,732:
+    player: SlasherF
+    type: 3
+-512,121,732:
+    player: SlasherF
+    type: 3
+-512,125,732:
+    player: SlasherF
+    type: 89
+-509,125,729:
+    player: SlasherF
+    type: 89
+-509,125,728:
+    player: SlasherF
+    type: 89
+-508,125,728:
+    player: SlasherF
+    type: 89
+-508,125,729:
+    player: SlasherF
+    type: 89
+-508,124,728:
+    player: SlasherF
+    type: 89
+-509,124,728:
+    player: SlasherF
+    type: 89
+-508,124,729:
+    player: SlasherF
+    type: 89
+-509,124,729:
+    player: SlasherF
+    type: 89
+-508,123,728:
+    player: SlasherF
+    type: 89
+-509,123,728:
+    player: SlasherF
+    type: 89
+-508,123,729:
+    player: SlasherF
+    type: 89
+-509,123,729:
+    player: SlasherF
+    type: 89
+-507,106,728:
+    player: SlasherF
+    type: 44
+-510,106,728:
+    player: SlasherF
+    type: 44
+-510,106,729:
+    player: SlasherF
+    type: 5
+-509,107,730:
+    player: SlasherF
+    type: 5
+-510,107,730:
+    player: SlasherF
+    type: 44
+-508,108,730:
+    player: SlasherF
+    type: 44
+-507,109,729:
+    player: SlasherF
+    type: 44
+-507,109,730:
+    player: SlasherF
+    type: 44
+-507,110,728:
+    player: SlasherF
+    type: 44
+-508,111,727:
+    player: SlasherF
+    type: 44
+-507,110,727:
+    player: SlasherF
+    type: 44
+-507,108,730:
+    player: SlasherF
+    type: 5
+-507,109,728:
+    player: SlasherF
+    type: 5
+-508,110,727:
+    player: SlasherF
+    type: 5
+-509,111,727:
+    player: SlasherF
+    type: 44
+-510,112,728:
+    player: SlasherF
+    type: 44
+-510,111,727:
+    player: SlasherF
+    type: 5
+-510,112,729:
+    player: SlasherF
+    type: 5
+-509,113,730:
+    player: SlasherF
+    type: 5
+-510,113,730:
+    player: SlasherF
+    type: 44
+-508,114,730:
+    player: SlasherF
+    type: 44
+-507,115,729:
+    player: SlasherF
+    type: 44
+-507,114,730:
+    player: SlasherF
+    type: 5
+-507,115,728:
+    player: SlasherF
+    type: 5
+-507,114,731:
+    player: SlasherF
+    type: 20
+-507,114,732:
+    player: SlasherF
+    type: 20
+-507,114,733:
+    player: SlasherF
+    type: 20
+-507,113,735:
+    player: SlasherF
+    type: 20
+-507,113,734:
+    player: SlasherF
+    type: 20
+-509,113,731:
+    player: SlasherF
+    type: 20
+-508,113,731:
+    player: SlasherF
+    type: 20
+-507,113,731:
+    player: SlasherF
+    type: 20
+-507,113,732:
+    player: SlasherF
+    type: 20
+-507,113,733:
+    player: SlasherF
+    type: 20
+-510,113,735:
+    player: SlasherF
+    type: 20
+-509,113,735:
+    player: SlasherF
+    type: 20
+-508,113,735:
+    player: SlasherF
+    type: 20
+-510,113,734:
+    player: SlasherF
+    type: 20
+-509,113,734:
+    player: SlasherF
+    type: 20
+-508,113,734:
+    player: SlasherF
+    type: 20
+-510,113,733:
+    player: SlasherF
+    type: 20
+-509,113,733:
+    player: SlasherF
+    type: 20
+-508,113,733:
+    player: SlasherF
+    type: 20
+-510,113,732:
+    player: SlasherF
+    type: 20
+-509,113,732:
+    player: SlasherF
+    type: 20
+-508,113,732:
+    player: SlasherF
+    type: 20
+-510,113,731:
+    player: SlasherF
+    type: 20
+-508,113,730:
+    player: SlasherF
+    type: 5
+-507,113,729:
+    player: SlasherF
+    type: 5
+-507,113,730:
+    player: SlasherF
+    type: 5
+-507,113,728:
+    player: SlasherF
+    type: 5
+-508,113,727:
+    player: SlasherF
+    type: 5
+-507,113,727:
+    player: SlasherF
+    type: 5
+-509,113,727:
+    player: SlasherF
+    type: 5
+-512,113,721:
+    player: SlasherF
+    type: 89
+-511,113,721:
+    player: SlasherF
+    type: 89
+-509,113,721:
+    player: SlasherF
+    type: 89
+-510,113,721:
+    player: SlasherF
+    type: 89
+-507,113,721:
+    player: SlasherF
+    type: 89
+-508,113,721:
+    player: SlasherF
+    type: 89
+-506,113,721:
+    player: SlasherF
+    type: 89
+-505,113,721:
+    player: SlasherF
+    type: 89
+-503,113,721:
+    player: SlasherF
+    type: 89
+-504,113,721:
+    player: SlasherF
+    type: 89
+-502,113,722:
+    player: SlasherF
+    type: 89
+-503,113,722:
+    player: SlasherF
+    type: 89
+-501,113,723:
+    player: SlasherF
+    type: 89
+-502,113,723:
+    player: SlasherF
+    type: 89
+-503,113,723:
+    player: SlasherF
+    type: 89
+-501,113,724:
+    player: SlasherF
+    type: 89
+-501,113,725:
+    player: SlasherF
+    type: 89
+-501,113,726:
+    player: SlasherF
+    type: 89
+-501,113,727:
+    player: SlasherF
+    type: 89
+-501,113,728:
+    player: SlasherF
+    type: 89
+-501,113,729:
+    player: SlasherF
+    type: 89
+-501,113,730:
+    player: SlasherF
+    type: 89
+-501,113,731:
+    player: SlasherF
+    type: 89
+-501,113,732:
+    player: SlasherF
+    type: 89
+-501,113,733:
+    player: SlasherF
+    type: 89
+-501,113,734:
+    player: SlasherF
+    type: 89
+-502,113,735:
+    player: SlasherF
+    type: 89
+-502,113,734:
+    player: SlasherF
+    type: 89
+-503,113,735:
+    player: SlasherF
+    type: 89
+-503,113,734:
+    player: SlasherF
+    type: 89
+-504,113,735:
+    player: SlasherF
+    type: 20
+-504,113,734:
+    player: SlasherF
+    type: 20
+-505,113,735:
+    player: SlasherF
+    type: 20
+-505,113,734:
+    player: SlasherF
+    type: 20
+-505,113,733:
+    player: SlasherF
+    type: 20
+-506,113,735:
+    player: SlasherF
+    type: 20
+-506,113,734:
+    player: SlasherF
+    type: 20
+-506,113,733:
+    player: SlasherF
+    type: 20
+-506,113,732:
+    player: SlasherF
+    type: 20
+-504,113,733:
+    player: SlasherF
+    type: 89
+-505,113,732:
+    player: SlasherF
+    type: 89
+-506,113,731:
+    player: SlasherF
+    type: 89
+-503,113,733:
+    player: SlasherF
+    type: 20
+-502,113,733:
+    player: SlasherF
+    type: 20
+-504,113,732:
+    player: SlasherF
+    type: 20
+-503,113,732:
+    player: SlasherF
+    type: 20
+-502,113,732:
+    player: SlasherF
+    type: 20
+-505,113,731:
+    player: SlasherF
+    type: 20
+-504,113,731:
+    player: SlasherF
+    type: 20
+-503,113,731:
+    player: SlasherF
+    type: 20
+-502,113,731:
+    player: SlasherF
+    type: 20
+-506,113,729:
+    player: SlasherF
+    type: 20
+-506,113,727:
+    player: SlasherF
+    type: 20
+-506,113,728:
+    player: SlasherF
+    type: 20
+-506,113,730:
+    player: SlasherF
+    type: 20
+-505,113,727:
+    player: SlasherF
+    type: 20
+-505,113,728:
+    player: SlasherF
+    type: 20
+-505,113,729:
+    player: SlasherF
+    type: 20
+-505,113,730:
+    player: SlasherF
+    type: 20
+-504,113,727:
+    player: SlasherF
+    type: 20
+-504,113,728:
+    player: SlasherF
+    type: 20
+-504,113,729:
+    player: SlasherF
+    type: 20
+-504,113,730:
+    player: SlasherF
+    type: 20
+-503,113,727:
+    player: SlasherF
+    type: 20
+-503,113,728:
+    player: SlasherF
+    type: 20
+-503,113,729:
+    player: SlasherF
+    type: 20
+-503,113,730:
+    player: SlasherF
+    type: 20
+-502,113,730:
+    player: SlasherF
+    type: 20
+-502,113,729:
+    player: SlasherF
+    type: 20
+-502,113,728:
+    player: SlasherF
+    type: 20
+-502,113,727:
+    player: SlasherF
+    type: 20
+-503,113,724:
+    player: SlasherF
+    type: 20
+-502,113,724:
+    player: SlasherF
+    type: 20
+-503,113,725:
+    player: SlasherF
+    type: 20
+-502,113,725:
+    player: SlasherF
+    type: 20
+-502,113,726:
+    player: SlasherF
+    type: 20
+-503,113,726:
+    player: SlasherF
+    type: 20
+-504,113,725:
+    player: SlasherF
+    type: 20
+-504,113,726:
+    player: SlasherF
+    type: 20
+-505,113,726:
+    player: SlasherF
+    type: 20
+-506,113,726:
+    player: SlasherF
+    type: 89
+-505,113,725:
+    player: SlasherF
+    type: 89
+-504,113,724:
+    player: SlasherF
+    type: 89
+-504,113,723:
+    player: SlasherF
+    type: 20
+-504,113,722:
+    player: SlasherF
+    type: 20
+-505,113,724:
+    player: SlasherF
+    type: 20
+-505,113,723:
+    player: SlasherF
+    type: 20
+-505,113,722:
+    player: SlasherF
+    type: 20
+-506,113,725:
+    player: SlasherF
+    type: 20
+-506,113,724:
+    player: SlasherF
+    type: 20
+-506,113,723:
+    player: SlasherF
+    type: 20
+-506,113,722:
+    player: SlasherF
+    type: 20
+-507,113,726:
+    player: SlasherF
+    type: 20
+-507,113,725:
+    player: SlasherF
+    type: 20
+-507,113,724:
+    player: SlasherF
+    type: 20
+-507,113,723:
+    player: SlasherF
+    type: 20
+-507,113,722:
+    player: SlasherF
+    type: 20
+-508,113,726:
+    player: SlasherF
+    type: 20
+-509,113,726:
+    player: SlasherF
+    type: 20
+-510,113,726:
+    player: SlasherF
+    type: 20
+-510,113,725:
+    player: SlasherF
+    type: 20
+-509,113,725:
+    player: SlasherF
+    type: 20
+-508,113,725:
+    player: SlasherF
+    type: 20
+-508,113,724:
+    player: SlasherF
+    type: 20
+-509,113,724:
+    player: SlasherF
+    type: 20
+-510,113,724:
+    player: SlasherF
+    type: 20
+-510,113,722:
+    player: SlasherF
+    type: 20
+-510,113,723:
+    player: SlasherF
+    type: 20
+-509,113,722:
+    player: SlasherF
+    type: 20
+-509,113,723:
+    player: SlasherF
+    type: 20
+-508,113,722:
+    player: SlasherF
+    type: 20
+-508,113,723:
+    player: SlasherF
+    type: 20
+-512,113,722:
+    player: SlasherF
+    type: 20
+-512,113,723:
+    player: SlasherF
+    type: 20
+-512,113,724:
+    player: SlasherF
+    type: 20
+-511,113,722:
+    player: SlasherF
+    type: 20
+-511,113,723:
+    player: SlasherF
+    type: 20
+-511,113,724:
+    player: SlasherF
+    type: 20
+-511,113,725:
+    player: SlasherF
+    type: 20
+-512,113,725:
+    player: SlasherF
+    type: 89
+-511,113,726:
+    player: SlasherF
+    type: 89
+-511,113,727:
+    player: SlasherF
+    type: 20
+-511,113,728:
+    player: SlasherF
+    type: 20
+-511,113,729:
+    player: SlasherF
+    type: 20
+-511,113,730:
+    player: SlasherF
+    type: 20
+-511,113,731:
+    player: SlasherF
+    type: 89
+-512,113,726:
+    player: SlasherF
+    type: 20
+-512,113,727:
+    player: SlasherF
+    type: 20
+-512,113,728:
+    player: SlasherF
+    type: 20
+-512,113,729:
+    player: SlasherF
+    type: 20
+-512,113,730:
+    player: SlasherF
+    type: 20
+-512,113,731:
+    player: SlasherF
+    type: 20
+-512,113,732:
+    player: SlasherF
+    type: 89
+-511,113,732:
+    player: SlasherF
+    type: 20
+-511,113,733:
+    player: SlasherF
+    type: 20
+-511,113,734:
+    player: SlasherF
+    type: 20
+-511,113,735:
+    player: SlasherF
+    type: 20
+-512,113,735:
+    player: SlasherF
+    type: 20
+-512,113,734:
+    player: SlasherF
+    type: 20
+-512,113,733:
+    player: SlasherF
+    type: 20
+-507,112,726:
+    player: SlasherF
+    type: 20
+-507,111,726:
+    player: SlasherF
+    type: 20
+-507,110,726:
+    player: SlasherF
+    type: 20
+-507,109,726:
+    player: SlasherF
+    type: 20
+-507,108,726:
+    player: SlasherF
+    type: 20
+-507,107,726:
+    player: SlasherF
+    type: 20
+-507,106,726:
+    player: SlasherF
+    type: 20
+-508,106,726:
+    player: SlasherF
+    type: 20
+-509,106,726:
+    player: SlasherF
+    type: 20
+-509,106,727:
+    player: SlasherF
+    type: 20
+-509,107,727:
+    player: SlasherF
+    type: 20
+-509,108,727:
+    player: SlasherF
+    type: 20
+-509,110,727:
+    player: SlasherF
+    type: 20
+-509,109,727:
+    player: SlasherF
+    type: 20
+-510,112,726:
+    player: SlasherF
+    type: 20
+-510,111,726:
+    player: SlasherF
+    type: 20
+-509,112,726:
+    player: SlasherF
+    type: 20
+-509,111,726:
+    player: SlasherF
+    type: 20
+-508,112,726:
+    player: SlasherF
+    type: 20
+-508,111,726:
+    player: SlasherF
+    type: 20
+-508,110,726:
+    player: SlasherF
+    type: 20
+-509,110,726:
+    player: SlasherF
+    type: 20
+-509,109,726:
+    player: SlasherF
+    type: 20
+-509,108,726:
+    player: SlasherF
+    type: 20
+-509,107,726:
+    player: SlasherF
+    type: 20
+-508,109,726:
+    player: SlasherF
+    type: 20
+-508,108,726:
+    player: SlasherF
+    type: 20
+-508,107,726:
+    player: SlasherF
+    type: 20
+-511,112,727:
+    player: SlasherF
+    type: 20
+-511,111,727:
+    player: SlasherF
+    type: 20
+-511,110,727:
+    player: SlasherF
+    type: 20
+-511,109,727:
+    player: SlasherF
+    type: 20
+-511,108,727:
+    player: SlasherF
+    type: 20
+-511,107,727:
+    player: SlasherF
+    type: 20
+-511,106,727:
+    player: SlasherF
+    type: 20
+-511,112,728:
+    player: SlasherF
+    type: 20
+-511,111,728:
+    player: SlasherF
+    type: 20
+-511,110,728:
+    player: SlasherF
+    type: 20
+-511,109,728:
+    player: SlasherF
+    type: 20
+-511,108,728:
+    player: SlasherF
+    type: 20
+-511,107,728:
+    player: SlasherF
+    type: 20
+-511,106,728:
+    player: SlasherF
+    type: 20
+-511,112,729:
+    player: SlasherF
+    type: 20
+-511,111,729:
+    player: SlasherF
+    type: 20
+-511,110,729:
+    player: SlasherF
+    type: 20
+-511,109,729:
+    player: SlasherF
+    type: 20
+-511,108,729:
+    player: SlasherF
+    type: 20
+-511,107,729:
+    player: SlasherF
+    type: 20
+-511,107,730:
+    player: SlasherF
+    type: 20
+-511,106,729:
+    player: SlasherF
+    type: 20
+-511,112,730:
+    player: SlasherF
+    type: 20
+-511,111,730:
+    player: SlasherF
+    type: 20
+-511,110,730:
+    player: SlasherF
+    type: 20
+-511,109,730:
+    player: SlasherF
+    type: 20
+-511,108,730:
+    player: SlasherF
+    type: 20
+-511,106,730:
+    player: SlasherF
+    type: 20
+-511,112,726:
+    player: SlasherF
+    type: 89
+-511,111,726:
+    player: SlasherF
+    type: 89
+-511,110,726:
+    player: SlasherF
+    type: 89
+-511,109,726:
+    player: SlasherF
+    type: 89
+-511,108,726:
+    player: SlasherF
+    type: 89
+-511,107,726:
+    player: SlasherF
+    type: 89
+-511,106,726:
+    player: SlasherF
+    type: 89
+-511,112,731:
+    player: SlasherF
+    type: 89
+-511,111,731:
+    player: SlasherF
+    type: 89
+-511,110,731:
+    player: SlasherF
+    type: 89
+-511,109,731:
+    player: SlasherF
+    type: 89
+-511,108,731:
+    player: SlasherF
+    type: 89
+-511,107,731:
+    player: SlasherF
+    type: 89
+-511,106,731:
+    player: SlasherF
+    type: 89
+-506,112,731:
+    player: SlasherF
+    type: 89
+-506,111,731:
+    player: SlasherF
+    type: 89
+-506,110,731:
+    player: SlasherF
+    type: 89
+-506,109,731:
+    player: SlasherF
+    type: 89
+-506,108,731:
+    player: SlasherF
+    type: 89
+-506,107,731:
+    player: SlasherF
+    type: 89
+-506,106,731:
+    player: SlasherF
+    type: 89
+-510,112,731:
+    player: SlasherF
+    type: 20
+-509,112,731:
+    player: SlasherF
+    type: 20
+-508,112,731:
+    player: SlasherF
+    type: 20
+-507,112,731:
+    player: SlasherF
+    type: 20
+-507,111,731:
+    player: SlasherF
+    type: 20
+-508,111,731:
+    player: SlasherF
+    type: 20
+-509,111,731:
+    player: SlasherF
+    type: 20
+-510,111,731:
+    player: SlasherF
+    type: 20
+-510,110,731:
+    player: SlasherF
+    type: 20
+-509,110,731:
+    player: SlasherF
+    type: 20
+-508,110,731:
+    player: SlasherF
+    type: 20
+-507,110,731:
+    player: SlasherF
+    type: 20
+-507,109,731:
+    player: SlasherF
+    type: 20
+-508,109,731:
+    player: SlasherF
+    type: 20
+-509,109,731:
+    player: SlasherF
+    type: 20
+-510,109,731:
+    player: SlasherF
+    type: 20
+-510,108,731:
+    player: SlasherF
+    type: 20
+-509,108,731:
+    player: SlasherF
+    type: 20
+-509,108,732:
+    player: SlasherF
+    type: 20
+-507,108,731:
+    player: SlasherF
+    type: 20
+-508,108,731:
+    player: SlasherF
+    type: 20
+-510,107,731:
+    player: SlasherF
+    type: 20
+-510,106,731:
+    player: SlasherF
+    type: 20
+-509,107,731:
+    player: SlasherF
+    type: 20
+-508,107,731:
+    player: SlasherF
+    type: 20
+-509,106,731:
+    player: SlasherF
+    type: 20
+-508,106,731:
+    player: SlasherF
+    type: 20
+-507,106,731:
+    player: SlasherF
+    type: 20
+-507,107,731:
+    player: SlasherF
+    type: 20
+-506,112,730:
+    player: SlasherF
+    type: 20
+-506,112,729:
+    player: SlasherF
+    type: 20
+-506,112,728:
+    player: SlasherF
+    type: 20
+-506,112,727:
+    player: SlasherF
+    type: 20
+-506,112,726:
+    player: SlasherF
+    type: 89
+-506,111,726:
+    player: SlasherF
+    type: 89
+-506,110,726:
+    player: SlasherF
+    type: 89
+-506,109,726:
+    player: SlasherF
+    type: 89
+-506,108,726:
+    player: SlasherF
+    type: 89
+-506,107,726:
+    player: SlasherF
+    type: 89
+-506,106,726:
+    player: SlasherF
+    type: 89
+-506,111,727:
+    player: SlasherF
+    type: 20
+-506,111,728:
+    player: SlasherF
+    type: 20
+-506,111,729:
+    player: SlasherF
+    type: 20
+-506,111,730:
+    player: SlasherF
+    type: 20
+-506,110,730:
+    player: SlasherF
+    type: 20
+-506,110,729:
+    player: SlasherF
+    type: 20
+-506,110,728:
+    player: SlasherF
+    type: 20
+-506,110,727:
+    player: SlasherF
+    type: 20
+-506,109,727:
+    player: SlasherF
+    type: 20
+-506,109,728:
+    player: SlasherF
+    type: 20
+-506,109,729:
+    player: SlasherF
+    type: 20
+-506,109,730:
+    player: SlasherF
+    type: 20
+-506,108,730:
+    player: SlasherF
+    type: 20
+-506,108,729:
+    player: SlasherF
+    type: 20
+-506,108,728:
+    player: SlasherF
+    type: 20
+-506,108,727:
+    player: SlasherF
+    type: 20
+-506,107,727:
+    player: SlasherF
+    type: 20
+-506,106,727:
+    player: SlasherF
+    type: 20
+-506,107,728:
+    player: SlasherF
+    type: 20
+-506,106,728:
+    player: SlasherF
+    type: 20
+-506,106,730:
+    player: SlasherF
+    type: 20
+-506,106,729:
+    player: SlasherF
+    type: 20
+-506,107,730:
+    player: SlasherF
+    type: 20
+-506,107,729:
+    player: SlasherF
+    type: 20
+-510,110,726:
+    player: SlasherF
+    type: 20
+-510,109,726:
+    player: SlasherF
+    type: 20
+-497,105,731:
+    player: SlasherF
+    type: 89
+-497,105,730:
+    player: SlasherF
+    type: 89
+-497,105,729:
+    player: SlasherF
+    type: 89
+-497,105,728:
+    player: SlasherF
+    type: 89
+-497,105,727:
+    player: SlasherF
+    type: 89
+-497,105,726:
+    player: SlasherF
+    type: 89
+-499,76,720:
+    player: SlasherF
+    type: 3
+-498,75,720:
+    player: SlasherF
+    type: 3
+-497,75,720:
+    player: SlasherF
+    type: 3
+-498,76,721:
+    player: SlasherF
+    type: 3
+-497,76,721:
+    player: SlasherF
+    type: 3
+-497,77,722:
+    player: SlasherF
+    type: 3
+-498,77,722:
+    player: SlasherF
+    type: 3
+-497,78,723:
+    player: SlasherF
+    type: 3
+-497,79,724:
+    player: SlasherF
+    type: 3
+-497,80,725:
+    player: SlasherF
+    type: 3
+-497,76,735:
+    player: SlasherF
+    type: 3
+-497,77,734:
+    player: SlasherF
+    type: 3
+-497,77,732:
+    player: SlasherF
+    type: 4
+-497,77,733:
+    player: SlasherF
+    type: 4
+-497,78,733:
+    player: SlasherF
+    type: 3
+-497,78,732:
+    player: SlasherF
+    type: 3
+-497,78,731:
+    player: SlasherF
+    type: 3
+-497,78,730:
+    player: SlasherF
+    type: 3
+-497,78,729:
+    player: SlasherF
+    type: 3
+-497,78,728:
+    player: SlasherF
+    type: 3
+-497,78,727:
+    player: SlasherF
+    type: 3
+-497,78,726:
+    player: SlasherF
+    type: 3
+-497,78,725:
+    player: SlasherF
+    type: 3
+-497,78,724:
+    player: SlasherF
+    type: 3
+-507,74,730:
+    player: SlasherF
+    type: 50
+-509,71,721:
+    player: SlasherF
+    type: 50
+-501,69,733:
+    player: SlasherF
+    type: 50
+-507,69,733:
+    player: SlasherF
+    type: 50
+-506,70,721:
+    player: SlasherF
+    type: 4
