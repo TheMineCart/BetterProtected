@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be88fb15-c0e8-4f52-8802-121be15789cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="be88fb15-c0e8-4f52-8802-121be15789cd" name="Default" comment="" />
     <list id="b8653116-1228-4401-8f2b-0e8ebcc0c21e" name="Workspace Related" comment="" />
     <ignored path="BetterProtected.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -576,7 +574,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="0" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -638,7 +636,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readding workspace.xml for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating workspace." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -658,6 +656,7 @@
     <MESSAGE value="Moving test data into fixtures.files package." />
     <MESSAGE value="Updated .gitignore." />
     <MESSAGE value="Readding workspace.xml for now." />
+    <MESSAGE value="Updating workspace." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
