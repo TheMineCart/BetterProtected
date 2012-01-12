@@ -1,0 +1,9 @@
+name: BetterProtected
+main: com.tmc.BetterProtected.Main
+version: 0.01
+
+#commands:
+#  quit:
+#    description: This command kicks you from the server.
+#    permissions: SelfKick.quit
+#    usage: /quit

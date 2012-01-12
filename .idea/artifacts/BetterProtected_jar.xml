@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BetterProtected:jar">
+    <output-path>$PROJECT_DIR$/../</output-path>
+    <root id="archive" name="BetterProtected.jar">
+      <element id="module-output" name="BetterProtected" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+    </root>
+  </artifact>
+</component>
