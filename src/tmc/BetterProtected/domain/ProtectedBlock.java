@@ -23,4 +23,32 @@ public class ProtectedBlock {
         this.y = y;
         this.z = z;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getZ() {
+        return z;
+    }
+
+    public Material getBlockType() {
+        return blockType;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setBlockType(Material blockType) {
+        this.blockType = blockType;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }
