@@ -7,21 +7,17 @@ public class ProtectedBlock {
     private final int x;
     private final int y;
     private final int z;
+    private final ProtectedBlockKey key;
     private Material blockType;
-    private Player player;
+    private String player;
 
-    public ProtectedBlock(int x, int y, int z, Material blockType, Player player) {
+    public ProtectedBlock(int x, int y, int z, Material blockType, String player) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.key = new ProtectedBlockKey(y);
         this.blockType = blockType;
         this.player = player;
-    }
-
-    public ProtectedBlock(int x, int y, int z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
     }
 
     public int getX() {
@@ -36,11 +32,15 @@ public class ProtectedBlock {
         return z;
     }
 
+    public ProtectedBlockKey getKey() {
+        return key;
+    }
+
     public Material getBlockType() {
         return blockType;
     }
 
-    public Player getPlayer() {
+    public String getPlayer() {
         return player;
     }
 
@@ -48,7 +48,7 @@ public class ProtectedBlock {
         this.blockType = blockType;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(String player) {
         this.player = player;
     }
 }
