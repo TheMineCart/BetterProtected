@@ -34,13 +34,21 @@ public class ProtectedChunkTest {
     }
 
     @Test
+    public void shouldOnlyStoreOneBlockPerCoordinate() {
+        protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
+
+        assertThat(protectedChunk.numberOfBlocks(), is(1));
+    }
+
+    @Test
     public void shouldGetNumberOfBlocksFromMap() {
         protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
-        protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
-        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
-        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
-        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
-        protectedChunk.addBlock(new ProtectedBlock(1, 7, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 2, 4, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 5, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 6, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 7, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 7, 8, Material.getMaterial(1), "Bob"));
         
         assertThat(protectedChunk.numberOfBlocks(), is(6));
     }
