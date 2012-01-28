@@ -3,7 +3,7 @@ However, the tricky part comes when you want to run this plugin with an instance
 
   * Building the project structure:
     1. Make a "minecraft" directory wherever you like.
-    2. Download "craftbukkit-1.0.1-R1.jar" from the following url and place it into your newly created "minecraft" folder:
+    2. Download "craftbukkit-1.1-R1.jar" from the following url and place it into your newly created "minecraft" folder:
         - http://repo.bukkit.org/service/local/artifact/maven/redirect?g=org.bukkit&a=craftbukkit&v=RELEASE&r=releases
     3. Now you need a "plugins" folder in the "minecraft" directory.
     4. Navigate into your new "plugins" folder.
@@ -18,7 +18,7 @@ However, the tricky part comes when you want to run this plugin with an instance
     3. Under "Project Settings" on the left hand side, select "libraries".
     4. Create a new "Project Library" with the + button at the top.
         - Select "java" from the drop down "New Project Library".
-        - Navigate to and select the "craftbukkit-1.0.1-R1.jar" file that we added earlier.
+        - Navigate to and select the "craftbukkit-1.1-R1.jar" file that we added earlier.
         - In the next window "Choose Modules", select "BetterProtected" and press OK.
     5. Under "Project Settings" on the left hand side, select "artifacts".
     6. Create a new "Artifact" by pressing the + button at the top.
