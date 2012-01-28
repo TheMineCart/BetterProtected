@@ -17,7 +17,7 @@ However, the tricky part comes when you want to run this plugin with an instance
     - Under "Project Settings" on the left hand side, select "libraries".
     - Create a new "Project Library" with the + button at the top.
         - Select "java" from the drop down "New Project Library".
-        - Navigate to and select the "craftbukkit-1.0.1-R1.jar" file that we added earlier.
+        - Navigate to and select the "craftbukkit-1.1-R1.jar" file that we added earlier.
         - In the next window "Choose Modules", select "BetterProtected" and press OK.
     - Under "Project Settings" on the left hand side, select "artifacts".
     - Create a new "Artifact" by pressing the + button at the top.
