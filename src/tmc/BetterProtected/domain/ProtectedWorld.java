@@ -15,6 +15,20 @@ public class ProtectedWorld {
     }
 
     public ProtectedChunk getChunkFrom(ProtectedChunkKey key) {
-        return chunks.get(key);
+        ProtectedChunk chunk = chunks.get(key);
+        if(null != chunk) 
+            return chunk;
+
+        addNewChunkForKey(key);
+        return getChunkFrom(key);
+    }
+
+    public void addNewChunkForKey(ProtectedChunkKey key) {
+        ProtectedChunk newKey = new ProtectedChunk(key.getX(), key.getZ());
+        addChunk(newKey);
+    }
+
+    public Integer numberOfChunks() {
+        return chunks.size();
     }
 }

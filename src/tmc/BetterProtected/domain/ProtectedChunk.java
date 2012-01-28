@@ -1,9 +1,9 @@
 package tmc.BetterProtected.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
+import java.util.*;
 
 public class ProtectedChunk {
     private final ProtectedChunkKey key;
@@ -41,5 +41,13 @@ public class ProtectedChunk {
             chunk.put(block.getKey(), slice);
         }
         slice.add(block);
+    }
+
+    public Integer numberOfBlocks() {
+        int count = 0;
+        for (List<ProtectedBlock> blocks : Lists.newArrayList(chunk.values())) {
+            count += blocks.size();
+        }
+        return count;
     }
 }

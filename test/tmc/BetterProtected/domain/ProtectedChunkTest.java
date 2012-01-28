@@ -32,4 +32,23 @@ public class ProtectedChunkTest {
         
         assertThat(protectedChunk.getBlocksAt(jasonBlock.getKey()), hasItem(jasonBlock));
     }
+
+    @Test
+    public void shouldGetNumberOfBlocksFromMap() {
+        protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 2, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 4, 3, Material.getMaterial(1), "Bob"));
+        protectedChunk.addBlock(new ProtectedBlock(1, 7, 3, Material.getMaterial(1), "Bob"));
+        
+        assertThat(protectedChunk.numberOfBlocks(), is(6));
+    }
+
+    @Test
+    public void shouldGetZeroNumberOfBlocksIfChunkIsEmpty() {
+        assertThat(protectedChunk.numberOfBlocks(), is(0));
+    }
+    
+    
 }
