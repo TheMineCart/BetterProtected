@@ -3,7 +3,7 @@ However, the tricky part comes when you want to run this plugin with an instance
 
   * Building the project structure...
     - First make a "minecraft" directory wherever you like...
-    - Next download "craftbukkit-1.0.1-R1.jar" from the following url and place it into your newly created "minecraft" folder:
+    - Next download "craftbukkit-1.1-R1.jar" from the following url and place it into your newly created "minecraft" folder:
         - http://repo.bukkit.org/service/local/artifact/maven/redirect?g=org.bukkit&a=craftbukkit&v=RELEASE&r=releases
     - Now you need a "plugins" folder in the "minecraft" directory.
     - Navigate into your new "plugins" folder.
