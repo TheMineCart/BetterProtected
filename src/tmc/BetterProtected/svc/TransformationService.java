@@ -1,6 +1,7 @@
 package tmc.BetterProtected.svc;
 
 import tmc.BetterProtected.domain.ProtectedChunkKey;
+import tmc.BetterProtected.domain.ProtectedWorld;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,5 +25,8 @@ public class TransformationService {
         }
 
         return null;
+    }
+
+    public void transformFile(String fileName, ProtectedWorld world) {
     }
 }
