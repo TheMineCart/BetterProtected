@@ -7,11 +7,12 @@ However, the tricky part comes when you want to run this plugin with an instance
         - http://repo.bukkit.org/service/local/artifact/maven/redirect?g=org.bukkit&a=craftbukkit&v=RELEASE&r=releases
     - Now you need a "plugins" folder in the "minecraft" directory.
     - Navigate into your new "plugins" folder.
-    - Create a new directory "BetterProtected" inside of the "plugins" directory.
-    - Now clone the git repository into that directory:
+    - Clone the git repository into that directory:
         - git@github.com:TheMineCart/BetterProtected.git
 
   * Setting up Intellij...
+    - You should be able to open the .iml file in IntelliJ and it should perform most of the setup.  
+    - If for some reason you want to set it up manually, you can follow the below steps.
     - First open up the Project Structure dialogue (ctrl + alt + shift + s).
     - Add/Select a java sdk. It should be 1.6.0_20 or earlier in order to work with servers running in older JREs.
     - Under "Project Settings" on the left hand side, select "libraries".
