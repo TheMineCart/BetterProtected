@@ -1,7 +1,7 @@
 Setting this up as an Intellij project should be straight forward and pretty easy...
 However, the tricky part comes when you want to run this plugin with an instance of CraftBukkit (Minecraft Server Mod).
 
-  * Building the project structure...
+  * Building the project structure:
     1. Make a "minecraft" directory wherever you like.
     2. Download "craftbukkit-1.0.1-R1.jar" from the following url and place it into your newly created "minecraft" folder:
         - http://repo.bukkit.org/service/local/artifact/maven/redirect?g=org.bukkit&a=craftbukkit&v=RELEASE&r=releases
@@ -10,7 +10,9 @@ However, the tricky part comes when you want to run this plugin with an instance
     5. Clone the git repository into that directory
 
          `git clone git@github.com:TheMineCart/BetterProtected.git`       
-  * Setting up Intellij...
+  * Setting up Intellij:
+      * You can simply open up the .iml file that comes with the project and IntelliJ should perform most of the configuration
+      * If you prefer to set it up manually, you can follow the following steps:
     1. First open up the Project Structure dialogue (ctrl + alt + shift + s).
     2. Add/Select a java sdk. It should be 1.6.0_20 or earlier in order to work with servers running in older JREs.
     3. Under "Project Settings" on the left hand side, select "libraries".
