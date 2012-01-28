@@ -51,4 +51,8 @@ public class ProtectedBlock {
     public void setPlayer(String player) {
         this.player = player;
     }
+
+    public Boolean isSamePositionAs(ProtectedBlock block) {
+        return ((x == block.getX()) && (y == block.getY()) && (z == block.getZ()));
+    }
 }
