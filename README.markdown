@@ -9,8 +9,7 @@ However, the tricky part comes when you want to run this plugin with an instance
     4. Navigate into your new "plugins" folder.
     5. Clone the git repository into that directory
 
-        git clone git@github.com:TheMineCart/BetterProtected.git
-        
+         `git clone git@github.com:TheMineCart/BetterProtected.git`       
   * Setting up Intellij...
     1. First open up the Project Structure dialogue (ctrl + alt + shift + s).
     2. Add/Select a java sdk. It should be 1.6.0_20 or earlier in order to work with servers running in older JREs.
