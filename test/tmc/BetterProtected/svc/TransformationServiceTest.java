@@ -1,12 +1,18 @@
 package tmc.BetterProtected.svc;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.configuration.file.YamlConfigurationOptions;
 import org.junit.Before;
 import org.junit.Test;
+import tmc.BetterProtected.domain.ProtectedBlock;
 import tmc.BetterProtected.domain.ProtectedChunk;
 import tmc.BetterProtected.domain.ProtectedChunkKey;
 import tmc.BetterProtected.domain.ProtectedWorld;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -40,7 +46,37 @@ public class TransformationServiceTest {
     }
 
     @Test
+    public void singleFileSpike() throws IOException, InvalidConfigurationException {
+        String fileName = "test\\fixtures\\files\\-23.-8.yml";
+        YamlConfiguration configuration = new YamlConfiguration();
+
+        configuration.load(fileName);
+       
+        ProtectedBlock block;
+        for (String path : configuration.getKeys(false)) {
+            String player = configuration.getString(path + ".player");
+            int blockType = configuration.getInt(path + ".type");
+            String[] coordinates = path.split(",");
+            int x = Integer.parseInt(coordinates[0]);
+            int y = Integer.parseInt(coordinates[1]);
+            int z = Integer.parseInt(coordinates[2]);
+            block = new ProtectedBlock(x, y, z, Material.getMaterial(blockType), player);
+            
+            System.out.println("I have a block with coordinates: ");
+            System.out.println("X: " + block.getX());
+            System.out.println("Y: " + block.getY());
+            System.out.println("Z: " + block.getZ());
+            System.out.println("The owner is: " + block.getPlayer());
+            System.out.println("The type is: " + block.getBlockType().toString());
+            //And parse the block location
+        }
+
+
+    }
+
+    @Test
     public void fileReaderSpike() {
+
         File fileFolder = new File(FIXTURE_DIRECTORY);
         File[] files = fileFolder.listFiles();
 
@@ -49,7 +85,17 @@ public class TransformationServiceTest {
 
         for (File file : files) {
             if (file.isFile()) {
-
+                YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+                YamlConfigurationOptions options = yamlConfiguration.options();
+                YamlConfiguration configuration = new YamlConfiguration();
+                try {
+                    configuration.load(file);
+                    System.out.println(configuration.get("-355,63,-119"));
+                } catch (IOException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                } catch (InvalidConfigurationException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
                 String fileName = file.toString();
 
                 ProtectedChunkKey key = transformationService.parseChunkKeyFromFileName(fileName);
