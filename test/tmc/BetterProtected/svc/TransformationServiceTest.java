@@ -6,8 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.*;
 
+import java.io.File;
 import java.io.IOException;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -61,6 +63,17 @@ public class TransformationServiceTest {
         transformationService.transformFile(fileName, world);
 
         assertThat(world.numberOfChunks(), is(0));
+    }
+
+    @Test
+    public void shouldProcessAllFilesOfAWorldFromOneDirectory() throws IOException, InvalidConfigurationException {
+        String location = "test\\fixtures\\files";
+        File file = new File(location);
+        int numberOfFiles = file.list().length;
+
+        ProtectedWorld world = transformationService.buildWorldFromFolder(location, "WorldName");
+
+        assertThat(world.numberOfChunks(), is(numberOfFiles));
     }
 
 }

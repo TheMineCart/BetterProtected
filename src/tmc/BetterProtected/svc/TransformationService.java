@@ -8,6 +8,7 @@ import tmc.BetterProtected.domain.ProtectedChunk;
 import tmc.BetterProtected.domain.ProtectedChunkKey;
 import tmc.BetterProtected.domain.ProtectedWorld;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,19 +19,6 @@ public class TransformationService {
 
     public TransformationService() {
         pattern = Pattern.compile(FILE_REGEX);
-    }
-
-    public ProtectedChunkKey parseChunkKeyFromFileName(String fileName) {
-        Matcher matcher = pattern.matcher(fileName);
-
-        if (matcher.matches()) {
-            Integer x = Integer.parseInt(matcher.group(1));
-            Integer z = Integer.parseInt(matcher.group(2));
-
-            return new ProtectedChunkKey(x, z);
-        }
-
-        return null;
     }
 
     public void transformFile(String fileName, ProtectedWorld world) throws IOException, InvalidConfigurationException {
@@ -53,5 +41,31 @@ public class TransformationService {
                     Material.getMaterial(configuration.getInt(path + ".type")),
                     configuration.getString(path + ".player")));
         }
+    }
+
+    public ProtectedChunkKey parseChunkKeyFromFileName(String fileName) {
+        Matcher matcher = pattern.matcher(fileName);
+
+        if (matcher.matches()) {
+            Integer x = Integer.parseInt(matcher.group(1));
+            Integer z = Integer.parseInt(matcher.group(2));
+
+            return new ProtectedChunkKey(x, z);
+        }
+
+        return null;
+    }
+
+    public ProtectedWorld buildWorldFromFolder(String location, String worldName) throws IOException, InvalidConfigurationException {
+        ProtectedWorld world = new ProtectedWorld();
+
+        File folder = new File(location);
+
+        File[] files = folder.listFiles();
+        for (File file : files) {
+            transformFile(file.getAbsolutePath(), world);
+        }
+        
+        return world;
     }
 }

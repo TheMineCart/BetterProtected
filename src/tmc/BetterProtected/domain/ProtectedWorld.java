@@ -31,4 +31,12 @@ public class ProtectedWorld {
     public Integer numberOfChunks() {
         return chunks.size();
     }
+
+    public Integer numberOfBlocks() {
+        int count = 0;
+        for (ProtectedChunk chunk : chunks.values()) {
+            count += chunk.numberOfBlocks();
+        }
+        return count;
+    }
 }

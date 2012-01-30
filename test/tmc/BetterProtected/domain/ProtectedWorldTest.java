@@ -1,5 +1,6 @@
 package tmc.BetterProtected.domain;
 
+import org.bukkit.Material;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -36,5 +37,30 @@ public class ProtectedWorldTest {
         
         assertThat(world.numberOfChunks(), is(1));
         assertThat(world.getChunkFrom(newKey).getChunk().size(), is(0));
+    }
+
+    @Test
+    public void shouldGetNumberOfBlocks() {
+        ProtectedWorld world = new ProtectedWorld();
+        ProtectedChunkKey aKey = new ProtectedChunkKey(1, 1);
+
+        world.addNewChunkForKey(aKey);
+        ProtectedChunk chunk = world.getChunkFrom(aKey);
+        chunk.addBlock(new ProtectedBlock(1, 2, 3, Material.DIRT, "Jason"));
+        chunk.addBlock(new ProtectedBlock(2, 2, 3, Material.DIRT, "Bob"));
+        chunk.addBlock(new ProtectedBlock(3, 2, 3, Material.DIRT, "Jeremy"));
+        chunk.addBlock(new ProtectedBlock(4, 2, 3, Material.DIRT, "James"));
+
+        ProtectedChunkKey anotherKey = new ProtectedChunkKey(2, 2);
+
+        world.addNewChunkForKey(anotherKey);
+        ProtectedChunk anotherChunk = world.getChunkFrom(anotherKey);
+        anotherChunk.addBlock(new ProtectedBlock(1, 3, 4, Material.DIRT, "Jason"));
+        anotherChunk.addBlock(new ProtectedBlock(2, 3, 4, Material.DIRT, "Bob"));
+        anotherChunk.addBlock(new ProtectedBlock(3, 3, 4, Material.DIRT, "Jeremy"));
+        anotherChunk.addBlock(new ProtectedBlock(4, 3, 4, Material.DIRT, "James"));
+
+        assertThat(world.numberOfChunks(), is(2));
+        assertThat(world.numberOfBlocks(), is(8));
     }
 }
