@@ -2,14 +2,10 @@ package tmc.BetterProtected.svc;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.configuration.file.YamlConfigurationOptions;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import tmc.BetterProtected.domain.*;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -45,7 +41,7 @@ public class TransformationServiceTest {
     }
 
     @Test
-    public void shouldGetProtectedBlocksFromFile() {
+    public void shouldGetProtectedBlocksFromFile() throws IOException, InvalidConfigurationException {
         String fileName = "test\\fixtures\\10.10.yml";
         ProtectedWorld world = new ProtectedWorld();
 
@@ -57,67 +53,14 @@ public class TransformationServiceTest {
         assertThat(actualChunk.getBlocksAt(new ProtectedBlockKey(1)), hasItems(bobBlock));
     }
 
-    @Test
-    @Ignore
-    public void singleFileSpike() throws IOException, InvalidConfigurationException {
-        String fileName = "test\\fixtures\\files\\-23.-8.yml";
-        YamlConfiguration configuration = new YamlConfiguration();
+    @Test(expected = InvalidConfigurationException.class)
+    public void shouldNotProcessFileWithNullChunkKey() throws IOException, InvalidConfigurationException {
+        String fileName = "test\\fixtures\\nullChunkKey.yml";
+        ProtectedWorld world = new ProtectedWorld();
 
-        configuration.load(fileName);
-       
-        ProtectedBlock block;
-        for (String path : configuration.getKeys(false)) {
-            String player = configuration.getString(path + ".player");
-            int blockType = configuration.getInt(path + ".type");
-            String[] coordinates = path.split(",");
-            int x = Integer.parseInt(coordinates[0]);
-            int y = Integer.parseInt(coordinates[1]);
-            int z = Integer.parseInt(coordinates[2]);
-            block = new ProtectedBlock(x, y, z, Material.getMaterial(blockType), player);
-            
-            System.out.println("I have a block with coordinates: ");
-            System.out.println("X: " + block.getX());
-            System.out.println("Y: " + block.getY());
-            System.out.println("Z: " + block.getZ());
-            System.out.println("The owner is: " + block.getPlayer());
-            System.out.println("The type is: " + block.getBlockType().toString());
-            //And parse the block location
-        }
+        transformationService.transformFile(fileName, world);
 
-
+        assertThat(world.numberOfChunks(), is(0));
     }
 
-    @Test
-    @Ignore
-    public void fileReaderSpike() {
-
-        File fileFolder = new File(FIXTURE_DIRECTORY);
-        File[] files = fileFolder.listFiles();
-
-        ProtectedWorld protectedWorld = new ProtectedWorld();
-        ProtectedChunk protectedChunk;
-
-        for (File file : files) {
-            if (file.isFile()) {
-                YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-                YamlConfigurationOptions options = yamlConfiguration.options();
-                YamlConfiguration configuration = new YamlConfiguration();
-                try {
-                    configuration.load(file);
-                    System.out.println(configuration.get("-355,63,-119"));
-                } catch (IOException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                } catch (InvalidConfigurationException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                }
-                String fileName = file.toString();
-
-                ProtectedChunkKey key = transformationService.parseChunkKeyFromFileName(fileName);
-                if (key != null) {
-                    protectedChunk = new ProtectedChunk(key.getX(), key.getZ());
-                    protectedWorld.addChunk(protectedChunk);
-                }
-            }
-        }
-    }
 }

@@ -1,8 +1,14 @@
 package tmc.BetterProtected.svc;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.YamlConfiguration;
+import tmc.BetterProtected.domain.ProtectedBlock;
+import tmc.BetterProtected.domain.ProtectedChunk;
 import tmc.BetterProtected.domain.ProtectedChunkKey;
 import tmc.BetterProtected.domain.ProtectedWorld;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,6 +33,25 @@ public class TransformationService {
         return null;
     }
 
-    public void transformFile(String fileName, ProtectedWorld world) {
+    public void transformFile(String fileName, ProtectedWorld world) throws IOException, InvalidConfigurationException {
+        ProtectedChunkKey key = parseChunkKeyFromFileName(fileName);
+        if (null == key) {
+            throw new InvalidConfigurationException();
+        }
+
+        ProtectedChunk chunk = world.getChunkFrom(key);
+
+        YamlConfiguration configuration = new YamlConfiguration();
+        configuration.load(fileName);
+
+        for (String path : configuration.getKeys(false)) {
+            String[] coordinates = path.split(",");
+            int x = Integer.parseInt(coordinates[0]);
+            int y = Integer.parseInt(coordinates[1]);
+            int z = Integer.parseInt(coordinates[2]);
+            chunk.addBlock(new ProtectedBlock(x, y, z,
+                    Material.getMaterial(configuration.getInt(path + ".type")),
+                    configuration.getString(path + ".player")));
+        }
     }
 }

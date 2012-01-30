@@ -39,6 +39,15 @@ public class ProtectedChunk {
         if(slice == null) {
             slice = new ArrayList<ProtectedBlock>();
             chunk.put(block.getKey(), slice);
+        } else {
+            int count = 0;
+            while(count < slice.size()) {
+                if (block.isSamePositionAs(slice.get(count))) {
+                    slice.remove(count);
+                } else {
+                    count++;
+                }
+            }
         }
         slice.add(block);
     }
