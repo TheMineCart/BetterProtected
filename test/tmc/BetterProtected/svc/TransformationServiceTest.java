@@ -66,7 +66,7 @@ public class TransformationServiceTest {
     }
 
     @Test
-    public void shouldProcessAllFilesOfAWorldFromOneDirectory() throws IOException, InvalidConfigurationException {
+    public void shouldProcessAllFilesOfAWorldFromOneDirectory() {
         String location = "test\\fixtures\\files";
         File file = new File(location);
         int numberOfFiles = file.list().length;
@@ -74,6 +74,18 @@ public class TransformationServiceTest {
         ProtectedWorld world = transformationService.buildWorldFromFolder(location, "WorldName");
 
         assertThat(world.numberOfChunks(), is(numberOfFiles));
+    }
+
+    @Test
+    public void shouldSkipFilesWithInvalidName() {
+        String location = "test\\fixtures";
+        File file = new File(location);
+        int numberOfFiles = file.list().length;
+
+        ProtectedWorld world = transformationService.buildWorldFromFolder(location, "WorldName");
+        //Given that we have only 1 valid yml file in that directory,
+        // the world should have 1 chunk.
+        assertThat(world.numberOfChunks(), is(1));
     }
 
 }

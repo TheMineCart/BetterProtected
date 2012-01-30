@@ -3,6 +3,7 @@ package tmc.BetterProtected.svc;
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.LoggerOutputStream;
 import tmc.BetterProtected.domain.ProtectedBlock;
 import tmc.BetterProtected.domain.ProtectedChunk;
 import tmc.BetterProtected.domain.ProtectedChunkKey;
@@ -19,6 +20,25 @@ public class TransformationService {
 
     public TransformationService() {
         pattern = Pattern.compile(FILE_REGEX);
+    }
+
+    public ProtectedWorld buildWorldFromFolder(String location, String worldName) {
+        ProtectedWorld world = new ProtectedWorld();
+
+        File folder = new File(location);
+
+        File[] files = folder.listFiles();
+        for (File file : files) {
+            try {
+                transformFile(file.getAbsolutePath(), world);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InvalidConfigurationException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return world;
     }
 
     public void transformFile(String fileName, ProtectedWorld world) throws IOException, InvalidConfigurationException {
@@ -54,18 +74,5 @@ public class TransformationService {
         }
 
         return null;
-    }
-
-    public ProtectedWorld buildWorldFromFolder(String location, String worldName) throws IOException, InvalidConfigurationException {
-        ProtectedWorld world = new ProtectedWorld();
-
-        File folder = new File(location);
-
-        File[] files = folder.listFiles();
-        for (File file : files) {
-            transformFile(file.getAbsolutePath(), world);
-        }
-        
-        return world;
     }
 }
