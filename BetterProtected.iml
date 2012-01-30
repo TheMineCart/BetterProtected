@@ -27,6 +27,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="craftbukkit-1.1-R1" level="project" />
+    <orderEntry type="library" name="postgresql-9.1-901.jdbc4" level="project" />
   </component>
 </module>
 
