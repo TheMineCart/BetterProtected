@@ -44,6 +44,7 @@ public class TransformationServiceTest {
 
     @Test
     public void shouldGetProtectedBlocksFromFile() throws IOException, InvalidConfigurationException {
+        TimeFreezeService.freeze();
         String fileName = "test\\fixtures\\10.10.yml";
         ProtectedWorld world = new ProtectedWorld();
 
@@ -53,6 +54,7 @@ public class TransformationServiceTest {
         ProtectedBlock bobBlock = new ProtectedBlock(1, 1, 1, Material.getMaterial(58), "Bob");
 
         assertThat(actualChunk.getBlocksAt(new ProtectedBlockKey(1)), hasItems(bobBlock));
+        TimeFreezeService.unfreeze();
     }
 
     @Test(expected = InvalidConfigurationException.class)

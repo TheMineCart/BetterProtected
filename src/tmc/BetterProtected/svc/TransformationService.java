@@ -11,12 +11,14 @@ import tmc.BetterProtected.domain.ProtectedWorld;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TransformationService {
     public static final String FILE_REGEX = ".*\\\\(-*\\d{0,5}).(-*\\d{0,5})\\.yml";
     private final Pattern pattern;
+    private Logger minecraftLog = Logger.getLogger("Minecraft");
 
     public TransformationService() {
         pattern = Pattern.compile(FILE_REGEX);
@@ -29,12 +31,15 @@ public class TransformationService {
 
         File[] files = folder.listFiles();
         for (File file : files) {
-            try {
-                transformFile(file.getAbsolutePath(), world);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InvalidConfigurationException e) {
-                e.printStackTrace();
+            if(file.isFile())    {
+                try {
+                    transformFile(file.getAbsolutePath(), world);
+                } catch (IOException e) {
+                    minecraftLog.severe("java.io.IOException: File Stream failed to parse filename.");
+                    e.printStackTrace();
+                } catch (InvalidConfigurationException e) {
+                    minecraftLog.warning("Unable to parse chunk data from file: " + file.getAbsolutePath());
+                }
             }
         }
 
@@ -46,6 +51,8 @@ public class TransformationService {
         if (null == key) {
             throw new InvalidConfigurationException();
         }
+
+        minecraftLog.info("Parsing Chunk at coordinates x: " + key.getX() + ", z: " + key.getZ() + ".");
 
         ProtectedChunk chunk = world.getChunkFrom(key);
 
