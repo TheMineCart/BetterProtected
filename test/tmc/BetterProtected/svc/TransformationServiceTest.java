@@ -25,6 +25,19 @@ public class TransformationServiceTest {
     }
 
     @Test
+    public void shouldParseEitherWindowsOrUnixDirectories() {
+        String windowsFile = "random\\director\\in\\your\\file\\system\\-3.100.yml";
+        String unixFile = "random/director/in/your/file/system/-3.100.yml";
+
+        ProtectedChunkKey windowsKey = transformationService.parseChunkKeyFromFileName(windowsFile);
+        ProtectedChunkKey unixKey = transformationService.parseChunkKeyFromFileName(unixFile);
+
+        assertThat(windowsKey, is(new ProtectedChunkKey(-3, 100)));
+        assertThat(unixKey, is(new ProtectedChunkKey(-3, 100)));
+
+    }
+
+    @Test
     public void shouldGetChunkKeyFromValidFileName() {
         String fileName = "random\\director\\in\\your\\file\\system\\-3.100.yml";
 

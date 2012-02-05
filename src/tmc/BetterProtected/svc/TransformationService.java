@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TransformationService {
-    public static final String FILE_REGEX = ".*\\\\(-*\\d{0,5}).(-*\\d{0,5})\\.yml";
+    public static final String FILE_REGEX = ".*[\\\\|/](-*\\d{0,5}).(-*\\d{0,5})\\.yml";
     private final Pattern pattern;
     private Logger minecraftLog = Logger.getLogger("Minecraft");
 
