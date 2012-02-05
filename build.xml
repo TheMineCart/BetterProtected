@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Better Protected" basedir="." default="jar">
+
+  <property name="lib.dir" value="lib"/>
+  <property name="src.dir" value="src"/>
+  <property name="classes.dir" value="classes"/>
+  <property name="jar.name" value="BetterProtected.jar"/>
+
+  <path id="classpath">
+    <fileset dir="${lib.dir}" includes="**/*.jar"/>
+  </path>
+
+  <path id="application" location="${jar.name}"/>
+
+  <target name="clean" description="Delete all generated files">
+    <delete dir="${classes.dir}" failonerror="false"/>
+    <delete file="${jar.name}"/>
+  </target>
+
+  <target name="compile" description="Compiles the Project">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+  </target>
+
+  <target name="jar" description="JARs the Project" depends="compile">
+    <jar destfile="${jar.name}" basedir="${classes.dir}"/>
+  </target>
+</project>

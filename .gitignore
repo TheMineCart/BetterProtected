@@ -3,4 +3,7 @@
 .idea/uiDesigner.xml
 .idea/vcs.xml
 .idea/ant.xml
+.idea/misc.xml
 out/
+BetterProtected.jar
+classes/
