@@ -16,7 +16,7 @@ public class ProtectedWorld {
 
     public ProtectedChunk getChunkFrom(ProtectedChunkKey key) {
         ProtectedChunk chunk = chunks.get(key);
-        if(null != chunk) 
+        if(null != chunk)
             return chunk;
 
         addNewChunkForKey(key);
