@@ -9,7 +9,7 @@ import tmc.BetterProtected.domain.Player;
 
 public class HibernateUtilsTest {
     @Test
-    public void somethingHibernaty() {
+    public void testHibernateConfiguration() {
         SessionFactory sessionFactory = HibernateUtils.configureSessionFactory();
 
         Player player = new Player();

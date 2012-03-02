@@ -15,7 +15,7 @@ public class HibernateUtils {
     public static SessionFactory configureSessionFactory() throws HibernateException {
         Configuration configuration = new Configuration();
         configuration.configure();
-        configuration.addAnnotatedClass(Player.class);
+//        configuration.addAnnotatedClass(Player.class);
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         return configuration.buildSessionFactory(serviceRegistry);
     }
