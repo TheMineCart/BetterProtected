@@ -2,10 +2,12 @@ package tmc.BetterProtected.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Player {
 
+    @Id
     @Column
     private Long id;
 

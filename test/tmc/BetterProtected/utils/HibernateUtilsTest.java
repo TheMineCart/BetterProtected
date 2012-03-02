@@ -18,7 +18,8 @@ public class HibernateUtilsTest {
         try {
             session.save(player);
         } catch (RuntimeException e) {
-
+            System.out.println("**************************");
+            System.out.println(e.getMessage());
         } finally {
             session.close();
         }
