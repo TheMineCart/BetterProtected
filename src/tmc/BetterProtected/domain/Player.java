@@ -1,18 +1,20 @@
 package tmc.BetterProtected.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Player {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String username;
+
+    public Player(String username) {
+        this.username = username;
+    }
 
     public Long getId() {
         return id;

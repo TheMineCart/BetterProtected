@@ -8,7 +8,6 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import tmc.BetterProtected.domain.Player;
 
 public class HibernateUtils {
-
     public static SessionFactory configureSessionFactory() throws HibernateException {
         Configuration configuration = new Configuration();
         configuration.configure();

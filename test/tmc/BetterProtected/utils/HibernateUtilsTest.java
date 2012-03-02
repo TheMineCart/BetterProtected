@@ -10,9 +10,7 @@ public class HibernateUtilsTest {
     public void testHibernateConfiguration() {
         SessionFactory sessionFactory = HibernateUtils.configureSessionFactory();
 
-        Player player = new Player();
-        player.setId(10L);
-        player.setUsername("jason");
+        Player player = new Player("jason");
 
         Session session = sessionFactory.openSession();
         try {
