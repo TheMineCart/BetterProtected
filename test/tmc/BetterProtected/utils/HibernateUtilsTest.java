@@ -5,15 +5,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.junit.Test;
+import tmc.BetterProtected.domain.Player;
 
 public class HibernateUtilsTest {
     @Test
     public void somethingHibernaty() {
         SessionFactory sessionFactory = HibernateUtils.configureSessionFactory();
 
-//        Session session = sessionFactory.op
+        Player player = new Player();
+        player.setId(10L);
+        player.setUsername("jason");
 
-//        session.get
+        sessionFactory.getCurrentSession().save(player);
     }
 
 //    Alternatively, you can have the SessionFactory open connections for you. The SessionFactory must be provided with
