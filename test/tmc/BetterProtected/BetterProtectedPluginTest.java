@@ -1,5 +1,6 @@
 package tmc.BetterProtected;
 
+import org.hibernate.SessionFactory;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -13,13 +14,13 @@ public class BetterProtectedPluginTest {
     public void testGetHibernateSession() throws Exception {
         BetterProtectedPlugin plugin = new BetterProtectedPlugin();
 
-        assertThat(plugin.getHibernateSession(), is(nullValue()));
+        SessionFactory sessionFactory = plugin.getSessionFactory();
+        assertThat(sessionFactory, is(nullValue()));
 
         plugin.onEnable();
-        assertThat(plugin.getHibernateSession(), is(notNullValue()));
-        assertThat(plugin.getHibernateSession().isOpen(), is(true));
+        assertThat(sessionFactory, is(notNullValue()));
 
         plugin.onDisable();
-        assertThat(plugin.getHibernateSession().isOpen(), is(false));
+        assertThat(sessionFactory.isClosed(), is(true));
     }
 }

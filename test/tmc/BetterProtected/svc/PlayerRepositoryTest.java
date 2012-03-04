@@ -7,7 +7,7 @@ import tmc.BetterProtected.BetterProtectedPlugin;
 import tmc.BetterProtected.domain.Player;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 public class PlayerRepositoryTest {
@@ -18,7 +18,7 @@ public class PlayerRepositoryTest {
     public void setUp() throws Exception {
         plugin = new BetterProtectedPlugin();
         plugin.onEnable();
-        playerRepository = new PlayerRepository(plugin.getHibernateSession());
+        playerRepository = new PlayerRepository(plugin.getSessionFactory());
     }
 
     @After
@@ -31,8 +31,10 @@ public class PlayerRepositoryTest {
         Player bob = new Player("Bob");
 
         playerRepository.save(bob);
+        Long id = bob.getId();
 
-        assertThat(playerRepository.findById(1L), is(nullValue()));
-        assertThat(playerRepository.findById(10L), is(bob));
+        System.out.println(playerRepository.all());
+        assertThat(bob.getId(), is(notNullValue()));
+        assertThat(playerRepository.findById(id), is(bob));
     }
 }

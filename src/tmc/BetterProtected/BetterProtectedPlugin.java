@@ -1,24 +1,24 @@
 package tmc.BetterProtected;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import tmc.BetterProtected.utils.HibernateUtils;
 
 public class BetterProtectedPlugin extends JavaPlugin {
 
-    private Session session;
+    private SessionFactory sessionFactory;
 
     @Override
     public void onEnable() {
-        session = HibernateUtils.configureSessionFactory().openSession();
+        sessionFactory = HibernateUtils.configureSessionFactory();
     }
 
     @Override
     public void onDisable() {
-        session.close();
+        sessionFactory.close();
     }
 
-    public Session getHibernateSession() {
-        return session;
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 }
