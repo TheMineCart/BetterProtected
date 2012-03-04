@@ -18,9 +18,11 @@ public class BetterProtectedPluginTest {
         assertThat(sessionFactory, is(nullValue()));
 
         plugin.onEnable();
+        sessionFactory = plugin.getSessionFactory();
         assertThat(sessionFactory, is(notNullValue()));
 
         plugin.onDisable();
+        sessionFactory = plugin.getSessionFactory();
         assertThat(sessionFactory.isClosed(), is(true));
     }
 }
