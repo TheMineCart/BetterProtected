@@ -1,20 +1,9 @@
 package tmc.BetterProtected.domain;
 
-import javax.persistence.*;
-
-@Entity
 public class Player {
 
-    @Id
-    @SequenceGenerator(name = "player_sequence", sequenceName = "player_sequence")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "player_sequence")
     private Long id;
-
-    @Column
     private String username;
-
-    //Used by hibernate
-    public Player() {}
 
     public Player(String username) {
         this.username = username;
