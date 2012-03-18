@@ -3,31 +3,37 @@ package tmc.BetterProtected.domain;
 import com.google.gson.annotations.Expose;
 
 public class BlockCoordinate {
-    @Expose private Long x;
-    @Expose private Long y;
-    @Expose private Long z;
+    @Expose private Integer x;
+    @Expose private Integer y;
+    @Expose private Integer z;
 
-    public Long getX() {
+    public BlockCoordinate(Integer x, Integer y, Integer z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public Integer getX() {
         return x;
     }
 
-    public void setX(Long x) {
+    public void setX(Integer x) {
         this.x = x;
     }
 
-    public Long getY() {
+    public Integer getY() {
         return y;
     }
 
-    public void setY(Long y) {
+    public void setY(Integer y) {
         this.y = y;
     }
 
-    public Long getZ() {
+    public Integer getZ() {
         return z;
     }
 
-    public void setZ(Long z) {
+    public void setZ(Integer z) {
         this.z = z;
     }
 
