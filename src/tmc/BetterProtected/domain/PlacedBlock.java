@@ -1,11 +1,24 @@
 package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
+import org.bukkit.Material;
 import org.joda.time.DateTime;
 
 public class PlacedBlock extends Block {
     @Expose private DateTime placedOn;
     @Expose private Player placedBy;
+
+    public PlacedBlock(DateTime placedOn, Player placedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
+        this.placedOn = placedOn;
+        this.placedBy = placedBy;
+        super.setBlockCoordinate(blockCoordinate);
+        super.setChunkCoordinate(chunkCoordinate);
+        super.setWorld(world);
+        super.setMaterial(material);
+    }
+
+    public PlacedBlock() {
+    }
 
     public DateTime getPlacedOn() {
         return placedOn;

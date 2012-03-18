@@ -1,11 +1,21 @@
 package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
+import org.bukkit.Material;
 import org.joda.time.DateTime;
 
 public class RemovedBlock extends Block {
     @Expose private DateTime removedOn;
     @Expose private Player removedBy;
+
+    public RemovedBlock(DateTime removedOn, Player removedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
+        this.removedOn = removedOn;
+        this.removedBy = removedBy;
+        super.setBlockCoordinate(blockCoordinate);
+        super.setChunkCoordinate(chunkCoordinate);
+        super.setWorld(world);
+        super.setMaterial(material);
+    }
 
     public DateTime getRemovedOn() {
         return removedOn;
