@@ -1,15 +1,20 @@
 package tmc.BetterProtected.svc;
 
+import com.google.gson.Gson;
 import com.mongodb.*;
 import org.junit.Test;
+import tmc.BetterProtected.domain.Player;
 
 import java.net.UnknownHostException;
 import java.util.Set;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class PlayerRepositoryTest {
 
     @Test
-    public void testingMongoDbConnection() throws UnknownHostException {
+    public void canOpenAMongoDBConnection() throws UnknownHostException {
 
         Mongo m = new Mongo();
 
@@ -59,5 +64,23 @@ public class PlayerRepositoryTest {
 
         long count = collection.getCount();
         System.out.println(count);
+    }
+
+    @Test
+    public void canDeserializePlayer() {
+        String playerString = "{\"username\":\"Jason\"}";
+
+        Gson gson = new Gson();
+        Player player = gson.fromJson(playerString, Player.class);
+
+        assertThat(player.getUsername(), is("Jason"));
+    }
+
+    @Test
+    public void canSerializePlayer() {
+        String expectedJson = "{\"username\":\"Jason\"}";
+        Player jason = new Player("Jason");
+
+        assertThat(new Gson().toJson(jason, Player.class), is(expectedJson));
     }
 }
