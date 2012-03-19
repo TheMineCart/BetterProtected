@@ -30,7 +30,7 @@ public class RepositoryTest {
         } catch (UnknownHostException e) {
             mongo.close();
             e.printStackTrace();
-            fail();
+            fail("Unable to connect to a MongoDB Session.");
         }
         return mongo.getDB(TEST_DATABASE_NAME);
     }
