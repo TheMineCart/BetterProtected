@@ -17,6 +17,9 @@ public class RemovedBlock extends Block {
         super.setMaterial(material);
     }
 
+    public RemovedBlock() {
+    }
+
     public DateTime getRemovedOn() {
         return removedOn;
     }
