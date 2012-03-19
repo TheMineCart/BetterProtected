@@ -10,6 +10,10 @@ import tmc.BetterProtected.domain.Player;
 
 public class PlacedBlockBuilder implements Builder<PlacedBlock> {
 
+    private ChunkCoordinate chunkCoordinate = new ChunkCoordinate(1,2);
+    private BlockCoordinate blockCoordinate = new BlockCoordinate(1,2,3);
+    private Player player = new Player("Jason");
+
     public static PlacedBlockBuilder aPlacedBlock() {
         return new PlacedBlockBuilder();
     }
@@ -18,10 +22,25 @@ public class PlacedBlockBuilder implements Builder<PlacedBlock> {
     public PlacedBlock build() {
         PlacedBlock block = new PlacedBlock();
         block.setPlacedOn(new DateTime());
-        block.setPlacedBy(new Player("Jason"));
-        block.setBlockCoordinate(new BlockCoordinate(1,2,3));
-        block.setChunkCoordinate(new ChunkCoordinate(1,2));
+        block.setPlacedBy(player);
+        block.setBlockCoordinate(blockCoordinate);
+        block.setChunkCoordinate(chunkCoordinate);
         block.setMaterial(Material.DIRT);
         return block;
+    }
+
+    public PlacedBlockBuilder withChunkCoordinate(ChunkCoordinate chunkCoordinate) {
+        this.chunkCoordinate = chunkCoordinate;
+        return this;
+    }
+
+    public PlacedBlockBuilder withBlockCoordinate(BlockCoordinate blockCoordinate) {
+        this.blockCoordinate = blockCoordinate;
+        return this;
+    }
+
+    public PlacedBlockBuilder withPlacedBy(Player player) {
+        this.player = player;
+        return this;
     }
 }
