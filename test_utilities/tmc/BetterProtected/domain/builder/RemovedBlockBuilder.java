@@ -9,8 +9,8 @@ import tmc.BetterProtected.domain.Player;
 import tmc.BetterProtected.domain.RemovedBlock;
 
 public class RemovedBlockBuilder implements Builder<RemovedBlock> {
-    private ChunkCoordinate chunkCoordinate = new ChunkCoordinate(1,2);
-    private BlockCoordinate blockCoordinate = new BlockCoordinate(1,2,3);
+    private ChunkCoordinate chunkCoordinate = new ChunkCoordinate(1L, 2L);
+    private BlockCoordinate blockCoordinate = new BlockCoordinate(1L, 2L, 3L);
     private Player player = new Player("Jason");
 
     public static RemovedBlockBuilder aRemovedBlock() {

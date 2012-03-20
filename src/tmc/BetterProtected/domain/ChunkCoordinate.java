@@ -3,27 +3,27 @@ package tmc.BetterProtected.domain;
 import com.google.gson.annotations.Expose;
 
 public class ChunkCoordinate {
-    @Expose private Integer x;
-    @Expose private Integer z;
+    @Expose private Long x;
+    @Expose private Long z;
 
-    public ChunkCoordinate(Integer x, Integer z) {
+    public ChunkCoordinate(Long x, Long z) {
         this.x = x;
         this.z = z;
     }
 
-    public Integer getX() {
+    public Long getX() {
         return x;
     }
 
-    public void setX(Integer x) {
+    public void setX(Long x) {
         this.x = x;
     }
 
-    public Integer getZ() {
+    public Long getZ() {
         return z;
     }
 
-    public void setZ(Integer z) {
+    public void setZ(Long z) {
         this.z = z;
     }
 

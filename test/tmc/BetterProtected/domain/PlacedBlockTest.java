@@ -14,7 +14,7 @@ public class PlacedBlockTest {
     @Test
     public void canSerializeAndDeserialize() {
         DateTime placedOn = new DateTime();
-        PlacedBlock placedBlock = new PlacedBlock(placedOn, new Player("Jason"), new BlockCoordinate(1, 2, 3), new ChunkCoordinate(1, 2), "Narnia", Material.DIRT);
+        PlacedBlock placedBlock = new PlacedBlock(placedOn, new Player("Jason"), new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), "Narnia", Material.DIRT);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(DateTime.class, new DateTimeAdaptor());
@@ -25,8 +25,8 @@ public class PlacedBlockTest {
 
         assertThat(deserializedBlock.getPlacedOn(), is(placedOn));
         assertThat(deserializedBlock.getPlacedBy(), is(new Player("Jason")));
-        assertThat(deserializedBlock.getBlockCoordinate(), is(new BlockCoordinate(1, 2, 3)));
-        assertThat(deserializedBlock.getChunkCoordinate(), is(new ChunkCoordinate(1, 2)));
+        assertThat(deserializedBlock.getBlockCoordinate(), is(new BlockCoordinate(1L, 2L, 3L)));
+        assertThat(deserializedBlock.getChunkCoordinate(), is(new ChunkCoordinate(1L, 2L)));
         assertThat(deserializedBlock.getMaterial(), is(Material.DIRT));
     }
 }

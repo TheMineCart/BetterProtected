@@ -46,11 +46,11 @@ public class PlacedBlockRepositoryTest extends RepositoryTest{
         Player jason = aPlayer().build();
         Player charlie = aPlayer().withUsername("Charlie").build();
         Player katie = aPlayer().withUsername("Katie").build();
-        PlacedBlock jasonBlock1 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        PlacedBlock jasonBlock2 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        PlacedBlock jasonBlock3 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        PlacedBlock charlieBlock = aPlacedBlock().withPlacedBy(charlie).withChunkCoordinate(new ChunkCoordinate(2, 3)).build();
-        PlacedBlock katieBlock = aPlacedBlock().withPlacedBy(katie).withChunkCoordinate(new ChunkCoordinate(3, 4)).build();
+        PlacedBlock jasonBlock1 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        PlacedBlock jasonBlock2 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        PlacedBlock jasonBlock3 = aPlacedBlock().withPlacedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        PlacedBlock charlieBlock = aPlacedBlock().withPlacedBy(charlie).withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
+        PlacedBlock katieBlock = aPlacedBlock().withPlacedBy(katie).withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
 
         placedBlockRepository.save(jasonBlock1);
         placedBlockRepository.save(jasonBlock2);

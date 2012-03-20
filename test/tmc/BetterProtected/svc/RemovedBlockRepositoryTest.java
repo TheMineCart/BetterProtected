@@ -45,11 +45,11 @@ public class RemovedBlockRepositoryTest extends RepositoryTest {
         Player jason = aPlayer().build();
         Player charlie = aPlayer().withUsername("Charlie").build();
         Player katie = aPlayer().withUsername("Katie").build();
-        RemovedBlock jasonBlock1 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        RemovedBlock jasonBlock2 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        RemovedBlock jasonBlock3 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1, 2)).build();
-        RemovedBlock charlieBlock = aRemovedBlock().withRemovedBy(charlie).withChunkCoordinate(new ChunkCoordinate(2, 3)).build();
-        RemovedBlock katieBlock = aRemovedBlock().withRemovedBy(katie).withChunkCoordinate(new ChunkCoordinate(3, 4)).build();
+        RemovedBlock jasonBlock1 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        RemovedBlock jasonBlock2 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        RemovedBlock jasonBlock3 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        RemovedBlock charlieBlock = aRemovedBlock().withRemovedBy(charlie).withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
+        RemovedBlock katieBlock = aRemovedBlock().withRemovedBy(katie).withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
 
         removedBlockRepository.save(jasonBlock1);
         removedBlockRepository.save(jasonBlock2);
