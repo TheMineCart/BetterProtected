@@ -3,10 +3,8 @@ package tmc.BetterProtected.svc;
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import tmc.BetterProtected.domain.ProtectedBlock;
-import tmc.BetterProtected.domain.ProtectedChunk;
-import tmc.BetterProtected.domain.ProtectedChunkKey;
-import tmc.BetterProtected.domain.ProtectedWorld;
+import org.joda.time.DateTime;
+import tmc.BetterProtected.domain.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,16 +27,14 @@ public class TransformationService {
         this.placedBlockRepository = placedBlockRepository;
     }
 
-    public ProtectedWorld buildWorldFromFolder(String location, String worldName) {
-        ProtectedWorld world = new ProtectedWorld();
-
+    public void persistPlacedBlocksFromFolder(String location, World world) {
         File folder = new File(location);
 
         File[] files = folder.listFiles();
         for (File file : files) {
             if(file.isFile())    {
                 try {
-                    transformFile(file.getAbsolutePath(), world);
+                    persistPlacedBlocksFromFile(file.getAbsolutePath(), world);
                 } catch (IOException e) {
                     minecraftLog.severe("java.io.IOException: File Stream failed to parse filename.");
                     e.printStackTrace();
@@ -47,42 +43,45 @@ public class TransformationService {
                 }
             }
         }
-
-        return world;
     }
 
-    public void transformFile(String fileName, ProtectedWorld world) throws IOException, InvalidConfigurationException {
-        ProtectedChunkKey key = parseChunkKeyFromFileName(fileName);
-        if (null == key) {
+    public void persistPlacedBlocksFromFile(String fileName, World world) throws IOException, InvalidConfigurationException {
+        ChunkCoordinate chunkCoordinate = parseChunkCoordinateFromFileName(fileName);
+        if (null == chunkCoordinate) {
             throw new InvalidConfigurationException();
         }
 
-        minecraftLog.info("Parsing Chunk at coordinates x: " + key.getX() + ", z: " + key.getZ() + ".");
+        minecraftLog.info("Parsing Chunk at coordinates x: " + chunkCoordinate.getX() + ", z: " + chunkCoordinate.getZ() + ".");
 
-        ProtectedChunk chunk = world.getChunkFrom(key);
 
         YamlConfiguration configuration = new YamlConfiguration();
         configuration.load(fileName);
 
+        DateTime now = new DateTime();
+
         for (String path : configuration.getKeys(false)) {
             String[] coordinates = path.split(",");
-            int x = Integer.parseInt(coordinates[0]);
-            int y = Integer.parseInt(coordinates[1]);
-            int z = Integer.parseInt(coordinates[2]);
-            chunk.addBlock(new ProtectedBlock(x, y, z,
-                    Material.getMaterial(configuration.getInt(path + ".type")),
-                    configuration.getString(path + ".player")));
+            Long x = Long.parseLong(coordinates[0]);
+            Long y = Long.parseLong(coordinates[1]);
+            Long z = Long.parseLong(coordinates[2]);
+
+            placedBlockRepository.save(
+                    new PlacedBlock(now, new Player(configuration.getString(path + ".player")),
+                                    new BlockCoordinate(x, y, z), chunkCoordinate, world,
+                                    Material.getMaterial(configuration.getInt(path + ".type"))
+                                    ));
         }
     }
 
-    public ProtectedChunkKey parseChunkKeyFromFileName(String fileName) {
+
+    public ChunkCoordinate parseChunkCoordinateFromFileName(String fileName) {
         Matcher matcher = pattern.matcher(fileName);
 
         if (matcher.matches()) {
-            Integer x = Integer.parseInt(matcher.group(1));
-            Integer z = Integer.parseInt(matcher.group(2));
+            Long x = Long.parseLong(matcher.group(1));
+            Long z = Long.parseLong(matcher.group(2));
 
-            return new ProtectedChunkKey(x, z);
+            return new ChunkCoordinate(x, z);
         }
 
         return null;
