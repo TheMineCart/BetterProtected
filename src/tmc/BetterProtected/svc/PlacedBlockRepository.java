@@ -62,4 +62,8 @@ public class PlacedBlockRepository {
     public List<PlacedBlock> all() {
         return buildBlockList(new BasicDBObject());
     }
+
+    public Long count() {
+        return collection.count();
+    }
 }

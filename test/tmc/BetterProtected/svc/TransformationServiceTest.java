@@ -38,7 +38,7 @@ public class TransformationServiceTest extends RepositoryTest{
         World world = new World("test");
         transformationService.persistPlacedBlocksFromFolder(FIXTURE_DIRECTORY, world);
 
-        assertThat(placedBlockRepository.all().size(), is(66816));
+        assertThat(placedBlockRepository.count(), is(66816L));
 
         BlockCoordinate blockCoordinate = new BlockCoordinate(-708L, 63L, -608L);
         List<PlacedBlock> blocks = placedBlockRepository.findByBlockCoordinate(blockCoordinate, world);
