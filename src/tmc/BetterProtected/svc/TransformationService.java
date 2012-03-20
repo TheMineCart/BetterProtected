@@ -18,12 +18,8 @@ public class TransformationService {
     private Logger minecraftLog = Logger.getLogger("Minecraft");
     private PlacedBlockRepository placedBlockRepository;
 
-    public TransformationService() {
-        pattern = Pattern.compile(FILE_REGEX);
-    }
-
     public TransformationService(PlacedBlockRepository placedBlockRepository) {
-        this();
+        pattern = Pattern.compile(FILE_REGEX);
         this.placedBlockRepository = placedBlockRepository;
     }
 
@@ -72,7 +68,6 @@ public class TransformationService {
                                     ));
         }
     }
-
 
     public ChunkCoordinate parseChunkCoordinateFromFileName(String fileName) {
         Matcher matcher = pattern.matcher(fileName);

@@ -1,24 +1,50 @@
 package tmc.BetterProtected.svc;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.ChunkCoordinate;
+import tmc.BetterProtected.domain.PlacedBlock;
 import tmc.BetterProtected.domain.World;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-public class TransformationServiceTest {
+public class TransformationServiceTest extends RepositoryTest{
     private final String FIXTURE_DIRECTORY = "test\\fixtures\\files";
     private TransformationService transformationService;
+    private PlacedBlockRepository placedBlockRepository;
 
     @Before
     public void setUp() throws Exception {
-        transformationService = new TransformationService();
+        placedBlockRepository = new PlacedBlockRepository(getCollection("PlacedBlocks"));
+        transformationService = new TransformationService(placedBlockRepository);
+    }
+
+    @After
+    public void tearDown() {
+        clearTestData();
+    }
+
+    @Test
+    public void shouldPersistAllPlaceBlocksFromDirectory() {
+        World world = new World("test");
+        transformationService.persistPlacedBlocksFromFolder(FIXTURE_DIRECTORY, world);
+
+        assertThat(placedBlockRepository.all().size(), is(66816));
+
+        BlockCoordinate blockCoordinate = new BlockCoordinate(-708L, 63L, -608L);
+        List<PlacedBlock> blocks = placedBlockRepository.findByBlockCoordinate(blockCoordinate, world);
+
+        assertThat(blocks.get(0).getPlacedBy().getUsername(), is("Katehhh"));
+        assertThat(blocks.get(0).getMaterial(), is(Material.DIRT));
     }
 
     @Test(expected = IOException.class)

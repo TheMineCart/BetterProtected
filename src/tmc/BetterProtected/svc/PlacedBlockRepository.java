@@ -58,4 +58,8 @@ public class PlacedBlockRepository {
         }
         return list;
     }
+
+    public List<PlacedBlock> all() {
+        return buildBlockList(new BasicDBObject());
+    }
 }
