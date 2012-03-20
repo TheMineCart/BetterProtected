@@ -8,7 +8,7 @@ public class PlacedBlock extends Block {
     @Expose private DateTime placedOn;
     @Expose private Player placedBy;
 
-    public PlacedBlock(DateTime placedOn, Player placedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
+    public PlacedBlock(DateTime placedOn, Player placedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, World world, Material material) {
         this.placedOn = placedOn;
         this.placedBy = placedBy;
         super.setBlockCoordinate(blockCoordinate);

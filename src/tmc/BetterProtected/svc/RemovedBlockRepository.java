@@ -2,13 +2,17 @@ package tmc.BetterProtected.svc;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mongodb.*;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 import org.joda.time.DateTime;
 import tmc.BetterProtected.adaptors.DateTimeAdaptor;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.RemovedBlock;
+import tmc.BetterProtected.domain.World;
 
 import java.util.List;
 
@@ -28,28 +32,25 @@ public class RemovedBlockRepository {
         collection.insert(block);
     }
 
-    public List<RemovedBlock> findByBlockCoordinate(BlockCoordinate coordinate) {
-        BasicDBList list = new BasicDBList();
+    public List<RemovedBlock> findByBlockCoordinate(BlockCoordinate coordinate, World world) {
+        BasicDBObject query = new BasicDBObject();
+        query.put("world", JSON.parse(gson.toJson(world, World.class)));
+        query.put("blockCoordinate", JSON.parse(gson.toJson(coordinate, BlockCoordinate.class)));
 
-        list.add(JSON.parse(gson.toJson(coordinate, BlockCoordinate.class)));
-        BasicDBObject in = new BasicDBObject("$in", list);
-        DBCursor dbCursor = collection.find(new BasicDBObject("blockCoordinate", in));
-
-        return buildBlockList(dbCursor);
+        return buildBlockList(query);
     }
 
-    public List<RemovedBlock> findByChunkCoordinate(ChunkCoordinate coordinate) {
-        BasicDBList list = new BasicDBList();
+    public List<RemovedBlock> findByChunkCoordinate(ChunkCoordinate coordinate, World world) {
+        BasicDBObject query = new BasicDBObject();
+        query.put("world", JSON.parse(gson.toJson(world, World.class)));
+        query.put("chunkCoordinate", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
 
-        list.add(JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
-        BasicDBObject in = new BasicDBObject("$in", list);
-        DBCursor dbCursor = collection.find(new BasicDBObject("chunkCoordinate", in));
-
-        return buildBlockList(dbCursor);
+        return buildBlockList(query);
     }
 
-    private List<RemovedBlock> buildBlockList(DBCursor cursor) {
+    private List<RemovedBlock> buildBlockList(BasicDBObject query) {
         List<RemovedBlock> list = newArrayList();
+        DBCursor cursor = collection.find(query);
 
         while(cursor.hasNext()) {
             DBObject dbObject = cursor.next();

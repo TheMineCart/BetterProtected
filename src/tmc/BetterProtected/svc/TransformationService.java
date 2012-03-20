@@ -3,7 +3,6 @@ package tmc.BetterProtected.svc;
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.LoggerOutputStream;
 import tmc.BetterProtected.domain.ProtectedBlock;
 import tmc.BetterProtected.domain.ProtectedChunk;
 import tmc.BetterProtected.domain.ProtectedChunkKey;
@@ -19,9 +18,15 @@ public class TransformationService {
     public static final String FILE_REGEX = ".*[\\\\|/](-*\\d{0,5}).(-*\\d{0,5})\\.yml";
     private final Pattern pattern;
     private Logger minecraftLog = Logger.getLogger("Minecraft");
+    private PlacedBlockRepository placedBlockRepository;
 
     public TransformationService() {
         pattern = Pattern.compile(FILE_REGEX);
+    }
+
+    public TransformationService(PlacedBlockRepository placedBlockRepository) {
+        this();
+        this.placedBlockRepository = placedBlockRepository;
     }
 
     public ProtectedWorld buildWorldFromFolder(String location, String worldName) {

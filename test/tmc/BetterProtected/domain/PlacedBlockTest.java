@@ -14,7 +14,7 @@ public class PlacedBlockTest {
     @Test
     public void canSerializeAndDeserialize() {
         DateTime placedOn = new DateTime();
-        PlacedBlock placedBlock = new PlacedBlock(placedOn, new Player("Jason"), new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), "Narnia", Material.DIRT);
+        PlacedBlock placedBlock = new PlacedBlock(placedOn, new Player("Jason"), new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), new World("narnia"), Material.DIRT);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(DateTime.class, new DateTimeAdaptor());

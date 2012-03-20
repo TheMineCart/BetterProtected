@@ -6,6 +6,7 @@ import org.junit.Test;
 import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.Player;
 import tmc.BetterProtected.domain.RemovedBlock;
+import tmc.BetterProtected.domain.World;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class RemovedBlockRepositoryTest extends RepositoryTest {
 
         removedBlockRepository.save(removedBlock);
 
-        List<RemovedBlock> blocks = removedBlockRepository.findByBlockCoordinate(removedBlock.getBlockCoordinate());
+        List<RemovedBlock> blocks = removedBlockRepository.findByBlockCoordinate(removedBlock.getBlockCoordinate(), removedBlock.getWorld());
 
         assertThat(blocks.get(0), is(removedBlock));
     }
@@ -45,29 +46,40 @@ public class RemovedBlockRepositoryTest extends RepositoryTest {
         Player jason = aPlayer().build();
         Player charlie = aPlayer().withUsername("Charlie").build();
         Player katie = aPlayer().withUsername("Katie").build();
+
         RemovedBlock jasonBlock1 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
         RemovedBlock jasonBlock2 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
         RemovedBlock jasonBlock3 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        RemovedBlock jasonBlock4 = aRemovedBlock().withRemovedBy(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).withWorld(new World("Another World")).build();
+
         RemovedBlock charlieBlock = aRemovedBlock().withRemovedBy(charlie).withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
+
         RemovedBlock katieBlock = aRemovedBlock().withRemovedBy(katie).withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
 
         removedBlockRepository.save(jasonBlock1);
         removedBlockRepository.save(jasonBlock2);
         removedBlockRepository.save(jasonBlock3);
+        removedBlockRepository.save(jasonBlock4);
+
         removedBlockRepository.save(charlieBlock);
+
         removedBlockRepository.save(katieBlock);
 
-        List<RemovedBlock> blocks = removedBlockRepository.findByChunkCoordinate(jasonBlock1.getChunkCoordinate());
+        List<RemovedBlock> blocks = removedBlockRepository.findByChunkCoordinate(jasonBlock1.getChunkCoordinate(), jasonBlock1.getWorld());
 
         assertThat(blocks.size(), is(3));
         assertThat(blocks, hasItems(jasonBlock1, jasonBlock2, jasonBlock3));
 
-        blocks = removedBlockRepository.findByChunkCoordinate(charlieBlock.getChunkCoordinate());
+        blocks = removedBlockRepository.findByChunkCoordinate(jasonBlock4.getChunkCoordinate(), jasonBlock4.getWorld());
+        assertThat(blocks.size(), is(1));
+        assertThat(blocks, hasItem(jasonBlock4));
+
+        blocks = removedBlockRepository.findByChunkCoordinate(charlieBlock.getChunkCoordinate(), charlieBlock.getWorld());
 
         assertThat(blocks.size(), is(1));
         assertThat(blocks, hasItem(charlieBlock));
 
-        blocks = removedBlockRepository.findByChunkCoordinate(katieBlock.getChunkCoordinate());
+        blocks = removedBlockRepository.findByChunkCoordinate(katieBlock.getChunkCoordinate(), katieBlock.getWorld());
 
         assertThat(blocks.size(), is(1));
         assertThat(blocks, hasItem(katieBlock));

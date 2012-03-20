@@ -14,7 +14,7 @@ public class RemovedBlockTest {
     @Test
     public void canSerializeAndDeserialize() {
         DateTime removedOn = new DateTime();
-        RemovedBlock removedBlock = new RemovedBlock(removedOn, new Player("Jason"), new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), "Narnia", Material.DIRT);
+        RemovedBlock removedBlock = new RemovedBlock(removedOn, new Player("Jason"), new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), new World("narnia"), Material.DIRT);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(DateTime.class, new DateTimeAdaptor());

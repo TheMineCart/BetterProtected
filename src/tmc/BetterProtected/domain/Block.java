@@ -6,7 +6,7 @@ import org.bukkit.Material;
 public class Block {
     @Expose private BlockCoordinate blockCoordinate;
     @Expose private ChunkCoordinate chunkCoordinate;
-    @Expose private String world;
+    @Expose private World world;
     @Expose private Material material;
 
     public BlockCoordinate getBlockCoordinate() {
@@ -25,11 +25,11 @@ public class Block {
         this.chunkCoordinate = chunkCoordinate;
     }
 
-    public String getWorld() {
+    public World getWorld() {
         return world;
     }
 
-    public void setWorld(String world) {
+    public void setWorld(World world) {
         this.world = world;
     }
 

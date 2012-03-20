@@ -8,7 +8,7 @@ public class RemovedBlock extends Block {
     @Expose private DateTime removedOn;
     @Expose private Player removedBy;
 
-    public RemovedBlock(DateTime removedOn, Player removedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
+    public RemovedBlock(DateTime removedOn, Player removedBy, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, World world, Material material) {
         this.removedOn = removedOn;
         this.removedBy = removedBy;
         super.setBlockCoordinate(blockCoordinate);
