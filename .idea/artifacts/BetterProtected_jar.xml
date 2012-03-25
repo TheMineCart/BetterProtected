@@ -4,6 +4,10 @@
     <root id="archive" name="BetterProtected.jar">
       <element id="module-output" name="BetterProtected" />
       <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+      <element id="library" level="project" name="lib" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>
