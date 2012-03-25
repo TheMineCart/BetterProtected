@@ -16,7 +16,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     public static String MONGO_CONNECTION_ERROR = "Error connecting to MongoDB:\n\r%s";
     private Mongo mongoConnection;
     private DB betterProtectedDB;
-    Logger log = getLogger();
+    private Logger log;
     private PlacedBlockRepository placedBlockRepository;
     private RemovedBlockRepository removedBlockRepository;
     private TransformationExecutor transformationExecutor;
@@ -25,8 +25,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        server = this.getServer();
-        commandMap = new SimpleCommandMap(server);
+        initializeServer();
         initializeMongoDB();
         initializeDatabase();
         initializeRepositories();
@@ -36,6 +35,12 @@ public class BetterProtectedPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         mongoConnection.close();
+    }
+
+    private void initializeServer() {
+        server = this.getServer();
+        log = server.getLogger();
+        commandMap = new SimpleCommandMap(server);
     }
 
     private void initializeMongoDB() {
