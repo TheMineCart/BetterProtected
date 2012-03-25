@@ -1,5 +1,5 @@
 name: BetterProtected
-main: com.tmc.BetterProtected.BetterProtectedPluginerProtectedPlugin
+main: tmc.BetterProtected.BetterProtectedPlugin
 version: 0.01
 
 commands:
