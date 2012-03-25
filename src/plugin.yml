@@ -2,8 +2,8 @@ name: BetterProtected
 main: com.tmc.BetterProtected.BetterProtectedPluginerProtectedPlugin
 version: 0.01
 
-#commands:
-#  quit:
-#    description: This command kicks you from the server.
-#    permissions: SelfKick.quit
-#    usage: /quit
+commands:
+  transform:
+    description: Transform your banana protect files into MongoDB.
+    permissions: BetterProtected.transform
+    usage: /<command> [world_name]
