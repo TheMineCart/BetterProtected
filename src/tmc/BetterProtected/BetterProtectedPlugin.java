@@ -3,11 +3,11 @@ package tmc.BetterProtected;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
 import org.bukkit.Server;
-import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.executors.TransformationExecutor;
 import tmc.BetterProtected.svc.PlacedBlockRepository;
 import tmc.BetterProtected.svc.RemovedBlockRepository;
+import tmc.BetterProtected.svc.TransformationService;
 
 import java.net.UnknownHostException;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private RemovedBlockRepository removedBlockRepository;
     private TransformationExecutor transformationExecutor;
     private Server server;
-    private SimpleCommandMap commandMap;
+    private TransformationService transformationService;
 
     @Override
     public void onEnable() {
@@ -29,18 +29,20 @@ public class BetterProtectedPlugin extends JavaPlugin {
         initializeMongoDB();
         initializeDatabase();
         initializeRepositories();
+        initializeServices();
         initializeCommandExecutors();
+        log.info("BetterProtected initialization complete.");
     }
 
     @Override
     public void onDisable() {
         mongoConnection.close();
+        log.info("BetterProtected shutdown complete.");
     }
 
     private void initializeServer() {
         server = this.getServer();
         log = server.getLogger();
-        commandMap = new SimpleCommandMap(server);
     }
 
     private void initializeMongoDB() {
@@ -52,6 +54,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     }
 
     private void initializeDatabase() {
+        //TODO: grab the name and connection info for the database from the plugin
         betterProtectedDB = mongoConnection.getDB("BetterProtected");
     }
 
@@ -60,7 +63,12 @@ public class BetterProtectedPlugin extends JavaPlugin {
         removedBlockRepository = new RemovedBlockRepository(betterProtectedDB.getCollection("RemovedBlocks"));
     }
 
+    private void initializeServices() {
+        transformationService = new TransformationService(placedBlockRepository);
+    }
+
     private void initializeCommandExecutors() {
-        transformationExecutor = new TransformationExecutor(commandMap);
+        transformationExecutor = new TransformationExecutor(log, transformationService);
+        getCommand("transform").setExecutor(transformationExecutor);
     }
 }
