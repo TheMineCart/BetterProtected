@@ -54,7 +54,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     }
 
     private void initializeDatabase() {
-        //TODO: grab the name and connection info for the database from the plugin
+        //TODO: grab the name and connection info for the database from the configuration file
         betterProtectedDB = mongoConnection.getDB("BetterProtected");
     }
 
