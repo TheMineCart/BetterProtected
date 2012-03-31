@@ -13,6 +13,12 @@ public class BlockCoordinate {
         this.z = z;
     }
 
+    public BlockCoordinate(Integer x, Integer y, Integer z) {
+        this.x = x.longValue();
+        this.y = y.longValue();
+        this.z = z.longValue();
+    }
+
     public Long getX() {
         return x;
     }

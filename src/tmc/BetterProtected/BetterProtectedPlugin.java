@@ -4,9 +4,9 @@ import com.mongodb.DB;
 import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
+import tmc.BetterProtected.Listeners.BlockListener;
 import tmc.BetterProtected.executors.TransformationExecutor;
-import tmc.BetterProtected.svc.PlacedBlockRepository;
-import tmc.BetterProtected.svc.RemovedBlockRepository;
+import tmc.BetterProtected.svc.BlockEventRepository;
 import tmc.BetterProtected.svc.TransformationService;
 
 import java.net.UnknownHostException;
@@ -16,9 +16,8 @@ public class BetterProtectedPlugin extends JavaPlugin {
     public static String MONGO_CONNECTION_ERROR = "Error connecting to MongoDB:\n\r%s";
     private Mongo mongoConnection;
     private DB betterProtectedDB;
-    private Logger log;
-    private PlacedBlockRepository placedBlockRepository;
-    private RemovedBlockRepository removedBlockRepository;
+    private Logger logger;
+    private BlockEventRepository blockEventRepository;
     private TransformationExecutor transformationExecutor;
     private Server server;
     private TransformationService transformationService;
@@ -31,25 +30,26 @@ public class BetterProtectedPlugin extends JavaPlugin {
         initializeRepositories();
         initializeServices();
         initializeCommandExecutors();
-        log.info("BetterProtected initialization complete.");
+        registerEventListeners();
+        logger.info("BetterProtected initialization complete.");
     }
 
     @Override
     public void onDisable() {
         mongoConnection.close();
-        log.info("BetterProtected shutdown complete.");
+        logger.info("BetterProtected shutdown complete.");
     }
 
     private void initializeServer() {
         server = this.getServer();
-        log = server.getLogger();
+        logger = server.getLogger();
     }
 
     private void initializeMongoDB() {
         try {
             mongoConnection = new Mongo();
         } catch (UnknownHostException e) {
-            log.warning(String.format(MONGO_CONNECTION_ERROR, e.toString()));
+            logger.warning(String.format(MONGO_CONNECTION_ERROR, e.toString()));
         }
     }
 
@@ -59,16 +59,19 @@ public class BetterProtectedPlugin extends JavaPlugin {
     }
 
     private void initializeRepositories() {
-        placedBlockRepository = new PlacedBlockRepository(betterProtectedDB.getCollection("PlacedBlocks"));
-        removedBlockRepository = new RemovedBlockRepository(betterProtectedDB.getCollection("RemovedBlocks"));
+        blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection("PlacedBlocks"));
     }
 
     private void initializeServices() {
-        transformationService = new TransformationService(placedBlockRepository);
+        transformationService = new TransformationService(blockEventRepository);
     }
 
     private void initializeCommandExecutors() {
-        transformationExecutor = new TransformationExecutor(log, transformationService);
+        transformationExecutor = new TransformationExecutor(logger, transformationService);
         getCommand("transform").setExecutor(transformationExecutor);
+    }
+
+    private void registerEventListeners() {
+        server.getPluginManager().registerEvents(new BlockListener(blockEventRepository), this);
     }
 }

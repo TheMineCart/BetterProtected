@@ -5,6 +5,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.joda.time.DateTime;
 import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.types.BlockEventType;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,11 +17,11 @@ public class TransformationService {
     public static final String FILE_REGEX = ".*[\\\\|/](-*\\d{0,5}).(-*\\d{0,5})\\.yml";
     private final Pattern pattern;
     private Logger minecraftLog = Logger.getLogger("Minecraft");
-    private PlacedBlockRepository placedBlockRepository;
+    private BlockEventRepository blockEventRepository;
 
-    public TransformationService(PlacedBlockRepository placedBlockRepository) {
+    public TransformationService(BlockEventRepository blockEventRepository) {
         pattern = Pattern.compile(FILE_REGEX);
-        this.placedBlockRepository = placedBlockRepository;
+        this.blockEventRepository = blockEventRepository;
     }
 
     public void persistPlacedBlocksFromFolder(String location, World world) {
@@ -61,9 +62,9 @@ public class TransformationService {
             Long y = Long.parseLong(coordinates[1]);
             Long z = Long.parseLong(coordinates[2]);
 
-            placedBlockRepository.save(
-                    new PlacedBlock(now, new Player(configuration.getString(path + ".player")),
-                                    new BlockCoordinate(x, y, z), chunkCoordinate, world,
+            blockEventRepository.save(
+                    new BlockEvent(now, new Player(configuration.getString(path + ".player")),
+                            BlockEventType.PLACED, new BlockCoordinate(x, y, z), chunkCoordinate, world,
                                     Material.getMaterial(configuration.getInt(path + ".type"))
                                     ));
         }

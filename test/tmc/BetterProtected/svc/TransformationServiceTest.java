@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.PlacedBlock;
 import tmc.BetterProtected.domain.World;
 
 import java.io.IOException;
@@ -20,12 +20,12 @@ import static org.junit.Assert.assertThat;
 public class TransformationServiceTest extends RepositoryTest{
     private final String FIXTURE_DIRECTORY = "test\\fixtures\\files";
     private TransformationService transformationService;
-    private PlacedBlockRepository placedBlockRepository;
+    private BlockEventRepository blockEventRepository;
 
     @Before
     public void setUp() throws Exception {
-        placedBlockRepository = new PlacedBlockRepository(getCollection("PlacedBlocks"));
-        transformationService = new TransformationService(placedBlockRepository);
+        blockEventRepository = new BlockEventRepository(getCollection("PlacedBlocks"));
+        transformationService = new TransformationService(blockEventRepository);
     }
 
     @After
@@ -38,13 +38,13 @@ public class TransformationServiceTest extends RepositoryTest{
         World world = new World("test");
         transformationService.persistPlacedBlocksFromFolder(FIXTURE_DIRECTORY, world);
 
-        assertThat(placedBlockRepository.count(), is(66816L));
+        assertThat(blockEventRepository.count(), is(66816L));
 
         BlockCoordinate blockCoordinate = new BlockCoordinate(-708L, 63L, -608L);
-        List<PlacedBlock> blocks = placedBlockRepository.findByBlockCoordinate(blockCoordinate, world);
+        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(blockCoordinate, world);
 
-        assertThat(blocks.get(0).getPlacedBy().getUsername(), is("Katehhh"));
-        assertThat(blocks.get(0).getMaterial(), is(Material.DIRT));
+        assertThat(blockEvents.get(0).getOwner().getUsername(), is("Katehhh"));
+        assertThat(blockEvents.get(0).getMaterial(), is(Material.DIRT));
     }
 
     @Test(expected = IOException.class)
