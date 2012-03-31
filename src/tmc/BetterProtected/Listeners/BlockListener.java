@@ -47,6 +47,9 @@ public class BlockListener implements Listener {
 
         if(doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
+        } else if (event.getBlockReplacedState().getType() == AIR) {
+            BlockEvent.newBlockEvent(block, player.getName(), REMOVED, AIR);
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else {
             event.setCancelled(true);
             event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot place a block here!");
@@ -114,8 +117,8 @@ public class BlockListener implements Listener {
     }
 
     private boolean isMaterialLiquid(Material material) {
-        return material == LAVA || material == WATER ||
-               material == STATIONARY_LAVA || material == STATIONARY_WATER ||
+        return material == STATIONARY_LAVA || material == STATIONARY_WATER ||
+               material == LAVA || material == WATER ||
                material == LAVA_BUCKET || material == WATER_BUCKET;
     }
 }
