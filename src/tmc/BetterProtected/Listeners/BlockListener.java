@@ -90,8 +90,8 @@ public class BlockListener implements Listener {
     }
 
     private BlockEvent getMostRecentBlockEvent(Block block) {
-        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
-        World world = new World(block.getWorld().getName());
+        BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
+        World world = World.newWorld(block);
         return blockEventRepository.findMostRecent(blockCoordinate, world);
     }
 

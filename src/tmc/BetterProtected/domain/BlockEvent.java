@@ -32,8 +32,8 @@ public class BlockEvent {
 
     //For when you have to directly specify the material type
     public static BlockEvent newBlockEvent(Block block, String playerName, BlockEventType type, Material material) {
-        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
-        World world = new World(block.getWorld().getName());
+        BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
+        World world = World.newWorld(block);
 
         return new BlockEvent(new DateTime(), new tmc.BetterProtected.domain.Player(playerName), type, blockCoordinate,
                 new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()), world, material);
