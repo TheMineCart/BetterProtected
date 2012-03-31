@@ -45,7 +45,7 @@ public class BlockListener implements Listener {
         Block block = event.getBlock();
         Player player = event.getPlayer();
 
-        if(doesPlayerHavePermissionToPlace(player, getMostRecentBlockEvent(block))) {
+        if(doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else {
             event.setCancelled(true);
@@ -71,7 +71,7 @@ public class BlockListener implements Listener {
         Block block = event.getBlockClicked().getRelative(event.getBlockFace());
         Player player = event.getPlayer();
 
-        if(doesPlayerHavePermissionToPlace(player, getMostRecentBlockEvent(block))) {
+        if(doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             Material blockType = block.getType();
             if (event.getBucket() == WATER_BUCKET) {
                 blockType = STATIONARY_WATER;
@@ -97,11 +97,25 @@ public class BlockListener implements Listener {
                 isBlockEventOwnedByPlayer(player, mostRecentBlockEvent);
     }
 
-    private boolean doesPlayerHavePermissionToPlace(Player player, BlockEvent mostRecentBlockEvent) {
-        return mostRecentBlockEvent == null || mostRecentBlockEvent.getBlockEventType() == REMOVED || player.isOp();
+    private boolean doesPlayerHavePermissionToPlace(Player player, Block block, BlockEvent mostRecentBlockEvent) {
+        if(mostRecentBlockEvent == null) return true;
+        if(mostRecentBlockEvent.getBlockEventType() == REMOVED) return true;
+        if(isBlockEventOwnedByPlayer(player, mostRecentBlockEvent) && isAllowedToPlaceBlockIntoLiquid(mostRecentBlockEvent, block)) return true;
+        return player.isOp();
     }
 
     private boolean isBlockEventOwnedByPlayer(Player player, BlockEvent mostRecentBlockEvent) {
         return mostRecentBlockEvent.getOwner().getUsername().equalsIgnoreCase(player.getName());
+    }
+
+    private boolean isAllowedToPlaceBlockIntoLiquid(BlockEvent blockEvent, Block blockInHand) {
+        return isMaterialLiquid(blockEvent.getMaterial()) && !isMaterialLiquid(blockInHand.getType());
+
+    }
+
+    private boolean isMaterialLiquid(Material material) {
+        return material == LAVA || material == WATER ||
+               material == STATIONARY_LAVA || material == STATIONARY_WATER ||
+               material == LAVA_BUCKET || material == WATER_BUCKET;
     }
 }
