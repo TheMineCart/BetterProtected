@@ -1,4 +1,4 @@
-package tmc.BetterProtected.Listeners;
+package tmc.BetterProtected.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
