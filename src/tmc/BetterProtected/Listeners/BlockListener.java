@@ -40,7 +40,6 @@ public class BlockListener implements Listener {
         }
     }
 
-
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlock();
@@ -63,10 +62,8 @@ public class BlockListener implements Listener {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);
-            player.sendMessage(ChatColor.DARK_RED + "You fill your bucket from this block!");
+            player.sendMessage(ChatColor.DARK_RED + "You can not fill your bucket from this block!");
         }
-
-        player.sendMessage(ChatColor.DARK_AQUA + String.format("Relative block type is %s", block.getType()));
     }
 
     @EventHandler
