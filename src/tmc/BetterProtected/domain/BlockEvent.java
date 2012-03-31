@@ -2,6 +2,7 @@ package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.joda.time.DateTime;
 import tmc.BetterProtected.domain.types.BlockEventType;
 
@@ -22,6 +23,20 @@ public class BlockEvent {
         this.chunkCoordinate = chunkCoordinate;
         this.world = world;
         this.material = material;
+    }
+
+    //Standard BlockEvent factory
+    public static BlockEvent newBlockEvent(Block block, String playerName, BlockEventType type) {
+        return newBlockEvent(block, playerName, type, block.getType());
+    }
+
+    //For when you have to directly specify the material type
+    public static BlockEvent newBlockEvent(Block block, String playerName, BlockEventType type, Material material) {
+        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
+        World world = new World(block.getWorld().getName());
+
+        return new BlockEvent(new DateTime(), new tmc.BetterProtected.domain.Player(playerName), type, blockCoordinate,
+                new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()), world, material);
     }
 
     public DateTime getInstant() {

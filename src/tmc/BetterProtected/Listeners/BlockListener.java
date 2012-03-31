@@ -8,13 +8,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.joda.time.DateTime;
+import org.bukkit.event.player.PlayerBucketEmptyEvent;
+import org.bukkit.event.player.PlayerBucketFillEvent;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
-import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.World;
-import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.svc.BlockEventRepository;
+
+import static org.bukkit.Material.*;
+import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
+import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 
 public class BlockListener implements Listener {
 
@@ -26,61 +29,82 @@ public class BlockListener implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
         Block block = event.getBlock();
-        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
-        World world = new World(block.getWorld().getName());
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(blockCoordinate, world);
 
-        BlockEvent blockRemovedEvent = new BlockEvent(
-                new DateTime(),
-                new tmc.BetterProtected.domain.Player(event.getPlayer().getName()),
-                BlockEventType.REMOVED,
-                blockCoordinate,
-                new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()),
-                world,
-                block.getType()
-        );
-
-        //Let's do some Logic!
-        if (mostRecentBlockEvent == null) {
-            blockEventRepository.save(blockRemovedEvent);
-        } else if (event.getPlayer().isOp()) {
-            blockEventRepository.save(blockRemovedEvent);
-        } else if (mostRecentBlockEvent.getBlockEventType() == BlockEventType.REMOVED) {
-            blockEventRepository.save(blockRemovedEvent);
-        } else if (mostRecentBlockEvent.getOwner().getUsername().equalsIgnoreCase(event.getPlayer().getName())) {
-            blockEventRepository.save(blockRemovedEvent);
+        if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block))) {
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.RED + "You cannot break this block!");
+            player.sendMessage(ChatColor.RED + "You cannot break this block!");
         }
     }
+
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlock();
-        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
-        World world = new World(block.getWorld().getName());
         Player player = event.getPlayer();
-        tmc.BetterProtected.domain.Player owner = new tmc.BetterProtected.domain.Player(player.getName());
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(blockCoordinate, world);
 
-        Material blockType = block.getType();
-        BlockEvent blockPlacedEvent = new BlockEvent(
-                new DateTime(),
-                owner,
-                BlockEventType.PLACED,
-                blockCoordinate,
-                new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()),
-                world,
-                blockType
-        );
-
-        if(mostRecentBlockEvent == null || mostRecentBlockEvent.getBlockEventType() == BlockEventType.REMOVED || player.isOp()) {
-            blockEventRepository.save(blockPlacedEvent); // Prevent protection on specific block types here.
+        if(doesPlayerHavePermissionToPlace(player, getMostRecentBlockEvent(block))) {
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else {
             event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.RED + String.format("You cannot place a %s block here!", blockType.toString()));
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + String.format("You cannot place a %s block here!", block.getType().toString()));
         }
+    }
+
+    @EventHandler
+    public void onBucketRemove(PlayerBucketFillEvent event) {
+        Block block = event.getBlockClicked().getRelative(event.getBlockFace());
+        Player player = event.getPlayer();
+
+        if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block))) {
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
+        } else {
+            event.setCancelled(true);
+            player.sendMessage(ChatColor.RED + "You cannot break this block!");
+        }
+
+        player.sendMessage(ChatColor.DARK_AQUA + String.format("Relative block type is %s", block.getType()));
+    }
+
+    @EventHandler
+    public void onBucketPlace(PlayerBucketEmptyEvent event) {
+        Block block = event.getBlockClicked().getRelative(event.getBlockFace());
+        Player player = event.getPlayer();
+
+        if(doesPlayerHavePermissionToPlace(player, getMostRecentBlockEvent(block))) {
+            Material blockType = block.getType();
+            if (event.getBucket() == WATER_BUCKET) {
+                blockType = STATIONARY_WATER;
+            } else if (event.getBucket() == LAVA_BUCKET) {
+                blockType = STATIONARY_LAVA;
+            }
+
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED, blockType));
+        } else {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + String.format("You cannot place a %s here!", event.getBucket().toString()));
+        }
+    }
+
+    private BlockEvent getMostRecentBlockEvent(Block block) {
+        BlockCoordinate blockCoordinate = new BlockCoordinate(block.getX(), block.getY(), block.getZ());
+        World world = new World(block.getWorld().getName());
+        return blockEventRepository.findMostRecent(blockCoordinate, world);
+    }
+
+    private boolean doesPlayerHavePermissionToBreak(Player player, BlockEvent mostRecentBlockEvent) {
+        return mostRecentBlockEvent == null || player.isOp() || mostRecentBlockEvent.getBlockEventType() == REMOVED ||
+                isBlockEventOwnedByPlayer(player, mostRecentBlockEvent);
+    }
+
+    private boolean doesPlayerHavePermissionToPlace(Player player, BlockEvent mostRecentBlockEvent) {
+        return mostRecentBlockEvent == null || mostRecentBlockEvent.getBlockEventType() == REMOVED || player.isOp();
+    }
+
+    private boolean isBlockEventOwnedByPlayer(Player player, BlockEvent mostRecentBlockEvent) {
+        return mostRecentBlockEvent.getOwner().getUsername().equalsIgnoreCase(player.getName());
     }
 }
