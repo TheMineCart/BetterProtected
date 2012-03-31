@@ -24,8 +24,8 @@ public class TransformationExecutor implements CommandExecutor {
         if (strings.length < 1 || strings.length > 1) return false;
 
         World world = new World(strings[0]);
-        transformationService.persistPlacedBlocksFromFolder(BANANA_PROTECT_DIRECTORY + world.getWorld(), world);
-        log.info("Transformation of block information for " + world.getWorld() + " is complete!");
+        transformationService.persistPlacedBlocksFromFolder(BANANA_PROTECT_DIRECTORY + world.getName(), world);
+        log.info("Transformation of block information for " + world.getName() + " is complete!");
         return true;
     }
 }

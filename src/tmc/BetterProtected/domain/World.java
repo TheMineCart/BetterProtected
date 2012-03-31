@@ -3,18 +3,18 @@ package tmc.BetterProtected.domain;
 import com.google.gson.annotations.Expose;
 
 public class World {
-    @Expose private String world;
+    @Expose private String name;
 
-    public World(String world) {
-        this.world = world;
+    public World(String name) {
+        this.name = name;
     }
 
-    public String getWorld() {
-        return world;
+    public String getName() {
+        return name;
     }
 
-    public void setWorld(String world) {
-        this.world = world;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -24,13 +24,13 @@ public class World {
 
         World world1 = (World) o;
 
-        if (world != null ? !world.equals(world1.world) : world1.world != null) return false;
+        if (name != null ? !name.equals(world1.name) : world1.name != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return world != null ? world.hashCode() : 0;
+        return name != null ? name.hashCode() : 0;
     }
 }
