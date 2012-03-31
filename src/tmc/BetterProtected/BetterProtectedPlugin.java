@@ -5,6 +5,7 @@ import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.Listeners.BlockListener;
+import tmc.BetterProtected.Listeners.PlayerListener;
 import tmc.BetterProtected.executors.TransformationExecutor;
 import tmc.BetterProtected.svc.BlockEventRepository;
 import tmc.BetterProtected.svc.TransformationService;
@@ -73,5 +74,6 @@ public class BetterProtectedPlugin extends JavaPlugin {
 
     private void registerEventListeners() {
         server.getPluginManager().registerEvents(new BlockListener(blockEventRepository), this);
+        server.getPluginManager().registerEvents(new PlayerListener(blockEventRepository), this);
     }
 }

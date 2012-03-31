@@ -1,6 +1,7 @@
 package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
+import org.bukkit.block.Block;
 
 public class BlockCoordinate {
     @Expose private Long x;
@@ -17,6 +18,10 @@ public class BlockCoordinate {
         this.x = x.longValue();
         this.y = y.longValue();
         this.z = z.longValue();
+    }
+
+    public static BlockCoordinate newCoordinate(Block block) {
+        return new BlockCoordinate(block.getX(), block.getY(), block.getZ());
     }
 
     public Long getX() {
