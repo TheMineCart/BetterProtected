@@ -118,7 +118,6 @@ public class BlockListener implements Listener {
 
     private boolean isMaterialLiquid(Material material) {
         return material == STATIONARY_LAVA || material == STATIONARY_WATER ||
-               material == LAVA || material == WATER ||
-               material == LAVA_BUCKET || material == WATER_BUCKET;
+               material == LAVA || material == WATER;
     }
 }
