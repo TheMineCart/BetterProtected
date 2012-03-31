@@ -36,7 +36,7 @@ public class BlockListener implements Listener {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);
-            player.sendMessage(ChatColor.RED + "You cannot break this block!");
+            player.sendMessage(ChatColor.DARK_RED + "You cannot break this block!");
         }
     }
 
@@ -50,7 +50,7 @@ public class BlockListener implements Listener {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else {
             event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.DARK_RED + String.format("You cannot place a %s block here!", block.getType().toString()));
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot place a block here!");
         }
     }
 
@@ -63,7 +63,7 @@ public class BlockListener implements Listener {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);
-            player.sendMessage(ChatColor.RED + "You cannot break this block!");
+            player.sendMessage(ChatColor.DARK_RED + "You fill your bucket from this block!");
         }
 
         player.sendMessage(ChatColor.DARK_AQUA + String.format("Relative block type is %s", block.getType()));
@@ -85,7 +85,7 @@ public class BlockListener implements Listener {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED, blockType));
         } else {
             event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.DARK_RED + String.format("You cannot place a %s here!", event.getBucket().toString()));
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot pour your bucket here!");
         }
     }
 
