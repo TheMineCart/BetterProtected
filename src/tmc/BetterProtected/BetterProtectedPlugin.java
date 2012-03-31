@@ -59,7 +59,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     }
 
     private void initializeRepositories() {
-        blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection("PlacedBlocks"));
+        blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection("BlockEvents"));
     }
 
     private void initializeServices() {

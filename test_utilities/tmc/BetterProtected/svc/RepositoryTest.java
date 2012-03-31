@@ -12,13 +12,13 @@ public class RepositoryTest {
     private static final String TEST_DATABASE_NAME = "test";
     private Mongo mongo = null;
 
-    DBCollection getCollection(String collection) {
+    protected DBCollection getCollection(String collection) {
         DB database = getTestDatabase();
 
         return database.getCollection(collection);
     }
 
-    void clearTestData() {
+    protected void clearTestData() {
         DB database = getTestDatabase();
         database.dropDatabase();
         mongo.close();

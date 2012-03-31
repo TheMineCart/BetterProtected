@@ -24,7 +24,7 @@ public class BlockEventRepositoryTest extends RepositoryTest{
 
     @Before
     public void setUp() throws Exception {
-        blockEventRepository = new BlockEventRepository(getCollection("PlacedBlocks"));
+        blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
     }
 
     @After

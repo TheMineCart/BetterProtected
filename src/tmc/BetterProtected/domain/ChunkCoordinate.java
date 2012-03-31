@@ -11,6 +11,11 @@ public class ChunkCoordinate {
         this.z = z;
     }
 
+    public ChunkCoordinate(Integer x, Integer z) {
+        this.x = x.longValue();
+        this.z = z.longValue();
+    }
+
     public Long getX() {
         return x;
     }
