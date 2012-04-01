@@ -25,6 +25,12 @@ public class TestBlock implements Block {
         this.z = z;
         this.material = material;
     }
+    public TestBlock(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        material = Material.AIR;
+    }
 
     @Override
     public byte getData() {
@@ -53,7 +59,7 @@ public class TestBlock implements Block {
 
     @Override
     public int getTypeId() {
-        return 0;  
+        return material.getId();
     }
 
     @Override
@@ -78,17 +84,17 @@ public class TestBlock implements Block {
 
     @Override
     public int getX() {
-        return 0;  
+        return x;
     }
 
     @Override
     public int getY() {
-        return 0;  
+        return y;
     }
 
     @Override
     public int getZ() {
-        return 0;  
+        return z;
     }
 
     @Override

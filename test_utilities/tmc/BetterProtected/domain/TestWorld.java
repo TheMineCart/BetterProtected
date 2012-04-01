@@ -37,7 +37,7 @@ public class TestWorld implements org.bukkit.World {
     @Override
     public Block getBlockAt(int x, int y, int z) {
         for (Block block : blocks) {
-            if(block.getX() == x && block.getX() == y && block.getX() == z){
+            if(block.getX() == x && block.getY() == y && block.getZ() == z){
                 return block;
             }
         }
@@ -46,12 +46,12 @@ public class TestWorld implements org.bukkit.World {
 
     @Override
     public Block getBlockAt(Location location) {
-        return null;  
+        return null;
     }
 
     @Override
-    public int getBlockTypeIdAt(int i, int i1, int i2) {
-        return 0;  
+    public int getBlockTypeIdAt(int x, int y, int z) {
+        return getBlockAt(x, y, z).getTypeId();
     }
 
     @Override

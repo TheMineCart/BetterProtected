@@ -1,6 +1,7 @@
 package tmc.BetterProtected.svc;
 
 import org.bukkit.Material;
+import org.bukkit.Server;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.joda.time.DateTime;
@@ -18,8 +19,10 @@ public class TransformationService {
     private final Pattern pattern;
     private Logger minecraftLog = Logger.getLogger("Minecraft");
     private BlockEventRepository blockEventRepository;
+    private Server server;
 
-    public TransformationService(BlockEventRepository blockEventRepository) {
+    public TransformationService(BlockEventRepository blockEventRepository, Server server) {
+        this.server = server;
         pattern = Pattern.compile(FILE_REGEX);
         this.blockEventRepository = blockEventRepository;
     }
@@ -62,11 +65,21 @@ public class TransformationService {
             Long y = Long.parseLong(coordinates[1]);
             Long z = Long.parseLong(coordinates[2]);
 
-            blockEventRepository.save(
-                    new BlockEvent(now, new Player(configuration.getString(path + ".player")),
-                            BlockEventType.PLACED, new BlockCoordinate(x, y, z), chunkCoordinate, world,
-                                    Material.getMaterial(configuration.getInt(path + ".type"))
-                                    ));
+            Material realWorldBlockType = server.getWorld(world.getName()).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
+
+            if(realWorldBlockType != Material.AIR){
+                blockEventRepository.save(
+                        new BlockEvent(
+                                now,
+                                new Player(configuration.getString(path + ".player")),
+                                BlockEventType.PLACED,
+                                new BlockCoordinate(x, y, z),
+                                chunkCoordinate,
+                                world,
+                                Material.getMaterial(configuration.getInt(path + ".type"))
+                        )
+                );
+            }
         }
     }
 

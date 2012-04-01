@@ -5,32 +5,78 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.BlockCoordinate;
-import tmc.BetterProtected.domain.BlockEvent;
-import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.World;
+import tmc.BetterProtected.domain.*;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
+import static org.bukkit.Material.AIR;
+import static org.bukkit.Material.DIRT;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 public class TransformationServiceTest extends RepositoryTest{
     private final String FIXTURE_DIRECTORY = "test\\fixtures\\files";
     private TransformationService transformationService;
     private BlockEventRepository blockEventRepository;
+    private TestServer server;
+    private TestWorld world;
 
     @Before
     public void setUp() throws Exception {
+        server = new TestServer();
+        world = new TestWorld("test");
+        server.addWorld(world);
+
+        world.addBlock(new TestBlock(1, 2, 3, AIR));
+
         blockEventRepository = new BlockEventRepository(getCollection("PlacedBlocks"));
-        transformationService = new TransformationService(blockEventRepository);
+        transformationService = new TransformationService(blockEventRepository, server);
     }
 
     @After
     public void tearDown() {
         clearTestData();
+    }
+
+    @Test
+    public void shouldNotPersistBlockIfItIsAirInWorld() throws IOException, InvalidConfigurationException {
+        TestBlock bobBlock = new TestBlock(1, 1, 1, Material.getMaterial(58));
+        TestBlock rogerBlock = new TestBlock(15, -1, 1, Material.getMaterial(5));
+        TestBlock gregBlock = new TestBlock(-1, -20, 1, Material.getMaterial(19));
+        TestBlock louisBlock = new TestBlock(-1, -8, -1, Material.getMaterial(73));
+
+        this.world.addBlock(bobBlock);
+        this.world.addBlock(rogerBlock);
+        this.world.addBlock(gregBlock);
+        this.world.addBlock(louisBlock);
+        this.world.addBlock(new TestBlock(-11,1,1, AIR));
+        this.world.addBlock(new TestBlock(18,1,-1, AIR));
+        this.world.addBlock(new TestBlock(1,-5,-1, AIR));
+
+        World world = new World("test");
+        transformationService.persistPlacedBlocksFromFile("test\\fixtures\\11.11.yml", world);
+
+        BlockCoordinate fredCoord = new BlockCoordinate(-11, 1, 1);
+        assertThat(blockEventRepository.findMostRecent(fredCoord, world), nullValue());
+
+        BlockCoordinate leonCoord = new BlockCoordinate(18, 1, -1);
+        assertThat(blockEventRepository.findMostRecent(leonCoord, world), nullValue());
+
+        BlockCoordinate johnCoord = new BlockCoordinate(1, -5, -1);
+        assertThat(blockEventRepository.findMostRecent(johnCoord, world), nullValue());
+
+        BlockCoordinate bobCoord = new BlockCoordinate(1, 1, 1);
+        assertThat(blockEventRepository.findMostRecent(bobCoord, world), not(nullValue()));
+
+        BlockCoordinate rogerCoord = new BlockCoordinate(15, -1, 1);
+        assertThat(blockEventRepository.findMostRecent(rogerCoord, world), not(nullValue()));
+
+        BlockCoordinate gregCoord = new BlockCoordinate(-1, -20, 1);
+        assertThat(blockEventRepository.findMostRecent(gregCoord, world), not(nullValue()));
+
+        BlockCoordinate louisCoord = new BlockCoordinate(-1, -8, -1);
+        assertThat(blockEventRepository.findMostRecent(louisCoord, world), not(nullValue()));
     }
 
     @Test
@@ -44,7 +90,7 @@ public class TransformationServiceTest extends RepositoryTest{
         List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(blockCoordinate, world);
 
         assertThat(blockEvents.get(0).getOwner().getUsername(), is("Katehhh"));
-        assertThat(blockEvents.get(0).getMaterial(), is(Material.DIRT));
+        assertThat(blockEvents.get(0).getMaterial(), is(DIRT));
     }
 
     @Test(expected = IOException.class)
