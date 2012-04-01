@@ -1,4 +1,4 @@
-package tmc.BetterProtected.svc;
+package tmc.BetterProtected.services;
 
 import tmc.BetterProtected.domain.Player;
 

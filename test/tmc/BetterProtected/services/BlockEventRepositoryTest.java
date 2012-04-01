@@ -1,4 +1,4 @@
-package tmc.BetterProtected.svc;
+package tmc.BetterProtected.services;
 
 import org.joda.time.DateTime;
 import org.junit.After;

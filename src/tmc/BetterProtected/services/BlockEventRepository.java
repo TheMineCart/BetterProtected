@@ -1,4 +1,4 @@
-package tmc.BetterProtected.svc;
+package tmc.BetterProtected.services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

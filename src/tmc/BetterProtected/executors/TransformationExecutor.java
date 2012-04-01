@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import tmc.BetterProtected.domain.World;
-import tmc.BetterProtected.svc.TransformationService;
+import tmc.BetterProtected.services.TransformationService;
 
 import java.util.logging.Logger;
 

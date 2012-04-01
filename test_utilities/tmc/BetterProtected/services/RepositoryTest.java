@@ -1,4 +1,4 @@
-package tmc.BetterProtected.svc;
+package tmc.BetterProtected.services;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
