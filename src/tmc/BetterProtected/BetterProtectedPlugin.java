@@ -89,7 +89,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     }
 
     private void registerEventListeners() {
-        server.getPluginManager().registerEvents(new BlockListener(blockEventRepository), this);
+        server.getPluginManager().registerEvents(new BlockListener(blockEventRepository, configuration.getUnprotectedBlockIds()), this);
 //        server.getPluginManager().registerEvents(new BlockPhysicsListener(blockEventRepository, server), this);
         server.getPluginManager().registerEvents(new PlayerListener(blockEventRepository), this);
     }

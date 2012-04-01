@@ -51,7 +51,7 @@ public class Configuration {
         configuration.createSection(DB_CONNECTION_SECTION, dbConnectionInfo);
 
         Map<String, Object> blockProtectionSettings = new HashMap<String, Object>();
-        unprotectedBlockIds = newArrayList(AIR.getId(), SAPLING.getId(), SAND.getId(), GRAVEL.getId());
+        unprotectedBlockIds = newArrayList(SAPLING.getId(), SAND.getId(), GRAVEL.getId());
         blockProtectionSettings.put(IGNORE_BLOCK_TYPE_OPTION, unprotectedBlockIds);
         configuration.createSection(BLOCK_PROTECTION_SETTINGS_SECTION, blockProtectionSettings);
 

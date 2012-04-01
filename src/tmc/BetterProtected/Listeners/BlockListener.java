@@ -15,6 +15,10 @@ import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.World;
 import tmc.BetterProtected.svc.BlockEventRepository;
 
+import java.util.List;
+import java.util.Set;
+
+import static com.google.common.collect.Sets.newHashSet;
 import static org.bukkit.Material.*;
 import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
 import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
@@ -22,15 +26,22 @@ import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 public class BlockListener implements Listener {
 
     private BlockEventRepository blockEventRepository;
+    private Set<Material> ignoredMaterial;
 
-    public BlockListener(BlockEventRepository blockEventRepository) {
+    public BlockListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
         this.blockEventRepository = blockEventRepository;
+        this.ignoredMaterial = newHashSet();
+        for (Integer blockTypeId : unprotectedBlockIds) {
+            ignoredMaterial.add(Material.getMaterial(blockTypeId));
+        }
     }
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
         Block block = event.getBlock();
+
+        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
 
         if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block))) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
@@ -45,7 +56,9 @@ public class BlockListener implements Listener {
         Block block = event.getBlock();
         Player player = event.getPlayer();
 
-        if(doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
+        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
+
+        if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else if (event.getBlockReplacedState().getType() == AIR) {
             BlockEvent.newBlockEvent(block, player.getName(), REMOVED, AIR);
@@ -61,6 +74,8 @@ public class BlockListener implements Listener {
         Block block = event.getBlockClicked().getRelative(event.getBlockFace());
         Player player = event.getPlayer();
 
+        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
+
         if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block))) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
@@ -74,7 +89,9 @@ public class BlockListener implements Listener {
         Block block = event.getBlockClicked().getRelative(event.getBlockFace());
         Player player = event.getPlayer();
 
-        if(doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
+        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
+
+        if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             Material blockType = block.getType();
             if (event.getBucket() == WATER_BUCKET) {
                 blockType = STATIONARY_WATER;
@@ -101,9 +118,10 @@ public class BlockListener implements Listener {
     }
 
     private boolean doesPlayerHavePermissionToPlace(Player player, Block block, BlockEvent mostRecentBlockEvent) {
-        if(mostRecentBlockEvent == null) return true;
-        if(mostRecentBlockEvent.getBlockEventType() == REMOVED) return true;
-        if(isBlockEventOwnedByPlayer(player, mostRecentBlockEvent) && isAllowedToPlaceBlockIntoLiquid(mostRecentBlockEvent, block)) return true;
+        if (mostRecentBlockEvent == null) return true;
+        if (mostRecentBlockEvent.getBlockEventType() == REMOVED) return true;
+        if (isBlockEventOwnedByPlayer(player, mostRecentBlockEvent) && isAllowedToPlaceBlockIntoLiquid(mostRecentBlockEvent, block))
+            return true;
         return player.isOp();
     }
 
@@ -113,11 +131,14 @@ public class BlockListener implements Listener {
 
     private boolean isAllowedToPlaceBlockIntoLiquid(BlockEvent blockEvent, Block blockInHand) {
         return isMaterialLiquid(blockEvent.getMaterial()) && !isMaterialLiquid(blockInHand.getType());
-
     }
 
     private boolean isMaterialLiquid(Material material) {
         return material == STATIONARY_LAVA || material == STATIONARY_WATER ||
-               material == LAVA || material == WATER;
+                material == LAVA || material == WATER;
+    }
+
+    private boolean isMaterialIgnored(Material material) {
+        return ignoredMaterial.contains(material);
     }
 }
