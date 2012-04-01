@@ -5,9 +5,9 @@ import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.executors.TransformationExecutor;
-import tmc.BetterProtected.listeners.BlockListener;
-import tmc.BetterProtected.listeners.PlayerListener;
 import tmc.BetterProtected.svc.BlockEventRepository;
+import tmc.BetterProtected.svc.BlockListener;
+import tmc.BetterProtected.svc.PlayerListener;
 import tmc.BetterProtected.svc.TransformationService;
 
 import java.net.UnknownHostException;

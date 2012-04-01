@@ -1,4 +1,4 @@
-package tmc.BetterProtected.listeners;
+package tmc.BetterProtected.svc;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,7 +13,6 @@ import org.bukkit.event.player.PlayerBucketFillEvent;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.World;
-import tmc.BetterProtected.svc.BlockEventRepository;
 
 import java.util.List;
 import java.util.Set;
