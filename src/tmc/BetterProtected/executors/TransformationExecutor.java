@@ -16,7 +16,6 @@ public class TransformationExecutor implements CommandExecutor {
     public TransformationExecutor(Logger log, TransformationService transformationService) {
         this.log = log;
         this.transformationService = transformationService;
-        this.log.info("newing the transformationService");
     }
 
     @Override

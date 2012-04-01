@@ -76,4 +76,9 @@ public class BlockEventRepository {
     public Long count() {
         return collection.count();
     }
+
+    public void initializeIndexes() {
+        collection.ensureIndex(new BasicDBObject("blockCoordinate", 1), new BasicDBObject("world", 1));
+        collection.ensureIndex(new BasicDBObject("chunkCoordinate", 1), new BasicDBObject("world", 1));
+    }
 }

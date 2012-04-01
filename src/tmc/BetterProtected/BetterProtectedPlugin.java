@@ -22,7 +22,6 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private DB betterProtectedDB;
     private Logger logger;
     private BlockEventRepository blockEventRepository;
-    private TransformationExecutor transformationExecutor;
     private Server server;
     private TransformationService transformationService;
     private Configuration configuration;
@@ -30,9 +29,11 @@ public class BetterProtectedPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         initializeServer();
+        logger.info("Beginning BetterProtected Initialization.");
         initializeMongoDB();
         initializeDatabase();
         initializeRepositories();
+        initializeCollectionIndexes();
         initializeServices();
         initializeCommandExecutors();
         registerEventListeners();
@@ -48,12 +49,15 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private void initializeServer() {
         server = this.getServer();
         logger = server.getLogger();
+        logger.info("Configuring BetterProtected Plugin.");
         configuration = new Configuration(this.getConfig(), this);
     }
 
     private void initializeMongoDB() {
         try {
-            mongoConnection = new Mongo(configuration.getDbConnectionInfo().get(ADDRESS_OPTION));
+            String address = configuration.getDbConnectionInfo().get(ADDRESS_OPTION);
+            mongoConnection = new Mongo(address);
+            logger.info("Found MongoDB instance at " + address);
         } catch (UnknownHostException e) {
             logger.warning(String.format(MONGO_CONNECTION_ERROR, e.toString()));
         }
@@ -61,34 +65,47 @@ public class BetterProtectedPlugin extends JavaPlugin {
 
     private void initializeDatabase() {
         String dbName = configuration.getDbConnectionInfo().get(DB_NAME_OPTION);
+        logger.info("Connecting to database: " + dbName + ".");
         betterProtectedDB = mongoConnection.getDB(dbName);
 
         String user = configuration.getDbConnectionInfo().get(DB_USER_OPTION);
         if(user != null) {
+            logger.info("Attempting authentication to database " + dbName + " with user " + user + ".");
             String password = configuration.getDbConnectionInfo().get(DB_PASSWORD_OPTION);
             boolean success = betterProtectedDB.authenticate(user, password.toCharArray());
             if (!success) {
                 logger.warning("Incorrect Mongo Database Authentication Info: " +
                         "please double check the settings in your config.yml file.");
                 onDisable();
+            } else {
+              logger.info("Authentication successful.");
             }
         }
     }
 
     private void initializeRepositories() {
+        logger.info("Initializing Repositories");
         blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection(BLOCK_EVENTS_COLLECTION));
+
+    }
+
+    private void initializeCollectionIndexes() {
+        logger.info("Indexing BlockEvents");
+        blockEventRepository.initializeIndexes();
     }
 
     private void initializeServices() {
+        logger.info("Initializing Services");
         transformationService = new TransformationService(blockEventRepository, server);
     }
 
     private void initializeCommandExecutors() {
-        transformationExecutor = new TransformationExecutor(logger, transformationService);
-        getCommand("transform").setExecutor(transformationExecutor);
+        logger.info("Registering Command Executors");
+        getCommand("transform").setExecutor(new TransformationExecutor(logger, transformationService));
     }
 
     private void registerEventListeners() {
+        logger.info("Registering Event Listeners");
         server.getPluginManager().registerEvents(new BlockListener(blockEventRepository, configuration.getUnprotectedBlockIds()), this);
 //        server.getPluginManager().registerEvents(new BlockPhysicsListener(blockEventRepository, server), this);
         server.getPluginManager().registerEvents(new PlayerListener(blockEventRepository), this);
