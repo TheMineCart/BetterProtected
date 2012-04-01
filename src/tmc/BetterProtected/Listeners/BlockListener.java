@@ -41,9 +41,19 @@ public class BlockListener implements Listener {
         Player player = event.getPlayer();
         Block block = event.getBlock();
 
-        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
+        BlockEvent mostRecentBlockEvent = getMostRecentBlockEvent(block);
 
-        if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block))) {
+        if(mostRecentBlockEvent == null) {
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
+        } else if (isMaterialIgnored(block.getType())) {
+
+            if (isMaterialIgnored(mostRecentBlockEvent.getMaterial())) {
+                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
+            } else if(doesPlayerHavePermissionToBreak(player, mostRecentBlockEvent)) {
+                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
+            }
+
+        } else if (doesPlayerHavePermissionToBreak(player, mostRecentBlockEvent)) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);
@@ -56,9 +66,22 @@ public class BlockListener implements Listener {
         Block block = event.getBlock();
         Player player = event.getPlayer();
 
-        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
+        BlockEvent mostRecentBlockEvent = getMostRecentBlockEvent(block);
 
-        if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
+        if(mostRecentBlockEvent == null) {
+            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
+        } else if (isMaterialIgnored(block.getType())) {
+
+            if (!doesPlayerHavePermissionToPlace(player, block, mostRecentBlockEvent)) {
+                event.setCancelled(true);
+                event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot place an unprotected block here!");
+            } else if (isMaterialLiquid(mostRecentBlockEvent.getMaterial())) {
+                BlockEvent.newBlockEvent(block, player.getName(), REMOVED, mostRecentBlockEvent.getMaterial());
+            } else if (event.getBlockReplacedState().getType() == AIR) {
+                BlockEvent.newBlockEvent(block, player.getName(), REMOVED, AIR);
+            }
+
+        } else if (doesPlayerHavePermissionToPlace(player, block, mostRecentBlockEvent)) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED));
         } else if (event.getBlockReplacedState().getType() == AIR) {
             BlockEvent.newBlockEvent(block, player.getName(), REMOVED, AIR);
@@ -130,7 +153,8 @@ public class BlockListener implements Listener {
     }
 
     private boolean isAllowedToPlaceBlockIntoLiquid(BlockEvent blockEvent, Block blockInHand) {
-        return isMaterialLiquid(blockEvent.getMaterial()) && !isMaterialLiquid(blockInHand.getType());
+        return isMaterialLiquid(blockEvent.getMaterial()) &&
+                (!isMaterialLiquid(blockInHand.getType()) && isMaterialIgnored(blockInHand.getType()));
     }
 
     private boolean isMaterialLiquid(Material material) {
