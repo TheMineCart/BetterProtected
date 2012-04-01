@@ -1,9 +1,9 @@
 name: BetterProtected
 main: tmc.BetterProtected.BetterProtectedPlugin
-version: 0.02
+version: 0.1
 
 commands:
   transform:
     description: Transform your banana protect files into MongoDB.
     permissions: BetterProtected.transform
-    usage: /<command> [world_naasssme]
+    usage: /<command> [world_name]
