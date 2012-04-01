@@ -26,6 +26,7 @@ import org.bukkit.util.Vector;
 import java.net.InetSocketAddress;
 import java.util.*;
 
+@SuppressWarnings("deprecation")
 public class TestPlayer implements org.bukkit.entity.Player {
     @Override
     public String getDisplayName() {
