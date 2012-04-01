@@ -10,8 +10,7 @@ import tmc.BetterProtected.domain.*;
 import java.io.IOException;
 import java.util.List;
 
-import static org.bukkit.Material.AIR;
-import static org.bukkit.Material.DIRT;
+import static org.bukkit.Material.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
@@ -37,6 +36,24 @@ public class TransformationServiceTest extends RepositoryTest{
     @After
     public void tearDown() {
         clearTestData();
+    }
+
+    @Test
+    public void shouldPreferServersBlockTypeIfMismatchFromFile() throws IOException, InvalidConfigurationException {
+        TestBlock match = new TestBlock(1, 1, 1, WORKBENCH); // Workbench is 58 same as in file
+        TestBlock mismatch = new TestBlock(15, -1, 1, NETHER_BRICK); // 5 in file
+
+        this.world.addBlock(match);
+        this.world.addBlock(mismatch);
+
+        World world = new World("test");
+        transformationService.persistPlacedBlocksFromFile("test\\fixtures\\12.12.yml", world);
+
+        BlockCoordinate matchCoord = new BlockCoordinate(1, 1, 1);
+        assertThat(blockEventRepository.findMostRecent(matchCoord, world).getMaterial(), is(WORKBENCH));
+
+        BlockCoordinate mismatchCoord = new BlockCoordinate(15, -1, 1);
+        assertThat(blockEventRepository.findMostRecent(mismatchCoord, world).getMaterial(), is(NETHER_BRICK));
     }
 
     @Test

@@ -65,9 +65,9 @@ public class TransformationService {
             Long y = Long.parseLong(coordinates[1]);
             Long z = Long.parseLong(coordinates[2]);
 
-            Material realWorldBlockType = server.getWorld(world.getName()).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
+            Material realWorldMaterial = server.getWorld(world.getName()).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
 
-            if(realWorldBlockType != Material.AIR){
+            if(realWorldMaterial != Material.AIR){
                 blockEventRepository.save(
                         new BlockEvent(
                                 now,
@@ -76,7 +76,7 @@ public class TransformationService {
                                 new BlockCoordinate(x, y, z),
                                 chunkCoordinate,
                                 world,
-                                Material.getMaterial(configuration.getInt(path + ".type"))
+                                realWorldMaterial
                         )
                 );
             }
