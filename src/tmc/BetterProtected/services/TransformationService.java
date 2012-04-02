@@ -71,7 +71,7 @@ public class TransformationService {
                 blockEventRepository.save(
                         new BlockEvent(
                                 now,
-                                new Player(configuration.getString(path + ".player")),
+                                new Owner(configuration.getString(path + ".player")),
                                 BlockEventType.PLACED,
                                 new BlockCoordinate(x, y, z),
                                 chunkCoordinate,

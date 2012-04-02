@@ -6,22 +6,22 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class PlayerTest {
+public class OwnerTest {
     @Test
-    public void canDeserializePlayer() {
+    public void canDeserializeOwner() {
         String playerString = "{\"username\":\"Jason\"}";
 
         Gson gson = new Gson();
-        Player player = gson.fromJson(playerString, Player.class);
+        Owner owner = gson.fromJson(playerString, Owner.class);
 
-        assertThat(player.getUsername(), is("Jason"));
+        assertThat(owner.getUsername(), is("Jason"));
     }
 
     @Test
-    public void canSerializePlayer() {
+    public void canSerializeOwner() {
         String expectedJson = "{\"username\":\"Jason\"}";
-        Player jason = new Player("Jason");
+        Owner jason = new Owner("Jason");
 
-        assertThat(new Gson().toJson(jason, Player.class), is(expectedJson));
+        assertThat(new Gson().toJson(jason, Owner.class), is(expectedJson));
     }
 }

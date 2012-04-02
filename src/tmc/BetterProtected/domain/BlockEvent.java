@@ -8,14 +8,14 @@ import tmc.BetterProtected.domain.types.BlockEventType;
 
 public class BlockEvent {
     @Expose private DateTime instant;
-    @Expose private Player owner;
+    @Expose private Owner owner;
     @Expose private BlockEventType blockEventType;
     @Expose private BlockCoordinate blockCoordinate;
     @Expose private ChunkCoordinate chunkCoordinate;
     @Expose private World world;
     @Expose private Material material;
 
-    public BlockEvent(DateTime instant, Player owner, BlockEventType blockEventType, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, World world, Material material) {
+    public BlockEvent(DateTime instant, Owner owner, BlockEventType blockEventType, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, World world, Material material) {
         this.instant = instant;
         this.owner = owner;
         this.blockEventType = blockEventType;
@@ -35,7 +35,7 @@ public class BlockEvent {
         BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
         World world = World.newWorld(block);
 
-        return new BlockEvent(new DateTime(), new tmc.BetterProtected.domain.Player(playerName), type, blockCoordinate,
+        return new BlockEvent(new DateTime(), new Owner(playerName), type, blockCoordinate,
                 new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()), world, material);
     }
 
@@ -43,7 +43,7 @@ public class BlockEvent {
         return instant;
     }
 
-    public Player getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 

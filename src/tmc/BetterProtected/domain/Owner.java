@@ -2,12 +2,12 @@ package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
 
-public class Player {
+public class Owner {
 
     @Expose
     private String username;
 
-    public Player(String username) {
+    public Owner(String username) {
         this.username = username;
     }
 
@@ -22,11 +22,11 @@ public class Player {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Player)) return false;
+        if (!(o instanceof Owner)) return false;
 
-        Player player = (Player) o;
+        Owner owner = (Owner) o;
 
-        if (username != null ? !username.equals(player.username) : player.username != null) return false;
+        if (username != null ? !username.equals(owner.username) : owner.username != null) return false;
 
         return true;
     }

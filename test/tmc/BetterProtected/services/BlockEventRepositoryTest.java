@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.Player;
+import tmc.BetterProtected.domain.Owner;
 import tmc.BetterProtected.domain.World;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItem;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 import static tmc.BetterProtected.domain.builder.BlockEventBuilder.aPlacedBlock;
-import static tmc.BetterProtected.domain.builder.PlayerBuilder.aPlayer;
+import static tmc.BetterProtected.domain.builder.OwnerBuilder.aPlayer;
 
 public class BlockEventRepositoryTest extends RepositoryTest{
     
@@ -45,9 +45,9 @@ public class BlockEventRepositoryTest extends RepositoryTest{
 
     @Test
     public void shouldFindBlocksByChunkCoordinate() {
-        Player jason = aPlayer().build();
-        Player charlie = aPlayer().withUsername("Charlie").build();
-        Player katie = aPlayer().withUsername("Katie").build();
+        Owner jason = aPlayer().build();
+        Owner charlie = aPlayer().withUsername("Charlie").build();
+        Owner katie = aPlayer().withUsername("Katie").build();
         DateTime now = new DateTime();
         BlockEvent jasonBlockEvent1 = aPlacedBlock().withInstant(now.plusDays(1)).withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
         BlockEvent jasonBlockEvent2 = aPlacedBlock().withInstant(now.plusDays(3)).withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();

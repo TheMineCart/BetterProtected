@@ -10,7 +10,7 @@ public class BlockEventBuilder implements Builder<BlockEvent> {
 
     private ChunkCoordinate chunkCoordinate = new ChunkCoordinate(1L, 2L);
     private BlockCoordinate blockCoordinate = new BlockCoordinate(1L, 2L, 3L);
-    private Player owner = new Player("Jason");
+    private Owner owner = new Owner("Jason");
     private World world = new World("narnia");
     private DateTime instant = new DateTime();
     private BlockEventType blockEventType = BlockEventType.PLACED;
@@ -35,7 +35,7 @@ public class BlockEventBuilder implements Builder<BlockEvent> {
         return this;
     }
 
-    public BlockEventBuilder withOwner(Player owner) {
+    public BlockEventBuilder withOwner(Owner owner) {
         this.owner = owner;
         return this;
     }
