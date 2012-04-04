@@ -18,6 +18,13 @@ public class TestBlock implements Block {
     private int z = 0;
     private int y = 0;
     private int x = 0;
+    private TestWorld world = new TestWorld("test");
+    private TestChunk chunk = new TestChunk(1, 1, world);
+
+    public TestBlock(int x, int y, int z, Material material, TestChunk chunk) {
+        this(x, y, z, material);
+        this.chunk = chunk;
+    }
 
     public TestBlock(int x, int y, int z, Material material) {
         this.x = x;
@@ -26,10 +33,7 @@ public class TestBlock implements Block {
         this.material = material;
     }
     public TestBlock(int x, int y, int z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        material = Material.AIR;
+        this(x, y, z, Material.AIR);
     }
 
     @Override
@@ -77,9 +81,13 @@ public class TestBlock implements Block {
         return 0;  
     }
 
+    public void setWorld(TestWorld world) {
+        this.world = world;
+    }
+
     @Override
     public World getWorld() {
-        return null;  
+        return world;
     }
 
     @Override
@@ -104,7 +112,11 @@ public class TestBlock implements Block {
 
     @Override
     public Chunk getChunk() {
-        return null;  
+        return chunk;
+    }
+
+    public void setChunk(TestChunk chunk) {
+        this.chunk = chunk;
     }
 
     @Override

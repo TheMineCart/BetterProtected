@@ -6,7 +6,6 @@ import org.bukkit.block.Block;
 import org.bukkit.conversations.Conversation;
 import org.bukkit.conversations.ConversationAbandonedEvent;
 import org.bukkit.entity.*;
-import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.Inventory;
@@ -28,6 +27,21 @@ import java.util.*;
 
 @SuppressWarnings("deprecation")
 public class TestPlayer implements org.bukkit.entity.Player {
+    private String message = null;
+    private boolean op = false;
+    private ItemStack itemStack = new ItemStack(Material.STICK);
+
+    public TestPlayer() {
+    }
+
+    public TestPlayer(Material itemInHand) {
+        itemStack = new ItemStack(itemInHand);
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     @Override
     public String getDisplayName() {
         return null;  
@@ -355,7 +369,7 @@ public class TestPlayer implements org.bukkit.entity.Player {
 
     @Override
     public void sendMessage(String s) {
-        
+        this.message = s;
     }
 
     @Override
@@ -460,12 +474,12 @@ public class TestPlayer implements org.bukkit.entity.Player {
 
     @Override
     public ItemStack getItemInHand() {
-        return null;  
+        return itemStack;
     }
 
     @Override
     public void setItemInHand(ItemStack itemStack) {
-        
+        this.itemStack = itemStack;
     }
 
     @Override
@@ -910,11 +924,11 @@ public class TestPlayer implements org.bukkit.entity.Player {
 
     @Override
     public boolean isOp() {
-        return false;  
+        return op;
     }
 
     @Override
     public void setOp(boolean b) {
-        
+        this.op = b;
     }
 }
