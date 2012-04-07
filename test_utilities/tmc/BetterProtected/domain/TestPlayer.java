@@ -30,8 +30,19 @@ public class TestPlayer implements org.bukkit.entity.Player {
     private String message = null;
     private boolean op = false;
     private ItemStack itemStack = new ItemStack(Material.STICK);
+    private String name = "John";
 
     public TestPlayer() {
+
+    }
+
+    public TestPlayer(String name) {
+        this.name = name;
+    }
+
+    public TestPlayer(String name, Material itemInHand) {
+        this.name = name;
+        this.itemStack = new ItemStack(itemInHand);
     }
 
     public TestPlayer(Material itemInHand) {
@@ -389,7 +400,7 @@ public class TestPlayer implements org.bukkit.entity.Player {
 
     @Override
     public String getName() {
-        return null;  
+        return name;
     }
 
     @Override
