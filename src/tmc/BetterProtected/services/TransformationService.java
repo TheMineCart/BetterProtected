@@ -27,8 +27,14 @@ public class TransformationService {
         this.blockEventRepository = blockEventRepository;
     }
 
-    public void persistPlacedBlocksFromFolder(String location, World world) {
+    public boolean persistPlacedBlocksFromFolder(String location, World world) {
+        boolean returnStatus = true;
         File folder = new File(location);
+        if (!folder.exists()) {
+            server.getLogger().warning("World named " + world.getName() +" does not exist. " +
+                    "Can't begin transformation... Please double check your spelling.");
+            return false;
+        }
 
         File[] files = folder.listFiles();
         for (File file : files) {
@@ -38,11 +44,13 @@ public class TransformationService {
                 } catch (IOException e) {
                     minecraftLog.severe("java.io.IOException: File Stream failed to parse filename.");
                     e.printStackTrace();
+                    returnStatus = false;
                 } catch (InvalidConfigurationException e) {
                     minecraftLog.warning("Unable to parse chunk data from file: " + file.getAbsolutePath());
                 }
             }
         }
+        return returnStatus;
     }
 
     public void persistPlacedBlocksFromFile(String fileName, World world) throws IOException, InvalidConfigurationException {
