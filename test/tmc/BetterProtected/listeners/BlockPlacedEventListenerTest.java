@@ -25,13 +25,11 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
     private BlockPlacedEventListener blockPlacedEventListener;
     private List<Integer> ignoredBlockTypes = newArrayList(0, 6);
     private BlockEventRepository blockEventRepository;
-    private TestWorld world;
 
     @Before
     public void setUp() throws Exception {
         blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
         blockPlacedEventListener = new BlockPlacedEventListener(blockEventRepository, ignoredBlockTypes);
-        world = new TestWorld("test");
     }
 
     @After
