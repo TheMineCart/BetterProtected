@@ -20,7 +20,7 @@ public class PlayerBucketFillEventListener extends GenericBlockListener implemen
     }
 
     @EventHandler
-    public void onBucketRemove(PlayerBucketFillEvent event) {
+    public void onBucketFill(PlayerBucketFillEvent event) {
         Block block = event.getBlockClicked().getRelative(event.getBlockFace());
         Player player = event.getPlayer();
 

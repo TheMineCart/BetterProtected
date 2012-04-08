@@ -19,7 +19,6 @@ import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
 import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 
 public class BlockBreakEventListenerTest extends RepositoryTest {
-    public static final String PLAYER_NAME = "Jason";
     private BlockBreakEventListener blockBreakEventListener;
     private List<Integer> ignoredBlockTypes = newArrayList(0, 6);
     private BlockEventRepository blockEventRepository;

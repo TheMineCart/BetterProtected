@@ -23,9 +23,8 @@ public class BlockBreakEventListener extends GenericBlockListener implements Lis
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
         Block block = event.getBlock();
-        BlockEvent mostRecentBlockEvent = getMostRecentBlockEvent(block);
 
-        if (doesPlayerHavePermissionToBreak(player, mostRecentBlockEvent, block)) {
+        if (doesPlayerHavePermissionToBreak(player, getMostRecentBlockEvent(block), block)) {
             blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), REMOVED));
         } else {
             event.setCancelled(true);

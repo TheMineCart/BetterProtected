@@ -16,6 +16,7 @@ import static org.bukkit.Material.*;
 import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
 
 public class PlayerBucketPourEventListener extends GenericBlockListener implements Listener {
+
     public PlayerBucketPourEventListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
         super(blockEventRepository, unprotectedBlockIds);
     }

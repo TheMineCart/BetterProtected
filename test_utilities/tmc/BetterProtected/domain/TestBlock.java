@@ -20,6 +20,8 @@ public class TestBlock implements Block {
     private int x = 0;
     private TestWorld world = new TestWorld("test");
     private TestChunk chunk = new TestChunk(1, 1, world);
+    private BlockFace blockFace;
+    private Block relative;
 
     public TestBlock(int x, int y, int z, Material material, TestChunk chunk) {
         this(x, y, z, material);
@@ -31,9 +33,19 @@ public class TestBlock implements Block {
         this.y = y;
         this.z = z;
         this.material = material;
+        blockFace = BlockFace.EAST;
     }
+
     public TestBlock(int x, int y, int z) {
         this(x, y, z, Material.AIR);
+    }
+
+    public void setRelative(Block relative) {
+      this.relative = relative;
+    }
+
+    public Block getRelative() {
+        return relative;
     }
 
     @Override
@@ -43,17 +55,17 @@ public class TestBlock implements Block {
 
     @Override
     public Block getRelative(int i, int i1, int i2) {
-        return null;  
+        return relative;
     }
 
     @Override
     public Block getRelative(BlockFace blockFace) {
-        return null;  
+        return relative;
     }
 
     @Override
     public Block getRelative(BlockFace blockFace, int i) {
-        return null;  
+        return relative;
     }
 
     @Override
@@ -149,9 +161,14 @@ public class TestBlock implements Block {
         return false;  
     }
 
+    public void setFace(BlockFace blockFace) {
+        this.blockFace = blockFace;
+
+    }
+
     @Override
     public BlockFace getFace(Block block) {
-        return null;  
+        return blockFace;
     }
 
     @Override
