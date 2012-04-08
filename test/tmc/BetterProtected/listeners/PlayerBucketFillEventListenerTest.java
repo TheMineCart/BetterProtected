@@ -43,7 +43,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
         assertThat(event.isCancelled(), is(false));
     }
@@ -72,7 +72,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -85,7 +85,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", true, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
 
 
         assertThat(mostRecentBlockEvent.getOwner().getUsername(), is("Jason"));
@@ -101,7 +101,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(PLACED));
     }
 
@@ -115,7 +115,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -129,8 +129,12 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(PLACED));
+    }
+
+    private BlockEvent findMostRecentBlockEvent() {
+        return blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
     }
 
     private PlayerBucketFillEvent makeEvent(String playerName, boolean isOp, Block blockClicked) {

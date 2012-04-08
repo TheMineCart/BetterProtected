@@ -15,9 +15,9 @@ import java.util.List;
 import static org.bukkit.Material.*;
 import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
 
-public class PlayerBucketPourEventListener extends GenericBlockListener implements Listener {
+public class PlayerBucketEmptyEventListener extends GenericBlockListener implements Listener {
 
-    public PlayerBucketPourEventListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
+    public PlayerBucketEmptyEventListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
         super(blockEventRepository, unprotectedBlockIds);
     }
 
@@ -25,8 +25,6 @@ public class PlayerBucketPourEventListener extends GenericBlockListener implemen
     public void onBucketPour(PlayerBucketEmptyEvent event) {
         Block block = event.getBlockClicked().getRelative(event.getBlockFace());
         Player player = event.getPlayer();
-
-        if (isMaterialIgnored(block.getType())) return; //Don't bother if the material doesn't get protection.
 
         if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
             Material blockType = block.getType();
@@ -36,7 +34,11 @@ public class PlayerBucketPourEventListener extends GenericBlockListener implemen
                 blockType = STATIONARY_LAVA;
             }
 
-            blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED, blockType));
+            if(!isMaterialIgnored(blockType)) {
+                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED, blockType));
+            }
+        } else if (isMaterialIgnored(block.getType())){
+            //Do nothing because the material is ignored.
         } else {
             event.setCancelled(true);
             event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot pour your bucket here!");
