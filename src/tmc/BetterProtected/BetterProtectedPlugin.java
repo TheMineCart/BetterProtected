@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.executors.TransformationExecutor;
 import tmc.BetterProtected.listeners.*;
 import tmc.BetterProtected.services.BlockEventRepository;
+import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BetterProtected.services.TransformationService;
 
 import java.net.UnknownHostException;
@@ -16,6 +17,7 @@ import static tmc.BetterProtected.Configuration.*;
 
 public class BetterProtectedPlugin extends JavaPlugin {
     public static final String BLOCK_EVENTS_COLLECTION = "BlockEvents";
+    public static final String PLAYERS_COLLECTION = "Players";
     public static String MONGO_CONNECTION_ERROR = "Error connecting to MongoDB:\n\r%s";
     private Mongo mongoConnection;
     private DB betterProtectedDB;
@@ -24,6 +26,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private Server server;
     private TransformationService transformationService;
     private Configuration configuration;
+    private PlayerRepository playerRepository;
 
     @Override
     public void onEnable() {
@@ -85,7 +88,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private void initializeRepositories() {
         logger.info("Initializing Repositories");
         blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection(BLOCK_EVENTS_COLLECTION));
-
+        playerRepository = new PlayerRepository(betterProtectedDB.getCollection(PLAYERS_COLLECTION));
     }
 
     private void initializeCollectionIndexes() {
