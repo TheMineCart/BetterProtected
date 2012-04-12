@@ -30,7 +30,7 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
         Player player = event.getPlayer();
 
         if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
-            Material blockType = computeBlockTypeFor(event, block);
+            Material blockType = computeLiquidType(event, block);
 
             if(!isMaterialIgnored(blockType)) {
                 BlockEventType blockEventType = computeBlockEventTypeFor(player);
@@ -44,7 +44,7 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
         }
     }
 
-    private Material computeBlockTypeFor(PlayerBucketEmptyEvent event, Block block) {
+    private Material computeLiquidType(PlayerBucketEmptyEvent event, Block block) {
         Material blockType = block.getType();
         if (event.getBucket() == WATER_BUCKET) {
             blockType = STATIONARY_WATER;

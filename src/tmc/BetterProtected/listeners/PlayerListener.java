@@ -15,7 +15,7 @@ import tmc.BetterProtected.domain.World;
 import tmc.BetterProtected.services.BlockEventRepository;
 
 import static org.bukkit.Material.*;
-import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
+import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 
 public class PlayerListener implements Listener {
 
@@ -49,7 +49,7 @@ public class PlayerListener implements Listener {
 
     private void printBlockEventInformation(Player player, Block block) {
         BlockEvent protectedBlock = blockEventRepository.findMostRecent(BlockCoordinate.newCoordinate(block), World.newWorld(block));
-        if (protectedBlock != null && protectedBlock.getBlockEventType() == PLACED) {
+        if (protectedBlock != null && protectedBlock.getBlockEventType() != REMOVED) {
 
             player.sendMessage(ChatColor.RED + String.format("%s at %s, %s, %s was placed by %s on %s at %s",
                     ChatColor.GOLD + protectedBlock.getMaterial().name() + ChatColor.RED,

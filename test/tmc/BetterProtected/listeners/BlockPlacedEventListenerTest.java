@@ -31,6 +31,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
     public void setUp() throws Exception {
         blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
         playerRepository = new PlayerRepository(getCollection("Players"));
+        playerRepository.save(new Player(PLAYER_NAME));
         blockPlacedEventListener = new BlockPlacedEventListener(blockEventRepository,
                 playerRepository, ignoredBlockTypes);
     }
@@ -224,6 +225,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
         TestPlayer player = new TestPlayer(PLAYER_NAME, DIAMOND_HOE);
         TestBlock placingBlock = new TestBlock(1, 1, 1, SOIL);
         saveBlock(placingBlock, PLACED, DIRT);
+
         Player ourPlayer = new Player(player.getName());
         ourPlayer.setProtectionEnabled(false);
         playerRepository.save(ourPlayer);

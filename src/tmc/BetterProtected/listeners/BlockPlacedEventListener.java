@@ -71,7 +71,8 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
     }
 
     private boolean isPlayerAllowedToPlaceBlock(Player player, BlockEvent mostRecentBlock, Material previousBlockType) {
-        return mostRecentBlock == null || mostRecentBlock.getBlockEventType() == REMOVED || previousBlockType == AIR ||
+        return mostRecentBlock == null || mostRecentBlock.getBlockEventType() == REMOVED ||
+                mostRecentBlock.getBlockEventType() == UNPROTECTED || previousBlockType == AIR ||
                 isBlockEventOwnedByPlayer(player, mostRecentBlock) || player.isOp();
     }
 
