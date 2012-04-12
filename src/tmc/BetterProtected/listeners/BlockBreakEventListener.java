@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.services.BlockEventRepository;
+import tmc.BetterProtected.services.PlayerRepository;
 
 import java.util.List;
 
@@ -15,8 +16,8 @@ import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 
 public class BlockBreakEventListener extends GenericBlockListener implements Listener {
 
-    public BlockBreakEventListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
-        super(blockEventRepository, unprotectedBlockIds);
+    public BlockBreakEventListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
+        super(blockEventRepository, playerRepository, unprotectedBlockIds);
     }
 
     @EventHandler

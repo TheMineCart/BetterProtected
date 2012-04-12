@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.*;
 import tmc.BetterProtected.services.BlockEventRepository;
+import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BetterProtected.services.RepositoryTest;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
     @Before
     public void setUp() throws Exception {
         blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
-        blockBreakEventListener = new BlockBreakEventListener(blockEventRepository, ignoredBlockTypes);
+        blockBreakEventListener = new BlockBreakEventListener(blockEventRepository,
+                new PlayerRepository(getCollection("Players")), ignoredBlockTypes);
     }
 
     @After

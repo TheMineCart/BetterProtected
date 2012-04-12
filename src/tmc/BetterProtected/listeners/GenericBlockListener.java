@@ -7,6 +7,7 @@ import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.World;
 import tmc.BetterProtected.services.BlockEventRepository;
+import tmc.BetterProtected.services.PlayerRepository;
 
 import java.util.List;
 import java.util.Set;
@@ -18,9 +19,11 @@ import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 public class GenericBlockListener {
     protected BlockEventRepository blockEventRepository;
     protected Set<Material> ignoredMaterial;
+    private PlayerRepository playerRepository;
 
-    public GenericBlockListener(BlockEventRepository blockEventRepository, List<Integer> unprotectedBlockIds) {
+    public GenericBlockListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
         this.blockEventRepository = blockEventRepository;
+        this.playerRepository = playerRepository;
         this.ignoredMaterial = newHashSet();
         for (Integer blockTypeId : unprotectedBlockIds) {
             ignoredMaterial.add(Material.getMaterial(blockTypeId));
@@ -37,28 +40,27 @@ public class GenericBlockListener {
         if (mostRecentBlockEvent == null ) return true;
         if (mostRecentBlockEvent.getBlockEventType() == REMOVED) return true;
         if (isBlockEventOwnedByPlayer(player, mostRecentBlockEvent)) return true;
-        if (isMaterialIgnored(block.getType()) && isMaterialIgnored(mostRecentBlockEvent.getMaterial())) {
-            return true;
-        }
+        if (isPlayerFriendOfBlockEventOwner(player, mostRecentBlockEvent)) return true;
+        if (isMaterialIgnored(block.getType()) && isMaterialIgnored(mostRecentBlockEvent.getMaterial())) return true;
         return player.isOp();
     }
 
-    boolean doesPlayerHavePermissionToPlace(Player player, Block block, BlockEvent mostRecentBlockEvent) {
-        if (mostRecentBlockEvent == null)
-            return true;
-
-        if (mostRecentBlockEvent.getBlockEventType() == REMOVED)
-            return true;
-
-        if (isBlockEventOwnedByPlayer(player, mostRecentBlockEvent) &&
-                isAllowedToPlaceBlockIntoLiquid(mostRecentBlockEvent, block))
-            return true;
-
+    boolean doesPlayerHavePermissionToPlace(Player player, Block block, BlockEvent blockEvent) {
+        if (blockEvent == null) return true;
+        if (blockEvent.getBlockEventType() == REMOVED) return true;
+        if (isBlockEventOwnedByPlayer(player, blockEvent)&& isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
+        if (isPlayerFriendOfBlockEventOwner(player, blockEvent) && isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
         return player.isOp();
     }
 
-    boolean isBlockEventOwnedByPlayer(Player player, BlockEvent mostRecentBlockEvent) {
-        return mostRecentBlockEvent != null && mostRecentBlockEvent.getOwner().getUsername().equalsIgnoreCase(player.getName());
+    boolean isBlockEventOwnedByPlayer(Player player, BlockEvent blockEvent) {
+        return blockEvent != null && blockEvent.getOwner().getUsername().equalsIgnoreCase(player.getName());
+    }
+
+    boolean isPlayerFriendOfBlockEventOwner(Player player, BlockEvent blockEvent) {
+        if(player == null || blockEvent == null) return false;
+        Set<String> friendsByName = playerRepository.findFriendsByName(blockEvent.getOwner().getUsername());
+        return friendsByName.contains(player.getName());
     }
 
     boolean isAllowedToPlaceBlockIntoLiquid(BlockEvent blockEvent, Block blockInHand) {
