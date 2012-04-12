@@ -37,12 +37,13 @@ public class GenericBlockListener {
         return blockEventRepository.findMostRecent(blockCoordinate, world);
     }
 
-    boolean doesPlayerHavePermissionToBreak(Player player, BlockEvent mostRecentBlockEvent, Block block) {
-        if (mostRecentBlockEvent == null ) return true;
-        if (mostRecentBlockEvent.getBlockEventType() == REMOVED) return true;
-        if (isBlockEventOwnedByPlayer(player, mostRecentBlockEvent)) return true;
-        if (isPlayerFriendOfBlockEventOwner(player, mostRecentBlockEvent)) return true;
-        if (isMaterialIgnored(block.getType()) && isMaterialIgnored(mostRecentBlockEvent.getMaterial())) return true;
+    boolean doesPlayerHavePermissionToBreak(Player player, BlockEvent blockEvent, Block block) {
+        if (blockEvent == null ) return true;
+        if (blockEvent.getBlockEventType() == REMOVED) return true;
+        if (blockEvent.getBlockEventType() == UNPROTECTED) return true;
+        if (isBlockEventOwnedByPlayer(player, blockEvent)) return true;
+        if (isPlayerFriendOfBlockEventOwner(player, blockEvent)) return true;
+        if (isMaterialIgnored(block.getType()) && isMaterialIgnored(blockEvent.getMaterial())) return true;
         return player.isOp();
     }
 

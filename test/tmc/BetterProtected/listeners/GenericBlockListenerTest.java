@@ -7,7 +7,6 @@ import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.Player;
 import tmc.BetterProtected.domain.TestBlock;
 import tmc.BetterProtected.domain.TestPlayer;
-import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BetterProtected.services.RepositoryTest;
@@ -15,6 +14,7 @@ import tmc.BetterProtected.services.RepositoryTest;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static tmc.BetterProtected.domain.types.BlockEventType.*;
 
 public class GenericBlockListenerTest extends RepositoryTest {
 
@@ -35,13 +35,46 @@ public class GenericBlockListenerTest extends RepositoryTest {
     }
 
     @Test
+    public void playerCanBreakBlockIfBlockEventTypeIsRemoved() {
+        TestPlayer player = new TestPlayer("Bob");
+        TestBlock testBlock = new TestBlock(1, 1, 1);
+
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", REMOVED);
+        blockEventRepository.save(jasonBlockEvent);
+
+        assertThat(genericBlockListener.doesPlayerHavePermissionToBreak(player, jasonBlockEvent, testBlock), is(true));
+    }
+
+    @Test
+    public void playerCanBreakBlockIfBlockEventTypeIsUnprotected() {
+        TestPlayer player = new TestPlayer("Bob");
+        TestBlock testBlock = new TestBlock(1, 1, 1);
+
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", UNPROTECTED);
+        blockEventRepository.save(jasonBlockEvent);
+
+        assertThat(genericBlockListener.doesPlayerHavePermissionToBreak(player, jasonBlockEvent, testBlock), is(true));
+    }
+
+    @Test
+    public void playerCanNotBreakBlockIfItIsProtected() {
+        TestPlayer player = new TestPlayer("Bob");
+        TestBlock testBlock = new TestBlock(1, 1, 1);
+
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", PLACED);
+        blockEventRepository.save(jasonBlockEvent);
+
+        assertThat(genericBlockListener.doesPlayerHavePermissionToBreak(player, jasonBlockEvent, testBlock), is(false));
+    }
+
+    @Test
     public void returnTrueIfPlayerIsFriendOfBlockOwner() {
         TestPlayer player = new TestPlayer("Bob");
         Player jason = new Player("Jason");
         jason.addFriend("Bob");
         playerRepository.save(jason);
 
-        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", BlockEventType.PLACED);
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", PLACED);
         blockEventRepository.save(jasonBlockEvent);
 
         assertThat(genericBlockListener.isPlayerFriendOfBlockEventOwner(player, jasonBlockEvent), is(true));
@@ -53,7 +86,7 @@ public class GenericBlockListenerTest extends RepositoryTest {
         Player jason = new Player("Jason");
         playerRepository.save(jason);
 
-        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", BlockEventType.PLACED);
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", PLACED);
         blockEventRepository.save(jasonBlockEvent);
 
         assertThat(genericBlockListener.isPlayerFriendOfBlockEventOwner(player, jasonBlockEvent), is(false));
@@ -64,7 +97,7 @@ public class GenericBlockListenerTest extends RepositoryTest {
         Player jason = new Player("Jason");
         playerRepository.save(jason);
 
-        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", BlockEventType.PLACED);
+        BlockEvent jasonBlockEvent = BlockEvent.newBlockEvent(new TestBlock(1, 1, 1), "Jason", PLACED);
         blockEventRepository.save(jasonBlockEvent);
 
         assertThat(genericBlockListener.isPlayerFriendOfBlockEventOwner(null, jasonBlockEvent), is(false));
