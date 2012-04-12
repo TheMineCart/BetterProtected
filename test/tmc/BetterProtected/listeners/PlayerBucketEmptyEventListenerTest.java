@@ -18,20 +18,21 @@ import static org.bukkit.Material.*;
 import static org.bukkit.block.BlockFace.EAST;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
-import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
+import static tmc.BetterProtected.domain.types.BlockEventType.*;
 
 public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
 
     private PlayerBucketEmptyEventListener playerBucketEmptyEventListener;
     private List<Integer> ignoredBlockTypes = newArrayList(0, 6);
     private BlockEventRepository blockEventRepository;
+    private PlayerRepository playerRepository;
 
     @Before
     public void setUp() throws Exception {
         blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
+        playerRepository = new PlayerRepository(getCollection("Players"));
         playerBucketEmptyEventListener = new PlayerBucketEmptyEventListener(blockEventRepository,
-                new PlayerRepository(getCollection("Players")), ignoredBlockTypes);
+                playerRepository, ignoredBlockTypes);
     }
 
     @After
@@ -43,6 +44,7 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketIfNoPriorPlacement() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
+        playerRepository.save(new Player("Jason"));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -54,7 +56,22 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketIfBlockEventTypeIsRemoved() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
+        playerRepository.save(new Player("Jason"));
         blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", REMOVED));
+
+        PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
+        playerBucketEmptyEventListener.onBucketPour(event);
+
+        assertThat(findMostRecentBlockEvent().getBlockEventType(), is(PLACED));
+        assertThat(findMostRecentBlockEvent().getOwner().getUsername(), is("Jason"));
+    }
+
+    @Test
+    public void playerCanPourBucketIfBlockEventTypeIsUnprotected() {
+        TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
+        blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
+        playerRepository.save(new Player("Jason"));
+        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", UNPROTECTED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -113,6 +130,21 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
 
         List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), new World("test"));
         assertThat(blockEvents.size(), is(2));
+    }
+
+    @Test
+    public void playerWithProtectionDisabledPoursUnprotectedWater() {
+        TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
+        blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
+        Player ourPlayer = new Player("Jason");
+        ourPlayer.setProtectionEnabled(false);
+        playerRepository.save(ourPlayer);
+
+        PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
+        playerBucketEmptyEventListener.onBucketPour(event);
+
+        assertThat(findMostRecentBlockEvent().getBlockEventType(), is(UNPROTECTED));
+        assertThat(findMostRecentBlockEvent().getOwner().getUsername(), is("Jason"));
     }
 
     @Test

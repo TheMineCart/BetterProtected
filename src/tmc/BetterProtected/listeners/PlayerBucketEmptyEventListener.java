@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 import static org.bukkit.Material.*;
 import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
+import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class PlayerBucketEmptyEventListener extends GenericBlockListener implements Listener {
 
@@ -28,15 +30,11 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
         Player player = event.getPlayer();
 
         if (doesPlayerHavePermissionToPlace(player, block, getMostRecentBlockEvent(block))) {
-            Material blockType = block.getType();
-            if (event.getBucket() == WATER_BUCKET) {
-                blockType = STATIONARY_WATER;
-            } else if (event.getBucket() == LAVA_BUCKET) {
-                blockType = STATIONARY_LAVA;
-            }
+            Material blockType = computeBlockTypeFor(event, block);
 
             if(!isMaterialIgnored(blockType)) {
-                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), PLACED, blockType));
+                BlockEventType blockEventType = computeBlockEventTypeFor(player);
+                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType, blockType));
             }
         } else if (isMaterialIgnored(block.getType())){
             //Do nothing because the material is ignored.
@@ -44,5 +42,25 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
             event.setCancelled(true);
             event.getPlayer().sendMessage(ChatColor.DARK_RED + "You cannot pour your bucket here!");
         }
+    }
+
+    private Material computeBlockTypeFor(PlayerBucketEmptyEvent event, Block block) {
+        Material blockType = block.getType();
+        if (event.getBucket() == WATER_BUCKET) {
+            blockType = STATIONARY_WATER;
+        } else if (event.getBucket() == LAVA_BUCKET) {
+            blockType = STATIONARY_LAVA;
+        }
+        return blockType;
+    }
+
+    private BlockEventType computeBlockEventTypeFor(Player player) {
+        BlockEventType blockEventType;
+        if(playerRepository.findPlayerProtectionByName(player.getName())) {
+            blockEventType = PLACED;
+        } else {
+            blockEventType = UNPROTECTED;
+        }
+        return blockEventType;
     }
 }

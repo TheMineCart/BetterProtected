@@ -15,6 +15,7 @@ import java.util.Set;
 import static com.google.common.collect.Sets.newHashSet;
 import static org.bukkit.Material.*;
 import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
+import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class GenericBlockListener {
     protected BlockEventRepository blockEventRepository;
@@ -48,6 +49,7 @@ public class GenericBlockListener {
     boolean doesPlayerHavePermissionToPlace(Player player, Block block, BlockEvent blockEvent) {
         if (blockEvent == null) return true;
         if (blockEvent.getBlockEventType() == REMOVED) return true;
+        if (blockEvent.getBlockEventType() == UNPROTECTED) return true;
         if (isBlockEventOwnedByPlayer(player, blockEvent)&& isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
         if (isPlayerFriendOfBlockEventOwner(player, blockEvent) && isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
         return player.isOp();

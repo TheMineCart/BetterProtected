@@ -62,8 +62,7 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
             blockEventType = UNPROTECTED;
         }
 
-        BlockEvent blockEvent = BlockEvent.newBlockEvent(block, player.getName(), blockEventType);
-        blockEventRepository.save(blockEvent);
+        blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType));
     }
 
     private void cancelBlockPlaceEvent(BlockPlaceEvent event, Block block, Player player) {
