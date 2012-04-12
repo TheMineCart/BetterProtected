@@ -18,7 +18,12 @@ public class AddFriendExecutor implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (strings.length < 1 || strings.length > 1) return false;
         Player player = playerRepository.findByName(commandSender.getName());
-        if (player != null) {
+        if (player == null) {
+            commandSender.sendMessage("You are not a player");
+        } else if (playerRepository.findByName(strings[0]) == null) {
+            commandSender.sendMessage(ChatColor.DARK_PURPLE + strings[0] + ChatColor.WHITE +
+                " is not a valid player name or is not in the system.");
+        } else {
             boolean worked = player.addFriend(strings[0]);
             if (worked) {
                 playerRepository.save(player);
@@ -28,8 +33,7 @@ public class AddFriendExecutor implements CommandExecutor {
                 commandSender.sendMessage(ChatColor.DARK_PURPLE + strings[0] + ChatColor.WHITE +
                         " is already a friend.");
             }
-            return true;
         }
-        return false;
+        return true;
     }
 }
