@@ -1,6 +1,6 @@
 name: BetterProtected
 main: tmc.BetterProtected.BetterProtectedPlugin
-version: 0.3
+version: 0.3.1
 
 commands:
   transform:
@@ -18,4 +18,8 @@ commands:
   showfriends:
     description: Prints a list of friends that can break your blocks.
     permissions: BetterProtected.showfriends
+    usage: /<command>
+  toggleprotection:
+    description: Turns on and off protection for any blocks you're about to place.
+    permissions: BetterProtected.toggleprotection
     usage: /<command>

@@ -4,10 +4,7 @@ import com.mongodb.DB;
 import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
-import tmc.BetterProtected.executors.AddFriendExecutor;
-import tmc.BetterProtected.executors.RemoveFriendExecutor;
-import tmc.BetterProtected.executors.ShowFriendsExecutor;
-import tmc.BetterProtected.executors.TransformationExecutor;
+import tmc.BetterProtected.executors.*;
 import tmc.BetterProtected.listeners.*;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
@@ -110,6 +107,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
         getCommand("addfriend").setExecutor(new AddFriendExecutor(playerRepository));
         getCommand("removefriend").setExecutor(new RemoveFriendExecutor(playerRepository));
         getCommand("showfriends").setExecutor(new ShowFriendsExecutor(playerRepository));
+        getCommand("toggleprotection").setExecutor(new ToggleProtectionExecutor(playerRepository));
     }
 
     private void registerEventListeners() {
