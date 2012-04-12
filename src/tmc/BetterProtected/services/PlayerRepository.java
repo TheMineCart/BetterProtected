@@ -10,6 +10,10 @@ import org.joda.time.DateTime;
 import tmc.BetterProtected.adaptors.DateTimeAdaptor;
 import tmc.BetterProtected.domain.Player;
 
+import java.util.Set;
+
+import static com.google.common.collect.Sets.newHashSet;
+
 public class PlayerRepository {
     private DBCollection collection;
     private final Gson gson;
@@ -32,6 +36,12 @@ public class PlayerRepository {
         DBObject dbObject = collection.findOne(query);
         if(dbObject == null) return null;
         return gson.fromJson(dbObject.toString(), Player.class);
+    }
+
+    public Set<String> findFriendsByName(String playerName) {
+        Player player = findByName(playerName);
+        if(player == null) return newHashSet();
+        return player.getFriends();
     }
 
     public Long count() {

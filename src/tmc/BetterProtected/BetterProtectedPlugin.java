@@ -4,6 +4,9 @@ import com.mongodb.DB;
 import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
+import tmc.BetterProtected.executors.AddFriendExecutor;
+import tmc.BetterProtected.executors.RemoveFriendExecutor;
+import tmc.BetterProtected.executors.ShowFriendsExecutor;
 import tmc.BetterProtected.executors.TransformationExecutor;
 import tmc.BetterProtected.listeners.*;
 import tmc.BetterProtected.services.BlockEventRepository;
@@ -104,6 +107,9 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private void initializeCommandExecutors() {
         logger.info("Registering Command Executors");
         getCommand("transform").setExecutor(new TransformationExecutor(logger, transformationService));
+        getCommand("addfriend").setExecutor(new AddFriendExecutor(playerRepository));
+        getCommand("removefriend").setExecutor(new RemoveFriendExecutor(playerRepository));
+        getCommand("showfriends").setExecutor(new ShowFriendsExecutor(playerRepository));
     }
 
     private void registerEventListeners() {
@@ -113,5 +119,6 @@ public class BetterProtectedPlugin extends JavaPlugin {
         server.getPluginManager().registerEvents(new PlayerBucketFillEventListener(blockEventRepository, configuration.getUnprotectedBlockIds()), this);
         server.getPluginManager().registerEvents(new PlayerBucketEmptyEventListener(blockEventRepository, configuration.getUnprotectedBlockIds()), this);
         server.getPluginManager().registerEvents(new PlayerListener(blockEventRepository), this);
+        server.getPluginManager().registerEvents(new PlayerLoginListener(playerRepository), this);
     }
 }

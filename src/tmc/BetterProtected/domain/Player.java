@@ -2,21 +2,21 @@ package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
 
-import java.util.List;
+import java.util.Set;
 
-import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 
 public class Player {
 
     @Expose private String username = "";
-    @Expose private List<String> friends = newArrayList();
+    @Expose private Set<String> friends = newHashSet();
     @Expose private Boolean protectionEnabled = true;
 
     public Player(String username) {
         this.username = username;
     }
 
-    public Player(String username, List<String> friends, Boolean protectionEnabled) {
+    public Player(String username, Set<String> friends, Boolean protectionEnabled) {
         this.username = username;
         this.friends = friends;
         this.protectionEnabled = protectionEnabled;
@@ -30,19 +30,19 @@ public class Player {
         this.username = username;
     }
 
-    public List<String> getFriends() {
+    public Set<String> getFriends() {
         return friends;
     }
 
-    public void addFriend(String username) {
-        friends.add(username);
+    public boolean addFriend(String username) {
+        return friends.add(username);
     }
 
-    public void removeFriend(String username) {
-        friends.remove(username);
+    public boolean removeFriend(String username) {
+        return friends.remove(username);
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(Set<String> friends) {
         this.friends = friends;
     }
 

@@ -6,6 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.conversations.Conversation;
 import org.bukkit.conversations.ConversationAbandonedEvent;
 import org.bukkit.entity.*;
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.Inventory;
@@ -26,7 +27,7 @@ import java.net.InetSocketAddress;
 import java.util.*;
 
 @SuppressWarnings("deprecation")
-public class TestPlayer implements org.bukkit.entity.Player {
+public class TestPlayer implements Player {
     private String message = null;
     private boolean op = false;
     private ItemStack itemStack = new ItemStack(Material.STICK);

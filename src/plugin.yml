@@ -7,3 +7,15 @@ commands:
     description: Transform your banana protect files into MongoDB.
     permissions: BetterProtected.transform
     usage: /<command> [world_name]
+  addfriend:
+    description: Add a friend that can break your blocks.
+    permissions: BetterProtected.addfriend
+    usage: /<command> [player_name]
+  removefriend:
+    description: Remove a friend, preventing them from breaking your blocks.
+    permissions: BetterProtected.removefriend
+    usage: /<command> [player_name]
+  showfriends:
+    description: Prints a list of friends that can break your blocks.
+    permissions: BetterProtected.showfriends
+    usage: /<command>
