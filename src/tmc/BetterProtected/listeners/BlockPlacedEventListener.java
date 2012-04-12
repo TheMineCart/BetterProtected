@@ -8,14 +8,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 
 import java.util.List;
 
 import static org.bukkit.Material.*;
-import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
-import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
+import static tmc.BetterProtected.domain.types.BlockEventType.*;
 
 public class BlockPlacedEventListener extends GenericBlockListener implements Listener {
 
@@ -32,10 +32,7 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
 
         if (isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType) &&
                 !isMaterialIgnored(block.getType()) && !isPlayerHoeingDirtOrGrass(player, block, previousBlockType)) {
-
-            BlockEvent blockEvent = BlockEvent.newBlockEvent(block, player.getName(), PLACED);
-            blockEventRepository.save(blockEvent);
-
+            saveBlockEvent(block, player);
         } else if (isMaterialIgnored(block.getType()) &&
                    isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType)) {
 
@@ -45,8 +42,7 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
                    isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType)) {
 
             if (isBlockEventOwnedByPlayer(player, mostRecentBlock)) {
-                BlockEvent blockEvent = BlockEvent.newBlockEvent(block, player.getName(), PLACED);
-                blockEventRepository.save(blockEvent);
+                saveBlockEvent(block, player);
             } else {
                 //Do nothing - Don't cancel event and don't register event.
             }
@@ -56,6 +52,18 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
             cancelBlockPlaceEvent(event, block, player);
 
         }
+    }
+
+    private void saveBlockEvent(Block block, Player player) {
+        BlockEventType blockEventType;
+        if(playerRepository.findPlayerProtectionByName(player.getName())) {
+            blockEventType = PLACED;
+        } else {
+            blockEventType = UNPROTECTED;
+        }
+
+        BlockEvent blockEvent = BlockEvent.newBlockEvent(block, player.getName(), blockEventType);
+        blockEventRepository.save(blockEvent);
     }
 
     private void cancelBlockPlaceEvent(BlockPlaceEvent event, Block block, Player player) {

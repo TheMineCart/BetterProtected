@@ -19,7 +19,7 @@ import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 public class GenericBlockListener {
     protected BlockEventRepository blockEventRepository;
     protected Set<Material> ignoredMaterial;
-    private PlayerRepository playerRepository;
+    protected PlayerRepository playerRepository;
 
     public GenericBlockListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
         this.blockEventRepository = blockEventRepository;

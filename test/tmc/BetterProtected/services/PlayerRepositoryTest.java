@@ -94,4 +94,23 @@ public class PlayerRepositoryTest extends RepositoryTest {
         assertThat(friends, not(nullValue()));
     }
 
+    @Test
+    public void shouldGetPlayerProtection() {
+        Player jason = new Player("Jason");
+        jason.setProtectionEnabled(true);
+        playerRepository.save(jason);
+
+        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(true));
+
+        jason.setProtectionEnabled(false);
+        playerRepository.save(jason);
+
+        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(false));
+    }
+
+    @Test
+    public void shouldGetFalsePlayerProtectionIfPlayerIsNotInRepository() {
+        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(false));
+    }
+
 }

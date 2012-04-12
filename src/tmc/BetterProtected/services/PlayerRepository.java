@@ -38,6 +38,12 @@ public class PlayerRepository {
         return gson.fromJson(dbObject.toString(), Player.class);
     }
 
+    public boolean findPlayerProtectionByName(String name) {
+        Player player = findByName(name);
+        if(player == null) return false;
+        return player.getProtectionEnabled();
+    }
+
     public Set<String> findFriendsByName(String playerName) {
         Player player = findByName(playerName);
         if(player == null) return newHashSet();

@@ -2,8 +2,8 @@ package tmc.BetterProtected.domain.types;
 
 public enum BlockEventType {
     PLACED("Placed"),
+    UNPROTECTED("Unprotected"),
     REMOVED("Removed"),
-    SHIFT("Shift"),
     ;
     private String description;
 
