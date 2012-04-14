@@ -81,7 +81,7 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     }
 
     @Test
-    public void playerCanNotPourBucketInOwnedWaterSource() {
+    public void playerCanPourBucketInOwnedWaterSource() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
         blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "Jason", PLACED));
@@ -90,7 +90,7 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
         playerBucketEmptyEventListener.onBucketPour(event);
 
         List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), new World("test"));
-        assertThat(blockEvents.size(), is(1));
+        assertThat(blockEvents.size(), is(2));
     }
 
     @Test

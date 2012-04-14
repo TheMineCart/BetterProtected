@@ -51,8 +51,8 @@ public class GenericBlockListener {
         if (blockEvent == null) return true;
         if (blockEvent.getBlockEventType() == REMOVED) return true;
         if (blockEvent.getBlockEventType() == UNPROTECTED) return true;
-        if (isBlockEventOwnedByPlayer(player, blockEvent)&& isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
-        if (isPlayerFriendOfBlockEventOwner(player, blockEvent) && isAllowedToPlaceBlockIntoLiquid(blockEvent, block)) return true;
+        if(isBlockEventOwnedByPlayer(player, blockEvent))  return true;
+        if(isPlayerFriendOfBlockEventOwner(player, blockEvent)) return true;
         return player.isOp();
     }
 
@@ -64,10 +64,6 @@ public class GenericBlockListener {
         if(player == null || blockEvent == null) return false;
         Set<String> friendsByName = playerRepository.findFriendsByName(blockEvent.getOwner().getUsername());
         return friendsByName.contains(player.getName());
-    }
-
-    boolean isAllowedToPlaceBlockIntoLiquid(BlockEvent blockEvent, Block blockInHand) {
-        return isMaterialLiquid(blockEvent.getMaterial()) && !isMaterialLiquid(blockInHand.getType());
     }
 
     boolean isMaterialIgnored(Material material) {

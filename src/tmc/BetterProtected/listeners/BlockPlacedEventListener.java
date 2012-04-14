@@ -15,7 +15,8 @@ import tmc.BetterProtected.services.PlayerRepository;
 import java.util.List;
 
 import static org.bukkit.Material.*;
-import static tmc.BetterProtected.domain.types.BlockEventType.*;
+import static tmc.BetterProtected.domain.types.BlockEventType.PLACED;
+import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class BlockPlacedEventListener extends GenericBlockListener implements Listener {
 
@@ -30,16 +31,16 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
         Player player = event.getPlayer();
         BlockEvent mostRecentBlock = getMostRecentBlockEvent(block);
 
-        if (isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType) &&
+        if (doesPlayerHavePermissionToPlace(block, previousBlockType, player, mostRecentBlock) &&
                 !isMaterialIgnored(block.getType()) && !isPlayerHoeingDirtOrGrass(player, block, previousBlockType)) {
             saveBlockEvent(block, player);
         } else if (isMaterialIgnored(block.getType()) &&
-                   isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType)) {
+                doesPlayerHavePermissionToPlace(block, previousBlockType, player, mostRecentBlock)) {
 
             //Do nothing - Don't cancel event and don't register event.
 
         } else if (isPlayerHoeingDirtOrGrass(player, block, previousBlockType) &&
-                   isPlayerAllowedToPlaceBlock(player, mostRecentBlock, previousBlockType)) {
+                doesPlayerHavePermissionToPlace(block, previousBlockType, player, mostRecentBlock)) {
 
             if (isBlockEventOwnedByPlayer(player, mostRecentBlock)) {
                 saveBlockEvent(block, player);
@@ -70,10 +71,12 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
         player.sendMessage(ChatColor.DARK_RED + "You cannot place a " + block.getType() + " here");
     }
 
-    private boolean isPlayerAllowedToPlaceBlock(Player player, BlockEvent mostRecentBlock, Material previousBlockType) {
-        return mostRecentBlock == null || mostRecentBlock.getBlockEventType() == REMOVED ||
-                mostRecentBlock.getBlockEventType() == UNPROTECTED || previousBlockType == AIR ||
-                isBlockEventOwnedByPlayer(player, mostRecentBlock) || player.isOp();
+    private boolean doesPlayerHavePermissionToPlace(Block block, Material previousBlockType, Player player, BlockEvent mostRecentBlock) {
+        return doesPlayerHavePermissionToPlace(player, block, mostRecentBlock) || isMaterialAir(previousBlockType);
+    }
+
+    private boolean isMaterialAir(Material blockType) {
+        return blockType == AIR;
     }
 
     boolean isPlayerHoeingDirtOrGrass(Player player, Block block, Material previousBlockMaterial) {
