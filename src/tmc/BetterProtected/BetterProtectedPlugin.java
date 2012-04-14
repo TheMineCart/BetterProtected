@@ -108,6 +108,8 @@ public class BetterProtectedPlugin extends JavaPlugin {
         getCommand("removefriend").setExecutor(new RemoveFriendExecutor(playerRepository));
         getCommand("showfriends").setExecutor(new ShowFriendsExecutor(playerRepository));
         getCommand("toggleprotection").setExecutor(new ToggleProtectionExecutor(playerRepository));
+        getCommand("protectionon").setExecutor(new ProtectionOnExecutor(playerRepository));
+        getCommand("protectionoff").setExecutor(new ProtectionOffExecutor(playerRepository));
     }
 
     private void registerEventListeners() {
