@@ -28,12 +28,12 @@ commands:
     usage: /<command>
     aliases: [bpt, bptoggle]
   protectionon:
-    description: Turns on and off protection for any blocks you're about to place.
+    description: Turns on protection for any blocks you're about to place.
     permissions: BetterProtected.toggleprotection
     usage: /<command>
     aliases: [bpon, bp+]
   protectionoff:
-    description: Turns on and off protection for any blocks you're about to place.
+    description: Turns off protection for any blocks you're about to place.
     permissions: BetterProtected.toggleprotection
     usage: /<command>
     aliases: [bpoff, bp-]
