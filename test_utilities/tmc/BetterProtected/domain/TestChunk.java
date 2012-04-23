@@ -9,12 +9,16 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestChunk implements Chunk {
     private int x;
     private int z;
-    private TestWorld world;
+    private World world;
+    private List<Block> blocks = new ArrayList<Block>();
 
-    public TestChunk(int x, int z, TestWorld world) {
+    public TestChunk(int x, int z, World world) {
         this.x = x;
         this.z = z;
         this.world = world;
@@ -37,7 +41,12 @@ public class TestChunk implements Chunk {
 
     @Override
     public Block getBlock(int x, int y, int z) {
-        return new TestBlock(x, y, z, Material.DIRT);
+        for (Block block : blocks) {
+            if (block.getX() == x && block.getY() == y && block.getZ() == z) {
+                return block;
+            }
+        }
+        return new TestBlock(x, y, z, Material.AIR);
     }
 
     @Override
@@ -88,5 +97,9 @@ public class TestChunk implements Chunk {
     @Override
     public boolean unload() {
         return false;
+    }
+
+    public void addBlock(Block testBlock) {
+        blocks.add(testBlock);
     }
 }

@@ -14,6 +14,10 @@ public class World {
         return new World(block.getWorld().getName());
     }
 
+    public static World newWorld(org.bukkit.World world) {
+        return new World(world.getName());
+    }
+
     public String getName() {
         return name;
     }

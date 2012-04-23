@@ -9,10 +9,7 @@ import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 import org.joda.time.DateTime;
 import tmc.BetterProtected.adaptors.DateTimeAdaptor;
-import tmc.BetterProtected.domain.BlockCoordinate;
-import tmc.BetterProtected.domain.BlockEvent;
-import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.World;
+import tmc.BetterProtected.domain.*;
 
 import java.util.List;
 
@@ -49,6 +46,15 @@ public class BlockEventRepository {
     public List<BlockEvent> findByChunkCoordinate(ChunkCoordinate coordinate, World world) {
         BasicDBObject query = new BasicDBObject();
         query.put("world", JSON.parse(gson.toJson(world, World.class)));
+        query.put("chunkCoordinate", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
+
+        return buildBlockList(query);
+    }
+
+    public List<BlockEvent> findByChunkCoordinateAndOwner(ChunkCoordinate coordinate, Owner owner, World world) {
+        BasicDBObject query = new BasicDBObject();
+        query.put("world", JSON.parse(gson.toJson(world, World.class)));
+        query.put("owner", JSON.parse(gson.toJson(owner, Owner.class)));
         query.put("chunkCoordinate", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
 
         return buildBlockList(query);

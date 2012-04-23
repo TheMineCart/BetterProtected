@@ -37,3 +37,7 @@ commands:
     permissions: BetterProtected.toggleprotection
     usage: /<command>
     aliases: [bpoff, bp-]
+  revert:
+    description: Remove all blocks owned by player in the specified radius.
+    permissions: BetterProtected.revert
+    usage: /<command> [player_name] [chunk_radius]

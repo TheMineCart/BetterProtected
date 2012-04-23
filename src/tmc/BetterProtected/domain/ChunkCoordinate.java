@@ -2,9 +2,35 @@ package tmc.BetterProtected.domain;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
+
 public class ChunkCoordinate {
     @Expose private Long x;
     @Expose private Long z;
+
+    public static List<ChunkCoordinate> findChunkCoordinatesInRadius(int radius, int originX, int originZ) {
+        List<ChunkCoordinate> chunkCoordinates = newArrayList();
+        int xMin = originX - radius;
+        int xMax = originX + radius;
+        int zMin = originZ - radius;
+        int zMax = originZ + radius;
+
+        for (int i = xMin; i <= xMax; i++) {
+            for (int j = zMin; j <= zMax; j++) {
+                if (coordinateInsideRadius(i, j, originX, originZ, radius)) {
+                    chunkCoordinates.add(new ChunkCoordinate(i, j));
+                }
+            }
+        }
+
+        return chunkCoordinates;
+    }
+
+    public static boolean coordinateInsideRadius(int x, int z, int originX, int originZ, int radius) {
+        return (((x - originX) * (x - originX)) + ((z - originZ) * (z - originZ))) <= (radius * radius);
+    }
 
     public ChunkCoordinate(Long x, Long z) {
         this.x = x;

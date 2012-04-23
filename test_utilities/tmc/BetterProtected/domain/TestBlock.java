@@ -18,12 +18,17 @@ public class TestBlock implements Block {
     private int z = 0;
     private int y = 0;
     private int x = 0;
-    private TestWorld world = new TestWorld("test");
-    private TestChunk chunk = new TestChunk(1, 1, world);
+    private World world = new TestWorld("test");
+    private Chunk chunk = new TestChunk(1, 1, world);
     private BlockFace blockFace;
     private Block relative;
 
-    public TestBlock(int x, int y, int z, Material material, TestChunk chunk) {
+    public TestBlock(int x, int y, int z, Material material, Chunk chunk, World world) {
+        this(x, y, z, material, chunk);
+        this.world = world;
+    }
+
+    public TestBlock(int x, int y, int z, Material material, Chunk chunk) {
         this(x, y, z, material);
         this.chunk = chunk;
     }

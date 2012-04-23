@@ -8,6 +8,7 @@ import tmc.BetterProtected.executors.*;
 import tmc.BetterProtected.listeners.*;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
+import tmc.BetterProtected.services.RevertingService;
 import tmc.BetterProtected.services.TransformationService;
 
 import java.net.UnknownHostException;
@@ -25,6 +26,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private BlockEventRepository blockEventRepository;
     private Server server;
     private TransformationService transformationService;
+    private RevertingService revertingService;
     private Configuration configuration;
     private PlayerRepository playerRepository;
 
@@ -99,6 +101,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     private void initializeServices() {
         logger.info("Initializing Services");
         transformationService = new TransformationService(blockEventRepository, server);
+        revertingService = new RevertingService(blockEventRepository);
     }
 
     private void initializeCommandExecutors() {
@@ -110,6 +113,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
         getCommand("toggleprotection").setExecutor(new ToggleProtectionExecutor(playerRepository));
         getCommand("protectionon").setExecutor(new ProtectionOnExecutor(playerRepository));
         getCommand("protectionoff").setExecutor(new ProtectionOffExecutor(playerRepository));
+        getCommand("revert").setExecutor(new RevertExecutor(revertingService, playerRepository, server));
     }
 
     private void registerEventListeners() {
