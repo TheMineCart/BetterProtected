@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 public class TransformationServiceTest extends RepositoryTest{
-    private final String FIXTURE_DIRECTORY = "test\\fixtures\\files";
+    private final String FIXTURE_DIRECTORY = "test/fixtures/files";
     private TransformationService transformationService;
     private BlockEventRepository blockEventRepository;
     private TestServer server;
@@ -47,7 +47,7 @@ public class TransformationServiceTest extends RepositoryTest{
         this.world.addBlock(mismatch);
 
         World world = new World("test");
-        transformationService.persistPlacedBlocksFromFile("test\\fixtures\\12.12.yml", world);
+        transformationService.persistPlacedBlocksFromFile("test/fixtures/12.12.yml", world);
 
         BlockCoordinate matchCoord = new BlockCoordinate(1, 1, 1);
         assertThat(blockEventRepository.findMostRecent(matchCoord, world).getMaterial(), is(WORKBENCH));
@@ -72,7 +72,7 @@ public class TransformationServiceTest extends RepositoryTest{
         this.world.addBlock(new TestBlock(1,-5,-1, AIR));
 
         World world = new World("test");
-        transformationService.persistPlacedBlocksFromFile("test\\fixtures\\11.11.yml", world);
+        transformationService.persistPlacedBlocksFromFile("test/fixtures/11.11.yml", world);
 
         BlockCoordinate fredCoord = new BlockCoordinate(-11, 1, 1);
         assertThat(blockEventRepository.findMostRecent(fredCoord, world), nullValue());
@@ -112,7 +112,7 @@ public class TransformationServiceTest extends RepositoryTest{
 
     @Test(expected = IOException.class)
     public void shouldParseEitherWindowsOrUnixDirectories() throws IOException, InvalidConfigurationException {
-        String windowsFile = "random\\directory\\in\\your\\file\\system\\-3.100.yml";
+        String windowsFile = "random/directory/in/your/file/system/-3.100.yml";
         String unixFile = "random/directory/in/your/file/system/-3.100.yml";
 
         World world = new World("test");
@@ -122,7 +122,7 @@ public class TransformationServiceTest extends RepositoryTest{
 
     @Test
     public void shouldGetChunkCoordinateFromValidFileName() {
-        String fileName = "random\\director\\in\\your\\file\\system\\-3.100.yml";
+        String fileName = "random/director/in/your/file/system/-3.100.yml";
 
         ChunkCoordinate coordinate = transformationService.parseChunkCoordinateFromFileName(fileName);
 
@@ -131,7 +131,7 @@ public class TransformationServiceTest extends RepositoryTest{
 
     @Test
     public void shouldGetNullChunkCoordinateValueFromInvalidFileName() {
-        String fileName = "random\\director\\in\\your\\file\\system\\invalid.yml";
+        String fileName = "random/director/in/your/file/system/invalid.yml";
 
         ChunkCoordinate coordinate = transformationService.parseChunkCoordinateFromFileName(fileName);
 
