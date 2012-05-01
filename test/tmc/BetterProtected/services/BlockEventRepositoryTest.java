@@ -8,6 +8,7 @@ import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.Owner;
 import tmc.BetterProtected.domain.World;
+import tmc.TestUtilities.Services.RepositoryTest;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import static org.junit.matchers.JUnitMatchers.hasItems;
 import static tmc.BetterProtected.domain.builder.BlockEventBuilder.aPlacedBlock;
 import static tmc.BetterProtected.domain.builder.OwnerBuilder.aPlayer;
 
-public class BlockEventRepositoryTest extends RepositoryTest{
+public class BlockEventRepositoryTest extends RepositoryTest {
     
     private BlockEventRepository blockEventRepository;
 

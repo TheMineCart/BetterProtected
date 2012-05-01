@@ -10,7 +10,10 @@ import tmc.BetterProtected.domain.*;
 import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
-import tmc.BetterProtected.services.RepositoryTest;
+import tmc.TestUtilities.Services.RepositoryTest;
+import tmc.TestUtilities.Mocks.TestBlock;
+import tmc.TestUtilities.Mocks.TestBlockState;
+import tmc.TestUtilities.Mocks.TestPlayer;
 
 import java.util.List;
 

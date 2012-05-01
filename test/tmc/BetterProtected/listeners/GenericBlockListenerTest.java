@@ -5,11 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.Player;
-import tmc.BetterProtected.domain.TestBlock;
-import tmc.BetterProtected.domain.TestPlayer;
+import tmc.TestUtilities.Mocks.TestBlock;
+import tmc.TestUtilities.Mocks.TestPlayer;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
-import tmc.BetterProtected.services.RepositoryTest;
+import tmc.TestUtilities.Services.RepositoryTest;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.core.Is.is;

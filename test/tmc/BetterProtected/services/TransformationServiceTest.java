@@ -6,6 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.*;
+import tmc.TestUtilities.Services.RepositoryTest;
+import tmc.TestUtilities.Mocks.TestBlock;
+import tmc.TestUtilities.Mocks.TestServer;
+import tmc.TestUtilities.Mocks.TestWorld;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +18,7 @@ import static org.bukkit.Material.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
-public class TransformationServiceTest extends RepositoryTest{
+public class TransformationServiceTest extends RepositoryTest {
     private final String FIXTURE_DIRECTORY = "test/fixtures/files";
     private TransformationService transformationService;
     private BlockEventRepository blockEventRepository;

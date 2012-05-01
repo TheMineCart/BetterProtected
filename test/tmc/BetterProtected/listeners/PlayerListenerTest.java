@@ -12,7 +12,8 @@ import org.junit.Test;
 import tmc.BetterProtected.domain.*;
 import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
-import tmc.BetterProtected.services.RepositoryTest;
+import tmc.TestUtilities.Services.RepositoryTest;
+import tmc.TestUtilities.Mocks.*;
 
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.IsNull.nullValue;
