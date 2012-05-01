@@ -8,7 +8,7 @@ import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.Owner;
 import tmc.BetterProtected.domain.World;
-import tmc.TestUtilities.Services.RepositoryTest;
+import tmc.BukkitTestUtilities.Services.RepositoryTest;
 
 import java.util.List;
 

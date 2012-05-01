@@ -9,9 +9,9 @@ import org.junit.Test;
 import tmc.BetterProtected.domain.*;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
-import tmc.TestUtilities.Services.RepositoryTest;
-import tmc.TestUtilities.Mocks.TestBlock;
-import tmc.TestUtilities.Mocks.TestPlayer;
+import tmc.BukkitTestUtilities.Mocks.TestBlock;
+import tmc.BukkitTestUtilities.Mocks.TestPlayer;
+import tmc.BukkitTestUtilities.Services.RepositoryTest;
 
 import java.util.List;
 

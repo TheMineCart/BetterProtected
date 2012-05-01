@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.Player;
-import tmc.TestUtilities.Services.RepositoryTest;
+import tmc.BukkitTestUtilities.Services.RepositoryTest;
 
 import java.util.Set;
 

@@ -6,10 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.*;
-import tmc.TestUtilities.Services.RepositoryTest;
-import tmc.TestUtilities.Mocks.TestBlock;
-import tmc.TestUtilities.Mocks.TestServer;
-import tmc.TestUtilities.Mocks.TestWorld;
+import tmc.BukkitTestUtilities.Mocks.TestBlock;
+import tmc.BukkitTestUtilities.Mocks.TestServer;
+import tmc.BukkitTestUtilities.Mocks.TestWorld;
+import tmc.BukkitTestUtilities.Services.RepositoryTest;
 
 import java.io.IOException;
 import java.util.List;
