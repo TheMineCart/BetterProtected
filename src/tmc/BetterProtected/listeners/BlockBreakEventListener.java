@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import tmc.BetterProtected.domain.BlockEvent;
@@ -20,7 +21,7 @@ public class BlockBreakEventListener extends GenericBlockListener implements Lis
         super(blockEventRepository, playerRepository, unprotectedBlockIds);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
         Block block = event.getBlock();

@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import tmc.BetterProtected.domain.BlockEvent;
@@ -24,7 +25,7 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
         super(blockEventRepository, playerRepository, unprotectedBlockIds);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlock();
         Material previousBlockType = event.getBlockReplacedState().getType();

@@ -15,11 +15,11 @@ public class DateTimeAdaptor implements JsonSerializer<DateTime>, JsonDeserializ
     @Override
     public DateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         try {
-                return new DateTime(json.getAsString());
-            } catch (IllegalArgumentException e) {
-                // May be it came in formatted as a java.util.Date, so try that
-                Date date = context.deserialize(json, Date.class);
-                return new DateTime(date);
-            }
+            return new DateTime(json.getAsString());
+        } catch (IllegalArgumentException e) {
+            // May be it came in formatted as a java.util.Date, so try that
+            Date date = context.deserialize(json, Date.class);
+            return new DateTime(date);
+        }
     }
 }
