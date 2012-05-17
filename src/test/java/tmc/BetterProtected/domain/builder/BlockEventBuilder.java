@@ -1,6 +1,5 @@
 package tmc.BetterProtected.domain.builder;
 
-import com.sun.istack.internal.Builder;
 import org.bukkit.Material;
 import org.joda.time.DateTime;
 import tmc.BetterProtected.domain.*;
