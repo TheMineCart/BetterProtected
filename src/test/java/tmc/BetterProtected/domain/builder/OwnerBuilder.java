@@ -1,9 +1,8 @@
 package tmc.BetterProtected.domain.builder;
 
-import com.sun.istack.internal.Builder;
 import tmc.BetterProtected.domain.Owner;
 
-public class OwnerBuilder implements Builder<Owner> {
+public class OwnerBuilder {
 
     private String username = "Jason";
 
@@ -11,7 +10,6 @@ public class OwnerBuilder implements Builder<Owner> {
         return new OwnerBuilder();
     }
 
-    @Override
     public Owner build() {
         return new Owner(username);
     }
