@@ -1,0 +1,2637 @@
+415,55,173:
+    player: CanOnFire
+    type: 50
+413,48,174:
+    player: CanOnFire
+    type: 50
+405,45,173:
+    player: CanOnFire
+    type: 50
+402,43,170:
+    player: CanOnFire
+    type: 50
+404,72,167:
+    player: Slitherslips
+    type: 58
+404,72,166:
+    player: Slitherslips
+    type: 54
+405,72,167:
+    player: Slitherslips
+    type: 54
+406,72,167:
+    player: Slitherslips
+    type: 58
+405,72,166:
+    player: Slitherslips
+    type: 68
+406,72,166:
+    player: Slitherslips
+    type: 54
+408,73,164:
+    player: Slitherslips
+    type: 1
+405,73,169:
+    player: Slitherslips
+    type: 50
+405,71,166:
+    player: Slitherslips
+    type: 1
+405,71,165:
+    player: Slitherslips
+    type: 1
+406,71,166:
+    player: Slitherslips
+    type: 1
+406,71,165:
+    player: Slitherslips
+    type: 1
+404,71,164:
+    player: Slitherslips
+    type: 1
+410,70,160:
+    player: Slitherslips
+    type: 29
+410,70,161:
+    player: Slitherslips
+    type: 29
+410,70,162:
+    player: Slitherslips
+    type: 29
+409,70,160:
+    player: Slitherslips
+    type: 93
+409,70,161:
+    player: Slitherslips
+    type: 93
+408,70,162:
+    player: Slitherslips
+    type: 55
+409,70,162:
+    player: Slitherslips
+    type: 93
+408,71,163:
+    player: Slitherslips
+    type: 1
+408,72,164:
+    player: Slitherslips
+    type: 1
+408,72,165:
+    player: Slitherslips
+    type: 68
+408,70,160:
+    player: Slitherslips
+    type: 55
+408,70,161:
+    player: Slitherslips
+    type: 55
+410,71,160:
+    player: Slitherslips
+    type: 1
+410,71,161:
+    player: Slitherslips
+    type: 1
+410,71,162:
+    player: Slitherslips
+    type: 1
+409,71,160:
+    player: Slitherslips
+    type: 1
+409,71,161:
+    player: Slitherslips
+    type: 1
+409,71,162:
+    player: Slitherslips
+    type: 1
+408,71,160:
+    player: Slitherslips
+    type: 1
+408,71,161:
+    player: Slitherslips
+    type: 1
+408,71,162:
+    player: Slitherslips
+    type: 1
+411,70,160:
+    player: Slitherslips
+    type: 1
+411,71,160:
+    player: Slitherslips
+    type: 1
+409,75,160:
+    player: Slitherslips
+    type: 93
+409,75,161:
+    player: Slitherslips
+    type: 93
+409,75,162:
+    player: Slitherslips
+    type: 93
+410,75,160:
+    player: Slitherslips
+    type: 29
+410,75,161:
+    player: Slitherslips
+    type: 29
+410,75,162:
+    player: Slitherslips
+    type: 29
+410,74,162:
+    player: Slitherslips
+    type: 1
+410,74,160:
+    player: Slitherslips
+    type: 1
+410,74,161:
+    player: Slitherslips
+    type: 1
+409,73,163:
+    player: Slitherslips
+    type: 1
+409,74,162:
+    player: Slitherslips
+    type: 1
+409,74,160:
+    player: Slitherslips
+    type: 1
+409,74,161:
+    player: Slitherslips
+    type: 1
+408,72,163:
+    player: Slitherslips
+    type: 1
+409,72,160:
+    player: Slitherslips
+    type: 1
+409,73,160:
+    player: Slitherslips
+    type: 1
+408,74,160:
+    player: Slitherslips
+    type: 1
+408,74,161:
+    player: Slitherslips
+    type: 1
+408,74,162:
+    player: Slitherslips
+    type: 1
+408,71,166:
+    player: Slitherslips
+    type: 61
+408,75,162:
+    player: Slitherslips
+    type: 55
+408,75,161:
+    player: Slitherslips
+    type: 55
+408,75,160:
+    player: Slitherslips
+    type: 55
+409,72,162:
+    player: Slitherslips
+    type: 1
+409,73,162:
+    player: Slitherslips
+    type: 1
+408,73,163:
+    player: Slitherslips
+    type: 1
+407,72,164:
+    player: Slitherslips
+    type: 1
+407,73,164:
+    player: Slitherslips
+    type: 1
+409,76,163:
+    player: Slitherslips
+    type: 1
+409,76,164:
+    player: Slitherslips
+    type: 1
+409,75,163:
+    player: Slitherslips
+    type: 1
+409,75,164:
+    player: Slitherslips
+    type: 1
+409,74,163:
+    player: Slitherslips
+    type: 1
+409,74,164:
+    player: Slitherslips
+    type: 1
+408,76,163:
+    player: Slitherslips
+    type: 1
+408,76,164:
+    player: Slitherslips
+    type: 1
+408,75,163:
+    player: Slitherslips
+    type: 1
+408,74,163:
+    player: Slitherslips
+    type: 1
+413,72,160:
+    player: Slitherslips
+    type: 1
+408,75,168:
+    player: Slitherslips
+    type: 1
+409,73,168:
+    player: Slitherslips
+    type: 1
+409,74,168:
+    player: Slitherslips
+    type: 58
+408,75,167:
+    player: Slitherslips
+    type: 1
+408,75,169:
+    player: Slitherslips
+    type: 1
+408,73,160:
+    player: Slitherslips
+    type: 50
+408,73,162:
+    player: Slitherslips
+    type: 50
+407,74,164:
+    player: Slitherslips
+    type: 1
+408,75,164:
+    player: Slitherslips
+    type: 1
+407,73,163:
+    player: Slitherslips
+    type: 50
+407,74,163:
+    player: Slitherslips
+    type: 1
+408,71,165:
+    player: Slitherslips
+    type: 61
+407,71,165:
+    player: Slitherslips
+    type: 61
+407,71,166:
+    player: Slitherslips
+    type: 61
+408,74,164:
+    player: Slitherslips
+    type: 1
+406,72,165:
+    player: Slitherslips
+    type: 54
+407,72,167:
+    player: Slitherslips
+    type: 54
+408,72,167:
+    player: Slitherslips
+    type: 54
+406,72,168:
+    player: Slitherslips
+    type: 58
+407,72,166:
+    player: Slitherslips
+    type: 68
+408,71,167:
+    player: Slitherslips
+    type: 1
+408,71,168:
+    player: Slitherslips
+    type: 1
+407,71,167:
+    player: Slitherslips
+    type: 1
+407,71,168:
+    player: Slitherslips
+    type: 1
+403,72,164:
+    player: canonpies
+    type: 61
+404,72,160:
+    player: canonpies
+    type: 61
+410,73,161:
+    player: Slitherslips
+    type: 1
+410,72,161:
+    player: Slitherslips
+    type: 1
+400,46,160:
+    player: Slitherslips
+    type: 50
+404,47,165:
+    player: Slitherslips
+    type: 50
+409,72,165:
+    player: Slitherslips
+    type: 54
+409,72,166:
+    player: Slitherslips
+    type: 54
+409,73,167:
+    player: Slitherslips
+    type: 50
+409,71,169:
+    player: Slitherslips
+    type: 1
+409,72,168:
+    player: Slitherslips
+    type: 54
+409,72,169:
+    player: Slitherslips
+    type: 54
+409,72,167:
+    player: Slitherslips
+    type: 42
+409,74,165:
+    player: Slitherslips
+    type: 61
+409,74,166:
+    player: Slitherslips
+    type: 61
+409,74,167:
+    player: Slitherslips
+    type: 1
+409,74,169:
+    player: Slitherslips
+    type: 58
+400,71,163:
+    player: Slitherslips
+    type: 1
+407,73,166:
+    player: Slitherslips
+    type: 98
+405,63,161:
+    player: Slitherslips
+    type: 50
+409,66,165:
+    player: Slitherslips
+    type: 50
+411,70,173:
+    player: Slitherslips
+    type: 50
+408,71,169:
+    player: Slitherslips
+    type: 1
+401,55,174:
+    player: Slitherslips
+    type: 50
+408,74,165:
+    player: Slitherslips
+    type: 68
+408,74,166:
+    player: Slitherslips
+    type: 68
+401,71,171:
+    player: Slitherslips
+    type: 50
+402,70,170:
+    player: Slitherslips
+    type: 50
+403,66,172:
+    player: Slitherslips
+    type: 50
+402,65,171:
+    player: Slitherslips
+    type: 50
+404,61,170:
+    player: Slitherslips
+    type: 50
+402,60,171:
+    player: Slitherslips
+    type: 50
+402,56,169:
+    player: Slitherslips
+    type: 50
+401,53,171:
+    player: Slitherslips
+    type: 50
+409,73,166:
+    player: Slitherslips
+    type: 50
+407,72,165:
+    player: Slitherslips
+    type: 50
+403,70,171:
+    player: Slitherslips
+    type: 1
+403,71,171:
+    player: Slitherslips
+    type: 1
+403,72,171:
+    player: Slitherslips
+    type: 1
+401,72,164:
+    player: Slitherslips
+    type: 80
+401,72,165:
+    player: Slitherslips
+    type: 80
+401,73,164:
+    player: Slitherslips
+    type: 80
+401,74,164:
+    player: Slitherslips
+    type: 0
+406,75,164:
+    player: Slitherslips
+    type: 1
+406,75,163:
+    player: Slitherslips
+    type: 1
+406,75,162:
+    player: Slitherslips
+    type: 1
+402,72,170:
+    player: Slitherslips
+    type: 1
+400,75,162:
+    player: Slitherslips
+    type: 1
+400,74,162:
+    player: Slitherslips
+    type: 1
+400,75,161:
+    player: Slitherslips
+    type: 1
+402,73,170:
+    player: Slitherslips
+    type: 1
+401,90,161:
+    player: Rawdogin
+    type: 3
+401,90,162:
+    player: Rawdogin
+    type: 3
+401,90,168:
+    player: Rawdogin
+    type: 3
+401,90,167:
+    player: Rawdogin
+    type: 3
+401,90,166:
+    player: Rawdogin
+    type: 3
+401,91,161:
+    player: Rawdogin
+    type: 5
+400,91,161:
+    player: Rawdogin
+    type: 5
+401,91,162:
+    player: Rawdogin
+    type: 5
+401,91,164:
+    player: Rawdogin
+    type: 5
+401,91,163:
+    player: Rawdogin
+    type: 5
+401,91,166:
+    player: Rawdogin
+    type: 5
+401,91,165:
+    player: Rawdogin
+    type: 5
+401,91,168:
+    player: Rawdogin
+    type: 5
+401,91,167:
+    player: Rawdogin
+    type: 5
+400,91,168:
+    player: Rawdogin
+    type: 5
+401,92,161:
+    player: Rawdogin
+    type: 5
+400,92,161:
+    player: Rawdogin
+    type: 5
+401,92,168:
+    player: Rawdogin
+    type: 5
+400,92,168:
+    player: Rawdogin
+    type: 5
+401,92,166:
+    player: Rawdogin
+    type: 5
+401,92,167:
+    player: Rawdogin
+    type: 5
+401,92,165:
+    player: Rawdogin
+    type: 5
+401,92,164:
+    player: Rawdogin
+    type: 5
+401,92,163:
+    player: Rawdogin
+    type: 5
+401,92,162:
+    player: Rawdogin
+    type: 5
+400,93,162:
+    player: Rawdogin
+    type: 5
+400,91,164:
+    player: Rawdogin
+    type: 5
+400,93,163:
+    player: Rawdogin
+    type: 5
+401,93,162:
+    player: Rawdogin
+    type: 5
+401,93,163:
+    player: Rawdogin
+    type: 5
+400,93,164:
+    player: Rawdogin
+    type: 5
+401,93,164:
+    player: Rawdogin
+    type: 5
+401,93,165:
+    player: Rawdogin
+    type: 5
+401,93,166:
+    player: Rawdogin
+    type: 5
+401,93,167:
+    player: Rawdogin
+    type: 5
+401,93,168:
+    player: Rawdogin
+    type: 5
+400,93,168:
+    player: Rawdogin
+    type: 5
+400,93,165:
+    player: Rawdogin
+    type: 5
+400,93,166:
+    player: Rawdogin
+    type: 5
+400,94,166:
+    player: Rawdogin
+    type: 5
+400,93,167:
+    player: Rawdogin
+    type: 5
+400,93,161:
+    player: Rawdogin
+    type: 5
+401,93,161:
+    player: Rawdogin
+    type: 5
+400,92,164:
+    player: Rawdogin
+    type: 50
+400,86,164:
+    player: Rawdogin
+    type: 50
+401,83,160:
+    player: Rawdogin
+    type: 4
+401,84,160:
+    player: Rawdogin
+    type: 4
+400,84,160:
+    player: Rawdogin
+    type: 4
+401,81,165:
+    player: Rawdogin
+    type: 50
+401,74,169:
+    player: Rawdogin
+    type: 4
+401,76,168:
+    player: Rawdogin
+    type: 4
+401,75,169:
+    player: Rawdogin
+    type: 4
+402,73,171:
+    player: Rawdogin
+    type: 4
+400,91,162:
+    player: Rawdogin
+    type: 54
+412,71,160:
+    player: Slitherslips
+    type: 1
+413,71,160:
+    player: Slitherslips
+    type: 1
+410,73,160:
+    player: Slitherslips
+    type: 1
+410,73,165:
+    player: Slitherslips
+    type: 54
+410,73,166:
+    player: Slitherslips
+    type: 54
+407,82,175:
+    player: Slitherslips
+    type: 3
+407,83,175:
+    player: Slitherslips
+    type: 5
+408,82,175:
+    player: Slitherslips
+    type: 3
+408,83,175:
+    player: Slitherslips
+    type: 5
+409,82,175:
+    player: Slitherslips
+    type: 3
+409,83,175:
+    player: Slitherslips
+    type: 5
+410,82,175:
+    player: Slitherslips
+    type: 3
+410,83,175:
+    player: Slitherslips
+    type: 5
+411,82,175:
+    player: Slitherslips
+    type: 3
+411,83,175:
+    player: Slitherslips
+    type: 5
+412,83,175:
+    player: Slitherslips
+    type: 5
+413,81,175:
+    player: Slitherslips
+    type: 3
+413,82,175:
+    player: Slitherslips
+    type: 3
+413,83,175:
+    player: Slitherslips
+    type: 3
+405,83,175:
+    player: Slitherslips
+    type: 5
+406,83,175:
+    player: Slitherslips
+    type: 5
+405,83,172:
+    player: Slitherslips
+    type: 3
+405,83,173:
+    player: Slitherslips
+    type: 5
+405,83,174:
+    player: Slitherslips
+    type: 5
+406,82,174:
+    player: Slitherslips
+    type: 3
+406,83,174:
+    player: Slitherslips
+    type: 5
+406,82,173:
+    player: Slitherslips
+    type: 3
+406,83,173:
+    player: Slitherslips
+    type: 3
+406,81,172:
+    player: Slitherslips
+    type: 3
+406,81,171:
+    player: Slitherslips
+    type: 3
+406,81,169:
+    player: Slitherslips
+    type: 3
+406,81,170:
+    player: Slitherslips
+    type: 3
+407,80,173:
+    player: Slitherslips
+    type: 3
+408,80,174:
+    player: Slitherslips
+    type: 3
+408,80,173:
+    player: Slitherslips
+    type: 3
+409,80,173:
+    player: Slitherslips
+    type: 3
+412,80,173:
+    player: Slitherslips
+    type: 3
+411,80,173:
+    player: Slitherslips
+    type: 3
+410,80,173:
+    player: Slitherslips
+    type: 3
+413,80,174:
+    player: Slitherslips
+    type: 3
+413,80,173:
+    player: Slitherslips
+    type: 3
+413,81,173:
+    player: Slitherslips
+    type: 3
+413,82,173:
+    player: Slitherslips
+    type: 3
+413,81,174:
+    player: Slitherslips
+    type: 3
+413,83,174:
+    player: Slitherslips
+    type: 3
+413,82,174:
+    player: Slitherslips
+    type: 3
+412,81,174:
+    player: Slitherslips
+    type: 3
+412,81,173:
+    player: Slitherslips
+    type: 3
+412,82,174:
+    player: Slitherslips
+    type: 3
+412,82,173:
+    player: Slitherslips
+    type: 3
+411,81,174:
+    player: Slitherslips
+    type: 3
+411,81,173:
+    player: Slitherslips
+    type: 3
+410,81,174:
+    player: Slitherslips
+    type: 3
+410,82,174:
+    player: Slitherslips
+    type: 3
+410,81,173:
+    player: Slitherslips
+    type: 3
+408,81,174:
+    player: Slitherslips
+    type: 3
+409,81,174:
+    player: Slitherslips
+    type: 3
+409,82,174:
+    player: Slitherslips
+    type: 3
+409,83,174:
+    player: Slitherslips
+    type: 5
+407,81,174:
+    player: Slitherslips
+    type: 3
+407,81,173:
+    player: Slitherslips
+    type: 3
+409,81,173:
+    player: Slitherslips
+    type: 3
+408,81,173:
+    player: Slitherslips
+    type: 3
+411,82,173:
+    player: Slitherslips
+    type: 3
+411,82,174:
+    player: Slitherslips
+    type: 3
+410,82,173:
+    player: Slitherslips
+    type: 3
+409,82,173:
+    player: Slitherslips
+    type: 3
+408,82,174:
+    player: Slitherslips
+    type: 3
+408,82,173:
+    player: Slitherslips
+    type: 3
+407,82,174:
+    player: Slitherslips
+    type: 3
+407,82,173:
+    player: Slitherslips
+    type: 3
+413,83,173:
+    player: Slitherslips
+    type: 3
+412,83,173:
+    player: Slitherslips
+    type: 3
+412,83,174:
+    player: Slitherslips
+    type: 5
+411,83,174:
+    player: Slitherslips
+    type: 5
+411,83,173:
+    player: Slitherslips
+    type: 3
+410,83,173:
+    player: Slitherslips
+    type: 5
+410,83,174:
+    player: Slitherslips
+    type: 5
+407,83,174:
+    player: Slitherslips
+    type: 5
+407,83,173:
+    player: Slitherslips
+    type: 3
+408,83,174:
+    player: Slitherslips
+    type: 5
+408,84,174:
+    player: Slitherslips
+    type: 3
+408,83,173:
+    player: Slitherslips
+    type: 3
+409,83,173:
+    player: Slitherslips
+    type: 5
+406,82,172:
+    player: Slitherslips
+    type: 3
+406,83,172:
+    player: Slitherslips
+    type: 3
+405,82,171:
+    player: Slitherslips
+    type: 3
+405,83,171:
+    player: Slitherslips
+    type: 3
+406,82,171:
+    player: Slitherslips
+    type: 3
+406,83,171:
+    player: Slitherslips
+    type: 3
+404,83,171:
+    player: Slitherslips
+    type: 3
+403,82,175:
+    player: Slitherslips
+    type: 3
+403,83,175:
+    player: Slitherslips
+    type: 3
+403,82,174:
+    player: Slitherslips
+    type: 3
+403,83,174:
+    player: Slitherslips
+    type: 3
+403,83,173:
+    player: Slitherslips
+    type: 3
+406,82,170:
+    player: Slitherslips
+    type: 3
+406,83,170:
+    player: Slitherslips
+    type: 3
+405,83,170:
+    player: Slitherslips
+    type: 3
+413,84,175:
+    player: Slitherslips
+    type: 5
+413,84,173:
+    player: Slitherslips
+    type: 5
+413,84,174:
+    player: Slitherslips
+    type: 5
+412,84,173:
+    player: Slitherslips
+    type: 5
+411,84,173:
+    player: Slitherslips
+    type: 5
+408,84,173:
+    player: Slitherslips
+    type: 5
+407,84,173:
+    player: Slitherslips
+    type: 5
+406,84,173:
+    player: Slitherslips
+    type: 5
+406,84,170:
+    player: Slitherslips
+    type: 5
+405,84,170:
+    player: Slitherslips
+    type: 5
+406,84,171:
+    player: Slitherslips
+    type: 5
+406,84,172:
+    player: Slitherslips
+    type: 5
+403,84,175:
+    player: Slitherslips
+    type: 5
+403,84,174:
+    player: Slitherslips
+    type: 5
+404,84,170:
+    player: Slitherslips
+    type: 5
+401,84,170:
+    player: Slitherslips
+    type: 3
+401,84,171:
+    player: Slitherslips
+    type: 5
+401,84,172:
+    player: Slitherslips
+    type: 5
+402,84,172:
+    player: Slitherslips
+    type: 5
+403,84,173:
+    player: Slitherslips
+    type: 5
+403,84,169:
+    player: Slitherslips
+    type: 5
+402,84,169:
+    player: Slitherslips
+    type: 3
+407,84,175:
+    player: Slitherslips
+    type: 5
+404,83,175:
+    player: Slitherslips
+    type: 5
+404,83,174:
+    player: Slitherslips
+    type: 5
+404,83,172:
+    player: Slitherslips
+    type: 3
+404,83,173:
+    player: Slitherslips
+    type: 5
+402,83,170:
+    player: Slitherslips
+    type: 3
+403,83,170:
+    player: Slitherslips
+    type: 3
+402,83,171:
+    player: Slitherslips
+    type: 3
+403,83,171:
+    player: Slitherslips
+    type: 3
+403,83,172:
+    player: Slitherslips
+    type: 3
+403,84,172:
+    player: Slitherslips
+    type: 5
+401,85,170:
+    player: Slitherslips
+    type: 5
+401,86,170:
+    player: Slitherslips
+    type: 5
+401,87,170:
+    player: Slitherslips
+    type: 5
+402,85,169:
+    player: Slitherslips
+    type: 5
+402,86,169:
+    player: Slitherslips
+    type: 5
+402,87,169:
+    player: Slitherslips
+    type: 5
+403,85,169:
+    player: Slitherslips
+    type: 5
+403,86,169:
+    player: Slitherslips
+    type: 5
+403,87,169:
+    player: Slitherslips
+    type: 5
+404,85,170:
+    player: Slitherslips
+    type: 5
+404,86,170:
+    player: Slitherslips
+    type: 5
+404,87,170:
+    player: Slitherslips
+    type: 5
+405,85,170:
+    player: Slitherslips
+    type: 5
+405,86,170:
+    player: Slitherslips
+    type: 5
+406,85,170:
+    player: Slitherslips
+    type: 5
+406,86,170:
+    player: Slitherslips
+    type: 5
+406,85,171:
+    player: Slitherslips
+    type: 5
+406,86,171:
+    player: Slitherslips
+    type: 5
+406,85,172:
+    player: Slitherslips
+    type: 5
+406,86,172:
+    player: Slitherslips
+    type: 5
+406,85,173:
+    player: Slitherslips
+    type: 5
+406,86,173:
+    player: Slitherslips
+    type: 5
+408,85,173:
+    player: Slitherslips
+    type: 5
+407,85,173:
+    player: Slitherslips
+    type: 5
+408,86,173:
+    player: Slitherslips
+    type: 5
+407,86,173:
+    player: Slitherslips
+    type: 5
+411,85,173:
+    player: Slitherslips
+    type: 5
+411,86,173:
+    player: Slitherslips
+    type: 5
+412,85,173:
+    player: Slitherslips
+    type: 5
+412,86,173:
+    player: Slitherslips
+    type: 5
+413,85,173:
+    player: Slitherslips
+    type: 5
+413,86,173:
+    player: Slitherslips
+    type: 5
+413,85,174:
+    player: Slitherslips
+    type: 5
+413,86,174:
+    player: Slitherslips
+    type: 5
+413,85,175:
+    player: Slitherslips
+    type: 5
+413,86,175:
+    player: Slitherslips
+    type: 5
+403,85,174:
+    player: Slitherslips
+    type: 5
+403,85,175:
+    player: Slitherslips
+    type: 5
+403,86,175:
+    player: Slitherslips
+    type: 5
+403,86,174:
+    player: Slitherslips
+    type: 5
+403,85,173:
+    player: Slitherslips
+    type: 5
+403,86,173:
+    player: Slitherslips
+    type: 5
+401,85,172:
+    player: Slitherslips
+    type: 5
+402,85,172:
+    player: Slitherslips
+    type: 5
+401,85,171:
+    player: Slitherslips
+    type: 5
+401,86,172:
+    player: Slitherslips
+    type: 5
+401,86,171:
+    player: Slitherslips
+    type: 5
+402,86,171:
+    player: Slitherslips
+    type: 5
+402,86,172:
+    player: Slitherslips
+    type: 5
+401,87,171:
+    player: Slitherslips
+    type: 5
+402,87,172:
+    player: Slitherslips
+    type: 5
+401,87,172:
+    player: Slitherslips
+    type: 5
+403,87,173:
+    player: Slitherslips
+    type: 5
+403,87,175:
+    player: Slitherslips
+    type: 5
+403,87,174:
+    player: Slitherslips
+    type: 5
+413,87,175:
+    player: Slitherslips
+    type: 5
+413,87,174:
+    player: Slitherslips
+    type: 5
+413,87,173:
+    player: Slitherslips
+    type: 5
+411,87,173:
+    player: Slitherslips
+    type: 5
+412,87,173:
+    player: Slitherslips
+    type: 5
+405,87,170:
+    player: Slitherslips
+    type: 5
+406,87,170:
+    player: Slitherslips
+    type: 5
+406,87,171:
+    player: Slitherslips
+    type: 5
+406,87,173:
+    player: Slitherslips
+    type: 5
+406,87,172:
+    player: Slitherslips
+    type: 5
+408,87,173:
+    player: Slitherslips
+    type: 5
+407,87,173:
+    player: Slitherslips
+    type: 5
+410,87,173:
+    player: Slitherslips
+    type: 5
+409,87,173:
+    player: Slitherslips
+    type: 5
+402,87,170:
+    player: Slitherslips
+    type: 5
+403,87,170:
+    player: Slitherslips
+    type: 5
+402,87,171:
+    player: Slitherslips
+    type: 5
+403,87,171:
+    player: Slitherslips
+    type: 5
+403,87,172:
+    player: Slitherslips
+    type: 5
+404,87,172:
+    player: Slitherslips
+    type: 5
+404,87,171:
+    player: Slitherslips
+    type: 5
+405,87,172:
+    player: Slitherslips
+    type: 5
+405,87,171:
+    player: Slitherslips
+    type: 5
+405,88,171:
+    player: Slitherslips
+    type: 5
+405,87,173:
+    player: Slitherslips
+    type: 5
+404,87,173:
+    player: Slitherslips
+    type: 5
+404,87,175:
+    player: Slitherslips
+    type: 5
+404,87,174:
+    player: Slitherslips
+    type: 5
+405,87,175:
+    player: Slitherslips
+    type: 5
+405,87,174:
+    player: Slitherslips
+    type: 5
+406,87,174:
+    player: Slitherslips
+    type: 5
+408,87,174:
+    player: Slitherslips
+    type: 5
+407,87,174:
+    player: Slitherslips
+    type: 5
+408,87,175:
+    player: Slitherslips
+    type: 5
+407,87,175:
+    player: Slitherslips
+    type: 5
+406,87,175:
+    player: Slitherslips
+    type: 5
+412,87,174:
+    player: Slitherslips
+    type: 5
+412,87,175:
+    player: Slitherslips
+    type: 5
+411,87,175:
+    player: Slitherslips
+    type: 5
+411,87,174:
+    player: Slitherslips
+    type: 5
+410,87,174:
+    player: Slitherslips
+    type: 5
+409,87,174:
+    player: Slitherslips
+    type: 5
+410,87,175:
+    player: Slitherslips
+    type: 5
+409,87,175:
+    player: Slitherslips
+    type: 5
+410,79,172:
+    player: Slitherslips
+    type: 3
+410,80,172:
+    player: Slitherslips
+    type: 3
+410,81,172:
+    player: Slitherslips
+    type: 3
+410,82,172:
+    player: Slitherslips
+    type: 3
+410,83,172:
+    player: Slitherslips
+    type: 3
+409,79,172:
+    player: Slitherslips
+    type: 3
+409,80,172:
+    player: Slitherslips
+    type: 3
+409,81,172:
+    player: Slitherslips
+    type: 3
+409,82,172:
+    player: Slitherslips
+    type: 3
+409,83,172:
+    player: Slitherslips
+    type: 3
+409,79,171:
+    player: Slitherslips
+    type: 3
+409,80,171:
+    player: Slitherslips
+    type: 3
+409,81,171:
+    player: Slitherslips
+    type: 3
+409,82,171:
+    player: Slitherslips
+    type: 3
+410,79,171:
+    player: Slitherslips
+    type: 3
+410,80,171:
+    player: Slitherslips
+    type: 3
+410,81,171:
+    player: Slitherslips
+    type: 3
+410,82,171:
+    player: Slitherslips
+    type: 3
+410,78,170:
+    player: Slitherslips
+    type: 3
+410,79,170:
+    player: Slitherslips
+    type: 3
+410,80,170:
+    player: Slitherslips
+    type: 3
+410,81,170:
+    player: Slitherslips
+    type: 3
+409,78,170:
+    player: Slitherslips
+    type: 3
+409,79,170:
+    player: Slitherslips
+    type: 3
+409,80,170:
+    player: Slitherslips
+    type: 3
+409,81,170:
+    player: Slitherslips
+    type: 3
+409,78,169:
+    player: Slitherslips
+    type: 3
+409,79,169:
+    player: Slitherslips
+    type: 3
+409,80,169:
+    player: Slitherslips
+    type: 3
+409,81,169:
+    player: Slitherslips
+    type: 3
+410,78,169:
+    player: Slitherslips
+    type: 3
+410,79,169:
+    player: Slitherslips
+    type: 3
+410,80,169:
+    player: Slitherslips
+    type: 3
+410,77,168:
+    player: Slitherslips
+    type: 3
+410,78,168:
+    player: Slitherslips
+    type: 3
+410,79,168:
+    player: Slitherslips
+    type: 3
+409,76,168:
+    player: Slitherslips
+    type: 3
+409,77,168:
+    player: Slitherslips
+    type: 3
+409,78,168:
+    player: Slitherslips
+    type: 3
+409,79,168:
+    player: Slitherslips
+    type: 3
+409,78,167:
+    player: Slitherslips
+    type: 3
+410,77,167:
+    player: Slitherslips
+    type: 3
+410,78,167:
+    player: Slitherslips
+    type: 3
+402,85,170:
+    player: Slitherslips
+    type: 50
+405,85,171:
+    player: Slitherslips
+    type: 50
+404,85,174:
+    player: Slitherslips
+    type: 50
+409,86,173:
+    player: Slitherslips
+    type: 5
+410,86,173:
+    player: Slitherslips
+    type: 5
+411,85,172:
+    player: Slitherslips
+    type: 50
+408,85,172:
+    player: Slitherslips
+    type: 50
+402,84,171:
+    player: Slitherslips
+    type: 58
+410,84,173:
+    player: Slitherslips
+    type: 64
+410,85,173:
+    player: Slitherslips
+    type: 64
+409,85,173:
+    player: Slitherslips
+    type: 64
+409,84,173:
+    player: Slitherslips
+    type: 64
+402,84,170:
+    player: Slitherslips
+    type: 61
+404,86,175:
+    player: Slitherslips
+    type: 65
+404,85,175:
+    player: Slitherslips
+    type: 65
+404,84,175:
+    player: Slitherslips
+    type: 53
+402,88,169:
+    player: Slitherslips
+    type: 5
+402,89,169:
+    player: Slitherslips
+    type: 5
+402,90,169:
+    player: Slitherslips
+    type: 5
+402,91,169:
+    player: Slitherslips
+    type: 5
+403,88,169:
+    player: Slitherslips
+    type: 5
+403,89,169:
+    player: Slitherslips
+    type: 5
+404,88,170:
+    player: Slitherslips
+    type: 5
+404,89,170:
+    player: Slitherslips
+    type: 5
+405,88,170:
+    player: Slitherslips
+    type: 5
+405,89,170:
+    player: Slitherslips
+    type: 5
+406,88,170:
+    player: Slitherslips
+    type: 5
+406,89,170:
+    player: Slitherslips
+    type: 5
+406,88,171:
+    player: Slitherslips
+    type: 5
+406,89,171:
+    player: Slitherslips
+    type: 5
+406,88,172:
+    player: Slitherslips
+    type: 5
+406,89,172:
+    player: Slitherslips
+    type: 5
+407,88,173:
+    player: Slitherslips
+    type: 5
+407,89,173:
+    player: Slitherslips
+    type: 5
+408,88,173:
+    player: Slitherslips
+    type: 5
+408,89,173:
+    player: Slitherslips
+    type: 5
+410,88,173:
+    player: Slitherslips
+    type: 5
+409,88,173:
+    player: Slitherslips
+    type: 5
+410,89,173:
+    player: Slitherslips
+    type: 5
+409,89,173:
+    player: Slitherslips
+    type: 5
+411,88,173:
+    player: Slitherslips
+    type: 5
+411,89,173:
+    player: Slitherslips
+    type: 5
+413,88,173:
+    player: Slitherslips
+    type: 5
+413,89,173:
+    player: Slitherslips
+    type: 5
+412,88,173:
+    player: Slitherslips
+    type: 5
+412,89,173:
+    player: Slitherslips
+    type: 5
+413,88,174:
+    player: Slitherslips
+    type: 5
+413,89,174:
+    player: Slitherslips
+    type: 5
+413,90,174:
+    player: Slitherslips
+    type: 5
+413,88,175:
+    player: Slitherslips
+    type: 5
+413,89,175:
+    player: Slitherslips
+    type: 5
+403,88,175:
+    player: Slitherslips
+    type: 5
+403,89,175:
+    player: Slitherslips
+    type: 5
+403,88,174:
+    player: Slitherslips
+    type: 5
+403,89,174:
+    player: Slitherslips
+    type: 5
+403,88,173:
+    player: Slitherslips
+    type: 5
+403,89,173:
+    player: Slitherslips
+    type: 5
+402,88,172:
+    player: Slitherslips
+    type: 5
+402,89,172:
+    player: Slitherslips
+    type: 5
+401,88,172:
+    player: Slitherslips
+    type: 5
+401,89,172:
+    player: Slitherslips
+    type: 5
+401,88,170:
+    player: Slitherslips
+    type: 5
+401,89,170:
+    player: Slitherslips
+    type: 5
+401,89,171:
+    player: Slitherslips
+    type: 5
+401,88,171:
+    player: Slitherslips
+    type: 5
+402,88,171:
+    player: Slitherslips
+    type: 58
+401,90,170:
+    player: Slitherslips
+    type: 5
+401,91,170:
+    player: Slitherslips
+    type: 5
+401,90,171:
+    player: Slitherslips
+    type: 5
+401,91,171:
+    player: Slitherslips
+    type: 5
+401,90,172:
+    player: Slitherslips
+    type: 5
+402,90,172:
+    player: Slitherslips
+    type: 5
+401,91,172:
+    player: Slitherslips
+    type: 5
+402,91,172:
+    player: Slitherslips
+    type: 5
+403,90,173:
+    player: Slitherslips
+    type: 5
+403,91,173:
+    player: Slitherslips
+    type: 5
+403,90,174:
+    player: Slitherslips
+    type: 5
+403,91,174:
+    player: Slitherslips
+    type: 5
+403,90,175:
+    player: Slitherslips
+    type: 5
+403,91,175:
+    player: Slitherslips
+    type: 5
+413,90,175:
+    player: Slitherslips
+    type: 5
+413,91,175:
+    player: Slitherslips
+    type: 5
+413,91,174:
+    player: Slitherslips
+    type: 5
+413,90,173:
+    player: Slitherslips
+    type: 5
+413,91,173:
+    player: Slitherslips
+    type: 5
+412,90,173:
+    player: Slitherslips
+    type: 5
+412,91,173:
+    player: Slitherslips
+    type: 5
+411,90,173:
+    player: Slitherslips
+    type: 5
+411,91,173:
+    player: Slitherslips
+    type: 5
+410,90,173:
+    player: Slitherslips
+    type: 5
+410,91,173:
+    player: Slitherslips
+    type: 5
+409,90,173:
+    player: Slitherslips
+    type: 5
+409,91,173:
+    player: Slitherslips
+    type: 5
+408,90,173:
+    player: Slitherslips
+    type: 5
+408,91,173:
+    player: Slitherslips
+    type: 5
+407,90,173:
+    player: Slitherslips
+    type: 5
+407,91,173:
+    player: Slitherslips
+    type: 5
+406,90,172:
+    player: Slitherslips
+    type: 5
+406,91,172:
+    player: Slitherslips
+    type: 5
+406,90,171:
+    player: Slitherslips
+    type: 5
+406,91,171:
+    player: Slitherslips
+    type: 5
+406,90,170:
+    player: Slitherslips
+    type: 5
+405,90,170:
+    player: Slitherslips
+    type: 5
+406,91,170:
+    player: Slitherslips
+    type: 5
+405,91,170:
+    player: Slitherslips
+    type: 5
+404,90,170:
+    player: Slitherslips
+    type: 5
+404,91,170:
+    player: Slitherslips
+    type: 5
+403,90,169:
+    player: Slitherslips
+    type: 5
+403,91,169:
+    player: Slitherslips
+    type: 5
+402,91,170:
+    player: Slitherslips
+    type: 5
+402,90,171:
+    player: Slitherslips
+    type: 5
+402,91,171:
+    player: Slitherslips
+    type: 5
+403,91,172:
+    player: Slitherslips
+    type: 5
+403,91,171:
+    player: Slitherslips
+    type: 5
+403,91,170:
+    player: Slitherslips
+    type: 5
+405,91,172:
+    player: Slitherslips
+    type: 5
+405,91,171:
+    player: Slitherslips
+    type: 5
+404,91,172:
+    player: Slitherslips
+    type: 5
+404,91,171:
+    player: Slitherslips
+    type: 5
+404,92,172:
+    player: Slitherslips
+    type: 5
+406,91,173:
+    player: Slitherslips
+    type: 5
+405,91,173:
+    player: Slitherslips
+    type: 5
+404,91,173:
+    player: Slitherslips
+    type: 5
+404,91,175:
+    player: Slitherslips
+    type: 5
+404,91,174:
+    player: Slitherslips
+    type: 5
+407,91,174:
+    player: Slitherslips
+    type: 5
+406,91,174:
+    player: Slitherslips
+    type: 5
+405,91,174:
+    player: Slitherslips
+    type: 5
+407,91,175:
+    player: Slitherslips
+    type: 5
+406,91,175:
+    player: Slitherslips
+    type: 5
+405,91,175:
+    player: Slitherslips
+    type: 5
+408,91,174:
+    player: Slitherslips
+    type: 5
+409,91,174:
+    player: Slitherslips
+    type: 5
+410,91,174:
+    player: Slitherslips
+    type: 5
+410,91,175:
+    player: Slitherslips
+    type: 5
+409,91,175:
+    player: Slitherslips
+    type: 5
+408,91,175:
+    player: Slitherslips
+    type: 5
+412,91,175:
+    player: Slitherslips
+    type: 5
+412,91,174:
+    player: Slitherslips
+    type: 5
+411,91,174:
+    player: Slitherslips
+    type: 5
+411,91,175:
+    player: Slitherslips
+    type: 5
+411,90,174:
+    player: Slitherslips
+    type: 50
+402,89,170:
+    player: Slitherslips
+    type: 50
+404,90,174:
+    player: Slitherslips
+    type: 65
+404,89,174:
+    player: Slitherslips
+    type: 65
+404,88,174:
+    player: Slitherslips
+    type: 65
+402,92,169:
+    player: Slitherslips
+    type: 5
+402,93,169:
+    player: Slitherslips
+    type: 5
+401,92,170:
+    player: Slitherslips
+    type: 5
+401,93,170:
+    player: Slitherslips
+    type: 5
+401,92,171:
+    player: Slitherslips
+    type: 5
+401,93,171:
+    player: Slitherslips
+    type: 5
+401,92,172:
+    player: Slitherslips
+    type: 5
+401,93,172:
+    player: Slitherslips
+    type: 5
+402,92,172:
+    player: Slitherslips
+    type: 5
+402,93,172:
+    player: Slitherslips
+    type: 5
+403,92,172:
+    player: Slitherslips
+    type: 5
+403,93,172:
+    player: Slitherslips
+    type: 5
+403,92,173:
+    player: Slitherslips
+    type: 5
+403,93,173:
+    player: Slitherslips
+    type: 5
+403,92,174:
+    player: Slitherslips
+    type: 5
+403,93,174:
+    player: Slitherslips
+    type: 5
+403,92,175:
+    player: Slitherslips
+    type: 5
+403,93,175:
+    player: Slitherslips
+    type: 5
+413,92,175:
+    player: Slitherslips
+    type: 5
+413,93,175:
+    player: Slitherslips
+    type: 5
+413,92,174:
+    player: Slitherslips
+    type: 5
+413,93,174:
+    player: Slitherslips
+    type: 5
+413,92,173:
+    player: Slitherslips
+    type: 5
+413,93,173:
+    player: Slitherslips
+    type: 5
+412,92,173:
+    player: Slitherslips
+    type: 5
+412,93,173:
+    player: Slitherslips
+    type: 5
+411,92,173:
+    player: Slitherslips
+    type: 5
+411,93,173:
+    player: Slitherslips
+    type: 5
+410,92,173:
+    player: Slitherslips
+    type: 5
+410,93,173:
+    player: Slitherslips
+    type: 5
+410,94,173:
+    player: Slitherslips
+    type: 5
+409,92,173:
+    player: Slitherslips
+    type: 5
+409,93,173:
+    player: Slitherslips
+    type: 5
+408,92,173:
+    player: Slitherslips
+    type: 5
+408,93,173:
+    player: Slitherslips
+    type: 5
+407,92,173:
+    player: Slitherslips
+    type: 5
+407,93,173:
+    player: Slitherslips
+    type: 5
+406,92,172:
+    player: Slitherslips
+    type: 5
+406,93,172:
+    player: Slitherslips
+    type: 5
+406,92,171:
+    player: Slitherslips
+    type: 5
+406,93,171:
+    player: Slitherslips
+    type: 5
+406,92,170:
+    player: Slitherslips
+    type: 5
+406,93,170:
+    player: Slitherslips
+    type: 5
+405,92,170:
+    player: Slitherslips
+    type: 5
+405,93,170:
+    player: Slitherslips
+    type: 5
+404,92,170:
+    player: Slitherslips
+    type: 5
+404,93,170:
+    player: Slitherslips
+    type: 5
+403,92,169:
+    player: Slitherslips
+    type: 5
+403,93,169:
+    player: Slitherslips
+    type: 5
+403,94,169:
+    player: Slitherslips
+    type: 5
+403,95,169:
+    player: Slitherslips
+    type: 5
+402,94,169:
+    player: Slitherslips
+    type: 5
+402,95,169:
+    player: Slitherslips
+    type: 5
+401,94,170:
+    player: Slitherslips
+    type: 5
+401,95,170:
+    player: Slitherslips
+    type: 5
+401,94,171:
+    player: Slitherslips
+    type: 5
+401,95,171:
+    player: Slitherslips
+    type: 5
+401,94,172:
+    player: Slitherslips
+    type: 5
+401,95,172:
+    player: Slitherslips
+    type: 5
+402,94,172:
+    player: Slitherslips
+    type: 5
+402,95,172:
+    player: Slitherslips
+    type: 5
+403,94,172:
+    player: Slitherslips
+    type: 5
+403,95,172:
+    player: Slitherslips
+    type: 5
+403,94,173:
+    player: Slitherslips
+    type: 5
+403,95,173:
+    player: Slitherslips
+    type: 5
+403,94,174:
+    player: Slitherslips
+    type: 5
+403,95,174:
+    player: Slitherslips
+    type: 5
+403,94,175:
+    player: Slitherslips
+    type: 5
+403,95,175:
+    player: Slitherslips
+    type: 5
+413,94,175:
+    player: Slitherslips
+    type: 5
+413,95,175:
+    player: Slitherslips
+    type: 5
+413,94,173:
+    player: Slitherslips
+    type: 5
+413,95,173:
+    player: Slitherslips
+    type: 5
+413,94,174:
+    player: Slitherslips
+    type: 5
+413,95,174:
+    player: Slitherslips
+    type: 5
+412,94,173:
+    player: Slitherslips
+    type: 5
+412,95,173:
+    player: Slitherslips
+    type: 5
+411,94,173:
+    player: Slitherslips
+    type: 5
+411,95,173:
+    player: Slitherslips
+    type: 5
+410,95,173:
+    player: Slitherslips
+    type: 5
+409,94,173:
+    player: Slitherslips
+    type: 5
+409,95,173:
+    player: Slitherslips
+    type: 5
+407,94,173:
+    player: Slitherslips
+    type: 5
+408,94,173:
+    player: Slitherslips
+    type: 5
+407,95,173:
+    player: Slitherslips
+    type: 5
+408,95,173:
+    player: Slitherslips
+    type: 5
+406,94,172:
+    player: Slitherslips
+    type: 5
+406,95,172:
+    player: Slitherslips
+    type: 5
+406,94,171:
+    player: Slitherslips
+    type: 5
+406,95,171:
+    player: Slitherslips
+    type: 5
+406,94,170:
+    player: Slitherslips
+    type: 5
+406,95,170:
+    player: Slitherslips
+    type: 5
+405,94,170:
+    player: Slitherslips
+    type: 5
+404,94,170:
+    player: Slitherslips
+    type: 5
+404,95,170:
+    player: Slitherslips
+    type: 5
+405,95,170:
+    player: Slitherslips
+    type: 5
+402,95,171:
+    player: Slitherslips
+    type: 5
+403,95,171:
+    player: Slitherslips
+    type: 5
+402,95,170:
+    player: Slitherslips
+    type: 5
+412,95,175:
+    player: Slitherslips
+    type: 5
+412,95,174:
+    player: Slitherslips
+    type: 5
+411,95,174:
+    player: Slitherslips
+    type: 5
+411,95,175:
+    player: Slitherslips
+    type: 5
+404,95,175:
+    player: Slitherslips
+    type: 5
+405,95,175:
+    player: Slitherslips
+    type: 5
+406,95,175:
+    player: Slitherslips
+    type: 5
+410,95,174:
+    player: Slitherslips
+    type: 5
+410,95,175:
+    player: Slitherslips
+    type: 5
+409,95,175:
+    player: Slitherslips
+    type: 5
+409,95,174:
+    player: Slitherslips
+    type: 5
+408,95,174:
+    player: Slitherslips
+    type: 5
+408,95,175:
+    player: Slitherslips
+    type: 5
+407,95,175:
+    player: Slitherslips
+    type: 5
+407,95,174:
+    player: Slitherslips
+    type: 5
+406,95,174:
+    player: Slitherslips
+    type: 5
+406,95,173:
+    player: Slitherslips
+    type: 5
+405,95,172:
+    player: Slitherslips
+    type: 5
+405,95,171:
+    player: Slitherslips
+    type: 5
+404,95,171:
+    player: Slitherslips
+    type: 5
+404,95,172:
+    player: Slitherslips
+    type: 5
+405,95,174:
+    player: Slitherslips
+    type: 5
+404,95,174:
+    player: Slitherslips
+    type: 5
+404,95,173:
+    player: Slitherslips
+    type: 5
+405,95,173:
+    player: Slitherslips
+    type: 5
+404,93,175:
+    player: Slitherslips
+    type: 50
+402,93,170:
+    player: Slitherslips
+    type: 50
+403,95,170:
+    player: Slitherslips
+    type: 5
+407,87,172:
+    player: Slitherslips
+    type: 5
+407,87,171:
+    player: Slitherslips
+    type: 5
+408,87,171:
+    player: Slitherslips
+    type: 5
+408,87,172:
+    player: Slitherslips
+    type: 5
+409,87,171:
+    player: Slitherslips
+    type: 5
+409,87,172:
+    player: Slitherslips
+    type: 5
+410,87,171:
+    player: Slitherslips
+    type: 5
+410,87,172:
+    player: Slitherslips
+    type: 5
+411,87,171:
+    player: Slitherslips
+    type: 5
+411,87,172:
+    player: Slitherslips
+    type: 5
+412,87,172:
+    player: Slitherslips
+    type: 5
+412,87,171:
+    player: Slitherslips
+    type: 5
+407,87,170:
+    player: Slitherslips
+    type: 5
+408,87,170:
+    player: Slitherslips
+    type: 5
+408,88,170:
+    player: Slitherslips
+    type: 5
+409,87,170:
+    player: Slitherslips
+    type: 5
+410,87,170:
+    player: Slitherslips
+    type: 5
+411,87,170:
+    player: Slitherslips
+    type: 5
+412,87,170:
+    player: Slitherslips
+    type: 5
+408,88,169:
+    player: Slitherslips
+    type: 5
+407,87,169:
+    player: Slitherslips
+    type: 5
+408,87,169:
+    player: Slitherslips
+    type: 5
+409,87,169:
+    player: Slitherslips
+    type: 5
+410,87,169:
+    player: Slitherslips
+    type: 5
+412,87,169:
+    player: Slitherslips
+    type: 5
+411,87,169:
+    player: Slitherslips
+    type: 5
+412,87,168:
+    player: Slitherslips
+    type: 5
+411,87,168:
+    player: Slitherslips
+    type: 5
+407,87,168:
+    player: Slitherslips
+    type: 5
+408,87,168:
+    player: Slitherslips
+    type: 5
+409,87,168:
+    player: Slitherslips
+    type: 5
+410,87,168:
+    player: Slitherslips
+    type: 5
+407,88,168:
+    player: Slitherslips
+    type: 85
+408,88,168:
+    player: Slitherslips
+    type: 85
+409,88,168:
+    player: Slitherslips
+    type: 85
+410,88,168:
+    player: Slitherslips
+    type: 85
+411,88,168:
+    player: Slitherslips
+    type: 85
+412,88,168:
+    player: Slitherslips
+    type: 85
+412,88,169:
+    player: Slitherslips
+    type: 85
+412,88,170:
+    player: Slitherslips
+    type: 85
+412,88,171:
+    player: Slitherslips
+    type: 85
+412,88,172:
+    player: Slitherslips
+    type: 85
+402,88,170:
+    player: Slitherslips
+    type: 61
+407,88,169:
+    player: Slitherslips
+    type: 85
+407,88,170:
+    player: Slitherslips
+    type: 85
+407,88,171:
+    player: Slitherslips
+    type: 85
+407,88,172:
+    player: Slitherslips
+    type: 85
+404,86,173:
+    player: Slitherslips
+    type: 5
+404,85,173:
+    player: Slitherslips
+    type: 5
+404,84,173:
+    player: Slitherslips
+    type: 5
+405,84,173:
+    player: Slitherslips
+    type: 5
+405,85,173:
+    player: Slitherslips
+    type: 5
+405,86,173:
+    player: Slitherslips
+    type: 5
+401,88,168:
+    player: Slitherslips
+    type: 3
+401,87,168:
+    player: Slitherslips
+    type: 3
+401,89,168:
+    player: Slitherslips
+    type: 3
+401,86,168:
+    player: Slitherslips
+    type: 3
+401,85,168:
+    player: Slitherslips
+    type: 3
+401,84,168:
+    player: Slitherslips
+    type: 3
+401,84,169:
+    player: Slitherslips
+    type: 3
+401,85,169:
+    player: Slitherslips
+    type: 3
+402,84,168:
+    player: Slitherslips
+    type: 3
+403,84,168:
+    player: Slitherslips
+    type: 3
+402,85,168:
+    player: Slitherslips
+    type: 3
+408,79,172:
+    player: Slitherslips
+    type: 3
+408,80,172:
+    player: Slitherslips
+    type: 3
+408,79,171:
+    player: Slitherslips
+    type: 3
+408,80,171:
+    player: Slitherslips
+    type: 3
+407,80,172:
+    player: Slitherslips
+    type: 3
+407,80,171:
+    player: Slitherslips
+    type: 3
+408,78,170:
+    player: Slitherslips
+    type: 3
+408,76,168:
+    player: Slitherslips
+    type: 3
+408,77,168:
+    player: Slitherslips
+    type: 3
+408,78,169:
+    player: Slitherslips
+    type: 3
+408,78,167:
+    player: Slitherslips
+    type: 3
+408,79,167:
+    player: Slitherslips
+    type: 3
+408,78,168:
+    player: Slitherslips
+    type: 3
+407,79,168:
+    player: Slitherslips
+    type: 3
+407,79,169:
+    player: Slitherslips
+    type: 3
+408,79,168:
+    player: Slitherslips
+    type: 3
+408,79,170:
+    player: Slitherslips
+    type: 3
+408,79,169:
+    player: Slitherslips
+    type: 3
+407,81,172:
+    player: Slitherslips
+    type: 3
+407,81,171:
+    player: Slitherslips
+    type: 3
+408,81,171:
+    player: Slitherslips
+    type: 3
+408,81,172:
+    player: Slitherslips
+    type: 3
+407,80,169:
+    player: Slitherslips
+    type: 3
+407,80,170:
+    player: Slitherslips
+    type: 3
+408,80,169:
+    player: Slitherslips
+    type: 3
+408,80,170:
+    player: Slitherslips
+    type: 3
+408,81,170:
+    player: Slitherslips
+    type: 3
+407,81,169:
+    player: Slitherslips
+    type: 3
+407,81,170:
+    player: Slitherslips
+    type: 3
+408,81,169:
+    player: Slitherslips
+    type: 3
+408,80,167:
+    player: Slitherslips
+    type: 3
+408,80,168:
+    player: Slitherslips
+    type: 3
+407,81,166:
+    player: Slitherslips
+    type: 3
+407,80,167:
+    player: Slitherslips
+    type: 3
+407,80,168:
+    player: Slitherslips
+    type: 3
+407,82,172:
+    player: Slitherslips
+    type: 3
+406,82,169:
+    player: Slitherslips
+    type: 3
+407,82,169:
+    player: Slitherslips
+    type: 3
+407,82,170:
+    player: Slitherslips
+    type: 3
+407,82,171:
+    player: Slitherslips
+    type: 3
+406,81,168:
+    player: Slitherslips
+    type: 3
+404,92,173:
+    player: Slitherslips
+    type: 5
+404,93,173:
+    player: Slitherslips
+    type: 5
+404,94,173:
+    player: Slitherslips
+    type: 5
+405,94,173:
+    player: Slitherslips
+    type: 5
+406,94,173:
+    player: Slitherslips
+    type: 5
+405,92,173:
+    player: Slitherslips
+    type: 5
+405,93,173:
+    player: Slitherslips
+    type: 5
+406,92,173:
+    player: Slitherslips
+    type: 5
+406,93,173:
+    player: Slitherslips
+    type: 5
+404,88,173:
+    player: Slitherslips
+    type: 5
+405,88,173:
+    player: Slitherslips
+    type: 5
+406,88,173:
+    player: Slitherslips
+    type: 5
+406,89,173:
+    player: Slitherslips
+    type: 5
+404,89,173:
+    player: Slitherslips
+    type: 5
+404,90,173:
+    player: Slitherslips
+    type: 5
+405,90,173:
+    player: Slitherslips
+    type: 5
+405,89,173:
+    player: Slitherslips
+    type: 5
+406,90,173:
+    player: Slitherslips
+    type: 5
+404,88,175:
+    player: Slitherslips
+    type: 53

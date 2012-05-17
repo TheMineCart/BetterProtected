@@ -1,0 +1,39 @@
+name: BetterProtected
+main: tmc.BetterProtected.BetterProtectedPlugin
+version: 0.4.2
+
+commands:
+  transform:
+    description: Transform your banana protect files into MongoDB.
+    permissions: BetterProtected.transform
+    usage: /<command> [world_name]
+  addfriend:
+    description: Add a friend that can break your blocks.
+    permissions: BetterProtected.addfriend
+    usage: /<command> [player_name]
+    aliases: [friend+, af]
+  removefriend:
+    description: Remove a friend, preventing them from breaking your blocks.
+    permissions: BetterProtected.removefriend
+    usage: /<command> [player_name]
+    aliases: [friend-, rf]
+  showfriends:
+    description: Prints a list of friends that can break your blocks.
+    permissions: BetterProtected.showfriends
+    usage: /<command>
+    aliases: [friends, fs]
+  toggleprotection:
+    description: Turns on and off protection for any blocks you're about to place.
+    permissions: BetterProtected.toggleprotection
+    usage: /<command>
+    aliases: [bpt, bptoggle]
+  protectionon:
+    description: Turns on protection for any blocks you're about to place.
+    permissions: BetterProtected.toggleprotection
+    usage: /<command>
+    aliases: [bpon, bp+]
+  protectionoff:
+    description: Turns off protection for any blocks you're about to place.
+    permissions: BetterProtected.toggleprotection
+    usage: /<command>
+    aliases: [bpoff, bp-]
