@@ -5,7 +5,9 @@ import org.bukkit.Server;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.joda.time.DateTime;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.types.BlockEventType;
 
 import java.io.File;
@@ -27,11 +29,11 @@ public class TransformationService {
         this.blockEventRepository = blockEventRepository;
     }
 
-    public boolean persistPlacedBlocksFromFolder(String location, World world) {
+    public boolean persistPlacedBlocksFromFolder(String folderName, String world) {
         boolean returnStatus = true;
-        File folder = new File(location);
+        File folder = new File(folderName);
         if (!folder.exists()) {
-            server.getLogger().warning("World named " + world.getName() +" does not exist. " +
+            server.getLogger().warning("World named " + world +" does not exist. " +
                     "Can't begin transformation... Please double check your spelling.");
             return false;
         }
@@ -53,7 +55,7 @@ public class TransformationService {
         return returnStatus;
     }
 
-    public void persistPlacedBlocksFromFile(String fileName, World world) throws IOException, InvalidConfigurationException {
+    public void persistPlacedBlocksFromFile(String fileName, String world) throws IOException, InvalidConfigurationException {
         ChunkCoordinate chunkCoordinate = parseChunkCoordinateFromFileName(fileName);
         if (null == chunkCoordinate) {
             throw new InvalidConfigurationException();
@@ -73,13 +75,13 @@ public class TransformationService {
             Long y = Long.parseLong(coordinates[1]);
             Long z = Long.parseLong(coordinates[2]);
 
-            Material realWorldMaterial = server.getWorld(world.getName()).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
+            Material realWorldMaterial = server.getWorld(world).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
 
             if(realWorldMaterial != Material.AIR){
                 blockEventRepository.save(
                         new BlockEvent(
                                 now,
-                                new Owner(configuration.getString(path + ".player")),
+                                configuration.getString(path + ".player"),
                                 BlockEventType.PLACED,
                                 new BlockCoordinate(x, y, z),
                                 chunkCoordinate,

@@ -7,22 +7,22 @@ import org.joda.time.DateTime;
 import tmc.BetterProtected.domain.types.BlockEventType;
 
 public class BlockEvent {
-    @Expose private DateTime instant;
-    @Expose private Owner owner;
-    @Expose private BlockEventType blockEventType;
-    @Expose private BlockCoordinate blockCoordinate;
-    @Expose private ChunkCoordinate chunkCoordinate;
-    @Expose private World world;
-    @Expose private Material material;
+    @Expose private DateTime i;
+    @Expose private String o;
+    @Expose private BlockEventType e;
+    @Expose private BlockCoordinate b;
+    @Expose private ChunkCoordinate c;
+    @Expose private String w;
+    @Expose private Material m;
 
-    public BlockEvent(DateTime instant, Owner owner, BlockEventType blockEventType, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, World world, Material material) {
-        this.instant = instant;
-        this.owner = owner;
-        this.blockEventType = blockEventType;
-        this.blockCoordinate = blockCoordinate;
-        this.chunkCoordinate = chunkCoordinate;
-        this.world = world;
-        this.material = material;
+    public BlockEvent(DateTime instant, String owner, BlockEventType blockEventType, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
+        this.i = instant;
+        this.o = owner;
+        this.e = blockEventType;
+        this.b = blockCoordinate;
+        this.c = chunkCoordinate;
+        this.w = world;
+        this.m = material;
     }
 
     //Standard BlockEvent factory
@@ -33,38 +33,38 @@ public class BlockEvent {
     //For when you have to directly specify the material type
     public static BlockEvent newBlockEvent(Block block, String playerName, BlockEventType type, Material material) {
         BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
-        World world = World.newWorld(block);
+        String world = block.getWorld().getName();
 
-        return new BlockEvent(new DateTime(), new Owner(playerName), type, blockCoordinate,
+        return new BlockEvent(new DateTime(), playerName, type, blockCoordinate,
                 new ChunkCoordinate(block.getChunk().getX(), block.getChunk().getZ()), world, material);
     }
 
     public DateTime getInstant() {
-        return instant;
+        return i;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public String getOwner() {
+        return o;
     }
 
     public BlockEventType getBlockEventType() {
-        return blockEventType;
+        return e;
     }
 
     public BlockCoordinate getBlockCoordinate() {
-        return blockCoordinate;
+        return b;
     }
 
     public ChunkCoordinate getChunkCoordinate() {
-        return chunkCoordinate;
+        return c;
     }
 
-    public World getWorld() {
-        return world;
+    public String getWorld() {
+        return w;
     }
 
     public Material getMaterial() {
-        return material;
+        return m;
     }
 
     @Override
@@ -74,28 +74,28 @@ public class BlockEvent {
 
         BlockEvent that = (BlockEvent) o;
 
-        if (blockCoordinate != null ? !blockCoordinate.equals(that.blockCoordinate) : that.blockCoordinate != null)
+        if (b != null ? !b.equals(that.b) : that.b != null)
             return false;
-        if (blockEventType != that.blockEventType) return false;
-        if (chunkCoordinate != null ? !chunkCoordinate.equals(that.chunkCoordinate) : that.chunkCoordinate != null)
+        if (e != that.e) return false;
+        if (c != null ? !c.equals(that.c) : that.c != null)
             return false;
-        if (instant != null ? !instant.equals(that.instant) : that.instant != null) return false;
-        if (material != that.material) return false;
-        if (owner != null ? !owner.equals(that.owner) : that.owner != null) return false;
-        if (world != null ? !world.equals(that.world) : that.world != null) return false;
+        if (i != null ? !i.equals(that.i) : that.i != null) return false;
+        if (m != that.m) return false;
+        if (this.o != null ? !this.o.equals(that.o) : that.o != null) return false;
+        if (w != null ? !w.equals(that.w) : that.w != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = instant != null ? instant.hashCode() : 0;
-        result = 31 * result + (owner != null ? owner.hashCode() : 0);
-        result = 31 * result + (blockEventType != null ? blockEventType.hashCode() : 0);
-        result = 31 * result + (blockCoordinate != null ? blockCoordinate.hashCode() : 0);
-        result = 31 * result + (chunkCoordinate != null ? chunkCoordinate.hashCode() : 0);
-        result = 31 * result + (world != null ? world.hashCode() : 0);
-        result = 31 * result + (material != null ? material.hashCode() : 0);
+        int result = i != null ? i.hashCode() : 0;
+        result = 31 * result + (o != null ? o.hashCode() : 0);
+        result = 31 * result + (e != null ? e.hashCode() : 0);
+        result = 31 * result + (b != null ? b.hashCode() : 0);
+        result = 31 * result + (c != null ? c.hashCode() : 0);
+        result = 31 * result + (w != null ? w.hashCode() : 0);
+        result = 31 * result + (m != null ? m.hashCode() : 0);
         return result;
     }
 }

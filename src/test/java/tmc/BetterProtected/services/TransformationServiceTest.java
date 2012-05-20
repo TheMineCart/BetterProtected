@@ -5,7 +5,9 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BukkitTestUtilities.Mocks.TestBlock;
 import tmc.BukkitTestUtilities.Mocks.TestServer;
 import tmc.BukkitTestUtilities.Mocks.TestWorld;
@@ -50,7 +52,7 @@ public class TransformationServiceTest extends RepositoryTest {
         this.world.addBlock(match);
         this.world.addBlock(mismatch);
 
-        World world = new World("test");
+        String world = "test";
         transformationService.persistPlacedBlocksFromFile("src/test/fixtures/12.12.yml", world);
 
         BlockCoordinate matchCoord = new BlockCoordinate(1, 1, 1);
@@ -75,7 +77,7 @@ public class TransformationServiceTest extends RepositoryTest {
         this.world.addBlock(new TestBlock(18,1,-1, AIR));
         this.world.addBlock(new TestBlock(1,-5,-1, AIR));
 
-        World world = new World("test");
+        String world = "test";
         transformationService.persistPlacedBlocksFromFile("src/test/fixtures/11.11.yml", world);
 
         BlockCoordinate fredCoord = new BlockCoordinate(-11, 1, 1);
@@ -102,7 +104,7 @@ public class TransformationServiceTest extends RepositoryTest {
 
     @Test
     public void shouldPersistAllPlaceBlocksFromDirectory() {
-        World world = new World("test");
+        String world = "test";
         transformationService.persistPlacedBlocksFromFolder(FIXTURE_DIRECTORY, world);
 
         assertThat(blockEventRepository.count(), is(66816L));
@@ -110,7 +112,7 @@ public class TransformationServiceTest extends RepositoryTest {
         BlockCoordinate blockCoordinate = new BlockCoordinate(-708L, 63L, -608L);
         List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(blockCoordinate, world);
 
-        assertThat(blockEvents.get(0).getOwner().getUsername(), is("Katehhh"));
+        assertThat(blockEvents.get(0).getOwner(), is("Katehhh"));
         assertThat(blockEvents.get(0).getMaterial(), is(DIRT));
     }
 
@@ -119,7 +121,7 @@ public class TransformationServiceTest extends RepositoryTest {
         String windowsFile = "random/directory/in/your/file/system/-3.100.yml";
         String unixFile = "random/directory/in/your/file/system/-3.100.yml";
 
-        World world = new World("test");
+        String world = "test";
         transformationService.persistPlacedBlocksFromFile(windowsFile, world);
         transformationService.persistPlacedBlocksFromFile(unixFile, world);
     }

@@ -6,7 +6,8 @@ import org.bukkit.inventory.ItemStack;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BukkitTestUtilities.Mocks.TestBlock;
@@ -61,9 +62,9 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         PlayerBucketFillEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketFillEventListener.onBucketFill(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), new World("test"));
+        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(2));
-        assertThat(blockEvents.get(0).getOwner().getUsername(), is("Jason"));
+        assertThat(blockEvents.get(0).getOwner(), is("Jason"));
         assertThat(event.isCancelled(), is(false));
     }
 
@@ -92,7 +93,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
         BlockEvent mostRecentBlockEvent = findMostRecentBlockEvent();
 
 
-        assertThat(mostRecentBlockEvent.getOwner().getUsername(), is("Jason"));
+        assertThat(mostRecentBlockEvent.getOwner(), is("Jason"));
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -138,7 +139,7 @@ public class PlayerBucketFillEventListenerTest extends RepositoryTest {
     }
 
     private BlockEvent findMostRecentBlockEvent() {
-        return blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        return blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
     }
 
     private PlayerBucketFillEvent makeEvent(String playerName, boolean isOp, Block blockClicked) {

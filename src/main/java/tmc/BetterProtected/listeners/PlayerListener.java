@@ -11,7 +11,6 @@ import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
-import tmc.BetterProtected.domain.World;
 import tmc.BetterProtected.services.BlockEventRepository;
 
 import static org.bukkit.Material.*;
@@ -48,7 +47,7 @@ public class PlayerListener implements Listener {
     }
 
     private void printBlockEventInformation(Player player, Block block) {
-        BlockEvent protectedBlock = blockEventRepository.findMostRecent(BlockCoordinate.newCoordinate(block), World.newWorld(block));
+        BlockEvent protectedBlock = blockEventRepository.findMostRecent(BlockCoordinate.newCoordinate(block), block.getWorld().getName());
         if (protectedBlock != null && protectedBlock.getBlockEventType() != REMOVED) {
 
             player.sendMessage(ChatColor.RED + String.format("%s at %s, %s, %s was placed by %s on %s at %s",
@@ -56,7 +55,7 @@ public class PlayerListener implements Listener {
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getX().toString() + ChatColor.RED,
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getY().toString() + ChatColor.RED,
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getZ().toString() + ChatColor.RED,
-                    ChatColor.DARK_PURPLE + protectedBlock.getOwner().getUsername() + ChatColor.RED,
+                    ChatColor.DARK_PURPLE + protectedBlock.getOwner() + ChatColor.RED,
                     ChatColor.GREEN + protectedBlock.getInstant().toString("M/d/yy") + ChatColor.RED,
                     ChatColor.GREEN + protectedBlock.getInstant().toString("h:mm:ss aa")
             ));

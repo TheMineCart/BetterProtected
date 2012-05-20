@@ -6,7 +6,9 @@ import org.bukkit.inventory.ItemStack;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.Player;
 import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
@@ -219,7 +221,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
         BlockPlaceEvent event = makeEvent(placingBlock, AIR, DIRT, player);
         blockPlacedEventListener.onBlockPlace(event);
 
-        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World(placingBlock.getWorld().getName()));
+        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
         assertThat(mostRecent.getBlockEventType(), is(UNPROTECTED));
     }
 
@@ -236,7 +238,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
         BlockPlaceEvent event = makeEvent(placingBlock, DIRT, SOIL, player);
         blockPlacedEventListener.onBlockPlace(event);
 
-        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World(placingBlock.getWorld().getName()));
+        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
         assertThat(mostRecent.getBlockEventType(), is(UNPROTECTED));
     }
 
@@ -261,7 +263,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
 
     private void assertSavedBlockEventsAndAreTheyCanceled(BlockPlaceEvent event, int numberOfSavedBlockEvents, boolean isEventCanceled) {
         BlockCoordinate coordinate = new BlockCoordinate(1, 1, 1);
-        World world = new World("test");
+        String world = "test";
         assertThat(blockEventRepository.findByBlockCoordinate(coordinate, world).size(), is(numberOfSavedBlockEvents));
         assertThat(event.isCancelled(), is(isEventCanceled));
     }

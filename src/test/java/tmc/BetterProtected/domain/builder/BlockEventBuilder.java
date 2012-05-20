@@ -2,15 +2,17 @@ package tmc.BetterProtected.domain.builder;
 
 import org.bukkit.Material;
 import org.joda.time.DateTime;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
+import tmc.BetterProtected.domain.ChunkCoordinate;
 import tmc.BetterProtected.domain.types.BlockEventType;
 
 public class BlockEventBuilder {
 
     private ChunkCoordinate chunkCoordinate = new ChunkCoordinate(1L, 2L);
     private BlockCoordinate blockCoordinate = new BlockCoordinate(1L, 2L, 3L);
-    private Owner owner = new Owner("Jason");
-    private World world = new World("narnia");
+    private String owner = "Jason";
+    private String world = "narnia";
     private DateTime instant = new DateTime();
     private BlockEventType blockEventType = BlockEventType.PLACED;
 
@@ -33,12 +35,12 @@ public class BlockEventBuilder {
         return this;
     }
 
-    public BlockEventBuilder withOwner(Owner owner) {
+    public BlockEventBuilder withOwner(String owner) {
         this.owner = owner;
         return this;
     }
 
-    public BlockEventBuilder withWorld(World worldName) {
+    public BlockEventBuilder withWorld(String worldName) {
         this.world = worldName;
         return this;
     }

@@ -12,7 +12,6 @@ import tmc.BetterProtected.adaptors.DateTimeAdaptor;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.World;
 
 import java.util.List;
 
@@ -32,24 +31,24 @@ public class BlockEventRepository {
         collection.insert(block);
     }
 
-    public List<BlockEvent> findByBlockCoordinate(BlockCoordinate coordinate, World world) {
+    public List<BlockEvent> findByBlockCoordinate(BlockCoordinate coordinate, String world) {
         BasicDBObject query = new BasicDBObject();
-        query.put("world", JSON.parse(gson.toJson(world, World.class)));
-        query.put("blockCoordinate", JSON.parse(gson.toJson(coordinate, BlockCoordinate.class)));
+        query.put("w", world);
+        query.put("b", JSON.parse(gson.toJson(coordinate, BlockCoordinate.class)));
 
         return buildBlockList(query);
     }
 
-    public BlockEvent findMostRecent(BlockCoordinate coordinate, World world) {
+    public BlockEvent findMostRecent(BlockCoordinate coordinate, String world) {
         List<BlockEvent> blockEvents = findByBlockCoordinate(coordinate, world);
         if (blockEvents.size() == 0) return null;
         return blockEvents.get(0);
     }
 
-    public List<BlockEvent> findByChunkCoordinate(ChunkCoordinate coordinate, World world) {
+    public List<BlockEvent> findByChunkCoordinate(ChunkCoordinate coordinate, String world) {
         BasicDBObject query = new BasicDBObject();
-        query.put("world", JSON.parse(gson.toJson(world, World.class)));
-        query.put("chunkCoordinate", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
+        query.put("w", world);
+        query.put("c", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
 
         return buildBlockList(query);
     }
@@ -59,7 +58,7 @@ public class BlockEventRepository {
         DBCursor cursor = collection.find(query);
 
         BasicDBObject order = new BasicDBObject();
-        order.put("instant", -1);
+        order.put("i", -1);
         cursor.sort(order);
 
         while(cursor.hasNext()) {
@@ -78,7 +77,7 @@ public class BlockEventRepository {
     }
 
     public void initializeIndexes() {
-        collection.ensureIndex(new BasicDBObject("blockCoordinate", 1), new BasicDBObject("world", 1));
-        collection.ensureIndex(new BasicDBObject("chunkCoordinate", 1), new BasicDBObject("world", 1));
+        collection.ensureIndex(new BasicDBObject("b", 1), new BasicDBObject("w", 1));
+        collection.ensureIndex(new BasicDBObject("b", 1), new BasicDBObject("w", 1));
     }
 }

@@ -15,7 +15,7 @@ public class BlockEventTest {
     @Test
     public void canSerializeAndDeserialize() {
         DateTime placedOn = new DateTime();
-        BlockEvent blockEvent = new BlockEvent(placedOn, new Owner("Jason"), BlockEventType.PLACED, new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), new World("narnia"), Material.DIRT);
+        BlockEvent blockEvent = new BlockEvent(placedOn, "Jason", BlockEventType.PLACED, new BlockCoordinate(1L, 2L, 3L), new ChunkCoordinate(1L, 2L), "narnia", Material.DIRT);
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(DateTime.class, new DateTimeAdaptor());
@@ -25,7 +25,7 @@ public class BlockEventTest {
         BlockEvent deserializedBlockEvent = gson.fromJson(blockJson, BlockEvent.class);
 
         assertThat(deserializedBlockEvent.getInstant(), is(placedOn));
-        assertThat(deserializedBlockEvent.getOwner(), is(new Owner("Jason")));
+        assertThat(deserializedBlockEvent.getOwner(), is("Jason"));
         assertThat(deserializedBlockEvent.getBlockCoordinate(), is(new BlockCoordinate(1L, 2L, 3L)));
         assertThat(deserializedBlockEvent.getChunkCoordinate(), is(new ChunkCoordinate(1L, 2L)));
         assertThat(deserializedBlockEvent.getMaterial(), is(Material.DIRT));

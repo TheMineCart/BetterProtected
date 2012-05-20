@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.ChunkCoordinate;
-import tmc.BetterProtected.domain.Owner;
-import tmc.BetterProtected.domain.World;
 import tmc.BukkitTestUtilities.Services.RepositoryTest;
 
 import java.util.List;
@@ -17,7 +15,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItem;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 import static tmc.BetterProtected.domain.builder.BlockEventBuilder.aPlacedBlock;
-import static tmc.BetterProtected.domain.builder.OwnerBuilder.aPlayer;
 
 public class BlockEventRepositoryTest extends RepositoryTest {
     
@@ -46,16 +43,13 @@ public class BlockEventRepositoryTest extends RepositoryTest {
 
     @Test
     public void shouldFindBlocksByChunkCoordinate() {
-        Owner jason = aPlayer().build();
-        Owner charlie = aPlayer().withUsername("Charlie").build();
-        Owner katie = aPlayer().withUsername("Katie").build();
         DateTime now = new DateTime();
-        BlockEvent jasonBlockEvent1 = aPlacedBlock().withInstant(now.plusDays(1)).withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
-        BlockEvent jasonBlockEvent2 = aPlacedBlock().withInstant(now.plusDays(3)).withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
-        BlockEvent jasonBlockEvent3 = aPlacedBlock().withInstant(now.plusDays(2)).withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
-        BlockEvent jasonBlockEvent4 = aPlacedBlock().withOwner(jason).withChunkCoordinate(new ChunkCoordinate(1L, 2L)).withWorld(new World("DifferentWorld")).build();
-        BlockEvent charlieBlockEvent = aPlacedBlock().withOwner(charlie).withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
-        BlockEvent katieBlockEvent = aPlacedBlock().withOwner(katie).withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
+        BlockEvent jasonBlockEvent1 = aPlacedBlock().withInstant(now.plusDays(1)).withOwner("Jason").withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        BlockEvent jasonBlockEvent2 = aPlacedBlock().withInstant(now.plusDays(3)).withOwner("Jason").withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        BlockEvent jasonBlockEvent3 = aPlacedBlock().withInstant(now.plusDays(2)).withOwner("Jason").withChunkCoordinate(new ChunkCoordinate(1L, 2L)).build();
+        BlockEvent jasonBlockEvent4 = aPlacedBlock().withOwner("Jason").withChunkCoordinate(new ChunkCoordinate(1L, 2L)).withWorld("DifferentWorld").build();
+        BlockEvent charlieBlockEvent = aPlacedBlock().withOwner("Charlie").withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
+        BlockEvent katieBlockEvent = aPlacedBlock().withOwner("Katie").withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
 
         blockEventRepository.save(jasonBlockEvent1);
         blockEventRepository.save(jasonBlockEvent2);

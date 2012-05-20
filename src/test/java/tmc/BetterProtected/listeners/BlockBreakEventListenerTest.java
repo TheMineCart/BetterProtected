@@ -4,7 +4,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockCoordinate;
+import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BukkitTestUtilities.Mocks.TestBlock;
@@ -44,7 +45,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, new TestPlayer("Jason"));
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -56,9 +57,9 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, new TestPlayer("Jason"));
         blockBreakEventListener.onBlockBreak(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), new World("test"));
+        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(2));
-        assertThat(blockEvents.get(0).getOwner(), is(new Owner("Jason")));
+        assertThat(blockEvents.get(0).getOwner(), is("Jason"));
     }
 
     @Test
@@ -69,7 +70,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, new TestPlayer("Jason"));
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -83,7 +84,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, player);
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -96,7 +97,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, player);
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(PLACED));
     }
 
@@ -110,7 +111,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, player);
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(REMOVED));
     }
 
@@ -124,7 +125,7 @@ public class BlockBreakEventListenerTest extends RepositoryTest {
         BlockBreakEvent event = new BlockBreakEvent(block, player);
         blockBreakEventListener.onBlockBreak(event);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), new World("test"));
+        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
         assertThat(mostRecentBlockEvent.getBlockEventType(), is(PLACED));
     }
 }

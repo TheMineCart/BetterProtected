@@ -5,7 +5,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import tmc.BetterProtected.domain.BlockCoordinate;
 import tmc.BetterProtected.domain.BlockEvent;
-import tmc.BetterProtected.domain.World;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BetterProtected.services.PlayerRepository;
 
@@ -33,7 +32,7 @@ public class GenericBlockListener {
 
     BlockEvent getMostRecentBlockEvent(Block block) {
         BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
-        World world = World.newWorld(block);
+        String world = block.getWorld().getName();
         return blockEventRepository.findMostRecent(blockCoordinate, world);
     }
 
@@ -57,12 +56,12 @@ public class GenericBlockListener {
     }
 
     boolean isBlockEventOwnedByPlayer(Player player, BlockEvent blockEvent) {
-        return blockEvent != null && blockEvent.getOwner().getUsername().equalsIgnoreCase(player.getName());
+        return blockEvent != null && blockEvent.getOwner().equalsIgnoreCase(player.getName());
     }
 
     boolean isPlayerFriendOfBlockEventOwner(Player player, BlockEvent blockEvent) {
         if(player == null || blockEvent == null) return false;
-        Set<String> friendsByName = playerRepository.findFriendsByName(blockEvent.getOwner().getUsername());
+        Set<String> friendsByName = playerRepository.findFriendsByName(blockEvent.getOwner());
         return friendsByName.contains(player.getName());
     }
 
