@@ -7,13 +7,13 @@ import org.joda.time.DateTime;
 import tmc.BetterProtected.domain.types.BlockEventType;
 
 public class BlockEvent {
-    @Expose private DateTime i;
-    @Expose private String o;
-    @Expose private BlockEventType e;
-    @Expose private BlockCoordinate b;
-    @Expose private ChunkCoordinate c;
-    @Expose private String w;
-    @Expose private Material m;
+    @Expose private DateTime i; //Instant
+    @Expose private String o; //Owner
+    @Expose private BlockEventType e; //eventType
+    @Expose private BlockCoordinate b; //blockCoordinate
+    @Expose private ChunkCoordinate c; //chunkCoordinate
+    @Expose private String w; //world
+    @Expose private Material m; //material
 
     public BlockEvent(DateTime instant, String owner, BlockEventType blockEventType, BlockCoordinate blockCoordinate, ChunkCoordinate chunkCoordinate, String world, Material material) {
         this.i = instant;
