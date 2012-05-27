@@ -1,124 +1,73 @@
 package tmc.BetterProtected;
 
-import com.mongodb.DB;
-import com.mongodb.Mongo;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.executors.*;
 import tmc.BetterProtected.listeners.*;
-import tmc.BetterProtected.services.BlockEventRepository;
-import tmc.BetterProtected.services.PlayerRepository;
 import tmc.BetterProtected.services.TransformationService;
 
-import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
-import static tmc.BetterProtected.Configuration.*;
-
 public class BetterProtectedPlugin extends JavaPlugin {
-    public static final String BLOCK_EVENTS_COLLECTION = "BlockEvents";
-    public static final String PLAYERS_COLLECTION = "Players";
-    public static String MONGO_CONNECTION_ERROR = "Error connecting to MongoDB:\n\r%s";
-    private Mongo mongoConnection;
-    private DB betterProtectedDB;
     private Logger logger;
-    private BlockEventRepository blockEventRepository;
     private Server server;
     private TransformationService transformationService;
     private Configuration configuration;
-    private PlayerRepository playerRepository;
 
     @Override
     public void onEnable() {
         initializeServer();
-        logger.info("Beginning BetterProtected Initialization.");
-        initializeMongoDB();
-        initializeDatabase();
-        initializeRepositories();
-        initializeCollectionIndexes();
-        initializeServices();
-        initializeCommandExecutors();
-        registerEventListeners();
-        logger.info("BetterProtected initialization complete.");
+
+        logger.info("Initializing database...");
+        Database.initialize(configuration, this);
+
+        if(this.isEnabled()) {
+            logger.info("Initializing Services...");
+            initializeServices();
+
+            logger.info("Registering command executors...");
+            initializeCommandExecutors();
+
+            logger.info("Registering event listeners...");
+            registerEventListeners();
+
+            logger.info("BetterProtected initialization complete!");
+        }
     }
 
     @Override
     public void onDisable() {
-        mongoConnection.close();
+        Database.closeConnection();
         logger.info("BetterProtected shutdown complete.");
     }
 
     private void initializeServer() {
         server = this.getServer();
-        logger = server.getLogger();
-        logger.info("Configuring BetterProtected Plugin.");
+        logger = this.getLogger();
+        logger.info("Configuring...");
         configuration = new Configuration(this.getConfig(), this);
     }
 
-    private void initializeMongoDB() {
-        try {
-            String address = configuration.getDbConnectionInfo().get(ADDRESS_OPTION);
-            mongoConnection = new Mongo(address);
-            logger.info("Found MongoDB instance at " + address);
-        } catch (UnknownHostException e) {
-            logger.warning(String.format(MONGO_CONNECTION_ERROR, e.toString()));
-        }
-    }
-
-    private void initializeDatabase() {
-        String dbName = configuration.getDbConnectionInfo().get(DB_NAME_OPTION);
-        logger.info("Connecting to database: " + dbName + ".");
-        betterProtectedDB = mongoConnection.getDB(dbName);
-
-        String user = configuration.getDbConnectionInfo().get(DB_USER_OPTION);
-        if(user != null) {
-            logger.info("Attempting authentication to database " + dbName + " with user " + user + ".");
-            String password = configuration.getDbConnectionInfo().get(DB_PASSWORD_OPTION);
-            boolean success = betterProtectedDB.authenticate(user, password.toCharArray());
-            if (!success) {
-                logger.warning("Incorrect Mongo Database Authentication Info: " +
-                        "please double check the settings in your config.yml file.");
-                onDisable();
-            } else {
-              logger.info("Authentication successful.");
-            }
-        }
-    }
-
-    private void initializeRepositories() {
-        logger.info("Initializing Repositories");
-        blockEventRepository = new BlockEventRepository(betterProtectedDB.getCollection(BLOCK_EVENTS_COLLECTION));
-        playerRepository = new PlayerRepository(betterProtectedDB.getCollection(PLAYERS_COLLECTION));
-    }
-
-    private void initializeCollectionIndexes() {
-        logger.info("Indexing BlockEvents");
-        blockEventRepository.initializeIndexes();
-    }
-
     private void initializeServices() {
-        logger.info("Initializing Services");
-        transformationService = new TransformationService(blockEventRepository, server);
+        transformationService = new TransformationService(server);
     }
 
     private void initializeCommandExecutors() {
-        logger.info("Registering Command Executors");
         getCommand("transform").setExecutor(new TransformationExecutor(logger, transformationService));
-        getCommand("addfriend").setExecutor(new AddFriendExecutor(playerRepository));
-        getCommand("removefriend").setExecutor(new RemoveFriendExecutor(playerRepository));
-        getCommand("showfriends").setExecutor(new ShowFriendsExecutor(playerRepository));
-        getCommand("toggleprotection").setExecutor(new ToggleProtectionExecutor(playerRepository));
-        getCommand("protectionon").setExecutor(new ProtectionOnExecutor(playerRepository));
-        getCommand("protectionoff").setExecutor(new ProtectionOffExecutor(playerRepository));
+        getCommand("addfriend").setExecutor(new AddFriendExecutor());
+        getCommand("removefriend").setExecutor(new RemoveFriendExecutor());
+        getCommand("showfriends").setExecutor(new ShowFriendsExecutor());
+        getCommand("toggleprotection").setExecutor(new ToggleProtectionExecutor());
+        getCommand("protectionon").setExecutor(new ProtectionOnExecutor());
+        getCommand("protectionoff").setExecutor(new ProtectionOffExecutor());
     }
 
     private void registerEventListeners() {
-        logger.info("Registering Event Listeners");
-        server.getPluginManager().registerEvents(new BlockPlacedEventListener(blockEventRepository, playerRepository, configuration.getUnprotectedBlockIds()), this);
-        server.getPluginManager().registerEvents(new BlockBreakEventListener(blockEventRepository, playerRepository, configuration.getUnprotectedBlockIds()), this);
-        server.getPluginManager().registerEvents(new PlayerBucketFillEventListener(blockEventRepository, playerRepository, configuration.getUnprotectedBlockIds()), this);
-        server.getPluginManager().registerEvents(new PlayerBucketEmptyEventListener(blockEventRepository, playerRepository, configuration.getUnprotectedBlockIds()), this);
-        server.getPluginManager().registerEvents(new PlayerListener(blockEventRepository), this);
-        server.getPluginManager().registerEvents(new PlayerLoginListener(playerRepository), this);
+        server.getPluginManager().registerEvents(new BlockPlacedEventListener(configuration.getUnprotectedBlockIds()), this);
+        server.getPluginManager().registerEvents(new BlockBreakEventListener(configuration.getUnprotectedBlockIds()), this);
+        server.getPluginManager().registerEvents(new PlayerBucketFillEventListener(configuration.getUnprotectedBlockIds()), this);
+        server.getPluginManager().registerEvents(new PlayerBucketEmptyEventListener(configuration.getUnprotectedBlockIds()), this);
+        server.getPluginManager().registerEvents(new PlayerListener(), this);
+        server.getPluginManager().registerEvents(new PlayerLoginListener(), this);
     }
 }

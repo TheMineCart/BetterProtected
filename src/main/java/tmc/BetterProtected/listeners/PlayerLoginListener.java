@@ -8,17 +8,11 @@ import tmc.BetterProtected.services.PlayerRepository;
 
 public class PlayerLoginListener implements Listener {
 
-    private PlayerRepository playerRepository;
-
-    public PlayerLoginListener(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
-    }
-
     @EventHandler
     public void onPlayerLogin(PlayerLoginEvent event) {
         String playerName = event.getPlayer().getName();
-        if (playerRepository.findByName(playerName) == null) {
-            playerRepository.save(new Player(playerName));
+        if (PlayerRepository.findByName(playerName) == null) {
+            PlayerRepository.save(new Player(playerName));
         }
     }
 }

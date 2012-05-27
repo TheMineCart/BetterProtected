@@ -29,16 +29,13 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
     public static final String PLAYER_NAME = "Jason";
     private BlockPlacedEventListener blockPlacedEventListener;
     private List<Integer> ignoredBlockTypes = newArrayList(0, 6);
-    private BlockEventRepository blockEventRepository;
-    private PlayerRepository playerRepository;
 
     @Before
     public void setUp() throws Exception {
-        blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
-        playerRepository = new PlayerRepository(getCollection("Players"));
-        playerRepository.save(new Player(PLAYER_NAME));
-        blockPlacedEventListener = new BlockPlacedEventListener(blockEventRepository,
-                playerRepository, ignoredBlockTypes);
+        BlockEventRepository.initialize(getCollection("BlockEvents")) ;
+        PlayerRepository.initialize(getCollection("Players")) ;
+        PlayerRepository.save(new Player(PLAYER_NAME));
+        blockPlacedEventListener = new BlockPlacedEventListener(ignoredBlockTypes);
     }
 
     @After
@@ -191,7 +188,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
         TestPlayer player = new TestPlayer(PLAYER_NAME, DIAMOND_HOE);
         TestBlock placingBlock = new TestBlock(1, 1, 1, SOIL);
         BlockEvent firstBlockEvent = BlockEvent.newBlockEvent(placingBlock, PLAYER_NAME, PLACED);
-        blockEventRepository.save(firstBlockEvent);
+        BlockEventRepository.save(firstBlockEvent);
 
         BlockPlaceEvent event = makeEvent(placingBlock, DIRT, DIRT, player);
         blockPlacedEventListener.onBlockPlace(event);
@@ -216,12 +213,12 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
         TestBlock placingBlock = new TestBlock(1, 1, 1, DIRT);
         Player ourPlayer = new Player(player.getName());
         ourPlayer.setProtectionEnabled(false);
-        playerRepository.save(ourPlayer);
+        PlayerRepository.save(ourPlayer);
 
         BlockPlaceEvent event = makeEvent(placingBlock, AIR, DIRT, player);
         blockPlacedEventListener.onBlockPlace(event);
 
-        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
+        BlockEvent mostRecent = BlockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
         assertThat(mostRecent.getBlockEventType(), is(UNPROTECTED));
     }
 
@@ -233,24 +230,24 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
 
         Player ourPlayer = new Player(player.getName());
         ourPlayer.setProtectionEnabled(false);
-        playerRepository.save(ourPlayer);
+        PlayerRepository.save(ourPlayer);
 
         BlockPlaceEvent event = makeEvent(placingBlock, DIRT, SOIL, player);
         blockPlacedEventListener.onBlockPlace(event);
 
-        BlockEvent mostRecent = blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
+        BlockEvent mostRecent = BlockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), placingBlock.getWorld().getName());
         assertThat(mostRecent.getBlockEventType(), is(UNPROTECTED));
     }
 
     private BlockEvent saveBlock(TestBlock placingBlock, BlockEventType type, Material material) {
         BlockEvent originalBlockEvent = BlockEvent.newBlockEvent(placingBlock, PLAYER_NAME, type, material);
-        blockEventRepository.save(originalBlockEvent);
+        BlockEventRepository.save(originalBlockEvent);
         return originalBlockEvent;
     }
 
     private BlockEvent saveUnownedBlock(TestBlock placingBlock, BlockEventType type, Material material) {
         BlockEvent originalBlockEvent = BlockEvent.newBlockEvent(placingBlock, "Roger", type, material);
-        blockEventRepository.save(originalBlockEvent);
+        BlockEventRepository.save(originalBlockEvent);
         return originalBlockEvent;
     }
 
@@ -264,7 +261,7 @@ public class BlockPlacedEventListenerTest extends RepositoryTest {
     private void assertSavedBlockEventsAndAreTheyCanceled(BlockPlaceEvent event, int numberOfSavedBlockEvents, boolean isEventCanceled) {
         BlockCoordinate coordinate = new BlockCoordinate(1, 1, 1);
         String world = "test";
-        assertThat(blockEventRepository.findByBlockCoordinate(coordinate, world).size(), is(numberOfSavedBlockEvents));
+        assertThat(BlockEventRepository.findByBlockCoordinate(coordinate, world).size(), is(numberOfSavedBlockEvents));
         assertThat(event.isCancelled(), is(isEventCanceled));
     }
 }

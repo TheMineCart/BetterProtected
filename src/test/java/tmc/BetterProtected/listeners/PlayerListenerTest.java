@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import tmc.BetterProtected.domain.*;
+import tmc.BetterProtected.domain.BlockEvent;
 import tmc.BetterProtected.domain.types.BlockEventType;
 import tmc.BetterProtected.services.BlockEventRepository;
 import tmc.BukkitTestUtilities.Mocks.*;
@@ -23,14 +23,13 @@ import static org.junit.matchers.JUnitMatchers.containsString;
 public class PlayerListenerTest extends RepositoryTest {
 
     private PlayerListener playerListener;
-    private BlockEventRepository blockEventRepository;
     private TestWorld world;
     private TestChunk chunk;
 
     @Before
     public void setUp() throws Exception {
-        blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
-        playerListener = new PlayerListener(blockEventRepository);
+        BlockEventRepository.initialize(getCollection("BlockEvents")) ;
+        playerListener = new PlayerListener();
         world = new TestWorld("test");
         chunk = new TestChunk(1, 1, world);
     }
@@ -45,7 +44,7 @@ public class PlayerListenerTest extends RepositoryTest {
         TestPlayer player = new TestPlayer(Material.STICK);
         player.setOp(true);
         TestBlock blockClicked = new TestBlock(1, 1, 1, Material.DIRT, chunk);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.REMOVED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.REMOVED));
 
         PlayerInteractEvent playerInteractEvent = new PlayerInteractEvent(player, Action.LEFT_CLICK_BLOCK,
                 player.getItemInHand(), blockClicked, BlockFace.NORTH);
@@ -72,7 +71,7 @@ public class PlayerListenerTest extends RepositoryTest {
         TestPlayer player = new TestPlayer(Material.BOAT);
         player.setOp(true);
         TestBlock blockClicked = new TestBlock(1, 1, 1, Material.DIRT, chunk);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.PLACED));
 
         PlayerInteractEvent playerInteractEvent = new PlayerInteractEvent(player, Action.LEFT_CLICK_BLOCK,
                 player.getItemInHand(), blockClicked, BlockFace.NORTH);
@@ -86,7 +85,7 @@ public class PlayerListenerTest extends RepositoryTest {
         TestPlayer player = new TestPlayer(Material.STICK);
         player.setOp(true);
         TestBlock blockClicked = new TestBlock(1, 1, 1, Material.DIRT, chunk);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked, "Joe", BlockEventType.PLACED));
 
         PlayerInteractEvent playerInteractEvent = new PlayerInteractEvent(player, Action.LEFT_CLICK_BLOCK,
                 player.getItemInHand(), blockClicked, BlockFace.NORTH);
@@ -104,7 +103,7 @@ public class PlayerListenerTest extends RepositoryTest {
         player.setOp(true);
         TestBlock blockEgged = new TestBlock(1, 1, 1, Material.LAVA, chunk);
         world.addBlock(blockEgged);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.REMOVED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.REMOVED));
 
         TestEgg egg = new TestEgg(world, blockEgged);
 
@@ -135,7 +134,7 @@ public class PlayerListenerTest extends RepositoryTest {
         player.setOp(false);
         TestBlock blockEgged = new TestBlock(1, 1, 1, Material.LAVA, chunk);
         world.addBlock(blockEgged);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.PLACED));
 
         TestEgg egg = new TestEgg(world, blockEgged);
 
@@ -151,7 +150,7 @@ public class PlayerListenerTest extends RepositoryTest {
         player.setOp(true);
         TestBlock blockEgged = new TestBlock(1, 1, 1, Material.LAVA, chunk);
         world.addBlock(blockEgged);
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockEgged, "Joe", BlockEventType.PLACED));
 
         TestEgg egg = new TestEgg(world, blockEgged);
 

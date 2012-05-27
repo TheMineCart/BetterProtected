@@ -18,11 +18,9 @@ import static tmc.BetterProtected.domain.builder.BlockEventBuilder.aPlacedBlock;
 
 public class BlockEventRepositoryTest extends RepositoryTest {
     
-    private BlockEventRepository blockEventRepository;
-
     @Before
     public void setUp() throws Exception {
-        blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
+        BlockEventRepository.initialize(getCollection("BlockEvents")) ;
     }
 
     @After
@@ -34,9 +32,9 @@ public class BlockEventRepositoryTest extends RepositoryTest {
     public void shouldSavePlacedBlock() {
         BlockEvent blockEvent = aPlacedBlock().build();
 
-        blockEventRepository.save(blockEvent);
+        BlockEventRepository.save(blockEvent);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(blockEvent.getBlockCoordinate(), blockEvent.getWorld());
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(blockEvent.getBlockCoordinate(), blockEvent.getWorld());
 
         assertThat(blockEvents.get(0), is(blockEvent));
     }
@@ -51,32 +49,32 @@ public class BlockEventRepositoryTest extends RepositoryTest {
         BlockEvent charlieBlockEvent = aPlacedBlock().withOwner("Charlie").withChunkCoordinate(new ChunkCoordinate(2L, 3L)).build();
         BlockEvent katieBlockEvent = aPlacedBlock().withOwner("Katie").withChunkCoordinate(new ChunkCoordinate(3L, 4L)).build();
 
-        blockEventRepository.save(jasonBlockEvent1);
-        blockEventRepository.save(jasonBlockEvent2);
-        blockEventRepository.save(jasonBlockEvent3);
-        blockEventRepository.save(jasonBlockEvent4);
-        blockEventRepository.save(charlieBlockEvent);
-        blockEventRepository.save(katieBlockEvent);
+        BlockEventRepository.save(jasonBlockEvent1);
+        BlockEventRepository.save(jasonBlockEvent2);
+        BlockEventRepository.save(jasonBlockEvent3);
+        BlockEventRepository.save(jasonBlockEvent4);
+        BlockEventRepository.save(charlieBlockEvent);
+        BlockEventRepository.save(katieBlockEvent);
 
-        BlockEvent mostRecentBlockEvent = blockEventRepository.findMostRecent(jasonBlockEvent1.getBlockCoordinate(), jasonBlockEvent1.getWorld());
+        BlockEvent mostRecentBlockEvent = BlockEventRepository.findMostRecent(jasonBlockEvent1.getBlockCoordinate(), jasonBlockEvent1.getWorld());
         
         assertThat(mostRecentBlockEvent, is(jasonBlockEvent2));
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByChunkCoordinate(jasonBlockEvent1.getChunkCoordinate(), jasonBlockEvent1.getWorld());
+        List<BlockEvent> blockEvents = BlockEventRepository.findByChunkCoordinate(jasonBlockEvent1.getChunkCoordinate(), jasonBlockEvent1.getWorld());
 
         assertThat(blockEvents.size(), is(3));
         assertThat(blockEvents, hasItems(jasonBlockEvent1, jasonBlockEvent2, jasonBlockEvent3));
 
-        blockEvents = blockEventRepository.findByChunkCoordinate(jasonBlockEvent4.getChunkCoordinate(), jasonBlockEvent4.getWorld());
+        blockEvents = BlockEventRepository.findByChunkCoordinate(jasonBlockEvent4.getChunkCoordinate(), jasonBlockEvent4.getWorld());
         assertThat(blockEvents.size(), is(1));
         assertThat(blockEvents, hasItem(jasonBlockEvent4));
 
-        blockEvents = blockEventRepository.findByChunkCoordinate(charlieBlockEvent.getChunkCoordinate(), charlieBlockEvent.getWorld());
+        blockEvents = BlockEventRepository.findByChunkCoordinate(charlieBlockEvent.getChunkCoordinate(), charlieBlockEvent.getWorld());
         
         assertThat(blockEvents.size(), is(1));
         assertThat(blockEvents, hasItem(charlieBlockEvent));
 
-        blockEvents = blockEventRepository.findByChunkCoordinate(katieBlockEvent.getChunkCoordinate(), katieBlockEvent.getWorld());
+        blockEvents = BlockEventRepository.findByChunkCoordinate(katieBlockEvent.getChunkCoordinate(), katieBlockEvent.getWorld());
 
         assertThat(blockEvents.size(), is(1));
         assertThat(blockEvents, hasItem(katieBlockEvent));

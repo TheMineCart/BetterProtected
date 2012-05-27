@@ -15,22 +15,21 @@ import java.util.Set;
 import static com.google.common.collect.Sets.newHashSet;
 
 public class PlayerRepository {
-    private DBCollection collection;
-    private final Gson gson;
+    private static DBCollection collection;
+    private static final Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateTimeAdaptor()).create();
 
-    public PlayerRepository(DBCollection collection) {
-        this.collection = collection;
-        gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateTimeAdaptor()).create();
+    public static void initialize(DBCollection collection) {
+        PlayerRepository.collection = collection;
     }
 
-    public void save(Player player) {
+    public static void save(Player player) {
         DBObject object = (DBObject) JSON.parse(gson.toJson(player, Player.class));
         BasicDBObject updateWhere = new BasicDBObject();
         updateWhere.put("username", player.getUsername());
         collection.update(updateWhere, object, true, false);
     }
 
-    public Player findByName(String name) {
+    public static Player findByName(String name) {
         BasicDBObject query = new BasicDBObject();
         query.put("username", name);
         DBObject dbObject = collection.findOne(query);
@@ -38,19 +37,23 @@ public class PlayerRepository {
         return gson.fromJson(dbObject.toString(), Player.class);
     }
 
-    public boolean findPlayerProtectionByName(String name) {
+    public static boolean findPlayerProtectionByName(String name) {
         Player player = findByName(name);
         if(player == null) return false;
         return player.getProtectionEnabled();
     }
 
-    public Set<String> findFriendsByName(String playerName) {
+    public static Set<String> findFriendsByName(String playerName) {
         Player player = findByName(playerName);
         if(player == null) return newHashSet();
         return player.getFriends();
     }
 
-    public Long count() {
+    public static Long count() {
         return collection.count();
+    }
+
+    public static void initializeIndexes(){
+        collection.ensureIndex(new BasicDBObject("username", 1));
     }
 }

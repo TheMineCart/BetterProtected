@@ -28,15 +28,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
 
     private PlayerBucketEmptyEventListener playerBucketEmptyEventListener;
     private List<Integer> ignoredBlockTypes = newArrayList(0, 6);
-    private BlockEventRepository blockEventRepository;
-    private PlayerRepository playerRepository;
 
     @Before
     public void setUp() throws Exception {
-        blockEventRepository = new BlockEventRepository(getCollection("BlockEvents"));
-        playerRepository = new PlayerRepository(getCollection("Players"));
-        playerBucketEmptyEventListener = new PlayerBucketEmptyEventListener(blockEventRepository,
-                playerRepository, ignoredBlockTypes);
+        BlockEventRepository.initialize(getCollection("BlockEvents")) ;
+        PlayerRepository.initialize(getCollection("Players")) ;
+        playerBucketEmptyEventListener = new PlayerBucketEmptyEventListener(ignoredBlockTypes);
     }
 
     @After
@@ -48,7 +45,7 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketIfNoPriorPlacement() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
-        playerRepository.save(new Player("Jason"));
+        PlayerRepository.save(new Player("Jason"));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -60,8 +57,8 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketIfBlockEventTypeIsRemoved() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
-        playerRepository.save(new Player("Jason"));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", REMOVED));
+        PlayerRepository.save(new Player("Jason"));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", REMOVED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -74,8 +71,8 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketIfBlockEventTypeIsUnprotected() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
-        playerRepository.save(new Player("Jason"));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", UNPROTECTED));
+        PlayerRepository.save(new Player("Jason"));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", UNPROTECTED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -88,12 +85,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanPourBucketInOwnedWaterSource() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "Jason", PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "Jason", PLACED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(2));
     }
 
@@ -101,12 +98,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void playerCanNotPourBucketInUnownedWaterSource() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(1));
     }
 
@@ -114,12 +111,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void opCanPourInOwnedWaterSource() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "Jason", PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "Jason", PLACED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", true, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(2));
     }
 
@@ -127,12 +124,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
     public void opCanPlaceInUnownedWaterSource() {
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", true, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(2));
     }
 
@@ -142,7 +139,7 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
         blockClicked.setRelative(new TestBlock(1, 1, 1, AIR));
         Player ourPlayer = new Player("Jason");
         ourPlayer.setProtectionEnabled(false);
-        playerRepository.save(ourPlayer);
+        PlayerRepository.save(ourPlayer);
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
@@ -157,12 +154,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
         playerBucketEmptyEventListener.ignoredMaterial.add(STATIONARY_WATER);
         TestBlock blockClicked = new TestBlock(2, 1, 1, DIRT);
         blockClicked.setRelative(new TestBlock(1, 1, 1, STATIONARY_WATER));
-        blockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(blockClicked.getRelative(), "George", PLACED));
 
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(1));
         assertThat(blockEvents.get(0).getOwner(), is("George"));
     }
@@ -177,12 +174,12 @@ public class PlayerBucketEmptyEventListenerTest extends RepositoryTest {
         PlayerBucketEmptyEvent event = makeEvent("Jason", false, blockClicked);
         playerBucketEmptyEventListener.onBucketPour(event);
 
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(new BlockCoordinate(1, 1, 1), "test");
         assertThat(blockEvents.size(), is(0));
     }
 
     private BlockEvent findMostRecentBlockEvent() {
-        return blockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
+        return BlockEventRepository.findMostRecent(new BlockCoordinate(1, 1, 1), "test");
     }
 
     private PlayerBucketEmptyEvent makeEvent(String playerName, boolean isOp, Block blockClicked) {

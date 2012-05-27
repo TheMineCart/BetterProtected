@@ -9,22 +9,16 @@ import tmc.BetterProtected.services.PlayerRepository;
 
 public class ToggleProtectionExecutor implements CommandExecutor {
 
-    private PlayerRepository playerRepository;
-
-    public ToggleProtectionExecutor(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
-    }
-
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (strings.length > 0) return false;
-        Player player = playerRepository.findByName(commandSender.getName());
+        Player player = PlayerRepository.findByName(commandSender.getName());
 
         if (player == null) {
             commandSender.sendMessage("You are not a player");
         } else {
             player.setProtectionEnabled(!player.getProtectionEnabled());
-            playerRepository.save(player);
+            PlayerRepository.save(player);
 
             String enabledOrDisabled = "";
             if (player.getProtectionEnabled()) {

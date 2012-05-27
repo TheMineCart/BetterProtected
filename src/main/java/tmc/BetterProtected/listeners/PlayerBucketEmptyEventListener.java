@@ -21,8 +21,8 @@ import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class PlayerBucketEmptyEventListener extends GenericBlockListener implements Listener {
 
-    public PlayerBucketEmptyEventListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
-        super(blockEventRepository, playerRepository, unprotectedBlockIds);
+    public PlayerBucketEmptyEventListener(List<Integer> unprotectedBlockIds) {
+        super(unprotectedBlockIds);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -35,7 +35,7 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
 
             if(!isMaterialIgnored(blockType)) {
                 BlockEventType blockEventType = computeBlockEventTypeFor(player);
-                blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType, blockType));
+                BlockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType, blockType));
             }
         } else if (isMaterialIgnored(block.getType())){
             //Do nothing because the material is ignored.
@@ -57,7 +57,7 @@ public class PlayerBucketEmptyEventListener extends GenericBlockListener impleme
 
     private BlockEventType computeBlockEventTypeFor(Player player) {
         BlockEventType blockEventType;
-        if(playerRepository.findPlayerProtectionByName(player.getName())) {
+        if(PlayerRepository.findPlayerProtectionByName(player.getName())) {
             blockEventType = PLACED;
         } else {
             blockEventType = UNPROTECTED;

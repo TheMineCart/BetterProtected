@@ -9,16 +9,11 @@ import tmc.BetterProtected.services.PlayerRepository;
 import java.util.Set;
 
 public class ShowFriendsExecutor implements CommandExecutor {
-    private PlayerRepository playerRepository;
-
-    public ShowFriendsExecutor(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
-    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         String playerName = commandSender.getName();
-        Set<String> friends = playerRepository.findFriendsByName(playerName);
+        Set<String> friends = PlayerRepository.findFriendsByName(playerName);
         commandSender.sendMessage("You have "+ ChatColor.RED + friends.size() + ChatColor.WHITE + " friends.");
         if (friends.size() > 0) {
             StringBuilder message = new StringBuilder("Friends:");

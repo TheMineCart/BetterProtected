@@ -23,7 +23,6 @@ import static org.junit.Assert.assertThat;
 public class TransformationServiceTest extends RepositoryTest {
     private final String FIXTURE_DIRECTORY = "src/test/fixtures/files";
     private TransformationService transformationService;
-    private BlockEventRepository blockEventRepository;
     private TestServer server;
     private TestWorld world;
 
@@ -35,8 +34,8 @@ public class TransformationServiceTest extends RepositoryTest {
 
         world.addBlock(new TestBlock(1, 2, 3, AIR));
 
-        blockEventRepository = new BlockEventRepository(getCollection("PlacedBlocks"));
-        transformationService = new TransformationService(blockEventRepository, server);
+        BlockEventRepository.initialize(getCollection("PlacedBlocks")) ;
+        transformationService = new TransformationService(server);
     }
 
     @After
@@ -56,10 +55,10 @@ public class TransformationServiceTest extends RepositoryTest {
         transformationService.persistPlacedBlocksFromFile("src/test/fixtures/12.12.yml", world);
 
         BlockCoordinate matchCoord = new BlockCoordinate(1, 1, 1);
-        assertThat(blockEventRepository.findMostRecent(matchCoord, world).getMaterial(), is(WORKBENCH));
+        assertThat(BlockEventRepository.findMostRecent(matchCoord, world).getMaterial(), is(WORKBENCH));
 
         BlockCoordinate mismatchCoord = new BlockCoordinate(15, -1, 1);
-        assertThat(blockEventRepository.findMostRecent(mismatchCoord, world).getMaterial(), is(NETHER_BRICK));
+        assertThat(BlockEventRepository.findMostRecent(mismatchCoord, world).getMaterial(), is(NETHER_BRICK));
     }
 
     @Test
@@ -81,25 +80,25 @@ public class TransformationServiceTest extends RepositoryTest {
         transformationService.persistPlacedBlocksFromFile("src/test/fixtures/11.11.yml", world);
 
         BlockCoordinate fredCoord = new BlockCoordinate(-11, 1, 1);
-        assertThat(blockEventRepository.findMostRecent(fredCoord, world), nullValue());
+        assertThat(BlockEventRepository.findMostRecent(fredCoord, world), nullValue());
 
         BlockCoordinate leonCoord = new BlockCoordinate(18, 1, -1);
-        assertThat(blockEventRepository.findMostRecent(leonCoord, world), nullValue());
+        assertThat(BlockEventRepository.findMostRecent(leonCoord, world), nullValue());
 
         BlockCoordinate johnCoord = new BlockCoordinate(1, -5, -1);
-        assertThat(blockEventRepository.findMostRecent(johnCoord, world), nullValue());
+        assertThat(BlockEventRepository.findMostRecent(johnCoord, world), nullValue());
 
         BlockCoordinate bobCoord = new BlockCoordinate(1, 1, 1);
-        assertThat(blockEventRepository.findMostRecent(bobCoord, world), not(nullValue()));
+        assertThat(BlockEventRepository.findMostRecent(bobCoord, world), not(nullValue()));
 
         BlockCoordinate rogerCoord = new BlockCoordinate(15, -1, 1);
-        assertThat(blockEventRepository.findMostRecent(rogerCoord, world), not(nullValue()));
+        assertThat(BlockEventRepository.findMostRecent(rogerCoord, world), not(nullValue()));
 
         BlockCoordinate gregCoord = new BlockCoordinate(-1, -20, 1);
-        assertThat(blockEventRepository.findMostRecent(gregCoord, world), not(nullValue()));
+        assertThat(BlockEventRepository.findMostRecent(gregCoord, world), not(nullValue()));
 
         BlockCoordinate louisCoord = new BlockCoordinate(-1, -8, -1);
-        assertThat(blockEventRepository.findMostRecent(louisCoord, world), not(nullValue()));
+        assertThat(BlockEventRepository.findMostRecent(louisCoord, world), not(nullValue()));
     }
 
     @Test
@@ -107,10 +106,10 @@ public class TransformationServiceTest extends RepositoryTest {
         String world = "test";
         transformationService.persistPlacedBlocksFromFolder(FIXTURE_DIRECTORY, world);
 
-        assertThat(blockEventRepository.count(), is(66816L));
+        assertThat(BlockEventRepository.count(), is(66816L));
 
         BlockCoordinate blockCoordinate = new BlockCoordinate(-708L, 63L, -608L);
-        List<BlockEvent> blockEvents = blockEventRepository.findByBlockCoordinate(blockCoordinate, world);
+        List<BlockEvent> blockEvents = BlockEventRepository.findByBlockCoordinate(blockCoordinate, world);
 
         assertThat(blockEvents.get(0).getOwner(), is("Katehhh"));
         assertThat(blockEvents.get(0).getMaterial(), is(DIRT));

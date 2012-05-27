@@ -17,13 +17,9 @@ import static tmc.BetterProtected.domain.types.BlockEventType.REMOVED;
 import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class GenericBlockListener {
-    protected BlockEventRepository blockEventRepository;
     protected Set<Material> ignoredMaterial;
-    protected PlayerRepository playerRepository;
 
-    public GenericBlockListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
-        this.blockEventRepository = blockEventRepository;
-        this.playerRepository = playerRepository;
+    public GenericBlockListener(List<Integer> unprotectedBlockIds) {
         this.ignoredMaterial = newHashSet();
         for (Integer blockTypeId : unprotectedBlockIds) {
             ignoredMaterial.add(Material.getMaterial(blockTypeId));
@@ -33,7 +29,7 @@ public class GenericBlockListener {
     BlockEvent getMostRecentBlockEvent(Block block) {
         BlockCoordinate blockCoordinate = BlockCoordinate.newCoordinate(block);
         String world = block.getWorld().getName();
-        return blockEventRepository.findMostRecent(blockCoordinate, world);
+        return BlockEventRepository.findMostRecent(blockCoordinate, world);
     }
 
     boolean doesPlayerHavePermissionToBreak(Player player, BlockEvent blockEvent, Block block) {
@@ -61,7 +57,7 @@ public class GenericBlockListener {
 
     boolean isPlayerFriendOfBlockEventOwner(Player player, BlockEvent blockEvent) {
         if(player == null || blockEvent == null) return false;
-        Set<String> friendsByName = playerRepository.findFriendsByName(blockEvent.getOwner());
+        Set<String> friendsByName = PlayerRepository.findFriendsByName(blockEvent.getOwner());
         return friendsByName.contains(player.getName());
     }
 

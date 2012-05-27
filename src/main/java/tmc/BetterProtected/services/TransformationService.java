@@ -20,13 +20,11 @@ public class TransformationService {
     public static final String FILE_REGEX = ".*[\\\\|/](-*\\d{0,5}).(-*\\d{0,5})\\.yml";
     private final Pattern pattern;
     private Logger minecraftLog = Logger.getLogger("Minecraft");
-    private BlockEventRepository blockEventRepository;
     private Server server;
 
-    public TransformationService(BlockEventRepository blockEventRepository, Server server) {
+    public TransformationService(Server server) {
         this.server = server;
         pattern = Pattern.compile(FILE_REGEX);
-        this.blockEventRepository = blockEventRepository;
     }
 
     public boolean persistPlacedBlocksFromFolder(String folderName, String world) {
@@ -78,7 +76,7 @@ public class TransformationService {
             Material realWorldMaterial = server.getWorld(world).getBlockAt(x.intValue(), y.intValue(), z.intValue()).getType();
 
             if(realWorldMaterial != Material.AIR){
-                blockEventRepository.save(
+                BlockEventRepository.save(
                         new BlockEvent(
                                 now,
                                 configuration.getString(path + ".player"),

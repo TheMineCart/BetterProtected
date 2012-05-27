@@ -21,8 +21,8 @@ import static tmc.BetterProtected.domain.types.BlockEventType.UNPROTECTED;
 
 public class BlockPlacedEventListener extends GenericBlockListener implements Listener {
 
-    public BlockPlacedEventListener(BlockEventRepository blockEventRepository, PlayerRepository playerRepository, List<Integer> unprotectedBlockIds) {
-        super(blockEventRepository, playerRepository, unprotectedBlockIds);
+    public BlockPlacedEventListener(List<Integer> unprotectedBlockIds) {
+        super(unprotectedBlockIds);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -58,13 +58,13 @@ public class BlockPlacedEventListener extends GenericBlockListener implements Li
 
     private void saveBlockEvent(Block block, Player player) {
         BlockEventType blockEventType;
-        if(playerRepository.findPlayerProtectionByName(player.getName())) {
+        if(PlayerRepository.findPlayerProtectionByName(player.getName())) {
             blockEventType = PLACED;
         } else {
             blockEventType = UNPROTECTED;
         }
 
-        blockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType));
+        BlockEventRepository.save(BlockEvent.newBlockEvent(block, player.getName(), blockEventType));
     }
 
     private void cancelBlockPlaceEvent(BlockPlaceEvent event, Block block, Player player) {

@@ -9,22 +9,16 @@ import tmc.BetterProtected.services.PlayerRepository;
 
 public class ProtectionOffExecutor implements CommandExecutor {
 
-    private PlayerRepository playerRepository;
-
-    public ProtectionOffExecutor(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
-    }
-
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (strings.length > 0) return false;
-        Player player = playerRepository.findByName(commandSender.getName());
+        Player player = PlayerRepository.findByName(commandSender.getName());
 
         if (player == null) {
             commandSender.sendMessage("You are not a player");
         } else {
             player.setProtectionEnabled(false);
-            playerRepository.save(player);
+            PlayerRepository.save(player);
             commandSender.sendMessage("Protection has been " +
                     ChatColor.DARK_RED + "Disabled" + ChatColor.WHITE +
                     " for new blocks that you place.");

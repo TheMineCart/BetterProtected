@@ -18,20 +18,19 @@ import java.util.List;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class BlockEventRepository {
-    private DBCollection collection;
-    private final Gson gson;
+    private static DBCollection collection;
+    private static final Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateTimeAdaptor()).create();;
 
-    public BlockEventRepository(DBCollection collection) {
-        this.collection = collection;
-        gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateTimeAdaptor()).create();
+    public static void initialize(DBCollection collection) {
+        BlockEventRepository.collection = collection;
     }
 
-    public void save(BlockEvent blockEvent) {
+    public static void save(BlockEvent blockEvent) {
         DBObject block = (DBObject) JSON.parse(gson.toJson(blockEvent, BlockEvent.class));
         collection.insert(block);
     }
 
-    public List<BlockEvent> findByBlockCoordinate(BlockCoordinate coordinate, String world) {
+    public static List<BlockEvent> findByBlockCoordinate(BlockCoordinate coordinate, String world) {
         BasicDBObject query = new BasicDBObject();
         query.put("w", world);
         query.put("b", JSON.parse(gson.toJson(coordinate, BlockCoordinate.class)));
@@ -39,13 +38,13 @@ public class BlockEventRepository {
         return buildBlockList(query);
     }
 
-    public BlockEvent findMostRecent(BlockCoordinate coordinate, String world) {
+    public static BlockEvent findMostRecent(BlockCoordinate coordinate, String world) {
         List<BlockEvent> blockEvents = findByBlockCoordinate(coordinate, world);
         if (blockEvents.size() == 0) return null;
         return blockEvents.get(0);
     }
 
-    public List<BlockEvent> findByChunkCoordinate(ChunkCoordinate coordinate, String world) {
+    public static List<BlockEvent> findByChunkCoordinate(ChunkCoordinate coordinate, String world) {
         BasicDBObject query = new BasicDBObject();
         query.put("w", world);
         query.put("c", JSON.parse(gson.toJson(coordinate, ChunkCoordinate.class)));
@@ -53,7 +52,7 @@ public class BlockEventRepository {
         return buildBlockList(query);
     }
 
-    private List<BlockEvent> buildBlockList(BasicDBObject query) {
+    private static List<BlockEvent> buildBlockList(BasicDBObject query) {
         List<BlockEvent> list = newArrayList();
         DBCursor cursor = collection.find(query);
 
@@ -68,15 +67,15 @@ public class BlockEventRepository {
         return list;
     }
 
-    public List<BlockEvent> all() {
+    public static List<BlockEvent> all() {
         return buildBlockList(new BasicDBObject());
     }
 
-    public Long count() {
+    public static Long count() {
         return collection.count();
     }
 
-    public void initializeIndexes() {
+    public static void initializeIndexes() {
         collection.ensureIndex(new BasicDBObject("b", 1), new BasicDBObject("w", 1));
         collection.ensureIndex(new BasicDBObject("b", 1), new BasicDBObject("w", 1));
     }

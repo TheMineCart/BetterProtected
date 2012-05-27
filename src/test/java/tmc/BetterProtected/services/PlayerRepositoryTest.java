@@ -17,11 +17,9 @@ import static org.junit.matchers.JUnitMatchers.hasItems;
 
 public class PlayerRepositoryTest extends RepositoryTest {
 
-    private PlayerRepository playerRepository;
-
     @Before
     public void setUp() throws Exception {
-        playerRepository = new PlayerRepository(getCollection("Players"));
+        PlayerRepository.initialize(getCollection("Players")) ;
     }
 
     @After
@@ -33,21 +31,21 @@ public class PlayerRepositoryTest extends RepositoryTest {
     public void shouldSaveAPlayer() {
         Player player = new Player("Jason");
 
-        playerRepository.save(player);
+        PlayerRepository.save(player);
 
-        Player jason = playerRepository.findByName("Jason");
+        Player jason = PlayerRepository.findByName("Jason");
 
         assertThat(jason.getUsername(), is("Jason"));
-        assertThat(playerRepository.count(), is(1L));
+        assertThat(PlayerRepository.count(), is(1L));
     }
 
     @Test
     public void playerThatIsNotSavedIsNull() {
         Player player = new Player("Jason");
 
-        playerRepository.save(player);
+        PlayerRepository.save(player);
 
-        Player jason = playerRepository.findByName("George");
+        Player jason = PlayerRepository.findByName("George");
 
         assertThat(jason, nullValue());
     }
@@ -56,15 +54,15 @@ public class PlayerRepositoryTest extends RepositoryTest {
     public void canSaveChangesToAPlayer() {
         Player player = new Player("Jason");
 
-        playerRepository.save(player);
+        PlayerRepository.save(player);
         player.addFriend("George");
         player.setProtectionEnabled(false);
 
-        playerRepository.save(player);
+        PlayerRepository.save(player);
 
-        Player jason = playerRepository.findByName("Jason");
+        Player jason = PlayerRepository.findByName("Jason");
 
-        assertThat(playerRepository.count(), is(1L));
+        assertThat(PlayerRepository.count(), is(1L));
         assertThat(jason.getFriends(), hasItem("George"));
         assertThat(jason.getProtectionEnabled(), is(false));
     }
@@ -75,9 +73,9 @@ public class PlayerRepositoryTest extends RepositoryTest {
         player.addFriend("George");
         player.addFriend("Bob");
 
-        playerRepository.save(player);
+        PlayerRepository.save(player);
 
-        Set<String> friends = playerRepository.findFriendsByName("Jason");
+        Set<String> friends = PlayerRepository.findFriendsByName("Jason");
 
         assertThat(friends.size(), is(2));
         assertThat(friends, hasItems("George", "Bob"));
@@ -85,13 +83,13 @@ public class PlayerRepositoryTest extends RepositoryTest {
 
     @Test
     public void canGetEmptySetOfFriendsIfInvalidPlayerName() {
-        Set<String> friends = playerRepository.findFriendsByName("InvalidName");
+        Set<String> friends = PlayerRepository.findFriendsByName("InvalidName");
         assertThat(friends, not(nullValue()));
     }
 
     @Test
     public void canGetEmptySetOfFriendsIfNullPlayerName() {
-        Set<String> friends = playerRepository.findFriendsByName(null);
+        Set<String> friends = PlayerRepository.findFriendsByName(null);
         assertThat(friends, not(nullValue()));
     }
 
@@ -99,19 +97,19 @@ public class PlayerRepositoryTest extends RepositoryTest {
     public void shouldGetPlayerProtection() {
         Player jason = new Player("Jason");
         jason.setProtectionEnabled(true);
-        playerRepository.save(jason);
+        PlayerRepository.save(jason);
 
-        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(true));
+        assertThat(PlayerRepository.findPlayerProtectionByName("Jason"), is(true));
 
         jason.setProtectionEnabled(false);
-        playerRepository.save(jason);
+        PlayerRepository.save(jason);
 
-        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(false));
+        assertThat(PlayerRepository.findPlayerProtectionByName("Jason"), is(false));
     }
 
     @Test
     public void shouldGetFalsePlayerProtectionIfPlayerIsNotInRepository() {
-        assertThat(playerRepository.findPlayerProtectionByName("Jason"), is(false));
+        assertThat(PlayerRepository.findPlayerProtectionByName("Jason"), is(false));
     }
 
 }
