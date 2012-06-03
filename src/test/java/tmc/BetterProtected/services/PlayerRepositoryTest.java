@@ -112,4 +112,16 @@ public class PlayerRepositoryTest extends RepositoryTest {
         assertThat(PlayerRepository.findPlayerProtectionByName("Jason"), is(false));
     }
 
+    @Test
+    public void shouldReturnTrueIfValidPlayerName() {
+        PlayerRepository.save(new Player("Jason"));
+        assertThat(PlayerRepository.validPlayerName("Jason"), is(true));
+    }
+
+    @Test
+    public void shouldReturnFalseIfInvalidPlayerName() {
+        PlayerRepository.save(new Player("Jason"));
+        assertThat(PlayerRepository.validPlayerName("JasonCrap"), is(false));
+    }
+
 }

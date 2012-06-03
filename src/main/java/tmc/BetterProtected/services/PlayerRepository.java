@@ -56,4 +56,8 @@ public class PlayerRepository {
     public static void initializeIndexes(){
         collection.ensureIndex(new BasicDBObject("username", 1));
     }
+
+    public static boolean validPlayerName(String playerName) {
+        return findByName(playerName) != null;
+    }
 }

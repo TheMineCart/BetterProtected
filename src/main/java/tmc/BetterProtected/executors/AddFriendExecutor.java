@@ -10,25 +10,44 @@ import tmc.BetterProtected.services.PlayerRepository;
 public class AddFriendExecutor implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (strings.length < 1 || strings.length > 1) return false;
-        Player player = PlayerRepository.findByName(commandSender.getName());
-        if (player == null) {
-            commandSender.sendMessage("You are not a player");
-        } else if (PlayerRepository.findByName(strings[0]) == null) {
-            commandSender.sendMessage(ChatColor.DARK_PURPLE + strings[0] + ChatColor.WHITE +
-                " is not a valid player name or is not in the system.");
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
+        String playerName = commandSender.getName();
+        String friendName = args[0];
+
+        if (commandSender.isOp() && args.length == 2) {
+            if(!PlayerRepository.validPlayerName(friendName)) {
+                sendInvalidPlayerMessageTo(commandSender, friendName);
+                return true;
+            }
+            if (!PlayerRepository.validPlayerName(args[1])) {
+                sendInvalidPlayerMessageTo(commandSender, args[1]);
+                return true;
+            }
+            playerName = args[1];
+        } else if (args.length < 1 || args.length > 1) return false;
+
+        Player player = PlayerRepository.findByName(playerName);
+
+        if (!PlayerRepository.validPlayerName(playerName)) {
+            sendInvalidPlayerMessageTo(commandSender, playerName);
+        } else if (!PlayerRepository.validPlayerName(friendName)) {
+            sendInvalidPlayerMessageTo(commandSender, friendName);
         } else {
-            boolean worked = player.addFriend(strings[0]);
+            boolean worked = player.addFriend(friendName);
             if (worked) {
                 PlayerRepository.save(player);
-                commandSender.sendMessage(ChatColor.DARK_PURPLE + strings[0] + ChatColor.WHITE +
-                        " has been added to your friends.");
+                commandSender.sendMessage(ChatColor.DARK_PURPLE + friendName + ChatColor.WHITE +
+                        " has been added to " + ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE +"'s friends.");
             } else {
-                commandSender.sendMessage(ChatColor.DARK_PURPLE + strings[0] + ChatColor.WHITE +
-                        " is already a friend.");
+                commandSender.sendMessage(ChatColor.DARK_PURPLE + friendName + ChatColor.WHITE +
+                        " is already a friendName of " + ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE + ".");
             }
         }
         return true;
+    }
+
+    private void sendInvalidPlayerMessageTo(CommandSender commandSender, String friendName) {
+        commandSender.sendMessage(ChatColor.DARK_PURPLE + friendName + ChatColor.WHITE +
+                " is not a valid player name or is not in the system.");
     }
 }
