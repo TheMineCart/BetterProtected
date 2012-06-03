@@ -11,10 +11,24 @@ import java.util.Set;
 public class ShowFriendsExecutor implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        String playerName = commandSender.getName();
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
+        if (args.length > 1 || (!commandSender.isOp() && args.length > 0)) return false;
+
+        String playerName = "";
+        if (commandSender.isOp() && args.length == 1) {
+            playerName = args[0];
+            if(PlayerRepository.findByName(playerName) == null) {
+                commandSender.sendMessage("No player matching the name " + ChatColor.RED + playerName +
+                                          ChatColor.WHITE + ". Please check your spelling!");
+                return true;
+            }
+        } else {
+            playerName = commandSender.getName();
+        }
+
         Set<String> friends = PlayerRepository.findFriendsByName(playerName);
-        commandSender.sendMessage("You have "+ ChatColor.RED + friends.size() + ChatColor.WHITE + " friends.");
+        commandSender.sendMessage(ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE +
+                                  " has " + ChatColor.RED + friends.size() + ChatColor.WHITE + " friends.");
         if (friends.size() > 0) {
             StringBuilder message = new StringBuilder("Friends:");
             boolean firstTime = true;
