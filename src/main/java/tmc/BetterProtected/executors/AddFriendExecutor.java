@@ -40,7 +40,7 @@ public class AddFriendExecutor implements CommandExecutor {
                         " has been added to " + ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE +"'s friends.");
             } else {
                 commandSender.sendMessage(ChatColor.DARK_PURPLE + friendName + ChatColor.WHITE +
-                        " is already a friendName of " + ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE + ".");
+                        " is already a friend of " + ChatColor.DARK_PURPLE + playerName + ChatColor.WHITE + ".");
             }
         }
         return true;
