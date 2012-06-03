@@ -44,14 +44,15 @@ public class PlayerListener implements Listener {
         BlockEvent protectedBlock = BlockEventRepository.findMostRecent(BlockCoordinate.newCoordinate(block), block.getWorld().getName());
         if (protectedBlock != null && protectedBlock.getBlockEventType() != REMOVED) {
 
-            player.sendMessage(ChatColor.RED + String.format("%s at %s, %s, %s was placed by %s on %s at %s",
+            player.sendMessage(String.format("%s %s at (%s, %s, %s) on %s - %s by %s",
+                    ChatColor.YELLOW + protectedBlock.getBlockEventType().toString() + ChatColor.RED,
                     ChatColor.GOLD + protectedBlock.getMaterial().name() + ChatColor.RED,
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getX().toString() + ChatColor.RED,
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getY().toString() + ChatColor.RED,
                     ChatColor.DARK_AQUA + protectedBlock.getBlockCoordinate().getZ().toString() + ChatColor.RED,
-                    ChatColor.DARK_PURPLE + protectedBlock.getOwner() + ChatColor.RED,
                     ChatColor.GREEN + protectedBlock.getInstant().toString("M/d/yy") + ChatColor.RED,
-                    ChatColor.GREEN + protectedBlock.getInstant().toString("h:mm:ss aa")
+                    ChatColor.GREEN + protectedBlock.getInstant().toString("h:mm:ss aa") + ChatColor.RED,
+                    ChatColor.DARK_PURPLE + protectedBlock.getOwner() + ChatColor.WHITE
             ));
         }
     }
