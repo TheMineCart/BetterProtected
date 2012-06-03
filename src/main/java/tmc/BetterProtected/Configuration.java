@@ -20,11 +20,13 @@ public class Configuration {
 
     public static final String BLOCK_PROTECTION_SETTINGS_SECTION = "BlockProtectionSettings";
     public static final String IGNORE_BLOCK_TYPE_OPTION = "ignoreBlockTypeIds";
+    public static final String PROTECTION_REMINDER_INTERVAL_OPTION = "ProtectionReminderInterval";
 
     private FileConfiguration configuration;
     private BetterProtectedPlugin plugin;
     private List<Integer> unprotectedBlockIds;
     private Map<String, String> dbConnectionInfo;
+    private int protectionReminderInterval;
 
     public Configuration(FileConfiguration configuration, BetterProtectedPlugin plugin) {
         this.configuration = configuration;
@@ -39,6 +41,8 @@ public class Configuration {
             dbConnectionInfo.put(DB_USER_OPTION, section.getString(DB_USER_OPTION));
             dbConnectionInfo.put(DB_PASSWORD_OPTION, section.getString(DB_PASSWORD_OPTION));
             unprotectedBlockIds = configuration.getIntegerList("BlockProtectionSettings.ignoreBlockTypeIds");
+
+            protectionReminderInterval = configuration.getInt(PROTECTION_REMINDER_INTERVAL_OPTION);
         }
     }
 
@@ -55,6 +59,12 @@ public class Configuration {
         blockProtectionSettings.put(IGNORE_BLOCK_TYPE_OPTION, unprotectedBlockIds);
         configuration.createSection(BLOCK_PROTECTION_SETTINGS_SECTION, blockProtectionSettings);
 
+        configuration.set(PROTECTION_REMINDER_INTERVAL_OPTION, 60);
+        plugin.saveConfig();
+    }
+
+    private void configureAndSaveProtectionReminderInterval() {
+        configuration.set(PROTECTION_REMINDER_INTERVAL_OPTION, 60);
         plugin.saveConfig();
     }
 
@@ -64,5 +74,13 @@ public class Configuration {
 
     public Map<String, String> getDbConnectionInfo() {
         return dbConnectionInfo;
+    }
+
+    public int getProtectionReminderInterval() {
+        if (protectionReminderInterval < 1) {
+            protectionReminderInterval = 60;
+            configureAndSaveProtectionReminderInterval();
+        }
+        return protectionReminderInterval;
     }
 }

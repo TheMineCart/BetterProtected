@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tmc.BetterProtected.executors.*;
 import tmc.BetterProtected.listeners.*;
 import tmc.BetterProtected.services.TransformationService;
+import tmc.BetterProtected.services.UnprotectedReminderService;
 
 import java.util.logging.Logger;
 
@@ -22,8 +23,11 @@ public class BetterProtectedPlugin extends JavaPlugin {
         Database.initialize(configuration, this);
 
         if(this.isEnabled()) {
-            logger.info("Initializing Services...");
+            logger.info("Initializing services...");
             initializeServices();
+
+            logger.info("Starting services...");
+            startServices();
 
             logger.info("Registering command executors...");
             initializeCommandExecutors();
@@ -38,6 +42,7 @@ public class BetterProtectedPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         Database.closeConnection();
+        UnprotectedReminderService.stop();
         logger.info("BetterProtected shutdown complete.");
     }
 
@@ -50,6 +55,11 @@ public class BetterProtectedPlugin extends JavaPlugin {
 
     private void initializeServices() {
         transformationService = new TransformationService(server);
+        UnprotectedReminderService.initialize(configuration, server);
+    }
+
+    private void startServices() {
+        UnprotectedReminderService.start();
     }
 
     private void initializeCommandExecutors() {
