@@ -6,7 +6,7 @@
 
     <groupId>tmc.BetterProtected</groupId>
     <artifactId>BetterProtected</artifactId>
-    <version>0.4.4-SNAPSHOT</version>
+    <version>0.4.4</version>
 
     <repositories>
         <repository>
