@@ -1,6 +1,6 @@
 name: BetterProtected
 main: tmc.BetterProtected.BetterProtectedPlugin
-version: 0.4.4
+version: 0.4.5-SNAPSHOT
 
 commands:
   transform:

@@ -11,6 +11,7 @@ public class AddFriendExecutor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
+        if ( args.length == 0 ) return false;
         String playerName = commandSender.getName();
         String friendName = args[0];
 
