@@ -71,6 +71,8 @@
                 <directory>src/main/java/</directory>
                 <includes>
                     <include>plugin.yml</include>
+                    <include>README</include>
+                    <include>LICENSE</include>
                 </includes>
             </resource>
         </resources>
