@@ -1,3 +1,4 @@
+// Copyright (C) 2012 Cyrus Innovation
 package tmc.BetterProtected.services;
 
 import com.google.gson.Gson;

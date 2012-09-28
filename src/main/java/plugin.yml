@@ -1,3 +1,4 @@
+# Copyright (C) 2012 Cyrus Innovation
 name: BetterProtected
 main: tmc.BetterProtected.BetterProtectedPlugin
 version: 0.4.5-SNAPSHOT
